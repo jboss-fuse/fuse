@@ -27,7 +27,7 @@
     <groupId>org.jboss.fuse.bom</groupId>
     <artifactId>jboss-fuse-parent</artifactId>
     <packaging>pom</packaging>
-    <version>6.1.0.redhat-SNAPSHOT</version>
+    <version>6.2.0.redhat-SNAPSHOT</version>
 
     <name>JBoss Fuse</name>
 
@@ -102,9 +102,9 @@
 
         <fmc-port>8107</fmc-port>
 
-        <fabric.version>1.0.0-SNAPSHOT</fabric.version>
+        <fabric.version>1.1.0-SNAPSHOT</fabric.version>
         <fabric-perfectus-version>7.3.0.redhat-${perfectus-build}</fabric-perfectus-version>
-        <fuse.version>6.1.0.redhat-SNAPSHOT</fuse.version>
+        <fuse.version>6.2.0.redhat-SNAPSHOT</fuse.version>
         <full-perfectus-build>610${perfectus-build}</full-perfectus-build>
 
 
@@ -3179,66 +3179,10 @@
     </dependencyManagement>
 
     <modules>
-        <module>common-util</module>
-        <module>maven-util</module>
-        <module>fab</module>
-        <module>fabric</module>
-        <module>insight</module>
-        <module>mq</module>
         <module>parent</module>
-        <module>process</module>
-        <module>tooling</module>
+        <module>components</module>
+        <module>mq</module>
+        <module>esb</module>
+        <module>quickstarts</module>
     </modules>
-
-    <profiles>
-        <profile>
-            <id>all</id>
-            <modules>
-                <module>bai</module>
-                <module>components</module>
-                <module>esb</module>
-                <module>patch</module>
-                <module>security</module>
-                <module>quickstarts</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>esb</id>
-            <modules>
-                <module>esb</module>
-                <module>patch</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>amq</id>
-            <modules>
-                <module>patch</module>
-            </modules>
-        </profile>
-
-        <profile>
-            <id>distro</id>
-            <modules>
-                <module>website</module>
-            </modules>
-        </profile>
-
-        <profile>
-            <id>hawtio-snapshot</id>
-            <properties>
-                <hawtio-version>1.3-SNAPSHOT</hawtio-version>
-            </properties>
-        </profile>
-
-        <profile>
-          <id>jdk17</id>
-          <activation>
-            <jdk>[1.7,)</jdk>
-          </activation>
-          <modules>
-            <module>gateway</module>
-          </modules>
-        </profile>
-
-    </profiles>
 </project>

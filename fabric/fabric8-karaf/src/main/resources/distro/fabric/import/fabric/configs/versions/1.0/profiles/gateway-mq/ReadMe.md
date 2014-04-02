@@ -1,1 +1,0 @@
-Provides a TCP gateway between messaging clients and message brokers running in the Fabric
