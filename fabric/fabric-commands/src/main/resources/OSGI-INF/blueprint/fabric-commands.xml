@@ -1,0 +1,613 @@
+<!--
+  Copyright (C) FuseSource, Inc.
+  http://fusesource.com
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:bp="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0">
+
+    <reference id="featuresService" interface="org.apache.karaf.features.FeaturesService"/>
+    <reference id="fabricService" interface="io.fabric8.api.FabricService"/>
+    <reference id="zooKeeperClusterService" interface="io.fabric8.api.ZooKeeperClusterService"/>
+    <reference id="curator" interface="org.apache.curator.framework.CuratorFramework"/>
+    <reference id="configurationAdmin" interface="org.osgi.service.cm.ConfigurationAdmin" availability="optional"/>
+
+
+    <command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
+        <command name="fabric/ensemble-add">
+            <action class="io.fabric8.commands.EnsembleAdd">
+                <property name="service" ref="zooKeeperClusterService"/>
+            </action>
+            <completers>
+                <ref component-id="containerCompleter"/>
+            </completers>
+        </command>
+        <command name="fabric/ensemble-remove">
+            <action class="io.fabric8.commands.EnsembleRemove">
+                <property name="service" ref="zooKeeperClusterService"/>
+            </action>
+            <completers>
+                <ref component-id="containerCompleter"/>
+            </completers>
+        </command>
+        <command name="fabric/ensemble-list">
+            <action class="io.fabric8.commands.EnsembleList">
+                <property name="service" ref="zooKeeperClusterService"/>
+            </action>
+        </command>
+        <command name="fabric/ensemble-password">
+            <action class="io.fabric8.commands.EnsemblePassword">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+        </command>
+
+        <command name="fabric/container-create-child">
+            <action class="io.fabric8.commands.ContainerCreateChild">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+            <completers>
+                <ref component-id="rootContainerCompleter"/>
+                <null/>
+            </completers>
+            <optional-completers>
+                <entry key="--version" value-ref="versionCompleter"/>
+                <entry key="--profile" value-ref="profileCompleter"/>
+                <entry key="--resolver" value-ref="resolverCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/container-delete">
+            <action class="io.fabric8.commands.ContainerDelete">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="containerCompleter"/>
+                <null/>
+            </completers>
+        </command>
+        <command name="fabric/container-list">
+            <action class="io.fabric8.commands.ContainerList">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+            <optional-completers>
+                <entry key="--version" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+			<command name="fabric/container-info">
+				<action class="io.fabric8.commands.ContainerInfo">
+					<property name="fabricService" ref="fabricService"/>
+				</action>
+				<completers>
+					<ref component-id="containerCompleter"/>
+				</completers>
+			</command>
+        <command name="fabric/container-resolver-list">
+            <action class="io.fabric8.commands.ContainerResolverList">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+            <completers>
+                <ref component-id="containerCompleter"/>
+            </completers>
+        </command>
+        <command name="fabric/container-resolver-set">
+            <action class="io.fabric8.commands.ContainerResolverSet">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="resolverCompleter"/>
+                <null/>
+            </completers>
+            <optional-completers>
+                <entry key="--container" value-ref="containerCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/container-connect">
+            <action class="io.fabric8.commands.ContainerConnect">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+                <property name="sshClientId">
+                    <bp:idref component-id="sshClient"/>
+                </property>
+            </action>
+            <completers>
+                <ref component-id="containerCompleter"/>
+                <null/>
+            </completers>
+        </command>
+      <command name="fabric/container-start">
+          <action class="io.fabric8.commands.ContainerStart">
+              <property name="fabricService" ref="fabricService"/>
+              <property name="curator" ref="curator"/>
+          </action>
+          <completers>
+              <ref component-id="stoppedContainerCompleter" />
+              <null/>
+          </completers>
+      </command>
+      <command name="fabric/container-stop">
+          <action class="io.fabric8.commands.ContainerStop">
+              <property name="fabricService" ref="fabricService"/>
+              <property name="curator" ref="curator"/>
+          </action>
+          <completers>
+              <ref component-id="startedContainerCompleter" />
+              <null/>
+          </completers>
+      </command>
+      <command name="fabric/container-upgrade">
+        <action class="io.fabric8.commands.ContainerUpgrade">
+          <property name="fabricService" ref="fabricService"/>
+            <property name="curator" ref="curator"/>
+        </action>
+        <completers>
+          <ref component-id="versionCompleter"/>
+          <ref component-id="containerCompleter"/>
+        </completers>
+      </command>
+      <command name="fabric/container-rollback">
+        <action class="io.fabric8.commands.ContainerRollback">
+          <property name="fabricService" ref="fabricService"/>
+          <property name="curator" ref="curator"/>
+        </action>
+        <completers>
+          <ref component-id="versionCompleter"/>
+          <ref component-id="containerCompleter"/>
+        </completers>
+      </command>
+      <command name="fabric/container-default-jvm-options">
+        <action class="io.fabric8.commands.ContainerDefaultJvmOptions">
+          <property name="fabricService" ref="fabricService"/>
+          <property name="curator" ref="curator"/>
+        </action>
+      </command>
+
+        <command name="fabric/container-jmx-domains">
+            <action class="io.fabric8.commands.ContainerDomains">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+            <completers>
+                <ref component-id="containerCompleter"/>
+                <null/>
+            </completers>
+        </command>
+        <command name="fabric/container-change-profile">
+            <action class="io.fabric8.commands.ContainerChangeProfile">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+            <completers>
+                <ref component-id="containerCompleter"/>
+                <ref component-id="profileCompleter"/>
+            </completers>
+        </command>
+
+        <command name="fabric/container-add-profile">
+            <action class="io.fabric8.commands.ContainerAddProfile">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+            <completers>
+                <ref component-id="containerCompleter"/>
+                <ref component-id="addProfileCompleter"/>
+            </completers>
+        </command>
+
+        <command name="fabric/container-remove-profile">
+            <action class="io.fabric8.commands.ContainerRemoveProfile">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+            <completers>
+                <ref component-id="containerCompleter"/>
+                <ref component-id="removeProfileCompleter"/>
+            </completers>
+        </command>
+
+        <command name="fabric/cluster-list">
+            <action class="io.fabric8.commands.ClusterList">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="clusterCompleter"/>
+                <null/>
+            </completers>
+        </command>
+
+        <command name="fabric/status">
+            <action class="io.fabric8.commands.Status">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+        </command>
+
+        <command name="fabric/require-profile-set">
+            <action class="io.fabric8.commands.RequireProfileSet">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="profileCompleter"/>
+                <null/>
+            </completers>
+            <optional-completers>
+                <entry key="--dependsOn" value-ref="profileCompleter"/>
+            </optional-completers>
+        </command>
+
+        <command name="fabric/require-profile-delete">
+            <action class="io.fabric8.commands.RequireProfileDelete">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="profileCompleter"/>
+                <null/>
+            </completers>
+        </command>
+
+        <command name="fabric/require-profile-list">
+            <action class="io.fabric8.commands.RequireProfileList">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+        </command>
+
+        <command name="fabric/profile-create">
+            <action class="io.fabric8.commands.ProfileCreate">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <optional-completers>
+                <entry key="--parents" value-ref="profileCompleter"/>
+                <entry key="--version" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/profile-list">
+            <action class="io.fabric8.commands.ProfileList">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+        </command>
+        <command name="fabric/profile-display">
+            <action class="io.fabric8.commands.ProfileDisplay">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="profileCompleter"/>
+                <null/>
+            </completers>
+            <optional-completers>
+                <entry key="--version" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/profile-copy">
+            <action class="io.fabric8.commands.ProfileCopy">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="profileCompleter"/>
+                <ref component-id="profileCompleter"/>
+                <null/>
+            </completers>
+            <optional-completers>
+                <entry key="--version" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/profile-rename">
+            <action class="io.fabric8.commands.ProfileRename">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="profileCompleter"/>
+                <ref component-id="profileCompleter"/>
+                <null/>
+            </completers>
+            <optional-completers>
+                <entry key="--version" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/profile-scale">
+            <action class="io.fabric8.commands.ProfileScale">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="profileCompleter"/>
+                <null/>
+            </completers>
+        </command>
+        <command name="fabric/profile-delete">
+            <action class="io.fabric8.commands.ProfileDelete">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="profileCompleter"/>
+                <null/>
+            </completers>
+            <optional-completers>
+                <entry key="--version" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/profile-edit">
+            <action class="io.fabric8.commands.ProfileEdit">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+                <property name="configurationAdmin" ref="configurationAdmin"/>
+                <property name="editorFactory" ref="editorFactory"/>
+            </action>
+            <completers>
+                <ref component-id="profileCompleter"/>
+                <ref component-id="versionCompleter"/>
+                <null/>
+            </completers>
+            <optional-completers>
+                <entry key="-f" value-ref="allFeatureCompleter"/>
+                <entry key="-r" value-ref="featureUrlCompleter"/>
+                <entry key="-b" value-ref="bundleCompleter"/>
+                <entry key="-p" value-ref="delimitedConfigWithKeysCompleter"/>
+            </optional-completers>
+        </command>
+			  <command name="fabric/profile-refresh">
+				  <action class="io.fabric8.commands.ProfileRefresh">
+					  <property name="fabricService" ref="fabricService"/>
+					  <property name="curator" ref="curator"/>
+				  </action>
+				  <completers>
+					  <ref component-id="profileCompleter"/>
+				  	<ref component-id="versionCompleter"/>
+				  	<null/>
+				  </completers>
+			  </command>
+        <command name="fabric/profile-change-parents">
+            <action class="io.fabric8.commands.ProfileChangeParents">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+                <property name="configurationAdmin" ref="configurationAdmin"/>
+            </action>
+            <completers>
+                <ref component-id="profileCompleter"/>
+                <ref component-id="profileCompleter"/>
+            </completers>
+            <optional-completers>
+                <entry key="--version" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+
+        <command name="fabric/version-create">
+            <action class="io.fabric8.commands.VersionCreate">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <optional-completers>
+                <entry key="--parent" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/version-list">
+            <action class="io.fabric8.commands.VersionList">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+        </command>
+        <command name="fabric/version-delete">
+            <action class="io.fabric8.commands.VersionDelete">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <completers>
+                <ref component-id="versionCompleter"/>
+            </completers>
+        </command>
+        <command name="fabric/version-set-default">
+          <action class="io.fabric8.commands.VersionSetDefault">
+            <property name="fabricService" ref="fabricService"/>
+            <property name="curator" ref="curator"/>
+          </action>
+          <completers>
+            <ref component-id="versionCompleter"/>
+          </completers>
+        </command>
+        <command name="fabric/mq-create">
+            <action class="io.fabric8.commands.MQCreate">
+                <property name="fabricService" ref="fabricService"/>
+                <property name="curator" ref="curator"/>
+            </action>
+            <optional-completers>
+                <entry key="--version" value-ref="versionCompleter"/>
+                <entry key="--parent-profile" value-ref="profileCompleter"/>
+                <entry key="--profile" value-ref="profileCompleter"/>
+                <entry key="--kind" value-ref="brokerKindCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/import">
+            <action class="io.fabric8.commands.Import">
+                <property name="curator" ref="curator"/>
+            </action>
+            <optional-completers>
+                <entry key="--profile" value-ref="profileCompleter"/>
+                <entry key="--version" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+        <command name="fabric/export">
+            <action class="io.fabric8.commands.Export">
+                <property name="curator" ref="curator"/>
+            </action>
+            <optional-completers>
+                <entry key="--profile" value-ref="profileCompleter"/>
+                <entry key="--version" value-ref="versionCompleter"/>
+            </optional-completers>
+        </command>
+
+        <command name="fabric/encrypt-message">
+            <action class="io.fabric8.commands.Encrypt">
+                <property name="curator" ref="curator"/>
+            </action>
+        </command>
+
+        <command name="fabric/crypt-algorithm-set">
+            <action class="io.fabric8.commands.EncryptionAlgorithmSet">
+                <property name="curator" ref="curator"/>
+            </action>
+        </command>
+
+        <command name="fabric/crypt-algorithm-get">
+            <action class="io.fabric8.commands.EncryptionAlgorithmGet">
+                <property name="curator" ref="curator"/>
+            </action>
+        </command>
+
+        <command name="fabric/crypt-password-set">
+            <action class="io.fabric8.commands.EncryptionMasterPasswordSet">
+                <property name="curator" ref="curator"/>
+            </action>
+        </command>
+
+        <command name="fabric/crypt-password-get">
+            <action class="io.fabric8.commands.EncryptionMasterPasswordGet">
+                <property name="curator" ref="curator"/>
+            </action>
+        </command>
+
+        <command name="fabric/patch-apply">
+            <action class="io.fabric8.commands.PatchApply">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+        </command>
+
+        <command name="fabric/wait-for-provisioning">
+            <action class="io.fabric8.commands.WaitForProvisioning">
+                <property name="fabricService" ref="fabricService"/>
+            </action>
+        </command>
+        
+    </command-bundle>
+
+    <command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
+        <command name="hadoop/create">
+            <action class="io.fabric8.commands.hadoop.Create">
+                <property name="service" ref="fabricService"/>
+            </action>
+            <optional-completers>
+                <entry key="--name-node" value-ref="containerCompleter"/>
+                <entry key="--data-node" value-ref="containerCompleter"/>
+            </optional-completers>
+        </command>
+    </command-bundle>
+
+    <bean id="currentContainerCompleter" class="io.fabric8.boot.commands.support.CurrentContainerCompleter"/>
+
+    <bean id="containerCompleter" class="io.fabric8.boot.commands.support.ContainerCompleter">
+        <property name="fabricService" ref="fabricService"/>
+    </bean>
+
+    <bean id="rootContainerCompleter" class="io.fabric8.commands.support.RootContainerCompleter">
+        <property name="fabricService" ref="fabricService"/>
+    </bean>
+
+    <bean id="startedContainerCompleter" class="io.fabric8.commands.support.StartedContainerCompleter">
+        <property name="fabricService" ref="fabricService"/>
+    </bean>
+
+    <bean id="stoppedContainerCompleter" class="io.fabric8.commands.support.StoppedContainerCompleter">
+        <property name="fabricService" ref="fabricService"/>
+    </bean>
+
+    <bean id="clusterCompleter" class="io.fabric8.commands.support.ClusterCompleter">
+        <property name="curator" ref="curator"/>
+    </bean>
+    <bean id="profileCompleter" class="io.fabric8.boot.commands.support.ProfileCompleter">
+        <property name="fabricService" ref="fabricService"/>
+    </bean>
+    <bean id="brokerKindCompleter" class="io.fabric8.commands.support.BrokerKindCompleter">
+    </bean>
+
+    <bean id="versionCompleter" class="io.fabric8.boot.commands.support.VersionCompleter">
+        <property name="fabricService" ref="fabricService"/>
+    </bean>
+
+    <bean id="allFeatureCompleter" class="io.fabric8.commands.support.DelimitedListCompleter">
+        <argument index="0">
+            <ref component-id="karafAllFeatureCompleter"/>
+        </argument>
+    </bean>
+
+    <bean id="featureUrlCompleter" class="io.fabric8.commands.support.DelimitedListCompleter">
+        <argument index="0">
+            <ref component-id="karafFeatureUrlCompleter"/>
+        </argument>
+    </bean>
+
+    <bean id="bundleCompleter" class="io.fabric8.commands.support.DelimitedListCompleter">
+        <argument index="0">
+            <ref component-id="bundleLocationCompleter"/>
+        </argument>
+    </bean>
+
+    <bean id="delimitedConfigWithKeysCompleter" class="io.fabric8.commands.support.DelimitedListCompleter">
+        <argument index="0">
+            <bean class="io.fabric8.commands.support.ConfigWithKeyCompleter" init-method="init">
+                <property name="admin" ref="configurationAdmin"/>
+            </bean>
+        </argument>
+    </bean>
+
+    <bean id="configCompleter" class="org.apache.karaf.shell.config.completers.ConfigurationCompleter">
+        <property name="admin" ref="configurationAdmin"/>
+    </bean>
+
+    <bean id="addProfileCompleter" class="io.fabric8.boot.commands.support.ContainerAwareProfileCompleter">
+        <argument index="0" value="1"/>
+        <argument index="1" value="false"/>
+        <argument index="2" value="true"/>
+        <property name="fabricService" ref="fabricService"/>
+    </bean>
+
+    <bean id="removeProfileCompleter" class="io.fabric8.boot.commands.support.ContainerAwareProfileCompleter">
+        <argument index="0" value="1"/>
+        <argument index="1" value="true"/>
+        <argument index="2" value="false"/>
+        <property name="fabricService" ref="fabricService"/>
+    </bean>
+
+    <bean id="bundleLocationCompleter" class="io.fabric8.commands.support.BundleLocationCompleter">
+        <property name="featuresService" ref="featuresService" />
+    </bean>
+
+     <!-- Karaf Completers -->
+    <bean id="karafAllFeatureCompleter" class="org.apache.karaf.features.command.completers.AllFeatureCompleter">
+        <property name="featuresService" ref="featuresService" />
+    </bean>
+
+    <bean id="karafFeatureUrlCompleter" class="org.apache.karaf.features.command.completers.FeatureRepositoryCompleter">
+        <property name="featuresService" ref="featuresService" />
+    </bean>
+
+    <bean id="resolverCompleter" class="io.fabric8.boot.commands.support.ResolverCompleter"/>
+
+    <!-- Container Connect -->
+    <bean id="agentFactory" class="org.apache.karaf.shell.ssh.KarafAgentFactory">
+        <property name="bundleContext" ref="blueprintBundleContext"/>
+    </bean>
+
+    <bean id="sshClient" class="org.apache.sshd.SshClient" factory-method="setUpDefaultClient" scope="prototype">
+        <property name="agentFactory" ref="agentFactory" />
+    </bean>
+
+    <reference id="editorFactory" interface="org.jledit.EditorFactory"/>
+
+</blueprint>
