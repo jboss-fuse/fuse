@@ -69,7 +69,7 @@
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
         <jboss.fuse.bom.version>6.2.0.redhat-SNAPSHOT</jboss.fuse.bom.version>
-        <fabric.version>1.1.0-SNAPSHOT</fabric.version>
+        <fabric.version>1.0.0-SNAPSHOT</fabric.version>
 
         <!-- fabric8 deploy profile configuration -->
         <fabric8.profile>my-secure.rest</fabric8.profile>
