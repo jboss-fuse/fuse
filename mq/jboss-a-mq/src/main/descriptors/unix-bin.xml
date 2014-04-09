@@ -77,7 +77,7 @@
             </includes>
             <excludes>
                 <exclude>bin/create*</exclude>
-                <exclude>bin/fusefabric*</exclude>
+                <exclude>bin/fabric8*</exclude>
                 <exclude>bin/shell*</exclude>
                 <exclude>bin/setenv*</exclude>
             </excludes>
@@ -124,14 +124,14 @@
 
     <files>
         <file>
-            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fusefabric</source>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fabric8</source>
             <outputDirectory>/bin/</outputDirectory>
             <destName>amq</destName>
             <fileMode>0755</fileMode>
             <lineEnding>unix</lineEnding>
         </file>
         <file>
-            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fusefabric.bat</source>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fabric8.bat</source>
             <outputDirectory>/bin/</outputDirectory>
             <destName>amq.bat</destName>
             <fileMode>0755</fileMode>

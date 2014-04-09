@@ -20,7 +20,7 @@ package org.fusesource.esb.itests.pax.exam.karaf;
 import java.io.File;
 import org.apache.karaf.tooling.exam.options.DoNotModifyLogOption;
 import org.apache.karaf.tooling.exam.options.LogLevelOption;
-import org.fusesource.tooling.testing.pax.exam.karaf.FuseTestSupport;
+import io.fabric8.tooling.testing.pax.exam.karaf.FabricKarafTestSupport;
 import org.ops4j.pax.exam.MavenUtils;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.options.DefaultCompositeOption;
@@ -34,7 +34,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.ops4j.pax.exam.CoreOptions.maven;
 
-public class EsbTestSupport extends FuseTestSupport {
+public class EsbTestSupport extends FabricKarafTestSupport {
     static final String GROUP_ID = "org.jboss.fuse";
     static final String ARTIFACT_ID = "jboss-fuse-minimal";
     private String version = "6.2.0.redhat-SNAPSHOT";

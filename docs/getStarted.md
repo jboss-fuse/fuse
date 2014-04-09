@@ -21,7 +21,7 @@ Or you could build the project with [maven](http://maven.apache.org/) via:
 
 From the distro, start up the container via:
 
-    bin/fusefabric
+    bin/fabric8
 
 Once the container starts up, create a Fabric via:
 

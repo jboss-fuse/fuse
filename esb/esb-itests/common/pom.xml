@@ -43,7 +43,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.fusesource.tooling.testing</groupId>
+            <groupId>io.fabric8.tooling.testing</groupId>
             <artifactId>pax-exam-karaf</artifactId>
         </dependency>
         <dependency>

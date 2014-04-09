@@ -19,11 +19,11 @@
     <fileSets>
         <!-- Cherry-pick files from the expanded Karaf distribution -->
         <fileSet>
-            <directory>target/dependencies/unix/fabric8-karaf-${fabric-version}</directory>
+            <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}</directory>
             <outputDirectory>/</outputDirectory>
             <excludes>
               <exclude>**/demos/**</exclude>
-              <exclude>lib/fabric-version.jar</exclude>
+              <exclude>lib/fabric.version.jar</exclude>
               <exclude>bin/**</exclude>
               <exclude>etc/org.apache.karaf.features.cfg</exclude>
               <exclude>etc/org.apache.karaf.features.obr.cfg</exclude>
@@ -44,13 +44,13 @@
 
         <!-- Copy over bin/* scripts separately to get the correct file mode -->
         <fileSet>
-            <directory>target/dependencies/unix/fabric8-karaf-${fabric-version}</directory>
+            <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
               <include>bin/*</include>
             </includes>
             <excludes>
-              <exclude>bin/fusefabric*</exclude>
+              <exclude>bin/fabric8*</exclude>
               <exclude>bin/shell*</exclude>
             </excludes>
             <fileMode>0755</fileMode>
@@ -108,14 +108,14 @@
 
     <files>
         <file>
-            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric-version}/bin/fusefabric</source>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fabric8</source>
             <outputDirectory>/bin/</outputDirectory>
             <destName>fuse</destName>
             <fileMode>0755</fileMode>
             <lineEnding>unix</lineEnding>
         </file>
         <file>
-            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric-version}/bin/fusefabric.bat</source>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fabric8.bat</source>
             <outputDirectory>/bin/</outputDirectory>
             <destName>fuse.bat</destName>
             <fileMode>0755</fileMode>

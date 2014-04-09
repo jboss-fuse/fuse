@@ -191,7 +191,7 @@ Any change to a profile, will take immediate effect. This means that if there ar
 So it is recommended, to create a new version of a profile whenever you need to make changes and then assign the new version to the container. This allows you to complete your changes, test them and rollback to the previous version if you encounter issues.
 
 #### Create a new version
-You are able to create a new version using the [fabric:version-create](commands/fabric-version-create.html). The default version is 1.0 so let's create 1.1.
+You are able to create a new version using the [fabric:version-create](commands/fabric.version-create.html). The default version is 1.0 so let's create 1.1.
 
         fabric:version-create 1.1
 
