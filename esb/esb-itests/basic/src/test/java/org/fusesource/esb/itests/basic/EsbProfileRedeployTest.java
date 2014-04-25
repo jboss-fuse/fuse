@@ -29,13 +29,13 @@ import io.fabric8.itests.paxexam.support.ContainerBuilder;
 import io.fabric8.itests.paxexam.support.ContainerProxy;
 import io.fabric8.itests.paxexam.support.FabricTestSupport;
 import io.fabric8.itests.paxexam.support.Provision;
+import io.fabric8.mq.fabric.FabricDiscoveryAgent;
 
 import java.util.Arrays;
 import java.util.Set;
 import java.util.concurrent.Callable;
 
 import org.apache.curator.framework.CuratorFramework;
-import org.fusesource.mq.fabric.FabricDiscoveryAgent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;

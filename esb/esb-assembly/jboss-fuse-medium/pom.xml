@@ -29,6 +29,19 @@
     
     <name>JBoss Fuse :: ESB :: Assembly (Medium)</name>
     <repositories>
+        <!-- needed for org.apache.xerces JARs required by org.apache.servicemix.bundles.opensaml:2.6.1_1 -->
+        <repository>
+            <id>shibboleth</id>
+            <name>shibboleth repository</name>
+            <url>https://build.shibboleth.net/nexus/content/repositories/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
         <repository>
             <id>fusesource.m2</id>
             <name>FuseSource Community Release Repository</name>
