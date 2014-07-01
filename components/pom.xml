@@ -27,6 +27,11 @@
   <description>Builds Fuse Camel Components</description>
   <url>http://www.fusesource.org</url>
 
+  <properties>
+    <camel.sap.plugin.version>6.2.0-SNAPSHOT</camel.sap.plugin.version>
+    <sap.camel.component.version>6.2.0.redhat-SNAPSHOT</sap.camel.component.version>
+  </properties>
+
   <profiles>
     <profile>
       <!--

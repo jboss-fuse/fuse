@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.fusesource.camel.component.sap.model;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 6.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.fusesource.camel.component.sap.model.rfc,
  org.fusesource.camel.component.sap.model.rfc.impl,
  org.fusesource.camel.component.sap.model.rfc.util

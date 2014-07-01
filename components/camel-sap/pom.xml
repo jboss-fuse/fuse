@@ -40,19 +40,19 @@
 			<dependency>
 				<groupId>org.fusesource</groupId>
 				<artifactId>org.fusesource.camel.component.sap</artifactId>
-				<version>${fabric.version}</version>
+				<version>${camel.sap.plugin.version}</version>
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.fusesource</groupId>
 				<artifactId>org.fusesource.camel.component.sap.model</artifactId>
-                <version>${fabric.version}</version>
+                <version>${camel.sap.plugin.version}</version>
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.fusesource</groupId>
 				<artifactId>org.fusesource.camel.component.sap.model.edit</artifactId>
-                <version>${fabric.version}</version>
+                <version>${camel.sap.plugin.version}</version>
                 <scope>compile</scope>
 			</dependency>
 			<dependency>
@@ -411,7 +411,7 @@
 	<repositories>
 		<repository>
 			<id>eclipse-juno</id>
-			<url>http://download.eclipse.org/releases/juno/</url>
+			<url>http://download.eclipse.org/releases/luna/</url>
 			<layout>p2</layout>
 			<snapshots>
 				<enabled>true</enabled>
