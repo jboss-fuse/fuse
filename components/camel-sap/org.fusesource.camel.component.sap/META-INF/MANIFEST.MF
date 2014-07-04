@@ -10,8 +10,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.fusesource.camel.component.sap.model.edit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Import-Package: com.sap.conn.jco,
+Import-Package: com.sap.conn.idoc,
+ com.sap.conn.idoc.jco,
+ com.sap.conn.jco,
  com.sap.conn.jco.ext,
  com.sap.conn.jco.monitor,
  com.sap.conn.jco.rt,
- com.sap.conn.jco.server
+ com.sap.conn.jco.server,
+ org.slf4j

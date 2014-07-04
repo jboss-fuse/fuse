@@ -29,6 +29,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.fusesource.camel.component.sap.model.idoc.IdocPackage;
+import org.fusesource.camel.component.sap.model.idoc.impl.IdocPackageImpl;
 import org.fusesource.camel.component.sap.model.rfc.AbapException;
 import org.fusesource.camel.component.sap.model.rfc.DataType;
 import org.fusesource.camel.component.sap.model.rfc.Destination;
@@ -290,11 +292,16 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		IdocPackageImpl theIdocPackage = (IdocPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(IdocPackage.eNS_URI) instanceof IdocPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(IdocPackage.eNS_URI) : IdocPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theRfcPackage.createPackageContents();
+		theIdocPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theRfcPackage.initializePackageContents();
+		theIdocPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theRfcPackage.freeze();

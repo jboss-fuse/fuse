@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.fusesource.camel.component.sap.model.SAPEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link org.fusesource.camel.component.sap.model.rfc.Structure} object.
@@ -125,7 +126,7 @@ public class StructureItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return SAPRFCEditPlugin.INSTANCE;
+		return SAPEditPlugin.INSTANCE;
 	}
 
 }

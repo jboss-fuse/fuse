@@ -7,7 +7,10 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.fusesource.camel.component.sap.model.rfc,
+Export-Package: org.fusesource.camel.component.sap.model.idoc,
+ org.fusesource.camel.component.sap.model.idoc.impl,
+ org.fusesource.camel.component.sap.model.idoc.util,
+ org.fusesource.camel.component.sap.model.rfc,
  org.fusesource.camel.component.sap.model.rfc.impl,
  org.fusesource.camel.component.sap.model.rfc.util
 Require-Bundle: org.eclipse.core.runtime,

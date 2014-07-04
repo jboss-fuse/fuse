@@ -59,7 +59,7 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 	 */
 	public static RfcFactory init() {
 		try {
-			RfcFactory theRfcFactory = (RfcFactory)EPackage.Registry.INSTANCE.getEFactory("http://sap.fusesource.org/rfc"); 
+			RfcFactory theRfcFactory = (RfcFactory)EPackage.Registry.INSTANCE.getEFactory(RfcPackage.eNS_URI);
 			if (theRfcFactory != null) {
 				return theRfcFactory;
 			}

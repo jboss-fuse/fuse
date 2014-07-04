@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="idoc" nsURI="http://sap.fusesource.org/idoc" nsPrefix="idoc">
+    <eClassifiers xsi:type="ecore:EClass" name="Document">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="archiveKey">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="client">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationDate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationTime">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIMessage">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIMessageGroup">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIMessageType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIStandardFlag">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIStandardVersion">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDITransmissionFile">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocCompoundType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocNumber">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocSAPRelease">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocTypeExtension">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageCode">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageFunction">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMode">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientAddress">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientLogicalAddress">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientPartnerFunction">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientPartnerNumber">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientPartnerType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientPort">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderAddress">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderLogicalAddress">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderPartnerFunction">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderPartnerNumber">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderPartnerType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderPort">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serialization">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="status">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="testFlag">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rootSegment" eType="/0/Segment"
+          containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Segment">
+      <eOperations name="get">
+        <eGenericType eTypeParameter="/0/Segment/get/T"/>
+        <eTypeParameters name="T"/>
+        <eParameters name="key">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eParameters>
+        <eParameters name="type">
+          <eGenericType>
+            <eTypeArguments eTypeParameter="/0/Segment/get/T"/>
+            <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getChildren" upperBound="-1">
+        <eGenericType eTypeParameter="/0/Segment/getChildren/S"/>
+        <eTypeParameters name="S">
+          <eBounds eClassifier="/0/Segment"/>
+        </eTypeParameters>
+      </eOperations>
+      <eOperations name="getChildren">
+        <eGenericType eClassifier="/0/SegmentList">
+          <eTypeArguments eTypeParameter="/0/Segment/getChildren.1/S"/>
+        </eGenericType>
+        <eTypeParameters name="S">
+          <eBounds eClassifier="/0/Segment"/>
+        </eTypeParameters>
+        <eParameters name="segmentType">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getTypes" upperBound="-1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="/0/Segment"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="document" eType="/0/Document"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" volatile="true"
+          transient="true" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" volatile="true"
+          transient="true" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" volatile="true"
+          transient="true" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchyLevel" volatile="true"
+          transient="true" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="idocType" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="idocTypeExtension" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemRelease" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="applicationRelease" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numFields" volatile="true"
+          transient="true" defaultValueLiteral="0" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurrence" volatile="true"
+          transient="true" defaultValueLiteral="0" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurrence" volatile="true"
+          transient="true" defaultValueLiteral="0" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMandatory" volatile="true"
+          transient="true" defaultValueLiteral="false" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isQualified" volatile="true"
+          transient="true" defaultValueLiteral="false" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordLength" volatile="true"
+          transient="true" defaultValueLiteral="0" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SegmentChildren">
+      <eOperations name="get">
+        <eGenericType eClassifier="/0/SegmentList">
+          <eTypeArguments eTypeParameter="/0/SegmentChildren/get/S"/>
+        </eGenericType>
+        <eTypeParameters name="S">
+          <eBounds eClassifier="/0/Segment"/>
+        </eTypeParameters>
+        <eParameters name="segmentType">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getTypes" upperBound="-1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="segments" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="group"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="/0/Segment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SegmentList">
+      <eTypeParameters name="S">
+        <eBounds eClassifier="/0/Segment"/>
+      </eTypeParameters>
+      <eOperations name="add">
+        <eGenericType eTypeParameter="/0/SegmentList/S"/>
+      </eOperations>
+      <eOperations name="add">
+        <eGenericType eTypeParameter="/0/SegmentList/S"/>
+        <eParameters name="index">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="FLCUSTOMER_CREATEFROMDATA01___" nsURI="http://sap.fusesource.org/idoc/NPL/FLCUSTOMER_CREATEFROMDATA01///"
+      nsPrefix="FLCUSTOMER_CREATEFROMDATA01---">
+    <eClassifiers xsi:type="ecore:EClass" name="ROOT" eSuperTypes="/0/Segment">
+      <eAnnotations source="http://sap.fusesource.org/idoc">
+        <details key="name" value="ROOT"/>
+        <details key="type" value="ROOT"/>
+        <details key="key" value="FLCUSTOMER_CREATEFROMDATA01||||ROOT"/>
+        <details key="definition" value="ROOT"/>
+        <details key="description" value="General root segment"/>
+        <details key="hierarchyLevel" value="0"/>
+        <details key="idocType" value="FLCUSTOMER_CREATEFROMDATA01"/>
+        <details key="idocTypeExtension" value=""/>
+        <details key="systemRelease" value=""/>
+        <details key="applicationRelease" value=""/>
+        <details key="numFields" value="0"/>
+        <details key="maxOccurrence" value="1"/>
+        <details key="minOccurrence" value="1"/>
+        <details key="isLocked" value="true"/>
+        <details key="isMandatory" value="true"/>
+        <details key="isQualified" value="false"/>
+        <details key="recordLength" value="0"/>
+        <details key="compoundType" value="FLCUSTOMER_CREATEFROMDATA01"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Segment type for FLCUSTOMER_CREATEFROMDATA01___"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="segmentChildren" eType="/1/ROOT_CHILDREN"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ROOT_CHILDREN" eSuperTypes="/0/SegmentChildren">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="E1SCU_CRE" upperBound="-1"
+          eType="/1/E1SCU_CRE" volatile="true" transient="true" derived="true" containment="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="group" value="#segments"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="E1SCU_CRE" eSuperTypes="/0/Segment">
+      <eAnnotations source="http://sap.fusesource.org/idoc">
+        <details key="name" value="E2SCU_CRE000"/>
+        <details key="type" value="E1SCU_CRE"/>
+        <details key="key" value="FLCUSTOMER_CREATEFROMDATA01||||E2SCU_CRE000"/>
+        <details key="definition" value="E2SCU_CRE000"/>
+        <details key="description" value="Header Segment"/>
+        <details key="hierarchyLevel" value="1"/>
+        <details key="idocType" value="FLCUSTOMER_CREATEFROMDATA01"/>
+        <details key="idocTypeExtension" value=""/>
+        <details key="systemRelease" value=""/>
+        <details key="applicationRelease" value=""/>
+        <details key="numFields" value="1"/>
+        <details key="maxOccurrence" value="1"/>
+        <details key="minOccurrence" value="1"/>
+        <details key="isLocked" value="true"/>
+        <details key="isMandatory" value="false"/>
+        <details key="isQualified" value="false"/>
+        <details key="recordLength" value="1"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="TEST_RUN">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Switch to Simulation Session for Write BAPIs"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="0"/>
+          <details key="description" value="Switch to Simulation Session for Write BAPIs"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="TESTRUN"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="BAPIFLAG"/>
+          <details key="internalLength" value="1"/>
+          <details key="length" value="1"/>
+          <details key="offset" value="0"/>
+          <details key="outputLength" value="1"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[, X]"/>
+          <details key="valueDescriptions" value="[Not set, Set]"/>
+          <details key="valueRanges" value="[[, null], [X, null]]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="segmentChildren" eType="/1/E1SCU_CRE_CHILDREN"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="E1SCU_CRE_CHILDREN" eSuperTypes="/0/SegmentChildren">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="E1BPSCUNEW" upperBound="-1"
+          eType="/1/E1BPSCUNEW" volatile="true" transient="true" derived="true" containment="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="group" value="#segments"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="E1BPPAREX" upperBound="-1"
+          eType="/1/E1BPPAREX" volatile="true" transient="true" derived="true" containment="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="group" value="#segments"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="E1BPSCUNEW" eSuperTypes="/0/Segment">
+      <eAnnotations source="http://sap.fusesource.org/idoc">
+        <details key="name" value="E2BPSCUNEW000"/>
+        <details key="type" value="E1BPSCUNEW"/>
+        <details key="key" value="FLCUSTOMER_CREATEFROMDATA01||||E2BPSCUNEW000"/>
+        <details key="definition" value="E2BPSCUNEW000"/>
+        <details key="description" value="BAPI Structure for FlightCustomer BO - New Customer Data"/>
+        <details key="hierarchyLevel" value="2"/>
+        <details key="idocType" value="FLCUSTOMER_CREATEFROMDATA01"/>
+        <details key="idocTypeExtension" value=""/>
+        <details key="systemRelease" value=""/>
+        <details key="applicationRelease" value=""/>
+        <details key="numFields" value="15"/>
+        <details key="maxOccurrence" value="1"/>
+        <details key="minOccurrence" value="1"/>
+        <details key="isLocked" value="true"/>
+        <details key="isMandatory" value="false"/>
+        <details key="isQualified" value="false"/>
+        <details key="recordLength" value="200"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CUSTNAME">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Customer name"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="0"/>
+          <details key="description" value="Customer name"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_CUSTNAME"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="S_CUSTNAME"/>
+          <details key="internalLength" value="25"/>
+          <details key="length" value="25"/>
+          <details key="offset" value="0"/>
+          <details key="outputLength" value="25"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FORM">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Form of address"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="1"/>
+          <details key="description" value="Form of address"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_FORM"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="S_TEXT15"/>
+          <details key="internalLength" value="15"/>
+          <details key="length" value="15"/>
+          <details key="offset" value="25"/>
+          <details key="outputLength" value="15"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="STREET">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Street"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="2"/>
+          <details key="description" value="Street"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_STREET"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="S_STREET"/>
+          <details key="internalLength" value="30"/>
+          <details key="length" value="30"/>
+          <details key="offset" value="40"/>
+          <details key="outputLength" value="30"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="POBOX">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="PO Box"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="3"/>
+          <details key="description" value="PO Box"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_POSTBOX"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="S_POSTBOX"/>
+          <details key="internalLength" value="10"/>
+          <details key="length" value="10"/>
+          <details key="offset" value="70"/>
+          <details key="outputLength" value="10"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="POSTCODE">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Postal Code"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="4"/>
+          <details key="description" value="Postal Code"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="POSTCODE"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="POSTCODE"/>
+          <details key="internalLength" value="10"/>
+          <details key="length" value="10"/>
+          <details key="offset" value="80"/>
+          <details key="outputLength" value="10"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CITY">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="City"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="5"/>
+          <details key="description" value="City"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="CITY"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="CITY"/>
+          <details key="internalLength" value="25"/>
+          <details key="length" value="25"/>
+          <details key="offset" value="90"/>
+          <details key="outputLength" value="25"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="COUNTR">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Country Indic."/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="6"/>
+          <details key="description" value="Country Indic."/>
+          <details key="checkTableName" value="T005"/>
+          <details key="dataElementName" value="S_COUNTR"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="LAND1"/>
+          <details key="internalLength" value="3"/>
+          <details key="length" value="3"/>
+          <details key="offset" value="115"/>
+          <details key="outputLength" value="3"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="COUNTR_ISO">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="ISO country code"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="7"/>
+          <details key="description" value="ISO country code"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_COUN_ISO"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="INTCA"/>
+          <details key="internalLength" value="2"/>
+          <details key="length" value="2"/>
+          <details key="offset" value="118"/>
+          <details key="outputLength" value="2"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="REGION">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Region"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="8"/>
+          <details key="description" value="Region"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_REGION"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="S_REGION"/>
+          <details key="internalLength" value="3"/>
+          <details key="length" value="3"/>
+          <details key="offset" value="120"/>
+          <details key="outputLength" value="3"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PHONE">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Telephone number of flight customer"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="9"/>
+          <details key="description" value="Telephone number of flight customer"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_PHONENO"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="S_PHONE"/>
+          <details key="internalLength" value="30"/>
+          <details key="length" value="30"/>
+          <details key="offset" value="123"/>
+          <details key="outputLength" value="30"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EMAIL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Customer e-mail address"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="10"/>
+          <details key="description" value="Customer e-mail address"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_EMAIL"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="S_EMAIL"/>
+          <details key="internalLength" value="40"/>
+          <details key="length" value="40"/>
+          <details key="offset" value="153"/>
+          <details key="outputLength" value="40"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CUSTTYPE">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Customer type"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="11"/>
+          <details key="description" value="Customer type"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_CUSTTYPE"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="S_CUSTTYPE"/>
+          <details key="internalLength" value="1"/>
+          <details key="length" value="1"/>
+          <details key="offset" value="193"/>
+          <details key="outputLength" value="1"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[B, P]"/>
+          <details key="valueDescriptions" value="[Business Customer, Private Customer]"/>
+          <details key="valueRanges" value="[[B, null], [P, null]]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DISCOUNT">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Discount rate"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="12"/>
+          <details key="description" value="Discount rate"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_DISCOUNT"/>
+          <details key="dataType" value="1"/>
+          <details key="dataTypeName" value="NUMC"/>
+          <details key="domainName" value="S_DISCOUNT"/>
+          <details key="internalLength" value="3"/>
+          <details key="length" value="3"/>
+          <details key="offset" value="194"/>
+          <details key="outputLength" value="3"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="LANGU">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Language Key"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="13"/>
+          <details key="description" value="Language Key"/>
+          <details key="checkTableName" value="T002"/>
+          <details key="dataElementName" value="S_LANGU2"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="LANG"/>
+          <details key="domainName" value="SPRAS"/>
+          <details key="internalLength" value="1"/>
+          <details key="length" value="1"/>
+          <details key="offset" value="197"/>
+          <details key="outputLength" value="1"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="LANGU_ISO">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="ISO language code"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="14"/>
+          <details key="description" value="ISO language code"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="S_LANG_ISO"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="LAISO"/>
+          <details key="internalLength" value="2"/>
+          <details key="length" value="2"/>
+          <details key="offset" value="198"/>
+          <details key="outputLength" value="2"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="segmentChildren" eType="/1/E1BPSCUNEW_CHILDREN"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="E1BPSCUNEW_CHILDREN" eSuperTypes="/0/SegmentChildren"/>
+    <eClassifiers xsi:type="ecore:EClass" name="E1BPPAREX" eSuperTypes="/0/Segment">
+      <eAnnotations source="http://sap.fusesource.org/idoc">
+        <details key="name" value="E2BPPAREX000"/>
+        <details key="type" value="E1BPPAREX"/>
+        <details key="key" value="FLCUSTOMER_CREATEFROMDATA01||||E2BPPAREX000"/>
+        <details key="definition" value="E2BPPAREX000"/>
+        <details key="description" value="Ref. Structure for BAPI Parameter EXTENSIONIN/EXTENSIONOUT"/>
+        <details key="hierarchyLevel" value="2"/>
+        <details key="idocType" value="FLCUSTOMER_CREATEFROMDATA01"/>
+        <details key="idocTypeExtension" value=""/>
+        <details key="systemRelease" value=""/>
+        <details key="applicationRelease" value=""/>
+        <details key="numFields" value="5"/>
+        <details key="maxOccurrence" value="999999999"/>
+        <details key="minOccurrence" value="1"/>
+        <details key="isLocked" value="true"/>
+        <details key="isMandatory" value="false"/>
+        <details key="isQualified" value="false"/>
+        <details key="recordLength" value="990"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="STRUCTURE">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Structure name of  BAPI table extension"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="0"/>
+          <details key="description" value="Structure name of  BAPI table extension"/>
+          <details key="checkTableName" value="DD02L"/>
+          <details key="dataElementName" value="TE_STRUC"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="AS4TAB"/>
+          <details key="internalLength" value="30"/>
+          <details key="length" value="30"/>
+          <details key="offset" value="0"/>
+          <details key="outputLength" value="30"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="VALUEPART1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Data part of BAPI extension parameter"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="1"/>
+          <details key="description" value="Data part of BAPI extension parameter"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="VALUEPART"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="CHAR240"/>
+          <details key="internalLength" value="240"/>
+          <details key="length" value="240"/>
+          <details key="offset" value="30"/>
+          <details key="outputLength" value="240"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="VALUEPART2">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Data part of BAPI extension parameter"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="2"/>
+          <details key="description" value="Data part of BAPI extension parameter"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="VALUEPART"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="CHAR240"/>
+          <details key="internalLength" value="240"/>
+          <details key="length" value="240"/>
+          <details key="offset" value="270"/>
+          <details key="outputLength" value="240"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="VALUEPART3">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Data part of BAPI extension parameter"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="3"/>
+          <details key="description" value="Data part of BAPI extension parameter"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="VALUEPART"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="CHAR240"/>
+          <details key="internalLength" value="240"/>
+          <details key="length" value="240"/>
+          <details key="offset" value="510"/>
+          <details key="outputLength" value="240"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="VALUEPART4">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Data part of BAPI extension parameter"/>
+        </eAnnotations>
+        <eAnnotations source="http://sap.fusesource.org/idoc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="position" value="4"/>
+          <details key="description" value="Data part of BAPI extension parameter"/>
+          <details key="checkTableName" value=""/>
+          <details key="dataElementName" value="VALUEPART"/>
+          <details key="dataType" value="0"/>
+          <details key="dataTypeName" value="CHAR"/>
+          <details key="domainName" value="CHAR240"/>
+          <details key="internalLength" value="240"/>
+          <details key="length" value="240"/>
+          <details key="offset" value="750"/>
+          <details key="outputLength" value="240"/>
+          <details key="recordType" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="values" value="[]"/>
+          <details key="valueDescriptions" value="[]"/>
+          <details key="valueRanges" value="[]"/>
+          <details key="isoCode" value="false"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="segmentChildren" eType="/1/E1BPPAREX_CHILDREN"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="E1BPPAREX_CHILDREN" eSuperTypes="/0/SegmentChildren"/>
+  </ecore:EPackage>
+</xmi:XMI>

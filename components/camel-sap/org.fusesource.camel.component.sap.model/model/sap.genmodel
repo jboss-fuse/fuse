@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright 2014 Red Hat, Inc.&#xA;&#xA;Red Hat licenses this file to you under the Apache License, version&#xA;2.0 (the &quot;License&quot;); you may not use this file except in compliance&#xA;with the License.  You may obtain a copy of the License at&#xA;&#xA;    http://www.apache.org/licenses/LICENSE-2.0&#xA;&#xA;Unless required by applicable law or agreed to in writing, software&#xA;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or&#xA;implied.  See the License for the specific language governing&#xA;permissions and limitations under the License.&#xA;"
+    modelDirectory="/org.fusesource.camel.component.sap.model/src" modelPluginID="org.fusesource.camel.component.sap.model"
+    modelName="SAP" editPluginClass="org.fusesource.camel.component.sap.model.SAPEditPlugin"
+    editorPluginClass="org.fusesource.camel.component.sap.model.editor.SAPEditorPlugin"
+    testSuiteClass="org.fusesource.camel.component.sap.model.tests.SAPAllTests" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" importOrganizing="true">
+  <foreignModel>sap-idoc.ecore</foreignModel>
+  <foreignModel>sap-rfc.ecore</foreignModel>
+  <genPackages prefix="Idoc" basePackage="org.fusesource.camel.component.sap.model"
+      disposableProviderFactory="true" ecorePackage="sap-idoc.ecore#/">
+    <genClasses ecoreClass="sap-idoc.ecore#//Document">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/archiveKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/client"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/creationDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/creationTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/direction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/EDIMessage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/EDIMessageGroup"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/EDIMessageType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/EDIStandardFlag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/EDIStandardVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/EDITransmissionFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/iDocCompoundType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/iDocNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/iDocSAPRelease"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/iDocType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/iDocTypeExtension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/messageCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/messageFunction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/outputMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientLogicalAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientPartnerFunction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientPatnerNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientPartnerType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/senderAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/senderLogicalAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/senderPartnerFunction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/senderPartnerNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/senderPartnerType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/senderPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/serialization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/test"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Document/rootSegment"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-idoc.ecore#//Segment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Segment/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Segment/children"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Segment/document"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/definition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/hierarchyLevel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Segment/childSegmentTypes"/>
+      <genOperations ecoreOperation="sap-idoc.ecore#//Segment/get">
+        <genParameters ecoreParameter="sap-idoc.ecore#//Segment/get/key"/>
+        <genParameters ecoreParameter="sap-idoc.ecore#//Segment/get/type"/>
+        <genTypeParameters ecoreTypeParameter="sap-idoc.ecore#//Segment/get/T"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Rfc" basePackage="org.fusesource.camel.component.sap.model"
+      disposableProviderFactory="true" ecorePackage="sap-rfc.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sap-rfc.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/CHAR"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/BCD"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/TIME"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/BYTE"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/NUM"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/INT"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/INT2"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/INT1"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/STRUCTURE"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/DECF16"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/DECF34"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/XSTRING"/>
+      <genEnumLiterals ecoreEnumLiteral="sap-rfc.ecore#//DataType/TABLE"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="sap-rfc.ecore#//ParameterList"/>
+    <genDataTypes ecoreDataType="sap-rfc.ecore#//FieldList"/>
+    <genDataTypes ecoreDataType="sap-rfc.ecore#//AbapExceptionList"/>
+    <genDataTypes ecoreDataType="sap-rfc.ecore#//FunctionTemplateMap"/>
+    <genClasses ecoreClass="sap-rfc.ecore#//Destination">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//Destination/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//Destination/repositoryName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//Destination/rfcs"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//RFC">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RFC/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RFC/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RFC/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RFC/request"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RFC/response"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sap-rfc.ecore#//RFC/destination"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//Table">
+      <genTypeParameters ecoreTypeParameter="sap-rfc.ecore#//Table/S"/>
+      <genOperations ecoreOperation="sap-rfc.ecore#//Table/getRows"/>
+      <genOperations ecoreOperation="sap-rfc.ecore#//Table/add"/>
+      <genOperations ecoreOperation="sap-rfc.ecore#//Table/add.1">
+        <genParameters ecoreParameter="sap-rfc.ecore#//Table/add.1/index"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//Structure">
+      <genOperations ecoreOperation="sap-rfc.ecore#//Structure/get">
+        <genParameters ecoreParameter="sap-rfc.ecore#//Structure/get/key"/>
+        <genParameters ecoreParameter="sap-rfc.ecore#//Structure/get/type"/>
+        <genTypeParameters ecoreTypeParameter="sap-rfc.ecore#//Structure/get/T"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//DestinationDataEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationDataEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationDataEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//DestinationData">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//DestinationData/entries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/aliasUser"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/ashost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/authType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/client"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/codepage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/cpicTrace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/denyInitialPassword"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/expirationPeriod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/expirationTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/getsso2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/gwhost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/gwserv"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/lcheck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/maxGetTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/mshost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/msserv"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/mysapsso2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/passwd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/pcs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/peakLimit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/pingOnCreate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/poolCapacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/r3name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/repositoryDest"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/repositoryPasswd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/repositoryRoundtripOptimization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/repositorySnc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/repositoryUser"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/saprouter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/sncLibrary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/sncMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/sncMyname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/sncPartnername"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/sncQop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/sysnr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/tphost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/tpname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/trace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/userName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/userId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/useSapgui"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationData/x509cert"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//DestinationDataStoreEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//DestinationDataStoreEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//DestinationDataStoreEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//DestinationDataStore">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//DestinationDataStore/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//Server">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//Server/name"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//ServerDataEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerDataEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerDataEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//ServerData">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//ServerData/entries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/gwhost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/gwserv"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/progid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/connectionCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/saprouter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/maxStartUpDelay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/repositoryDestination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/repositoryMap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/trace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/workerThreadCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/workerThreadMinCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/sncMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/sncQop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/sncMyname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerData/sncLib"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//ServerDataStoreEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ServerDataStoreEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//ServerDataStoreEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//ServerDataStore">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//ServerDataStore/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//FunctionTemplate">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//FunctionTemplate/imports"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//FunctionTemplate/exports"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//FunctionTemplate/changing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//FunctionTemplate/tables"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//FunctionTemplate/exceptions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FunctionTemplate/importParameterList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FunctionTemplate/exportParameterList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FunctionTemplate/changingParameterList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FunctionTemplate/tableParameterList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FunctionTemplate/exceptionList"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//RecordMetaData">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RecordMetaData/fieldMetaData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RecordMetaData/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RecordMetaData/recordFieldMetaData"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//FieldMetaData">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//FieldMetaData/fieldMetaData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FieldMetaData/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FieldMetaData/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FieldMetaData/byteLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FieldMetaData/byteOffset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FieldMetaData/unicodeByteLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FieldMetaData/unicodeByteOffset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FieldMetaData/decimals"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//FieldMetaData/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//FieldMetaData/recordMetaData"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//ListFieldMetaData">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//ListFieldMetaData/fieldMetaData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/byteLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/unicodeByteLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/decimals"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/defaults"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/import"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/changing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/export"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/exception"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//ListFieldMetaData/optional"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//ListFieldMetaData/recordMetaData"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//AbapException">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//AbapException/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//AbapException/message"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//RespositoryDataEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RespositoryDataEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RespositoryDataEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//RepositoryData">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RepositoryData/entries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RepositoryData/functionTemplates"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//RepositoryDataStore">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RepositoryDataStore/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-rfc.ecore#//RespositoryDataStoreEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RespositoryDataStoreEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RespositoryDataStoreEntry/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

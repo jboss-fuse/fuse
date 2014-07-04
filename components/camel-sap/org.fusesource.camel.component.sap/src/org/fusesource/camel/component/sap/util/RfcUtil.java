@@ -23,8 +23,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.StringReader;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +59,6 @@ import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.model.rfc.Table;
-import org.xml.sax.InputSource;
 
 import com.sap.conn.jco.JCo;
 import com.sap.conn.jco.JCoContext;
@@ -81,7 +78,7 @@ import com.sap.conn.jco.JCoRepository;
 import com.sap.conn.jco.JCoRequest;
 import com.sap.conn.jco.JCoTable;
 
-public class RfcUtil {
+public class RfcUtil extends Util {
 
 	public static final String ROW = "row";
 
@@ -1026,39 +1023,6 @@ public class RfcUtil {
 	public static EObject fromInputStream(InputStream in) throws IOException {
 		XMLResource resource = new XMLResourceImpl();
 		resource.load(in, null);
-		return resource.getContents().get(0);
-	}
-
-	/**
-	 * Marshals the given {@link EObject} into a string.
-	 * 
-	 * @param eObject
-	 *            - the {@link EObject} to be marshalled.
-	 * @return The marshaled content of {@link EObject}.
-	 * @throws IOException
-	 */
-	public static String marshal(EObject eObject) throws IOException {
-		XMLResource resource = new XMLResourceImpl();
-		eObject = EcoreUtil.copy(eObject);
-		resource.getContents().add(eObject);
-		StringWriter out = new StringWriter();
-		resource.save(out, null);
-		return out.toString();
-	}
-
-	/**
-	 * Unmarshals the given string content into an {@link EObject} instance.
-	 * 
-	 * @param string
-	 *            - the string content to unmarshal.
-	 * @return The {@link EObject} instance unmarshalled from the string
-	 *         content.
-	 * @throws IOException
-	 */
-	public static EObject unmarshal(String string) throws IOException {
-		XMLResource resource = new XMLResourceImpl();
-		StringReader in = new StringReader(string);
-		resource.load(new InputSource(in), null);
 		return resource.getContents().get(0);
 	}
 

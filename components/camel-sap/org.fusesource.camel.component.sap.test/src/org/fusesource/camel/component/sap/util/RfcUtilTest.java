@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import junit.framework.Assert;
+import static org.junit.Assert.assertEquals;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -72,7 +72,7 @@ public class RfcUtilTest {
 		String echoText = (String) RfcUtil.getValue(response, "ECHOTEXT");
 		String respText = (String) RfcUtil.getValue(response, "RESPTEXT");
 		
-		Assert.assertEquals("ECHOTEXT of response different from REQUTEXT of request", "Hello, SAP!", echoText);
+		assertEquals("ECHOTEXT of response different from REQUTEXT of request", "Hello, SAP!", echoText);
 		System.out.println("RESPTEXT: " + respText);
 	}
 	

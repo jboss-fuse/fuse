@@ -21,6 +21,19 @@
 <plugin>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated sap -->
+      <factory
+            uri="http://sap.fusesource.org/idoc"
+            class="org.fusesource.camel.component.sap.model.idoc.provider.IdocItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sap.fusesource.org/rfc"
             class="org.fusesource.camel.component.sap.model.rfc.provider.RfcItemProviderAdapterFactory"

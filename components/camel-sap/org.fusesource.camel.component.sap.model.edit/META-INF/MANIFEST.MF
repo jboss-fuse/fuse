@@ -8,7 +8,9 @@ Bundle-Activator: org.fusesource.camel.component.sap.model.rfc.provider.SAPRFCEd
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.fusesource.camel.component.sap.model.rfc.provider
+Export-Package: org.fusesource.camel.component.sap.model,
+ org.fusesource.camel.component.sap.model.idoc.provider,
+ org.fusesource.camel.component.sap.model.rfc.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.fusesource.camel.component.sap.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

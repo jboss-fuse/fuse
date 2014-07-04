@@ -105,4 +105,5 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<version>6.2.0-SNAPSHOT</version>
 </project>
