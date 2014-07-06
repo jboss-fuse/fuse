@@ -1,0 +1,2961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="BAPI_FLCONN_GETDETAIL" nsURI="http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL"
+      nsPrefix="BAPI_FLCONN_GETDETAIL">
+    <eClassifiers xsi:type="ecore:EClass" name="Request" eSuperTypes="/2/Request">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Request for BAPI_FLCONN_GETDETAIL"/>
+      </eAnnotations>
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="Request"/>
+        <details key="fieldCount" value="9"/>
+        <details key="recordLength" value="-1"/>
+        <details key="unicodeRecordLength" value="-1"/>
+        <details key="isNestedType1Structure" value="false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CONNECTIONNUMBER" lowerBound="1">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CONNECTIONNUMBER"/>
+          <details key="description" value="Flight connection number at travel agency"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="BAPISCOKEY"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="unicodeByteLength" value="8"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName" value="FLIGHTCONN"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+          <details key="isImport" value="true"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Flight connection number at travel agency"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FLIGHTDATE" lowerBound="1">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.util.Date"/>
+          <details key="name" value="FLIGHTDATE"/>
+          <details key="description" value="Departure date"/>
+          <details key="type" value="1"/>
+          <details key="typeAsString" value="DATE"/>
+          <details key="recordTypeName" value="BAPISCOKEY"/>
+          <details key="length" value="8"/>
+          <details key="byteLength" value="8"/>
+          <details key="unicodeByteLength" value="16"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName" value="FLIGHTDATE"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+          <details key="isImport" value="true"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Departure date"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="NO_AVAILIBILITY" defaultValueLiteral="SPACE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="NO_AVAILIBILITY"/>
+          <details key="description" value="No availability required"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="BAPISTRAUX"/>
+          <details key="length" value="1"/>
+          <details key="byteLength" value="1"/>
+          <details key="unicodeByteLength" value="2"/>
+          <details key="decimals" value="0"/>
+          <details key="default" value="SPACE"/>
+          <details key="recordFieldName" value="NO_AVAIL"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+          <details key="isImport" value="true"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="No availability required"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="TRAVELAGENCYNUMBER" lowerBound="1">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="TRAVELAGENCYNUMBER"/>
+          <details key="description" value="Travel Agency Number"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="BAPISCOKEY"/>
+          <details key="length" value="8"/>
+          <details key="byteLength" value="8"/>
+          <details key="unicodeByteLength" value="16"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName" value="AGENCYNUM"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+          <details key="isImport" value="true"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Travel Agency Number"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AVAILIBILITY" eType="/0/BAPISCOAVA_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="AVAILIBILITY"/>
+          <details key="description" value="Availability"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPISCOAVA"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="28"/>
+          <details key="unicodeByteLength" value="28"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Availability"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EXTENSION_IN" eType="/0/BAPIPAREX_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="EXTENSION_IN"/>
+          <details key="description" value="Import customer enhancements"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPIPAREX"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="990"/>
+          <details key="unicodeByteLength" value="1980"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Import customer enhancements"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EXTENSION_OUT" eType="/0/BAPIPAREX_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="EXTENSION_OUT"/>
+          <details key="description" value="Export customer enhancements"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPIPAREX"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="990"/>
+          <details key="unicodeByteLength" value="1980"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Export customer enhancements"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="FLIGHT_HOP_LIST" eType="/0/BAPISCOHOP_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="FLIGHT_HOP_LIST"/>
+          <details key="description" value="Route segment"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPISCOHOP"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="122"/>
+          <details key="unicodeByteLength" value="244"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Route segment"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RETURN" eType="/0/BAPIRET2_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="RETURN"/>
+          <details key="description" value="Return Messages"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPIRET2"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="548"/>
+          <details key="unicodeByteLength" value="1088"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Return Messages"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPISCOAVA" eSuperTypes="/2/Structure">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPISCOAVA"/>
+        <details key="fieldCount" value="7"/>
+        <details key="recordLength" value="28"/>
+        <details key="unicodeRecordLength" value="28"/>
+        <details key="isNestedType1Structure" value="false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="HOP">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="HOP"/>
+          <details key="description" value="Number of Route Segment"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="S_HOP"/>
+          <details key="length" value="1"/>
+          <details key="byteLength" value="1"/>
+          <details key="byteOffset" value="0"/>
+          <details key="unicodeByteLength" value="2"/>
+          <details key="unicodeByteOffset" value="0"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Number of Route Segment"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ECONOMAX">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.Integer"/>
+          <details key="name" value="ECONOMAX"/>
+          <details key="description" value="Maximum capacity in economy class"/>
+          <details key="type" value="8"/>
+          <details key="typeAsString" value="INT"/>
+          <details key="recordTypeName" value="S_SEATSMAX"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="4"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="4"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Maximum capacity in economy class"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ECONOFREE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.Integer"/>
+          <details key="name" value="ECONOFREE"/>
+          <details key="description" value="Free seats in category"/>
+          <details key="type" value="8"/>
+          <details key="typeAsString" value="INT"/>
+          <details key="recordTypeName" value="S_SEATSFRE"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="8"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="8"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Free seats in category"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="BUSINMAX">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.Integer"/>
+          <details key="name" value="BUSINMAX"/>
+          <details key="description" value="Maximum capacity in business class"/>
+          <details key="type" value="8"/>
+          <details key="typeAsString" value="INT"/>
+          <details key="recordTypeName" value="S_SMAX_B"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="12"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="12"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Maximum capacity in business class"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="BUSINFREE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.Integer"/>
+          <details key="name" value="BUSINFREE"/>
+          <details key="description" value="Free seats in category"/>
+          <details key="type" value="8"/>
+          <details key="typeAsString" value="INT"/>
+          <details key="recordTypeName" value="S_SEATSFRE"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="16"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="16"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Free seats in category"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FIRSTMAX">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.Integer"/>
+          <details key="name" value="FIRSTMAX"/>
+          <details key="description" value="Maximum capacity in first class"/>
+          <details key="type" value="8"/>
+          <details key="typeAsString" value="INT"/>
+          <details key="recordTypeName" value="S_SMAX_F"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="20"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="20"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Maximum capacity in first class"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FIRSTFREE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.Integer"/>
+          <details key="name" value="FIRSTFREE"/>
+          <details key="description" value="Free seats in category"/>
+          <details key="type" value="8"/>
+          <details key="typeAsString" value="INT"/>
+          <details key="recordTypeName" value="S_SEATSFRE"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="24"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="24"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Free seats in category"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPISCOAVA_TABLE">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPISCOAVA_TABLE"/>
+        <details key="lineType" value="BAPISCOAVA"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="row" upperBound="-1"
+          eType="/0/BAPISCOAVA" containment="true"/>
+      <eGenericSuperTypes eClassifier="/2/Table">
+        <eTypeArguments eClassifier="/0/BAPISCOAVA"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPIPAREX" eSuperTypes="/2/Structure">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPIPAREX"/>
+        <details key="fieldCount" value="5"/>
+        <details key="recordLength" value="990"/>
+        <details key="unicodeRecordLength" value="1980"/>
+        <details key="isNestedType1Structure" value="false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="STRUCTURE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="STRUCTURE"/>
+          <details key="description" value="Structure name of  BAPI table extension"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="TE_STRUC"/>
+          <details key="length" value="30"/>
+          <details key="byteLength" value="30"/>
+          <details key="byteOffset" value="0"/>
+          <details key="unicodeByteLength" value="60"/>
+          <details key="unicodeByteOffset" value="0"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Structure name of  BAPI table extension"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="VALUEPART1">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="VALUEPART1"/>
+          <details key="description" value="Data part of BAPI extension parameter"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="VALUEPART"/>
+          <details key="length" value="240"/>
+          <details key="byteLength" value="240"/>
+          <details key="byteOffset" value="30"/>
+          <details key="unicodeByteLength" value="480"/>
+          <details key="unicodeByteOffset" value="60"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Data part of BAPI extension parameter"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="VALUEPART2">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="VALUEPART2"/>
+          <details key="description" value="Data part of BAPI extension parameter"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="VALUEPART"/>
+          <details key="length" value="240"/>
+          <details key="byteLength" value="240"/>
+          <details key="byteOffset" value="270"/>
+          <details key="unicodeByteLength" value="480"/>
+          <details key="unicodeByteOffset" value="540"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Data part of BAPI extension parameter"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="VALUEPART3">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="VALUEPART3"/>
+          <details key="description" value="Data part of BAPI extension parameter"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="VALUEPART"/>
+          <details key="length" value="240"/>
+          <details key="byteLength" value="240"/>
+          <details key="byteOffset" value="510"/>
+          <details key="unicodeByteLength" value="480"/>
+          <details key="unicodeByteOffset" value="1020"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Data part of BAPI extension parameter"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="VALUEPART4">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="VALUEPART4"/>
+          <details key="description" value="Data part of BAPI extension parameter"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="VALUEPART"/>
+          <details key="length" value="240"/>
+          <details key="byteLength" value="240"/>
+          <details key="byteOffset" value="750"/>
+          <details key="unicodeByteLength" value="480"/>
+          <details key="unicodeByteOffset" value="1500"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Data part of BAPI extension parameter"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPIPAREX_TABLE">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPIPAREX_TABLE"/>
+        <details key="lineType" value="BAPIPAREX"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="row" upperBound="-1"
+          eType="/0/BAPIPAREX" containment="true"/>
+      <eGenericSuperTypes eClassifier="/2/Table">
+        <eTypeArguments eClassifier="/0/BAPIPAREX"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPISCOHOP" eSuperTypes="/2/Structure">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPISCOHOP"/>
+        <details key="fieldCount" value="17"/>
+        <details key="recordLength" value="122"/>
+        <details key="unicodeRecordLength" value="244"/>
+        <details key="isNestedType1Structure" value="false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="HOP">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="HOP"/>
+          <details key="description" value="Number of Route Segment"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="S_HOP"/>
+          <details key="length" value="1"/>
+          <details key="byteLength" value="1"/>
+          <details key="byteOffset" value="0"/>
+          <details key="unicodeByteLength" value="2"/>
+          <details key="unicodeByteOffset" value="0"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Number of Route Segment"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AIRLINEID">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="AIRLINEID"/>
+          <details key="description" value="Airline Code"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_CARR_ID"/>
+          <details key="length" value="3"/>
+          <details key="byteLength" value="3"/>
+          <details key="byteOffset" value="1"/>
+          <details key="unicodeByteLength" value="6"/>
+          <details key="unicodeByteOffset" value="2"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Airline Code"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AIRLINE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="AIRLINE"/>
+          <details key="description" value="Airline name"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_CARRNAME"/>
+          <details key="length" value="20"/>
+          <details key="byteLength" value="20"/>
+          <details key="byteOffset" value="4"/>
+          <details key="unicodeByteLength" value="40"/>
+          <details key="unicodeByteOffset" value="8"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Airline name"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CONNECTID">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CONNECTID"/>
+          <details key="description" value="Flight Connection Number"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="S_CONN_ID"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="24"/>
+          <details key="unicodeByteLength" value="8"/>
+          <details key="unicodeByteOffset" value="48"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Flight Connection Number"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AIRPORTFR">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="AIRPORTFR"/>
+          <details key="description" value="Departure airport"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_FROMAIRP"/>
+          <details key="length" value="3"/>
+          <details key="byteLength" value="3"/>
+          <details key="byteOffset" value="28"/>
+          <details key="unicodeByteLength" value="6"/>
+          <details key="unicodeByteOffset" value="56"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Departure airport"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CITYFROM">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CITYFROM"/>
+          <details key="description" value="Departure city"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_FROM_CIT"/>
+          <details key="length" value="20"/>
+          <details key="byteLength" value="20"/>
+          <details key="byteOffset" value="31"/>
+          <details key="unicodeByteLength" value="40"/>
+          <details key="unicodeByteOffset" value="62"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Departure city"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CTRYFR">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CTRYFR"/>
+          <details key="description" value="Country Indic."/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_COUNTR"/>
+          <details key="length" value="3"/>
+          <details key="byteLength" value="3"/>
+          <details key="byteOffset" value="51"/>
+          <details key="unicodeByteLength" value="6"/>
+          <details key="unicodeByteOffset" value="102"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Country Indic."/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CTRYFR_ISO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CTRYFR_ISO"/>
+          <details key="description" value="ISO country code"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_COUN_ISO"/>
+          <details key="length" value="2"/>
+          <details key="byteLength" value="2"/>
+          <details key="byteOffset" value="54"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="108"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="ISO country code"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AIRPORTTO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="AIRPORTTO"/>
+          <details key="description" value="Destination airport"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_TOAIRP"/>
+          <details key="length" value="3"/>
+          <details key="byteLength" value="3"/>
+          <details key="byteOffset" value="56"/>
+          <details key="unicodeByteLength" value="6"/>
+          <details key="unicodeByteOffset" value="112"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Destination airport"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CITYTO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CITYTO"/>
+          <details key="description" value="Arrival city"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_TO_CITY"/>
+          <details key="length" value="20"/>
+          <details key="byteLength" value="20"/>
+          <details key="byteOffset" value="59"/>
+          <details key="unicodeByteLength" value="40"/>
+          <details key="unicodeByteOffset" value="118"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Arrival city"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CTRYTO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CTRYTO"/>
+          <details key="description" value="Country Indic."/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_COUNTR"/>
+          <details key="length" value="3"/>
+          <details key="byteLength" value="3"/>
+          <details key="byteOffset" value="79"/>
+          <details key="unicodeByteLength" value="6"/>
+          <details key="unicodeByteOffset" value="158"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Country Indic."/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CTRYTO_ISO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CTRYTO_ISO"/>
+          <details key="description" value="ISO country code"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_COUN_ISO"/>
+          <details key="length" value="2"/>
+          <details key="byteLength" value="2"/>
+          <details key="byteOffset" value="82"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="164"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="ISO country code"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DEPDATE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.util.Date"/>
+          <details key="name" value="DEPDATE"/>
+          <details key="description" value="Flight date"/>
+          <details key="type" value="1"/>
+          <details key="typeAsString" value="DATE"/>
+          <details key="recordTypeName" value="S_DATE"/>
+          <details key="length" value="8"/>
+          <details key="byteLength" value="8"/>
+          <details key="byteOffset" value="84"/>
+          <details key="unicodeByteLength" value="16"/>
+          <details key="unicodeByteOffset" value="168"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Flight date"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DEPTIME">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.util.Date"/>
+          <details key="name" value="DEPTIME"/>
+          <details key="description" value="Departure time"/>
+          <details key="type" value="3"/>
+          <details key="typeAsString" value="TIME"/>
+          <details key="recordTypeName" value="S_DEP_TIME"/>
+          <details key="length" value="6"/>
+          <details key="byteLength" value="6"/>
+          <details key="byteOffset" value="92"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="184"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Departure time"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ARRDATE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.util.Date"/>
+          <details key="name" value="ARRDATE"/>
+          <details key="description" value="Arrival date"/>
+          <details key="type" value="1"/>
+          <details key="typeAsString" value="DATE"/>
+          <details key="recordTypeName" value="S_ARRDATE"/>
+          <details key="length" value="8"/>
+          <details key="byteLength" value="8"/>
+          <details key="byteOffset" value="98"/>
+          <details key="unicodeByteLength" value="16"/>
+          <details key="unicodeByteOffset" value="196"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Arrival date"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ARRTIME">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.util.Date"/>
+          <details key="name" value="ARRTIME"/>
+          <details key="description" value="Arrival time"/>
+          <details key="type" value="3"/>
+          <details key="typeAsString" value="TIME"/>
+          <details key="recordTypeName" value="S_ARR_TIME"/>
+          <details key="length" value="6"/>
+          <details key="byteLength" value="6"/>
+          <details key="byteOffset" value="106"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="212"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Arrival time"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PLANETYPE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="PLANETYPE"/>
+          <details key="description" value="Aircraft Type"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_PLANETYE"/>
+          <details key="length" value="10"/>
+          <details key="byteLength" value="10"/>
+          <details key="byteOffset" value="112"/>
+          <details key="unicodeByteLength" value="20"/>
+          <details key="unicodeByteOffset" value="224"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Aircraft Type"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPISCOHOP_TABLE">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPISCOHOP_TABLE"/>
+        <details key="lineType" value="BAPISCOHOP"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="row" upperBound="-1"
+          eType="/0/BAPISCOHOP" containment="true"/>
+      <eGenericSuperTypes eClassifier="/2/Table">
+        <eTypeArguments eClassifier="/0/BAPISCOHOP"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPIRET2" eSuperTypes="/2/Structure">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPIRET2"/>
+        <details key="fieldCount" value="14"/>
+        <details key="recordLength" value="548"/>
+        <details key="unicodeRecordLength" value="1088"/>
+        <details key="isNestedType1Structure" value="false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="TYPE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="TYPE"/>
+          <details key="description" value="Message type: S Success, E Error, W Warning, I Info, A Abort"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="BAPI_MTYPE"/>
+          <details key="length" value="1"/>
+          <details key="byteLength" value="1"/>
+          <details key="byteOffset" value="0"/>
+          <details key="unicodeByteLength" value="2"/>
+          <details key="unicodeByteOffset" value="0"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Message type: S Success, E Error, W Warning, I Info, A Abort"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="ID"/>
+          <details key="description" value="Message Class"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="SYMSGID"/>
+          <details key="length" value="20"/>
+          <details key="byteLength" value="20"/>
+          <details key="byteOffset" value="1"/>
+          <details key="unicodeByteLength" value="40"/>
+          <details key="unicodeByteOffset" value="2"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Message Class"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="NUMBER">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="NUMBER"/>
+          <details key="description" value="Message Number"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="SYMSGNO"/>
+          <details key="length" value="3"/>
+          <details key="byteLength" value="3"/>
+          <details key="byteOffset" value="21"/>
+          <details key="unicodeByteLength" value="6"/>
+          <details key="unicodeByteOffset" value="42"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Message Number"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="MESSAGE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="MESSAGE"/>
+          <details key="description" value="Message Text"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="BAPI_MSG"/>
+          <details key="length" value="220"/>
+          <details key="byteLength" value="220"/>
+          <details key="byteOffset" value="24"/>
+          <details key="unicodeByteLength" value="440"/>
+          <details key="unicodeByteOffset" value="48"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Message Text"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="LOG_NO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="LOG_NO"/>
+          <details key="description" value="Application log: log number"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="BALOGNR"/>
+          <details key="length" value="20"/>
+          <details key="byteLength" value="20"/>
+          <details key="byteOffset" value="244"/>
+          <details key="unicodeByteLength" value="40"/>
+          <details key="unicodeByteOffset" value="488"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Application log: log number"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="LOG_MSG_NO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="LOG_MSG_NO"/>
+          <details key="description" value="Application log: Internal message serial number"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="BALMNR"/>
+          <details key="length" value="6"/>
+          <details key="byteLength" value="6"/>
+          <details key="byteOffset" value="264"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="528"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Application log: Internal message serial number"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="MESSAGE_V1">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="MESSAGE_V1"/>
+          <details key="description" value="Message Variable"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="SYMSGV"/>
+          <details key="length" value="50"/>
+          <details key="byteLength" value="50"/>
+          <details key="byteOffset" value="270"/>
+          <details key="unicodeByteLength" value="100"/>
+          <details key="unicodeByteOffset" value="540"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Message Variable"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="MESSAGE_V2">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="MESSAGE_V2"/>
+          <details key="description" value="Message Variable"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="SYMSGV"/>
+          <details key="length" value="50"/>
+          <details key="byteLength" value="50"/>
+          <details key="byteOffset" value="320"/>
+          <details key="unicodeByteLength" value="100"/>
+          <details key="unicodeByteOffset" value="640"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Message Variable"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="MESSAGE_V3">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="MESSAGE_V3"/>
+          <details key="description" value="Message Variable"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="SYMSGV"/>
+          <details key="length" value="50"/>
+          <details key="byteLength" value="50"/>
+          <details key="byteOffset" value="370"/>
+          <details key="unicodeByteLength" value="100"/>
+          <details key="unicodeByteOffset" value="740"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Message Variable"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="MESSAGE_V4">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="MESSAGE_V4"/>
+          <details key="description" value="Message Variable"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="SYMSGV"/>
+          <details key="length" value="50"/>
+          <details key="byteLength" value="50"/>
+          <details key="byteOffset" value="420"/>
+          <details key="unicodeByteLength" value="100"/>
+          <details key="unicodeByteOffset" value="840"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Message Variable"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PARAMETER">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="PARAMETER"/>
+          <details key="description" value="Parameter Name"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="BAPI_PARAM"/>
+          <details key="length" value="32"/>
+          <details key="byteLength" value="32"/>
+          <details key="byteOffset" value="470"/>
+          <details key="unicodeByteLength" value="64"/>
+          <details key="unicodeByteOffset" value="940"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Parameter Name"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ROW">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.Integer"/>
+          <details key="name" value="ROW"/>
+          <details key="description" value="Lines in parameter"/>
+          <details key="type" value="8"/>
+          <details key="typeAsString" value="INT"/>
+          <details key="recordTypeName" value="BAPI_LINE"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="504"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="1004"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Lines in parameter"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FIELD">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="FIELD"/>
+          <details key="description" value="Field in parameter"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="BAPI_FLD"/>
+          <details key="length" value="30"/>
+          <details key="byteLength" value="30"/>
+          <details key="byteOffset" value="508"/>
+          <details key="unicodeByteLength" value="60"/>
+          <details key="unicodeByteOffset" value="1008"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Field in parameter"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="SYSTEM">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="SYSTEM"/>
+          <details key="description" value="Logical system from which message originates"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="BAPILOGSYS"/>
+          <details key="length" value="10"/>
+          <details key="byteLength" value="10"/>
+          <details key="byteOffset" value="538"/>
+          <details key="unicodeByteLength" value="20"/>
+          <details key="unicodeByteOffset" value="1068"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Logical system from which message originates"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPIRET2_TABLE">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPIRET2_TABLE"/>
+        <details key="lineType" value="BAPIRET2"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="row" upperBound="-1"
+          eType="/0/BAPIRET2" containment="true"/>
+      <eGenericSuperTypes eClassifier="/2/Table">
+        <eTypeArguments eClassifier="/0/BAPIRET2"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Response" eSuperTypes="/2/Response">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Response for BAPI_FLCONN_GETDETAIL"/>
+      </eAnnotations>
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="Response"/>
+        <details key="fieldCount" value="7"/>
+        <details key="recordLength" value="-1"/>
+        <details key="unicodeRecordLength" value="-1"/>
+        <details key="isNestedType1Structure" value="false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="CONNECTION_DATA" eType="/0/BAPISCODAT"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="CONNECTION_DATA"/>
+          <details key="description" value="Connection data"/>
+          <details key="type" value="17"/>
+          <details key="typeAsString" value="STRUCTURE"/>
+          <details key="recordTypeName" value="BAPISCODAT"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="92"/>
+          <details key="unicodeByteLength" value="180"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="true"/>
+          <details key="isTable" value="false"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="true"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Connection data"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PRICE_INFO" eType="/0/BAPISCOPRI"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="PRICE_INFO"/>
+          <details key="description" value="Prices"/>
+          <details key="type" value="17"/>
+          <details key="typeAsString" value="STRUCTURE"/>
+          <details key="recordTypeName" value="BAPISCOPRI"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="128"/>
+          <details key="unicodeByteLength" value="136"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="true"/>
+          <details key="isTable" value="false"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="true"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Prices"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AVAILIBILITY" eType="/0/BAPISCOAVA_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="AVAILIBILITY"/>
+          <details key="description" value="Availability"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPISCOAVA"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="28"/>
+          <details key="unicodeByteLength" value="28"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Availability"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EXTENSION_IN" eType="/0/BAPIPAREX_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="EXTENSION_IN"/>
+          <details key="description" value="Import customer enhancements"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPIPAREX"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="990"/>
+          <details key="unicodeByteLength" value="1980"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Import customer enhancements"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EXTENSION_OUT" eType="/0/BAPIPAREX_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="EXTENSION_OUT"/>
+          <details key="description" value="Export customer enhancements"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPIPAREX"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="990"/>
+          <details key="unicodeByteLength" value="1980"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Export customer enhancements"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="FLIGHT_HOP_LIST" eType="/0/BAPISCOHOP_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="FLIGHT_HOP_LIST"/>
+          <details key="description" value="Route segment"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPISCOHOP"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="122"/>
+          <details key="unicodeByteLength" value="244"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Route segment"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RETURN" eType="/0/BAPIRET2_TABLE"
+          containment="true">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="org.eclipse.emf.ecore.EObject"/>
+          <details key="name" value="RETURN"/>
+          <details key="description" value="Return Messages"/>
+          <details key="type" value="99"/>
+          <details key="typeAsString" value="TABLE"/>
+          <details key="recordTypeName" value="BAPIRET2"/>
+          <details key="length" value="0"/>
+          <details key="byteLength" value="548"/>
+          <details key="unicodeByteLength" value="1088"/>
+          <details key="decimals" value="0"/>
+          <details key="default"/>
+          <details key="recordFieldName"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="true"/>
+          <details key="isImport" value="false"/>
+          <details key="isException" value="false"/>
+          <details key="isExport" value="false"/>
+          <details key="isChanging" value="false"/>
+          <details key="isOptional" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Return Messages"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPISCODAT" eSuperTypes="/2/Structure">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPISCODAT"/>
+        <details key="fieldCount" value="12"/>
+        <details key="recordLength" value="92"/>
+        <details key="unicodeRecordLength" value="180"/>
+        <details key="isNestedType1Structure" value="false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AGENCYNUM">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="AGENCYNUM"/>
+          <details key="description" value="Travel Agency Number"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="S_AGNCYNUM"/>
+          <details key="length" value="8"/>
+          <details key="byteLength" value="8"/>
+          <details key="byteOffset" value="0"/>
+          <details key="unicodeByteLength" value="16"/>
+          <details key="unicodeByteOffset" value="0"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Travel Agency Number"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FLIGHTCONN">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="FLIGHTCONN"/>
+          <details key="description" value="Flight connection number at travel agency"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="S_FLCONN"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="8"/>
+          <details key="unicodeByteLength" value="8"/>
+          <details key="unicodeByteOffset" value="16"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Flight connection number at travel agency"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FLIGHTDATE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.util.Date"/>
+          <details key="name" value="FLIGHTDATE"/>
+          <details key="description" value="Flight date"/>
+          <details key="type" value="1"/>
+          <details key="typeAsString" value="DATE"/>
+          <details key="recordTypeName" value="S_DATE"/>
+          <details key="length" value="8"/>
+          <details key="byteLength" value="8"/>
+          <details key="byteOffset" value="12"/>
+          <details key="unicodeByteLength" value="16"/>
+          <details key="unicodeByteOffset" value="24"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Flight date"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AIRPORTFR">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="AIRPORTFR"/>
+          <details key="description" value="Departure airport"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_FROMAIRP"/>
+          <details key="length" value="3"/>
+          <details key="byteLength" value="3"/>
+          <details key="byteOffset" value="20"/>
+          <details key="unicodeByteLength" value="6"/>
+          <details key="unicodeByteOffset" value="40"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Departure airport"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CITYFROM">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CITYFROM"/>
+          <details key="description" value="Departure city"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_FROM_CIT"/>
+          <details key="length" value="20"/>
+          <details key="byteLength" value="20"/>
+          <details key="byteOffset" value="23"/>
+          <details key="unicodeByteLength" value="40"/>
+          <details key="unicodeByteOffset" value="46"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Departure city"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AIRPORTTO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="AIRPORTTO"/>
+          <details key="description" value="Destination airport"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_TOAIRP"/>
+          <details key="length" value="3"/>
+          <details key="byteLength" value="3"/>
+          <details key="byteOffset" value="43"/>
+          <details key="unicodeByteLength" value="6"/>
+          <details key="unicodeByteOffset" value="86"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Destination airport"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CITYTO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CITYTO"/>
+          <details key="description" value="Arrival city"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_TO_CITY"/>
+          <details key="length" value="20"/>
+          <details key="byteLength" value="20"/>
+          <details key="byteOffset" value="46"/>
+          <details key="unicodeByteLength" value="40"/>
+          <details key="unicodeByteOffset" value="92"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Arrival city"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="NUMHOPS">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="NUMHOPS"/>
+          <details key="description" value="Number of legs"/>
+          <details key="type" value="6"/>
+          <details key="typeAsString" value="NUM"/>
+          <details key="recordTypeName" value="S_HOP_2"/>
+          <details key="length" value="1"/>
+          <details key="byteLength" value="1"/>
+          <details key="byteOffset" value="66"/>
+          <details key="unicodeByteLength" value="2"/>
+          <details key="unicodeByteOffset" value="132"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Number of legs"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DEPTIME">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.util.Date"/>
+          <details key="name" value="DEPTIME"/>
+          <details key="description" value="Departure time"/>
+          <details key="type" value="3"/>
+          <details key="typeAsString" value="TIME"/>
+          <details key="recordTypeName" value="S_DEP_TIME"/>
+          <details key="length" value="6"/>
+          <details key="byteLength" value="6"/>
+          <details key="byteOffset" value="67"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="134"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Departure time"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ARRTIME">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.util.Date"/>
+          <details key="name" value="ARRTIME"/>
+          <details key="description" value="Arrival time"/>
+          <details key="type" value="3"/>
+          <details key="typeAsString" value="TIME"/>
+          <details key="recordTypeName" value="S_ARR_TIME"/>
+          <details key="length" value="6"/>
+          <details key="byteLength" value="6"/>
+          <details key="byteOffset" value="73"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="146"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Arrival time"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ARRDATE">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.util.Date"/>
+          <details key="name" value="ARRDATE"/>
+          <details key="description" value="Arrival date"/>
+          <details key="type" value="1"/>
+          <details key="typeAsString" value="DATE"/>
+          <details key="recordTypeName" value="S_ARRDATE"/>
+          <details key="length" value="8"/>
+          <details key="byteLength" value="8"/>
+          <details key="byteOffset" value="79"/>
+          <details key="unicodeByteLength" value="16"/>
+          <details key="unicodeByteOffset" value="158"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Arrival date"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FLIGHTTIME">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.Integer"/>
+          <details key="name" value="FLIGHTTIME"/>
+          <details key="description" value="Flight time"/>
+          <details key="type" value="8"/>
+          <details key="typeAsString" value="INT"/>
+          <details key="recordTypeName" value="S_FLTIME"/>
+          <details key="length" value="4"/>
+          <details key="byteLength" value="4"/>
+          <details key="byteOffset" value="88"/>
+          <details key="unicodeByteLength" value="4"/>
+          <details key="unicodeByteOffset" value="176"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Flight time"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BAPISCOPRI" eSuperTypes="/2/Structure">
+      <eAnnotations source="http://sap.fusesource.org/rfc">
+        <details key="name" value="BAPISCOPRI"/>
+        <details key="fieldCount" value="12"/>
+        <details key="recordLength" value="128"/>
+        <details key="unicodeRecordLength" value="136"/>
+        <details key="isNestedType1Structure" value="false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRICE_ECO1">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="PRICE_ECO1"/>
+          <details key="description" value="Economy class airfare"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_PRICEECO"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="0"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="0"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Economy class airfare"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRICE_ECO2">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="PRICE_ECO2"/>
+          <details key="description" value="Economy class airfare -Child"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_PRICEEC2"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="12"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="12"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Economy class airfare -Child"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRICE_ECO3">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="PRICE_ECO3"/>
+          <details key="description" value="Economy class airfare - Small child"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_PRICEEC3"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="24"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="24"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Economy class airfare - Small child"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRICE_BUS1">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="PRICE_BUS1"/>
+          <details key="description" value="Business class airfare"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_PRICEBUS"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="36"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="36"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Business class airfare"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRICE_BUS2">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="PRICE_BUS2"/>
+          <details key="description" value="Business class airfare - Child"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_PRICEBU2"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="48"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="48"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Business class airfare - Child"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRICE_BUS3">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="PRICE_BUS3"/>
+          <details key="description" value="Business class airfare - Small child"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_PRICEBU3"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="60"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="60"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Business class airfare - Small child"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRICE_FST1">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="PRICE_FST1"/>
+          <details key="description" value="First class airfare"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_PRICEFST"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="72"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="72"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="First class airfare"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRICE_FST2">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="PRICE_FST2"/>
+          <details key="description" value="First class airfare - Child"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_PRICEFS2"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="84"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="84"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="First class airfare - Child"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRICE_FST3">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="PRICE_FST3"/>
+          <details key="description" value="First class airfare - Small child"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_PRICEFS3"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="96"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="96"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="First class airfare - Small child"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="TAX">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.math.BigDecimal"/>
+          <details key="name" value="TAX"/>
+          <details key="description" value="Flight taxes"/>
+          <details key="type" value="2"/>
+          <details key="typeAsString" value="BCD"/>
+          <details key="recordTypeName" value="S_TAX_2"/>
+          <details key="length" value="12"/>
+          <details key="byteLength" value="12"/>
+          <details key="byteOffset" value="108"/>
+          <details key="unicodeByteLength" value="12"/>
+          <details key="unicodeByteOffset" value="108"/>
+          <details key="decimals" value="4"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Flight taxes"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CURR">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CURR"/>
+          <details key="description" value="Travel agency local currency"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_CURR_AG"/>
+          <details key="length" value="5"/>
+          <details key="byteLength" value="5"/>
+          <details key="byteOffset" value="120"/>
+          <details key="unicodeByteLength" value="10"/>
+          <details key="unicodeByteOffset" value="120"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Travel agency local currency"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CURR_ISO">
+        <eAnnotations source="http://sap.fusesource.org/rfc">
+          <details key="classNameOfField" value="java.lang.String"/>
+          <details key="name" value="CURR_ISO"/>
+          <details key="description" value="ISO currency code"/>
+          <details key="type" value="0"/>
+          <details key="typeAsString" value="CHAR"/>
+          <details key="recordTypeName" value="S_CURR_ISO"/>
+          <details key="length" value="3"/>
+          <details key="byteLength" value="3"/>
+          <details key="byteOffset" value="125"/>
+          <details key="unicodeByteLength" value="6"/>
+          <details key="unicodeByteOffset" value="130"/>
+          <details key="decimals" value="0"/>
+          <details key="isAbapObject" value="false"/>
+          <details key="isNestedType1Structure" value="false"/>
+          <details key="isStructure" value="false"/>
+          <details key="isTable" value="false"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="ISO currency code"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="idoc" nsURI="http://sap.fusesource.org/idoc" nsPrefix="idoc">
+    <eClassifiers xsi:type="ecore:EClass" name="Document">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="archiveKey">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="client">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationDate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationTime">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIMessage">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIMessageGroup">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIMessageType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIStandardFlag">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDIStandardVersion">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDITransmissionFile">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocCompoundType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocNumber">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocSAPRelease">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDocTypeExtension">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageCode">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageFunction">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMode">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientAddress">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientLogicalAddress">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientPartnerFunction">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientPartnerNumber">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientPartnerType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipientPort">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderAddress">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderLogicalAddress">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderPartnerFunction">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderPartnerNumber">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderPartnerType">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderPort">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serialization">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="status">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="testFlag">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rootSegment" eType="/1/Segment"
+          containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Segment">
+      <eOperations name="get">
+        <eGenericType eTypeParameter="/1/Segment/get/T"/>
+        <eTypeParameters name="T"/>
+        <eParameters name="key">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eParameters>
+        <eParameters name="type">
+          <eGenericType>
+            <eTypeArguments eTypeParameter="/1/Segment/get/T"/>
+            <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getChildren" upperBound="-1">
+        <eGenericType eTypeParameter="/1/Segment/getChildren/S"/>
+        <eTypeParameters name="S">
+          <eBounds eClassifier="/1/Segment"/>
+        </eTypeParameters>
+      </eOperations>
+      <eOperations name="getChildren">
+        <eGenericType eClassifier="/1/SegmentList">
+          <eTypeArguments eTypeParameter="/1/Segment/getChildren.1/S"/>
+        </eGenericType>
+        <eTypeParameters name="S">
+          <eBounds eClassifier="/1/Segment"/>
+        </eTypeParameters>
+        <eParameters name="segmentType">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getTypes" upperBound="-1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="/1/Segment"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="document" eType="/1/Document"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" volatile="true"
+          transient="true" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" volatile="true"
+          transient="true" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" volatile="true"
+          transient="true" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchyLevel" volatile="true"
+          transient="true" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="idocType" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="idocTypeExtension" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemRelease" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="applicationRelease" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numFields" volatile="true"
+          transient="true" defaultValueLiteral="0" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurrence" volatile="true"
+          transient="true" defaultValueLiteral="0" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurrence" volatile="true"
+          transient="true" defaultValueLiteral="0" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatory" volatile="true"
+          transient="true" defaultValueLiteral="false" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualified" volatile="true"
+          transient="true" defaultValueLiteral="false" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordLength" volatile="true"
+          transient="true" defaultValueLiteral="0" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SegmentChildren">
+      <eOperations name="get">
+        <eGenericType eClassifier="/1/SegmentList">
+          <eTypeArguments eTypeParameter="/1/SegmentChildren/get/S"/>
+        </eGenericType>
+        <eTypeParameters name="S">
+          <eBounds eClassifier="/1/Segment"/>
+        </eTypeParameters>
+        <eParameters name="segmentType">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getTypes" upperBound="-1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="segments" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="group"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="/1/Segment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SegmentList">
+      <eTypeParameters name="S">
+        <eBounds eClassifier="/1/Segment"/>
+      </eTypeParameters>
+      <eOperations name="add">
+        <eGenericType eTypeParameter="/1/SegmentList/S"/>
+      </eOperations>
+      <eOperations name="add">
+        <eGenericType eTypeParameter="/1/SegmentList/S"/>
+        <eParameters name="index">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="rfc" nsURI="http://sap.fusesource.org/rfc" nsPrefix="rfc">
+    <eClassifiers xsi:type="ecore:EClass" name="Destination">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryName">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rfcs" upperBound="-1"
+          eType="/2/RFC" containment="true" resolveProxies="false" eOpposite="/2/RFC/destination"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RFC">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="group">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="request" eType="/2/Structure"
+          containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="response" eType="/2/Structure"
+          containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="destination" eType="/2/Destination"
+          resolveProxies="false" eOpposite="/2/Destination/rfcs"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Table">
+      <eTypeParameters name="S">
+        <eBounds eClassifier="/2/Structure"/>
+      </eTypeParameters>
+      <eOperations name="getRows" upperBound="-1">
+        <eGenericType eTypeParameter="/2/Table/S"/>
+      </eOperations>
+      <eOperations name="add">
+        <eGenericType eTypeParameter="/2/Table/S"/>
+      </eOperations>
+      <eOperations name="add">
+        <eGenericType eTypeParameter="/2/Table/S"/>
+        <eParameters name="index">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Structure">
+      <eOperations name="get">
+        <eGenericType eTypeParameter="/2/Structure/get/T"/>
+        <eTypeParameters name="T"/>
+        <eParameters name="key">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eParameters>
+        <eParameters name="type">
+          <eGenericType>
+            <eTypeArguments eTypeParameter="/2/Structure/get/T"/>
+            <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Request" eSuperTypes="/2/Structure"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Response" eSuperTypes="/2/Structure"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DestinationDataEntry" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DestinationData">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="/2/DestinationDataEntry" containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliasUser" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ashost" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="authType" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="client" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="codepage" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpicTrace" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="denyInitialPassword"
+          volatile="true" transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="expirationPeriod" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="expirationTime" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="getsso2" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gwhost" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gwserv" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lcheck" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxGetTime" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mshost" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="msserv" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mysapsso2" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwd" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" volatile="true"
+          transient="true" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pcs" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="peakLimit" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pingOnCreate" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="poolCapacity" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="r3name" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryDest" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryPasswd" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryRoundtripOptimization"
+          volatile="true" transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositorySnc" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryUser" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="saprouter" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sncLibrary" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sncMode" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sncMyname" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sncPartnername" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sncQop" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sysnr" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tphost" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tpname" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="trace" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userName" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userId" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="useSapgui" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x509cert" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DestinationDataStoreEntry" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="/2/DestinationData"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DestinationDataStore">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="/2/DestinationDataStoreEntry" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Server">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServerDataEntry" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServerData">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="/2/ServerDataEntry" containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gwhost" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gwserv" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="progid" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectionCount" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="saprouter" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxStartUpDelay" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryDestination"
+          volatile="true" transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryMap" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="trace" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="workerThreadCount" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="workerThreadMinCount"
+          volatile="true" transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sncMode" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sncQop" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sncMyname" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sncLib" volatile="true"
+          transient="true" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServerDataStoreEntry" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="/2/ServerData"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServerDataStore">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="/2/ServerDataStoreEntry" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FunctionTemplate">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+          eType="/2/ListFieldMetaData"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exports" upperBound="-1"
+          eType="/2/ListFieldMetaData"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="changing" upperBound="-1"
+          eType="/2/ListFieldMetaData"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
+          eType="/2/ListFieldMetaData"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
+          eType="/2/AbapException"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="importParameterList"
+          eType="/2/ParameterList" volatile="true" transient="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exportParameterList"
+          eType="/2/ParameterList" volatile="true" transient="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="changingParameterList"
+          eType="/2/ParameterList" volatile="true" transient="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tableParameterList" eType="/2/ParameterList"
+          volatile="true" transient="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptionList" eType="/2/AbapExceptionList"
+          volatile="true" transient="true" derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RecordMetaData">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fieldMetaData" upperBound="-1"
+          eType="/2/FieldMetaData" containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordFieldMetaData"
+          eType="/2/FieldList" volatile="true" transient="true" derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FieldMetaData">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fieldMetaData" upperBound="-1"
+          eType="/2/FieldMetaData" containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="/2/DataType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="byteLength">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="byteOffset">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unicodeByteLength">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unicodeByteOffset">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decimals">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recordMetaData" eType="/2/RecordMetaData"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ListFieldMetaData">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fieldMetaData" upperBound="-1"
+          eType="/2/FieldMetaData" containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="/2/DataType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="byteLength">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unicodeByteLength">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decimals">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaults">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="import">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="changing">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="export">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exception">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recordMetaData" eType="/2/RecordMetaData"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbapException">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="message">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RepositoryDataEntry" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="/2/FunctionTemplate"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RepositoryData">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="/2/RepositoryDataEntry" containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="functionTemplates" eType="/2/FunctionTemplateMap"
+          volatile="true" transient="true" derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RepositoryDataStore">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="/2/RepositoryDataStoreEntry" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RepositoryDataStoreEntry" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="/2/RepositoryData"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+      <eLiterals name="CHAR"/>
+      <eLiterals name="DATE" value="1"/>
+      <eLiterals name="BCD" value="2"/>
+      <eLiterals name="TIME" value="3"/>
+      <eLiterals name="BYTE" value="4"/>
+      <eLiterals name="NUM" value="6"/>
+      <eLiterals name="FLOAT" value="7"/>
+      <eLiterals name="INT" value="8"/>
+      <eLiterals name="INT2" value="9"/>
+      <eLiterals name="INT1" value="10"/>
+      <eLiterals name="STRUCTURE" value="17"/>
+      <eLiterals name="DECF16" value="23"/>
+      <eLiterals name="DECF34" value="24"/>
+      <eLiterals name="STRING" value="29"/>
+      <eLiterals name="XSTRING" value="30"/>
+      <eLiterals name="TABLE" value="99"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="ParameterList" instanceTypeName="java.util.List&lt;org.fusesource.camel.component.sap.model.rfc.ListFieldMetaData>"
+        serializable="false"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="FieldList" instanceTypeName="java.util.List&lt;org.fusesource.camel.component.sap.model.rfc.FieldMetaData>"
+        serializable="false"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="AbapExceptionList" instanceTypeName="java.util.List&lt;org.fusesource.camel.component.sap.model.rfc.AbapException>"
+        serializable="false"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="FunctionTemplateMap" instanceTypeName="java.util.Map&lt;java.lang.String, org.fusesource.camel.component.sap.model.rfc.FunctionTemplate>"
+        serializable="false"/>
+  </ecore:EPackage>
+</xmi:XMI>

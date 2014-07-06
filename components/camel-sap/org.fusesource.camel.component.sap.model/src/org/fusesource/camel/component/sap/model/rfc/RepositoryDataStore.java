@@ -48,7 +48,7 @@ public interface RepositoryDataStore extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entries</em>' map.
 	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getRepositoryDataStore_Entries()
-	 * @model mapType="org.fusesource.camel.component.sap.model.rfc.RespositoryDataStoreEntry<org.eclipse.emf.ecore.EString, org.fusesource.camel.component.sap.model.rfc.RepositoryData>"
+	 * @model mapType="org.fusesource.camel.component.sap.model.rfc.RepositoryDataStoreEntry<org.eclipse.emf.ecore.EString, org.fusesource.camel.component.sap.model.rfc.RepositoryData>"
 	 * @generated
 	 */
 	EMap<String, RepositoryData> getEntries();

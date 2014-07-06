@@ -201,13 +201,31 @@ public interface RfcPackage extends EPackage {
 	int TABLE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Line Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__LINE_TYPE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = 0;
+	int TABLE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.StructureImpl <em>Structure</em>}' class.
@@ -220,14 +238,187 @@ public interface RfcPackage extends EPackage {
 	int STRUCTURE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Field Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE__FIELD_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE__RECORD_LENGTH = 2;
+
+	/**
+	 * The feature id for the '<em><b>Unicode Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE__UNICODE_RECORD_LENGTH = 3;
+
+	/**
+	 * The feature id for the '<em><b>Nested Type1 Structure</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE__NESTED_TYPE1_STRUCTURE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Structure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_FEATURE_COUNT = 0;
+	int STRUCTURE_FEATURE_COUNT = 5;
 
+
+	/**
+	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RequestImpl <em>Request</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RequestImpl
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRequest()
+	 * @generated
+	 */
+	int REQUEST = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUEST__NAME = STRUCTURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Field Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUEST__FIELD_COUNT = STRUCTURE__FIELD_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUEST__RECORD_LENGTH = STRUCTURE__RECORD_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Unicode Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUEST__UNICODE_RECORD_LENGTH = STRUCTURE__UNICODE_RECORD_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Nested Type1 Structure</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUEST__NESTED_TYPE1_STRUCTURE = STRUCTURE__NESTED_TYPE1_STRUCTURE;
+
+	/**
+	 * The number of structural features of the '<em>Request</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUEST_FEATURE_COUNT = STRUCTURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.ResponseImpl <em>Response</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.ResponseImpl
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getResponse()
+	 * @generated
+	 */
+	int RESPONSE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__NAME = STRUCTURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Field Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__FIELD_COUNT = STRUCTURE__FIELD_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__RECORD_LENGTH = STRUCTURE__RECORD_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Unicode Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__UNICODE_RECORD_LENGTH = STRUCTURE__UNICODE_RECORD_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Nested Type1 Structure</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__NESTED_TYPE1_STRUCTURE = STRUCTURE__NESTED_TYPE1_STRUCTURE;
+
+	/**
+	 * The number of structural features of the '<em>Response</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE_FEATURE_COUNT = STRUCTURE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataEntryImpl <em>Destination Data Entry</em>}' class.
@@ -237,7 +428,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDestinationDataEntry()
 	 * @generated
 	 */
-	int DESTINATION_DATA_ENTRY = 4;
+	int DESTINATION_DATA_ENTRY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -274,7 +465,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDestinationData()
 	 * @generated
 	 */
-	int DESTINATION_DATA = 5;
+	int DESTINATION_DATA = 7;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -725,7 +916,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDestinationDataStoreEntry()
 	 * @generated
 	 */
-	int DESTINATION_DATA_STORE_ENTRY = 6;
+	int DESTINATION_DATA_STORE_ENTRY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -762,7 +953,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDestinationDataStore()
 	 * @generated
 	 */
-	int DESTINATION_DATA_STORE = 7;
+	int DESTINATION_DATA_STORE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -790,7 +981,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServer()
 	 * @generated
 	 */
-	int SERVER = 8;
+	int SERVER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -818,7 +1009,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServerDataEntry()
 	 * @generated
 	 */
-	int SERVER_DATA_ENTRY = 9;
+	int SERVER_DATA_ENTRY = 11;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -855,7 +1046,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServerData()
 	 * @generated
 	 */
-	int SERVER_DATA = 10;
+	int SERVER_DATA = 12;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -1018,7 +1209,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServerDataStoreEntry()
 	 * @generated
 	 */
-	int SERVER_DATA_STORE_ENTRY = 11;
+	int SERVER_DATA_STORE_ENTRY = 13;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1055,7 +1246,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServerDataStore()
 	 * @generated
 	 */
-	int SERVER_DATA_STORE = 12;
+	int SERVER_DATA_STORE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -1084,7 +1275,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFunctionTemplate()
 	 * @generated
 	 */
-	int FUNCTION_TEMPLATE = 13;
+	int FUNCTION_TEMPLATE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' reference list.
@@ -1193,7 +1384,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRecordMetaData()
 	 * @generated
 	 */
-	int RECORD_META_DATA = 14;
+	int RECORD_META_DATA = 16;
 
 	/**
 	 * The feature id for the '<em><b>Field Meta Data</b></em>' containment reference list.
@@ -1239,7 +1430,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFieldMetaData()
 	 * @generated
 	 */
-	int FIELD_META_DATA = 15;
+	int FIELD_META_DATA = 17;
 
 	/**
 	 * The feature id for the '<em><b>Field Meta Data</b></em>' containment reference list.
@@ -1348,7 +1539,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getListFieldMetaData()
 	 * @generated
 	 */
-	int LIST_FIELD_META_DATA = 16;
+	int LIST_FIELD_META_DATA = 18;
 
 	/**
 	 * The feature id for the '<em><b>Field Meta Data</b></em>' containment reference list.
@@ -1493,7 +1684,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getAbapException()
 	 * @generated
 	 */
-	int ABAP_EXCEPTION = 17;
+	int ABAP_EXCEPTION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1523,14 +1714,14 @@ public interface RfcPackage extends EPackage {
 	int ABAP_EXCEPTION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataEntryImpl <em>Respository Data Entry</em>}' class.
+	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataEntryImpl <em>Repository Data Entry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataEntryImpl
-	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRespositoryDataEntry()
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataEntryImpl
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryDataEntry()
 	 * @generated
 	 */
-	int RESPOSITORY_DATA_ENTRY = 18;
+	int REPOSITORY_DATA_ENTRY = 20;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1539,7 +1730,7 @@ public interface RfcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPOSITORY_DATA_ENTRY__KEY = 0;
+	int REPOSITORY_DATA_ENTRY__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' reference.
@@ -1548,16 +1739,16 @@ public interface RfcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPOSITORY_DATA_ENTRY__VALUE = 1;
+	int REPOSITORY_DATA_ENTRY__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Respository Data Entry</em>' class.
+	 * The number of structural features of the '<em>Repository Data Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPOSITORY_DATA_ENTRY_FEATURE_COUNT = 2;
+	int REPOSITORY_DATA_ENTRY_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataImpl <em>Repository Data</em>}' class.
@@ -1567,7 +1758,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryData()
 	 * @generated
 	 */
-	int REPOSITORY_DATA = 19;
+	int REPOSITORY_DATA = 21;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -1604,7 +1795,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryDataStore()
 	 * @generated
 	 */
-	int REPOSITORY_DATA_STORE = 20;
+	int REPOSITORY_DATA_STORE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -1625,14 +1816,14 @@ public interface RfcPackage extends EPackage {
 	int REPOSITORY_DATA_STORE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataStoreEntryImpl <em>Respository Data Store Entry</em>}' class.
+	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataStoreEntryImpl <em>Repository Data Store Entry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataStoreEntryImpl
-	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRespositoryDataStoreEntry()
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataStoreEntryImpl
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryDataStoreEntry()
 	 * @generated
 	 */
-	int RESPOSITORY_DATA_STORE_ENTRY = 21;
+	int REPOSITORY_DATA_STORE_ENTRY = 23;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1641,7 +1832,7 @@ public interface RfcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPOSITORY_DATA_STORE_ENTRY__KEY = 0;
+	int REPOSITORY_DATA_STORE_ENTRY__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' reference.
@@ -1650,16 +1841,16 @@ public interface RfcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPOSITORY_DATA_STORE_ENTRY__VALUE = 1;
+	int REPOSITORY_DATA_STORE_ENTRY__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Respository Data Store Entry</em>' class.
+	 * The number of structural features of the '<em>Repository Data Store Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPOSITORY_DATA_STORE_ENTRY_FEATURE_COUNT = 2;
+	int REPOSITORY_DATA_STORE_ENTRY_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.DataType <em>Data Type</em>}' enum.
@@ -1669,7 +1860,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 22;
+	int DATA_TYPE = 24;
 
 
 	/**
@@ -1680,7 +1871,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getParameterList()
 	 * @generated
 	 */
-	int PARAMETER_LIST = 23;
+	int PARAMETER_LIST = 25;
 
 	/**
 	 * The meta object id for the '<em>Field List</em>' data type.
@@ -1690,7 +1881,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFieldList()
 	 * @generated
 	 */
-	int FIELD_LIST = 24;
+	int FIELD_LIST = 26;
 
 	/**
 	 * The meta object id for the '<em>Abap Exception List</em>' data type.
@@ -1700,7 +1891,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getAbapExceptionList()
 	 * @generated
 	 */
-	int ABAP_EXCEPTION_LIST = 25;
+	int ABAP_EXCEPTION_LIST = 27;
 
 
 	/**
@@ -1711,7 +1902,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFunctionTemplateMap()
 	 * @generated
 	 */
-	int FUNCTION_TEMPLATE_MAP = 26;
+	int FUNCTION_TEMPLATE_MAP = 28;
 
 
 	/**
@@ -1844,6 +2035,28 @@ public interface RfcPackage extends EPackage {
 	EClass getTable();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.fusesource.camel.component.sap.model.rfc.Table#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Table#getName()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.fusesource.camel.component.sap.model.rfc.Table#getLineType <em>Line Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line Type</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Table#getLineType()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_LineType();
+
+	/**
 	 * Returns the meta object for class '{@link org.fusesource.camel.component.sap.model.rfc.Structure <em>Structure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1852,6 +2065,81 @@ public interface RfcPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStructure();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.fusesource.camel.component.sap.model.rfc.Structure#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Structure#getName()
+	 * @see #getStructure()
+	 * @generated
+	 */
+	EAttribute getStructure_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.fusesource.camel.component.sap.model.rfc.Structure#getFieldCount <em>Field Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Field Count</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Structure#getFieldCount()
+	 * @see #getStructure()
+	 * @generated
+	 */
+	EAttribute getStructure_FieldCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.fusesource.camel.component.sap.model.rfc.Structure#getRecordLength <em>Record Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Record Length</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Structure#getRecordLength()
+	 * @see #getStructure()
+	 * @generated
+	 */
+	EAttribute getStructure_RecordLength();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.fusesource.camel.component.sap.model.rfc.Structure#getUnicodeRecordLength <em>Unicode Record Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unicode Record Length</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Structure#getUnicodeRecordLength()
+	 * @see #getStructure()
+	 * @generated
+	 */
+	EAttribute getStructure_UnicodeRecordLength();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.fusesource.camel.component.sap.model.rfc.Structure#isNestedType1Structure <em>Nested Type1 Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nested Type1 Structure</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Structure#isNestedType1Structure()
+	 * @see #getStructure()
+	 * @generated
+	 */
+	EAttribute getStructure_NestedType1Structure();
+
+	/**
+	 * Returns the meta object for class '{@link org.fusesource.camel.component.sap.model.rfc.Request <em>Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Request</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Request
+	 * @generated
+	 */
+	EClass getRequest();
+
+	/**
+	 * Returns the meta object for class '{@link org.fusesource.camel.component.sap.model.rfc.Response <em>Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Response</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Response
+	 * @generated
+	 */
+	EClass getResponse();
 
 	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Destination Data Entry</em>}'.
@@ -3256,16 +3544,16 @@ public interface RfcPackage extends EPackage {
 	EAttribute getAbapException_Message();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Respository Data Entry</em>}'.
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Repository Data Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Respository Data Entry</em>'.
+	 * @return the meta object for class '<em>Repository Data Entry</em>'.
 	 * @see java.util.Map.Entry
 	 * @model keyDataType="org.eclipse.emf.ecore.EString" keyRequired="true"
 	 *        valueType="org.fusesource.camel.component.sap.model.rfc.FunctionTemplate" valueRequired="true"
 	 * @generated
 	 */
-	EClass getRespositoryDataEntry();
+	EClass getRepositoryDataEntry();
 
 	/**
 	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
@@ -3273,10 +3561,10 @@ public interface RfcPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
-	 * @see #getRespositoryDataEntry()
+	 * @see #getRepositoryDataEntry()
 	 * @generated
 	 */
-	EAttribute getRespositoryDataEntry_Key();
+	EAttribute getRepositoryDataEntry_Key();
 
 	/**
 	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'.
@@ -3284,10 +3572,10 @@ public interface RfcPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Value</em>'.
 	 * @see java.util.Map.Entry
-	 * @see #getRespositoryDataEntry()
+	 * @see #getRepositoryDataEntry()
 	 * @generated
 	 */
-	EReference getRespositoryDataEntry_Value();
+	EReference getRepositoryDataEntry_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.fusesource.camel.component.sap.model.rfc.RepositoryData <em>Repository Data</em>}'.
@@ -3343,16 +3631,16 @@ public interface RfcPackage extends EPackage {
 	EReference getRepositoryDataStore_Entries();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Respository Data Store Entry</em>}'.
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Repository Data Store Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Respository Data Store Entry</em>'.
+	 * @return the meta object for class '<em>Repository Data Store Entry</em>'.
 	 * @see java.util.Map.Entry
 	 * @model keyDataType="org.eclipse.emf.ecore.EString" keyRequired="true"
 	 *        valueType="org.fusesource.camel.component.sap.model.rfc.RepositoryData" valueRequired="true"
 	 * @generated
 	 */
-	EClass getRespositoryDataStoreEntry();
+	EClass getRepositoryDataStoreEntry();
 
 	/**
 	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
@@ -3360,10 +3648,10 @@ public interface RfcPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
-	 * @see #getRespositoryDataStoreEntry()
+	 * @see #getRepositoryDataStoreEntry()
 	 * @generated
 	 */
-	EAttribute getRespositoryDataStoreEntry_Key();
+	EAttribute getRepositoryDataStoreEntry_Key();
 
 	/**
 	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'.
@@ -3371,10 +3659,10 @@ public interface RfcPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Value</em>'.
 	 * @see java.util.Map.Entry
-	 * @see #getRespositoryDataStoreEntry()
+	 * @see #getRepositoryDataStoreEntry()
 	 * @generated
 	 */
-	EReference getRespositoryDataStoreEntry_Value();
+	EReference getRepositoryDataStoreEntry_Value();
 
 	/**
 	 * Returns the meta object for enum '{@link org.fusesource.camel.component.sap.model.rfc.DataType <em>Data Type</em>}'.
@@ -3555,6 +3843,22 @@ public interface RfcPackage extends EPackage {
 		EClass TABLE = eINSTANCE.getTable();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__NAME = eINSTANCE.getTable_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Line Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__LINE_TYPE = eINSTANCE.getTable_LineType();
+
+		/**
 		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.StructureImpl <em>Structure</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3563,6 +3867,66 @@ public interface RfcPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STRUCTURE = eINSTANCE.getStructure();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURE__NAME = eINSTANCE.getStructure_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Field Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURE__FIELD_COUNT = eINSTANCE.getStructure_FieldCount();
+
+		/**
+		 * The meta object literal for the '<em><b>Record Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURE__RECORD_LENGTH = eINSTANCE.getStructure_RecordLength();
+
+		/**
+		 * The meta object literal for the '<em><b>Unicode Record Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURE__UNICODE_RECORD_LENGTH = eINSTANCE.getStructure_UnicodeRecordLength();
+
+		/**
+		 * The meta object literal for the '<em><b>Nested Type1 Structure</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURE__NESTED_TYPE1_STRUCTURE = eINSTANCE.getStructure_NestedType1Structure();
+
+		/**
+		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RequestImpl <em>Request</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RequestImpl
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRequest()
+		 * @generated
+		 */
+		EClass REQUEST = eINSTANCE.getRequest();
+
+		/**
+		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.ResponseImpl <em>Response</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.ResponseImpl
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getResponse()
+		 * @generated
+		 */
+		EClass RESPONSE = eINSTANCE.getResponse();
 
 		/**
 		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataEntryImpl <em>Destination Data Entry</em>}' class.
@@ -4617,14 +4981,14 @@ public interface RfcPackage extends EPackage {
 		EAttribute ABAP_EXCEPTION__MESSAGE = eINSTANCE.getAbapException_Message();
 
 		/**
-		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataEntryImpl <em>Respository Data Entry</em>}' class.
+		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataEntryImpl <em>Repository Data Entry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataEntryImpl
-		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRespositoryDataEntry()
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataEntryImpl
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryDataEntry()
 		 * @generated
 		 */
-		EClass RESPOSITORY_DATA_ENTRY = eINSTANCE.getRespositoryDataEntry();
+		EClass REPOSITORY_DATA_ENTRY = eINSTANCE.getRepositoryDataEntry();
 
 		/**
 		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
@@ -4632,7 +4996,7 @@ public interface RfcPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RESPOSITORY_DATA_ENTRY__KEY = eINSTANCE.getRespositoryDataEntry_Key();
+		EAttribute REPOSITORY_DATA_ENTRY__KEY = eINSTANCE.getRepositoryDataEntry_Key();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
@@ -4640,7 +5004,7 @@ public interface RfcPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESPOSITORY_DATA_ENTRY__VALUE = eINSTANCE.getRespositoryDataEntry_Value();
+		EReference REPOSITORY_DATA_ENTRY__VALUE = eINSTANCE.getRepositoryDataEntry_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataImpl <em>Repository Data</em>}' class.
@@ -4687,14 +5051,14 @@ public interface RfcPackage extends EPackage {
 		EReference REPOSITORY_DATA_STORE__ENTRIES = eINSTANCE.getRepositoryDataStore_Entries();
 
 		/**
-		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataStoreEntryImpl <em>Respository Data Store Entry</em>}' class.
+		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataStoreEntryImpl <em>Repository Data Store Entry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataStoreEntryImpl
-		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRespositoryDataStoreEntry()
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataStoreEntryImpl
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryDataStoreEntry()
 		 * @generated
 		 */
-		EClass RESPOSITORY_DATA_STORE_ENTRY = eINSTANCE.getRespositoryDataStoreEntry();
+		EClass REPOSITORY_DATA_STORE_ENTRY = eINSTANCE.getRepositoryDataStoreEntry();
 
 		/**
 		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
@@ -4702,7 +5066,7 @@ public interface RfcPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RESPOSITORY_DATA_STORE_ENTRY__KEY = eINSTANCE.getRespositoryDataStoreEntry_Key();
+		EAttribute REPOSITORY_DATA_STORE_ENTRY__KEY = eINSTANCE.getRepositoryDataStoreEntry_Key();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
@@ -4710,7 +5074,7 @@ public interface RfcPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESPOSITORY_DATA_STORE_ENTRY__VALUE = eINSTANCE.getRespositoryDataStoreEntry_Value();
+		EReference REPOSITORY_DATA_STORE_ENTRY__VALUE = eINSTANCE.getRepositoryDataStoreEntry_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.DataType <em>Data Type</em>}' enum.

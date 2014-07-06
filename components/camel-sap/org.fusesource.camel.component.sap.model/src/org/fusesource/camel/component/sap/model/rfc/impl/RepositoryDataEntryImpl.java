@@ -29,19 +29,19 @@ import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Respository Data Entry</b></em>'.
+ * An implementation of the model object '<em><b>Repository Data Entry</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataEntryImpl#getTypedKey <em>Key</em>}</li>
- *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataEntryImpl#getTypedValue <em>Value</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataEntryImpl#getTypedKey <em>Key</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataEntryImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.Entry<String,FunctionTemplate> {
+public class RepositoryDataEntryImpl extends EObjectImpl implements BasicEMap.Entry<String,FunctionTemplate> {
 	/**
 	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RespositoryDataEntryImpl() {
+	protected RepositoryDataEntryImpl() {
 		super();
 	}
 
@@ -88,7 +88,7 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RfcPackage.Literals.RESPOSITORY_DATA_ENTRY;
+		return RfcPackage.Literals.REPOSITORY_DATA_ENTRY;
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 		String oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RfcPackage.RESPOSITORY_DATA_ENTRY__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, RfcPackage.REPOSITORY_DATA_ENTRY__KEY, oldKey, key));
 	}
 
 	/**
@@ -123,7 +123,7 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 			value = (FunctionTemplate)eResolveProxy(oldValue);
 			if (value != oldValue) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RfcPackage.RESPOSITORY_DATA_ENTRY__VALUE, oldValue, value));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RfcPackage.REPOSITORY_DATA_ENTRY__VALUE, oldValue, value));
 			}
 		}
 		return value;
@@ -147,7 +147,7 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 		FunctionTemplate oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RfcPackage.RESPOSITORY_DATA_ENTRY__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, RfcPackage.REPOSITORY_DATA_ENTRY__VALUE, oldValue, value));
 	}
 
 	/**
@@ -158,9 +158,9 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RfcPackage.RESPOSITORY_DATA_ENTRY__KEY:
+			case RfcPackage.REPOSITORY_DATA_ENTRY__KEY:
 				return getTypedKey();
-			case RfcPackage.RESPOSITORY_DATA_ENTRY__VALUE:
+			case RfcPackage.REPOSITORY_DATA_ENTRY__VALUE:
 				if (resolve) return getTypedValue();
 				return basicGetTypedValue();
 		}
@@ -175,10 +175,10 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RfcPackage.RESPOSITORY_DATA_ENTRY__KEY:
+			case RfcPackage.REPOSITORY_DATA_ENTRY__KEY:
 				setTypedKey((String)newValue);
 				return;
-			case RfcPackage.RESPOSITORY_DATA_ENTRY__VALUE:
+			case RfcPackage.REPOSITORY_DATA_ENTRY__VALUE:
 				setTypedValue((FunctionTemplate)newValue);
 				return;
 		}
@@ -193,10 +193,10 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RfcPackage.RESPOSITORY_DATA_ENTRY__KEY:
+			case RfcPackage.REPOSITORY_DATA_ENTRY__KEY:
 				setTypedKey(KEY_EDEFAULT);
 				return;
-			case RfcPackage.RESPOSITORY_DATA_ENTRY__VALUE:
+			case RfcPackage.REPOSITORY_DATA_ENTRY__VALUE:
 				setTypedValue((FunctionTemplate)null);
 				return;
 		}
@@ -211,9 +211,9 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RfcPackage.RESPOSITORY_DATA_ENTRY__KEY:
+			case RfcPackage.REPOSITORY_DATA_ENTRY__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-			case RfcPackage.RESPOSITORY_DATA_ENTRY__VALUE:
+			case RfcPackage.REPOSITORY_DATA_ENTRY__VALUE:
 				return value != null;
 		}
 		return super.eIsSet(featureID);
@@ -313,4 +313,4 @@ public class RespositoryDataEntryImpl extends EObjectImpl implements BasicEMap.E
 		return container == null ? null : (EMap<String, FunctionTemplate>)container.eGet(eContainmentFeature());
 	}
 
-} //RespositoryDataEntryImpl
+} //RepositoryDataEntryImpl

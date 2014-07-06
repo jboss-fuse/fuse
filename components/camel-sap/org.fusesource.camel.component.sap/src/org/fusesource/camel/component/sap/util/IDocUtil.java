@@ -1,42 +1,22 @@
 package org.fusesource.camel.component.sap.util;
 
-import java.io.File;
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
-import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.emf.ecore.xmi.XMLParserPool;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMLParserPoolImpl;
 import org.fusesource.camel.component.sap.model.idoc.Document;
 import org.fusesource.camel.component.sap.model.idoc.IdocFactory;
 import org.fusesource.camel.component.sap.model.idoc.IdocPackage;
@@ -62,6 +42,13 @@ import com.sap.conn.jco.JCoException;
 
 import static org.fusesource.camel.component.sap.model.idoc.IdocPackage.eNS_URI;
 
+/**
+ * Utility routines to create and manipulate Data Layer IDoc types and
+ * instances.
+ * 
+ * @author punkhorn
+ * 
+ */
 public class IDocUtil extends Util {
 
 	private static final Logger LOG = LoggerFactory.getLogger(IDocUtil.class);
@@ -69,219 +56,224 @@ public class IDocUtil extends Util {
 	public static final String GenNS_URI = "http://www.eclipse.org/emf/2002/GenModel";
 
 	public static final String GenNS_DOCUMENTATION_KEY = "documentation";
-	
-	public static final Registry registry = EPackage.Registry.INSTANCE;
 
 	/**
-	 * Details key for a root segment annotation providing the
-	 * compound type of the document.
+	 * Details key for a root segment annotation providing the compound type of
+	 * the document.
 	 */
 	public static final String IDocNS_COMPOUND_TYPE_KEY = "compoundType";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * name of the segment.
+	 * Details key for a segment annotation providing the name of the segment.
 	 */
 	public static final String IDocNS_NAME_KEY = "name";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * definition of the segment.
+	 * Details key for a segment annotation providing the definition of the
+	 * segment.
 	 */
 	public static final String IDocNS_DEFINITION_KEY = "definition";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * hierarchy level of the segment.
+	 * Details key for a segment annotation providing the hierarchy level of the
+	 * segment.
 	 */
 	public static final String IDocNS_HIERARCHY_LEVEL_KEY = "hierarchyLevel";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * IDoc type of the segment.
+	 * Details key for a segment annotation providing the IDoc type of the
+	 * segment.
 	 */
 	public static final String IDocNS_IDOC_TYPE_KEY = "idocType";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * IDoc type extension of the segment.
+	 * Details key for a segment annotation providing the IDoc type extension of
+	 * the segment.
 	 */
 	public static final String IDocNS_IDOC_TYPE_EXTENSION_KEY = "idocTypeExtension";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * key of the segment.
+	 * Details key for a segment annotation providing the key of the segment.
 	 */
 	public static final String IDocNS_KEY_KEY = "key";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * system release of the segment.
+	 * Details key for a segment annotation providing the system release of the
+	 * segment.
 	 */
 	public static final String IDocNS_SYSTEM_RELEASE_KEY = "systemRelease";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * application release of the segment.
+	 * Details key for a segment annotation providing the application release of
+	 * the segment.
 	 */
 	public static final String IDocNS_APPLICATION_RELEASE_KEY = "applicationRelease";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * type of the segment.
+	 * Details key for a segment annotation providing the type of the segment.
 	 */
 	public static final String IDocNS_TYPE_KEY = "type";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * max number of occurrences of the segment.
+	 * Details key for a segment annotation providing the max number of
+	 * occurrences of the segment.
 	 */
 	public static final String IDocNS_MAX_OCCURRENCE_KEY = "maxOccurrence";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * min number of occurrences of the segment.
+	 * Details key for a segment annotation providing the min number of
+	 * occurrences of the segment.
 	 */
 	public static final String IDocNS_MIN_OCCURRENCE_KEY = "minOccurrence";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * mandatory state of the segment.
+	 * Details key for a segment annotation providing the mandatory state of the
+	 * segment.
 	 */
 	public static final String IDocNS_IS_MANDATORY_KEY = "isMandatory";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * qualified state of the segment.
+	 * Details key for a segment annotation providing the qualified state of the
+	 * segment.
 	 */
 	public static final String IDocNS_IS_QUALIFIED_KEY = "isQualified";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * number of fields in the segment.
+	 * Details key for a segment annotation providing the number of fields in
+	 * the segment.
 	 */
 	public static final String IDocNS_NUM_FIELDS_KEY = "numFields";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * locked state of the segment.
+	 * Details key for a segment annotation providing the locked state of the
+	 * segment.
 	 */
 	public static final String IDocNS_IS_LOCKED_KEY = "isLocked";
 
 	/**
-	 * Details key for a segment annotation providing the
-	 * record length of the segment.
+	 * Details key for a segment annotation providing the record length of the
+	 * segment.
 	 */
 	public static final String IDocNS_RECORD_LENGTH_KEY = "recordLength";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * description of the field. 
+	 * Details key for a segment field annotation providing the description of
+	 * the field.
 	 */
 	public static final String IDocNS_DESCRIPTION_KEY = "description";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * fully-qualified Java classname of the field.
+	 * Details key for a segment field annotation providing the fully-qualified
+	 * Java classname of the field.
 	 */
 	public static final String IDocNS_CLASS_NAME_OF_FIELD_KEY = "classNameOfField";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * check table name of the field.
+	 * Details key for a segment field annotation providing the check table name
+	 * of the field.
 	 */
 	public static final String IDocNS_CHECK_TABLE_NAME_KEY = "checkTableName";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * data element name of the field.
+	 * Details key for a segment field annotation providing the data element
+	 * name of the field.
 	 */
 	public static final String IDocNS_DATA_ELEMENT_NAME_KEY = "dataElementName";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * data type of the field.
+	 * Details key for a segment field annotation providing the data type of the
+	 * field.
 	 */
 	public static final String IDocNS_DATA_TYPE_KEY = "dataType";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * data type name of the field.
+	 * Details key for a segment field annotation providing the data type name
+	 * of the field.
 	 */
 	public static final String IDocNS_DATA_TYPE_NAME_KEY = "dataTypeName";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * domain name of the field.
+	 * Details key for a segment field annotation providing the domain name of
+	 * the field.
 	 */
 	public static final String IDocNS_DOMAIN_NAME_KEY = "domainName";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * internal lenght of the field.
+	 * Details key for a segment field annotation providing the internal lenght
+	 * of the field.
 	 */
 	public static final String IDocNS_INTERNAL_LENGTH_KEY = "internalLength";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * length of the field.
+	 * Details key for a segment field annotation providing the length of the
+	 * field.
 	 */
 	public static final String IDocNS_LENGTH_KEY = "length";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * offset of the field.
+	 * Details key for a segment field annotation providing the offset of the
+	 * field.
 	 */
 	public static final String IDocNS_OFFSET_KEY = "offset";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * output length of the field.
+	 * Details key for a segment field annotation providing the output length of
+	 * the field.
 	 */
 	public static final String IDocNS_OUTPUT_LENGTH_KEY = "outputLength";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * type of the field.
+	 * Details key for a segment field annotation providing the type of the
+	 * field.
 	 */
 	public static final String IDocNS_RECORD_TYPE_KEY = "recordType";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * type as string of the field.
+	 * Details key for a segment field annotation providing the type as string
+	 * of the field.
 	 */
 	public static final String IDocNS_TYPE_AS_STRING_KEY = "typeAsString";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * value descriptions of the field.
+	 * Details key for a segment field annotation providing the value
+	 * descriptions of the field.
 	 */
 	public static final String IDocNS_VALUE_DESCRIPTIONS_KEY = "valueDescriptions";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * value ranges of the field.
+	 * Details key for a segment field annotation providing the value ranges of
+	 * the field.
 	 */
 	public static final String IDocNS_VALUE_RANGES_KEY = "valueRanges";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * values of the field.
+	 * Details key for a segment field annotation providing the values of the
+	 * field.
 	 */
 	public static final String IDocNS_VALUES_KEY = "values";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * is ISO code of the field.
+	 * Details key for a segment field annotation providing the is ISO code of
+	 * the field.
 	 */
 	public static final String IDocNS_IS_ISO_CODE_KEY = "isoCode";
 
 	/**
-	 * Details key for a segment field annotation providing the
-	 * position of the field.
+	 * Details key for a segment field annotation providing the position of the
+	 * field.
 	 */
 	public static final String IDocNS_POSITION_KEY = "position";
-	
+
+	/**
+	 * Send <code>document</code> to <code>destination</code>.
+	 * 
+	 * @param destination
+	 *            - the destination to send to.
+	 * @param document
+	 *            - the document to send.
+	 * @throws JCoException
+	 * @throws IDocMetaDataUnavailableException
+	 */
 	public static void sendIDoc(JCoDestination destination, Document document) throws JCoException, IDocMetaDataUnavailableException {
 		IDocRepository iDocRepository = JCoIDoc.getIDocRepository(destination);
 		String tid = destination.createTID();
@@ -289,22 +281,31 @@ public class IDocUtil extends Util {
 
 		// Create IDoc
 		Segment rootSegment = document.getRootSegment();
-		IDocDocument iDocDocument = iDocFactory.createIDocDocument(iDocRepository, rootSegment.getIdocType(), rootSegment.getIdocTypeExtension(), rootSegment.getSystemRelease(), rootSegment.getApplicationRelease());
-		
-		// Fill IDoc Document 
+		IDocDocument iDocDocument = iDocFactory.createIDocDocument(iDocRepository, rootSegment.getIdocType(), rootSegment.getIdocTypeExtension(),
+				rootSegment.getSystemRelease(), rootSegment.getApplicationRelease());
+
+		// Fill IDoc Document
 		fillIDocDocumentFromDocument(document, iDocDocument);
-		
+
 		// Send IDoc
 		JCoIDoc.send(iDocDocument, IDocFactory.IDOC_VERSION_DEFAULT, destination, tid);
 		destination.confirmTID(tid);
 	}
-	
+
+	/**
+	 * Fill <code>idocDocument</code> with values from <code>document</code>.
+	 * 
+	 * @param document
+	 *            - the document containing the values.
+	 * @param idocDocument
+	 *            - the IDoc document to fill.
+	 */
 	public static void fillIDocDocumentFromDocument(Document document, IDocDocument idocDocument) {
 		if (idocDocument == null || document == null) {
 			LOG.warn("IDoc Document'" + idocDocument + "' not filled from document'" + document + "'");
 			return;
 		}
-		
+
 		try {
 			idocDocument.setArchiveKey(document.getArchiveKey());
 		} catch (IDocConversionException | IDocSyntaxException e) {
@@ -480,20 +481,28 @@ public class IDocUtil extends Util {
 		} catch (IDocConversionException | IDocSyntaxException e) {
 			LOG.warn("Failed to fill TestFlag attribute with value '" + document.getTestFlag() + "' of IDoc Document");
 		}
-		
+
 		fillIDocSegmentFromSegment(document.getRootSegment(), idocDocument.getRootSegment());
 
 	}
-	
+
+	/**
+	 * Fill <code>idocSegment</code> with values from <code>segmentt</code>.
+	 * 
+	 * @param segment
+	 *            - the segment containing the values.
+	 * @param idocSegment
+	 *            - the IDoc segment to fill.
+	 */
 	public static void fillIDocSegmentFromSegment(Segment segment, IDocSegment idocSegment) {
 		if (segment == null || idocSegment == null) {
 			LOG.warn("IDoc Segment '" + idocSegment + "' not filled from segment '" + segment + "'");
 			return;
 		}
-		
+
 		// Fill segment fields
 		Iterator<String> it = segment.keySet().iterator();
-		while(it.hasNext()) {
+		while (it.hasNext()) {
 			String fieldName = it.next();
 			Object value = segment.get(fieldName);
 			try {
@@ -504,9 +513,9 @@ public class IDocUtil extends Util {
 		}
 
 		// Fill child segments
-		SegmentChildren segmentChildren = ((SegmentImpl)segment).getSegmentChildren();
-		for(String segmentType: segmentChildren.getTypes()) {
-			for (Segment childSegment: segmentChildren.get(segmentType)) {
+		SegmentChildren segmentChildren = ((SegmentImpl) segment).getSegmentChildren();
+		for (String segmentType : segmentChildren.getTypes()) {
+			for (Segment childSegment : segmentChildren.get(segmentType)) {
 				try {
 					IDocSegment childIDocSegment = idocSegment.addChild(segmentType);
 					fillIDocSegmentFromSegment(childSegment, childIDocSegment);
@@ -514,16 +523,24 @@ public class IDocUtil extends Util {
 					LOG.warn("Failed to create and fill child IDoc segment '" + segmentType + "' with child segment '" + childSegment + "'");
 				}
 			}
-			
+
 		}
 	}
-	
+
+	/**
+	 * Extract values from <code>idocDocument</code> to <code>document</code>.
+	 * 
+	 * @param idocDocument
+	 *            - the IDoc document containing the values.
+	 * @param document
+	 *            - the document to fill.
+	 */
 	public static void extractIDocDocumentIntoDocument(IDocDocument idocDocument, Document document) {
 		if (document == null || idocDocument == null) {
 			LOG.warn("IDoc Document '" + idocDocument + "' not extracted to document '" + document + "'");
 			return;
 		}
-		
+
 		document.setArchiveKey(idocDocument.getArchiveKey());
 		document.setClient(idocDocument.getClient());
 		document.setCreationDate(idocDocument.getCreationDate());
@@ -557,11 +574,19 @@ public class IDocUtil extends Util {
 		document.setSerialization(idocDocument.getSerialization());
 		document.setStatus(idocDocument.getStatus());
 		document.setTestFlag(idocDocument.getTestFlag());
-		
+
 		extractIDocSegmentIntoSegment(idocDocument.getRootSegment(), document.getRootSegment());
-		
+
 	}
-	
+
+	/**
+	 * Extract values from <code>idocSegment</code> to <code>segment</code>.
+	 * 
+	 * @param idocSegment
+	 *            - the IDoc segment containing the values.
+	 * @param segment
+	 *            - the segment to fill.
+	 */
 	public static void extractIDocSegmentIntoSegment(IDocSegment idocSegment, Segment segment) {
 		if (segment == null || idocSegment == null) {
 			LOG.warn("IDoc Document '" + idocSegment + "' not extracted to segment '" + segment + "'");
@@ -570,7 +595,7 @@ public class IDocUtil extends Util {
 
 		// Fill segment fields
 		Iterator<String> it = segment.keySet().iterator();
-		while(it.hasNext()) {
+		while (it.hasNext()) {
 			String fieldName = it.next();
 			try {
 				Object value = idocSegment.getValue(fieldName);
@@ -579,59 +604,64 @@ public class IDocUtil extends Util {
 				LOG.warn("Failed to extract value from field '" + fieldName + "' from IDoc segment to segment");
 			}
 		}
-		
+
 		// Fill child segments
-		SegmentChildren segmentChildren = ((SegmentImpl)segment).getSegmentChildren();
-		for(String segmentType: segmentChildren.getTypes()) {
-			for (IDocSegment childIDocSegment: idocSegment.getChildren(segmentType)) {
+		SegmentChildren segmentChildren = ((SegmentImpl) segment).getSegmentChildren();
+		for (String segmentType : segmentChildren.getTypes()) {
+			for (IDocSegment childIDocSegment : idocSegment.getChildren(segmentType)) {
 				Segment childSegment = segmentChildren.get(segmentType).add();
 				extractIDocSegmentIntoSegment(childIDocSegment, childSegment);
 			}
-			
+
 		}
 	}
-	
+
 	/**
 	 * Creates instance of given IDoc type.
 	 * 
 	 * @param repository
+	 *            - the repository containing IDoc's meta-data.
 	 * @param iDocType
+	 *            - the IDoc's type.
 	 * @param iDocTypeExtension
+	 *            - the IDoc's type extension.
 	 * @param systemRelease
+	 *            - the IDoc's system release.
 	 * @param applicationRelease
-	 * @return
+	 *            - the IDoc's application release.
+	 * @return New document.
 	 */
 	public static Document createIDoc(IDocRepository repository, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
 		// Check that at least IDoc Type has been specified.
 		if (iDocType == null || iDocType.length() == 0) {
 			throw new IllegalArgumentException("IDoc Type must be specified");
 		}
-		
+
 		// Convert nulls to empty strings if necessary.
 		iDocTypeExtension = iDocTypeExtension == null ? "" : iDocTypeExtension;
 		systemRelease = systemRelease == null ? "" : systemRelease;
 		applicationRelease = applicationRelease == null ? "" : applicationRelease;
-		
+
 		// Get package for IDoc type
 		IDocID iDocID = new IDocID(repository.getName(), iDocType, iDocTypeExtension, systemRelease, applicationRelease);
 		EPackage ePackage = getEPackage(repository, iDocID.getPackageNamespaceURI());
 		if (ePackage == null) {
 			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
 		}
-		
-        EClassifier classifier = ePackage.getEClassifier("ROOT");
-        if (classifier == null || !(classifier instanceof EClass) ) {
+
+		EClassifier classifier = ePackage.getEClassifier("ROOT");
+		if (classifier == null || !(classifier instanceof EClass)) {
 			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
-        }
+		}
 		EClass eClass = (EClass) classifier;
 		if (!IdocPackage.eINSTANCE.getSegment().isSuperTypeOf(eClass)) {
 			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
 		}
-		
+
 		Segment segment = (Segment) ePackage.getEFactoryInstance().create(eClass);
 		DocumentImpl iDoc = (DocumentImpl) IdocFactory.eINSTANCE.createDocument();
 		iDoc.setRootSegment(segment);
-		((SegmentImpl)segment).setDocument(iDoc);
+		((SegmentImpl) segment).setDocument(iDoc);
 		iDoc.setIDocType(iDocType);
 		iDoc.setIDocTypeExtension(iDocTypeExtension);
 		Date now = new Date();
@@ -641,48 +671,56 @@ public class IDocUtil extends Util {
 		if (idocCompoundType == null) {
 			iDoc.setIDocCompoundType(idocCompoundType);
 		}
-		
+
 		return iDoc;
 	}
-	
+
 	/**
 	 * Creates instance of given IDoc type.
 	 * 
-	 * <p>NB: This is off-line version of method; package of IDoc type must already be already loaded in global package registry. 
+	 * <p>
+	 * NB: This is off-line version of method; package of IDoc type must already
+	 * be already loaded in global package registry.
+	 * 
 	 * @param repositoryName
+	 *            - the name of repository containing IDoc's meta-data.
 	 * @param iDocType
+	 *            - the IDoc's type.
 	 * @param iDocTypeExtension
+	 *            - the IDoc's type extension.
 	 * @param systemRelease
+	 *            - the IDoc's system release.
 	 * @param applicationRelease
-	 * @return
+	 *            - the IDoc's application release.
+	 * @return New document.
 	 */
 	public static Document createIDoc(String repositoryName, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
 		// Check that at lease IDoc Type has been specified.
 		if (iDocType == null || iDocType.length() == 0) {
 			throw new IllegalArgumentException("IDoc Type must be specified");
 		}
-		
+
 		// Convert nulls to empty strings if necessary.
 		iDocTypeExtension = iDocTypeExtension == null ? "" : iDocTypeExtension;
 		systemRelease = systemRelease == null ? "" : systemRelease;
 		applicationRelease = applicationRelease == null ? "" : applicationRelease;
-		
+
 		// Get package for IDoc type
 		IDocID iDocID = new IDocID(repositoryName, iDocType, iDocTypeExtension, systemRelease, applicationRelease);
 		EPackage ePackage = registry.getEPackage(iDocID.getPackageNamespaceURI());
 		if (ePackage == null) {
 			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
 		}
-		
-        EClassifier classifier = ePackage.getEClassifier("ROOT");
-        if (classifier == null || !(classifier instanceof EClass) ) {
+
+		EClassifier classifier = ePackage.getEClassifier("ROOT");
+		if (classifier == null || !(classifier instanceof EClass)) {
 			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
-        }
+		}
 		EClass eClass = (EClass) classifier;
 		if (!IdocPackage.eINSTANCE.getSegment().isSuperTypeOf(eClass)) {
 			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
 		}
-		
+
 		Segment segment = (Segment) ePackage.getEFactoryInstance().create(eClass);
 		DocumentImpl iDoc = (DocumentImpl) IdocFactory.eINSTANCE.createDocument();
 		iDoc.setRootSegment(segment);
@@ -695,112 +733,8 @@ public class IDocUtil extends Util {
 		if (idocCompoundType == null) {
 			iDoc.setIDocCompoundType(idocCompoundType);
 		}
-		
-		return iDoc;
-	}
-	
-	/**
-	 * Save IDoc Packages in Global Package Repository to given file.
-	 * 
-	 * @param file - The file to save packages into. NB: this file must end with '.ecore' extension.
-	 * @throws IOException
-	 */
-	public static void saveRegistry(File file) throws IOException {
-        ResourceSet resourceSet = new ResourceSetImpl();
-        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(".ecore", new EcoreResourceFactoryImpl());
-        
-        URI fileURI = URI.createFileURI(file.getAbsolutePath());
-        Resource resource = resourceSet.createResource(fileURI);
-        
-        Set<String> nsURIs = new HashSet<String>();
-        nsURIs.addAll(registry.keySet());
-		for (String nsURI : nsURIs) {
-			if (nsURI.startsWith(IdocPackage.eNS_URI)) {
-				EPackage ePackage = EPackage.Registry.INSTANCE.getEPackage(nsURI);
-				resource.getContents().add(ePackage);
-			}
-		}
-		
-        Map<String,Object> options = new HashMap<String,Object>();
-        List<Object> lookupTable = new ArrayList<Object>();
-        options.put(XMIResource.OPTION_CONFIGURATION_CACHE, Boolean.TRUE);
-        options.put(XMIResource.OPTION_USE_CACHED_LOOKUP_TABLE, lookupTable);
-        options.put(XMIResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.FALSE);
-        resource.save(options);
-	}
-	
-	/**
-	 * Loads IDoc packages stored in given file into Global Package Repository.
-	 * @param file - The file to load packages from. NB: this file must end with '.ecore' extension.
-	 * @throws IOException
-	 */
-	public static void loadRegistry(File file) throws IOException {
-        ResourceSet resourceSet = new ResourceSetImpl();
-        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(".ecore", new EcoreResourceFactoryImpl());
-        resourceSet.getPackageRegistry().put(eNS_URI, IdocPackage.eINSTANCE);
-        
-        URI fileURI = URI.createFileURI(file.getAbsolutePath());
-        Resource resource = resourceSet.createResource(fileURI);
 
-        Map<String,Object> options = new HashMap<String,Object>();
-        XMLParserPool parserPool = new XMLParserPoolImpl();
-        Map<Object, Object> nameToFeatureMap = new HashMap<Object, Object>();
-        options.put(XMIResource.OPTION_DEFER_ATTACHMENT, Boolean.TRUE);
-        options.put(XMIResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
-        options.put(XMIResource.OPTION_USE_DEPRECATED_METHODS, Boolean.TRUE);
-        options.put(XMIResource.OPTION_USE_PARSER_POOL, parserPool);
-        options.put(XMIResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP, nameToFeatureMap);
-        resource.load(null);
-        
-        ListIterator<EObject> it = resource.getContents().listIterator();
-        while (it.hasNext()) {
-        	EObject eObj = it.next();
-        	if (eObj instanceof EPackage) {
-        		EPackage ePackage = (EPackage) eObj;
-        		if (!eNS_URI.endsWith(ePackage.getNsURI())) { // Do not add base IDoc package
-        			reattachIDocSuperTypes(ePackage);
-        			registry.put(ePackage.getNsURI(), ePackage);
-        		}
-        	}
-        }
-        
-	}
-	
-	/**
-	 * Re-attaches super types of derived IDoc Documents, Segments,
-	 * SegmentChildren and SegmentList types to EClass instances defined by
-	 * static IDoc base package. This operation is necessary when loading a
-	 * package from storage since its EClasses reference the stored instance of IDoc base
-	 * package instead of static package in runtime.
-	 * 
-	 * @param ePackage - package containing classes whose super types will be re-attached.
-	 */
-	public static void reattachIDocSuperTypes(EPackage ePackage) {
-		if (ePackage.getNsURI().startsWith(IdocPackage.eNS_URI)) {
-			for (EClassifier eClassifier: ePackage.getEClassifiers()) {
-				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass) eClassifier;
-					EList<EClass> superTypes = eClass.getESuperTypes();
-					for (int i = 0; i < superTypes.size(); i++) {
-						EClass superClass =  superTypes.get(i);
-						switch (superClass.getName()) {
-						case "Document":
-							superTypes.set(i, IdocPackage.eINSTANCE.getDocument());
-							continue;
-						case "Segment":
-							superTypes.set(i, IdocPackage.eINSTANCE.getSegment());
-							continue;
-						case "SegmentChildren":
-							superTypes.set(i, IdocPackage.eINSTANCE.getSegmentChildren());
-							continue;
-						case "SegmentList":
-							superTypes.set(i, IdocPackage.eINSTANCE.getSegmentList());
-							continue;
-						}
-					}
-				}
-			}
-		}
+		return iDoc;
 	}
 
 	/**
@@ -815,8 +749,13 @@ public class IDocUtil extends Util {
 	 * @param nsURI
 	 *            - the URI designating the type of {@link IDocDocument}. The
 	 *            URI format is of the form:
-	 *            http://sap.fusesource.org/idoc/{repository-name}/{idoc-type}/{idoc-type-extension}/{system-release}/{application-release}.
-	 *            <p>Note: Only {repository-name} and {idoc-type} are required; other components can be empty. <b>NB:</b> All '/' however are required.
+	 *            http://sap.fusesource.org/idoc/{repository
+	 *            -name}/{idoc-type}/{idoc
+	 *            -type-extension}/{system-release}/{application-release}.
+	 *            <p>
+	 *            Note: Only {repository-name} and {idoc-type} are required;
+	 *            other components can be empty. <b>NB:</b> All '/' however are
+	 *            required.
 	 * @return The {@link EPackage} instance.
 	 */
 	public static EPackage getEPackage(IDocRepository repository, String nsURI) {
@@ -837,26 +776,16 @@ public class IDocUtil extends Util {
 			// destination's
 			// repository.
 			if (!repository.getName().equals(iDocID.repositoryName)) {
-				LOG.warn("Repository '" + repository.getName()
-						+ "' does not match requested repository '"
-						+ iDocID.repositoryName + "' for IDoc type : "
-						+ iDocID.iDocType + ", IDoc type extension : "
-						+ iDocID.iDocTypeExtension + ", system release : "
-						+ iDocID.systemRelease + ", application release : "
-						+ iDocID.applicationRelease);
+				LOG.warn("Repository '" + repository.getName() + "' does not match requested repository '" + iDocID.repositoryName + "' for IDoc type : "
+						+ iDocID.iDocType + ", IDoc type extension : " + iDocID.iDocTypeExtension + ", system release : " + iDocID.systemRelease
+						+ ", application release : " + iDocID.applicationRelease);
 				return null;
 			}
 
-			rootSegmentMetaData = repository.getRootSegmentMetaData(
-					iDocID.iDocType, iDocID.iDocTypeExtension,
-					iDocID.systemRelease, iDocID.applicationRelease);
+			rootSegmentMetaData = repository.getRootSegmentMetaData(iDocID.iDocType, iDocID.iDocTypeExtension, iDocID.systemRelease, iDocID.applicationRelease);
 			if (rootSegmentMetaData == null) {
-				LOG.warn("Repository '" + repository.getName()
-						+ "' does not contain meta data for IDoc type : "
-						+ iDocID.iDocType + ", IDoc type extension : "
-						+ iDocID.iDocTypeExtension + ", system release : "
-						+ iDocID.systemRelease + ", application release : "
-						+ iDocID.applicationRelease);
+				LOG.warn("Repository '" + repository.getName() + "' does not contain meta data for IDoc type : " + iDocID.iDocType + ", IDoc type extension : "
+						+ iDocID.iDocTypeExtension + ", system release : " + iDocID.systemRelease + ", application release : " + iDocID.applicationRelease);
 				return null;
 			}
 		} catch (Exception e) {
@@ -885,7 +814,16 @@ public class IDocUtil extends Util {
 
 		return ePackage;
 	}
-	
+
+	/**
+	 * Populates <code>eClass</code> with meta-data from
+	 * <code>idocSegmentMetaData</code>.
+	 * 
+	 * @param eClass
+	 *            - the class to populate.
+	 * @param idocSegmentMetaData
+	 *            - the meta-data to populate.
+	 */
 	public static void addSegmentMetaData(EClass eClass, IDocSegmentMetaData idocSegmentMetaData) {
 		if (idocSegmentMetaData == null) {
 			return;
@@ -893,7 +831,7 @@ public class IDocUtil extends Util {
 
 		EcoreFactory ecoreFactory = EcoreFactory.eINSTANCE;
 		EPackage ePackage = eClass.getEPackage();
-		
+
 		IDocRecordMetaData idocRecordMetaData = idocSegmentMetaData.getRecordMetaData();
 		addAnnotation(eClass, eNS_URI, IDocNS_NAME_KEY, idocRecordMetaData.getName());
 		addAnnotation(eClass, eNS_URI, IDocNS_TYPE_KEY, idocSegmentMetaData.getType());
@@ -938,7 +876,7 @@ public class IDocUtil extends Util {
 			addAnnotation(attribute, eNS_URI, IDocNS_IS_ISO_CODE_KEY, Boolean.toString(idocRecordMetaData.isISOCode(i)));
 			eClass.getEStructuralFeatures().add(i, attribute);
 		}
-		
+
 		// Add Segment Meta Data for Child segments
 		EClass segmentListsClass = getSegmentChildrenClass(ePackage, idocSegmentMetaData);
 		EReference childrenReference = ecoreFactory.createEReference();
@@ -949,9 +887,19 @@ public class IDocUtil extends Util {
 		childrenReference.setUpperBound(1);
 		eClass.getEStructuralFeatures().add(childrenReference);
 	}
-	
+
+	/**
+	 * Gets and creates if necessary the class that represents the children of 
+	 * <code>iDocSegmentMetaData</code> IDoc segment type.
+	 * 
+	 * @param ePackage
+	 *            - the package containing class.
+	 * @param iDocSegmentMetaData
+	 *            - the type of IDoc segment.
+	 * @return The class.
+	 */
 	public static EClass getSegmentChildrenClass(EPackage ePackage, IDocSegmentMetaData iDocSegmentMetaData) {
-		
+
 		// Check package to see if segment lists class has already been defined.
 		EClassifier segmentListsClass = ePackage.getEClassifier(iDocSegmentMetaData.getName() + "_CHILDREN");
 
@@ -964,13 +912,13 @@ public class IDocUtil extends Util {
 			ePackage.getEClassifiers().add(segmentListsClass);
 			segmentListsClass.setName(iDocSegmentMetaData.getType() + "_CHILDREN");
 			((EClass) segmentListsClass).getESuperTypes().add(IdocPackage.eINSTANCE.getSegmentChildren());
-			
+
 			// Create list for each child segment type
 			EAttribute segmentsAttribute = IdocPackage.eINSTANCE.getSegmentChildren_Segments();
 			for (IDocSegmentMetaData childIDocSegmentMetaData : iDocSegmentMetaData.getChildren()) {
 				EClass childSegmentClass = getSegmentClass(ePackage, childIDocSegmentMetaData);
 				EReference reference = ecoreFactory.createEReference();
-				((EClass)segmentListsClass).getEStructuralFeatures().add(reference);
+				((EClass) segmentListsClass).getEStructuralFeatures().add(reference);
 				reference.setName(childIDocSegmentMetaData.getType());
 				reference.setUpperBound(ETypedElement.UNBOUNDED_MULTIPLICITY);
 				reference.setEType(childSegmentClass);
@@ -985,25 +933,36 @@ public class IDocUtil extends Util {
 
 		return (EClass) segmentListsClass;
 	}
-	
+
+	/**
+	 * Gets and creates if necessary the class that represents the
+	 * <code>iDocSegmentMetaData</code> IDoc segment type.
+	 * 
+	 * @param ePackage
+	 *            - the package containing class.
+	 * @param idocSegmentMetaData
+	 *            - the type of IDoc segment.
+	 * @return The class.
+	 */
 	public static EClass getSegmentClass(EPackage ePackage, IDocSegmentMetaData idocSegmentMetaData) {
 		// Check package to see if structure class has already been defined.
 		EClassifier structureClass = ePackage.getEClassifier(idocSegmentMetaData.getName());
-		
+
 		// Build Segment class if not already built.
 		if (!(structureClass instanceof EClass)) {
 
 			structureClass = EcoreFactory.eINSTANCE.createEClass();
 			ePackage.getEClassifiers().add(structureClass);
 			structureClass.setName(idocSegmentMetaData.getType());
-			((EClass)structureClass).getESuperTypes().add(IdocPackage.eINSTANCE.getSegment());
+			((EClass) structureClass).getESuperTypes().add(IdocPackage.eINSTANCE.getSegment());
 			addSegmentMetaData(((EClass) structureClass), idocSegmentMetaData);
 		}
 		return (EClass) structureClass;
 	}
 
 	/**
-	 * IDoc ID - Validates IDoc package URL and identifies the name, namespace prefix and namespace uri of package.
+	 * IDoc ID - Validates IDoc package URL and identifies the name, namespace
+	 * prefix and namespace uri of package.
 	 * 
 	 * @author punkhorn
 	 */
@@ -1016,15 +975,13 @@ public class IDocUtil extends Util {
 
 		public IDocID(String uri) throws Exception {
 			if (uri == null || !uri.startsWith(eNS_URI)) {
-				throw new IllegalArgumentException(
-						"Invalid IDoc namespace uri: " + uri);
+				throw new IllegalArgumentException("Invalid IDoc namespace uri: " + uri);
 			}
 
 			uri = uri.substring(eNS_URI.length());
 			String[] components = uri.split("/", 6);
 			if (components.length != 6) {
-				throw new IllegalArgumentException(
-						"Invalid IDoc namespace uri: " + uri);
+				throw new IllegalArgumentException("Invalid IDoc namespace uri: " + uri);
 			}
 			repositoryName = components[1];
 			iDocType = components[2];
@@ -1032,8 +989,7 @@ public class IDocUtil extends Util {
 			systemRelease = components[4];
 			applicationRelease = components[5];
 		}
-		
-		
+
 		public IDocID(String repositoryName, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
 			this.repositoryName = repositoryName;
 			this.iDocType = iDocType;
@@ -1041,7 +997,6 @@ public class IDocUtil extends Util {
 			this.systemRelease = systemRelease;
 			this.applicationRelease = applicationRelease;
 		}
-
 
 		public String getRepositoryName() {
 			return repositoryName;
@@ -1097,11 +1052,13 @@ public class IDocUtil extends Util {
 	}
 
 	/**
-	 * Return the {@link EClassifier} corresponding to the given IDoc Segment Field Type.
+	 * Return the {@link EClassifier} corresponding to the given IDoc Segment
+	 * Field Type.
 	 * 
 	 * @param segmentFieldType
 	 *            - the IDoc Segment Field Type.
-	 * @return the {@link EClassifier} corresponding to the given IDoc Segment Field Type.
+	 * @return the {@link EClassifier} corresponding to the given IDoc Segment
+	 *         Field Type.
 	 */
 	public static EClassifier getEDataType(int segmentFieldType) {
 		switch (segmentFieldType) {
@@ -1144,11 +1101,13 @@ public class IDocUtil extends Util {
 	}
 
 	/**
-	 * Return the the fully-qualified name of Java class corresponding to the given IDoc Segment Field Type.
+	 * Return the the fully-qualified name of Java class corresponding to the
+	 * given IDoc Segment Field Type.
 	 * 
 	 * @param segmentFieldType
 	 *            - the IDoc Segment Field Type.
-	 * @return the fully-qualified name of Java class corresponding to the given IDoc Segment Field Type.
+	 * @return the fully-qualified name of Java class corresponding to the given
+	 *         IDoc Segment Field Type.
 	 */
 	public static String getClassName(int segmentFieldType) {
 		switch (segmentFieldType) {
@@ -1190,36 +1149,6 @@ public class IDocUtil extends Util {
 		}
 	}
 
-	/**
-	 * Adds detail entry to designated annotation of given model element.
-	 * 
-	 * @param modelElement
-	 *            - the model element to be annotated.
-	 * @param source
-	 *            - the source URL of annotation to be added to.
-	 * @param key
-	 *            - the key of the detail entry to be added to annotation.
-	 * @param value
-	 *            - the value of the detail entry to added to annotation.
-	 */
-	public static void addAnnotation(EModelElement modelElement, String source, String key, String value) {
-		EAnnotation annotation = modelElement.getEAnnotation(source);
-		if (annotation == null) {
-			annotation = EcoreFactory.eINSTANCE.createEAnnotation();
-			annotation.setSource(source);
-			annotation.setEModelElement(modelElement);
-		}
-		annotation.getDetails().put(key, value);
-	}
-	
-	public static String getAnnotation(EModelElement modelElement, String source, String key) {
-		EAnnotation annotation = modelElement.getEAnnotation(source);
-		if (annotation == null) {
-			return null;
-		}
-		return annotation.getDetails().get(key);
-	}
-
 	public static int segmentOccurrences(long longValue) {
 		if (longValue > Integer.MAX_VALUE) {
 			return ETypedElement.UNBOUNDED_MULTIPLICITY;
@@ -1228,32 +1157,19 @@ public class IDocUtil extends Util {
 		}
 		return (int) longValue;
 	}
-	public static boolean setValue(EObject object, String featureName, Object value) {
-		EStructuralFeature feature = object.eClass().getEStructuralFeature(featureName);
-		if (feature == null)
-			return false;
-		return setValue(object, feature, value);
-	}
 
-	public static boolean setValue(EObject object, EStructuralFeature feature, Object value) {
-		try {
-			object.eSet(feature, value);
-			return true;
-		} catch (Throwable exception) {
-			LOG.warn("Failed to set value '" + value + "' of attribute '" + feature.getName() + "' on '" + object);
-			return false;
-		}
-	}
-	
 	/**
 	 * Recursively read all objects which are referenced from the passed
-	 * <code>eobject</code>. The objects which do not have an econtainer are added to the
-	 * <code>rootList</code>. The resulting rootList can be added to the contents of a
-	 * resource.
+	 * <code>eobject</code>. The objects which do not have an econtainer are
+	 * added to the <code>rootList</code>. The resulting rootList can be added
+	 * to the contents of a resource.
 	 * 
-	 * @param eobject - object to read references of.
-	 * @param preventCycles - set to track sub-objects already read.
-	 * @param rootList - all referenced root objects.
+	 * @param eobject
+	 *            - object to read references of.
+	 * @param preventCycles
+	 *            - set to track sub-objects already read.
+	 * @param rootList
+	 *            - all referenced root objects.
 	 */
 	public static void readReferences(EObject eobject, Set<EObject> preventCycles, List<EObject> rootList) {
 		if (preventCycles.contains(eobject)) { // been here get away

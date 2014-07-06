@@ -195,7 +195,7 @@ public class RepositoryDataItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(RfcPackage.Literals.REPOSITORY_DATA__ENTRIES,
-				 RfcFactory.eINSTANCE.create(RfcPackage.Literals.RESPOSITORY_DATA_ENTRY)));
+				 RfcFactory.eINSTANCE.create(RfcPackage.Literals.REPOSITORY_DATA_ENTRY)));
 	}
 
 	/**

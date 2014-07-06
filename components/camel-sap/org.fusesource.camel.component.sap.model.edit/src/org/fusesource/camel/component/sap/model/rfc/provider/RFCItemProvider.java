@@ -246,8 +246,28 @@ public class RFCItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(RfcPackage.Literals.RFC__REQUEST,
+				 RfcFactory.eINSTANCE.createRequest()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RfcPackage.Literals.RFC__REQUEST,
+				 RfcFactory.eINSTANCE.createResponse()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(RfcPackage.Literals.RFC__RESPONSE,
 				 RfcFactory.eINSTANCE.createStructure()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RfcPackage.Literals.RFC__RESPONSE,
+				 RfcFactory.eINSTANCE.createRequest()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RfcPackage.Literals.RFC__RESPONSE,
+				 RfcFactory.eINSTANCE.createResponse()));
 	}
 
 	/**

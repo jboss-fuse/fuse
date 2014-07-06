@@ -92,6 +92,8 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 			case RfcPackage.RFC: return createRFC();
 			case RfcPackage.TABLE: return createTable();
 			case RfcPackage.STRUCTURE: return createStructure();
+			case RfcPackage.REQUEST: return createRequest();
+			case RfcPackage.RESPONSE: return createResponse();
 			case RfcPackage.DESTINATION_DATA_ENTRY: return (EObject)createDestinationDataEntry();
 			case RfcPackage.DESTINATION_DATA: return createDestinationData();
 			case RfcPackage.DESTINATION_DATA_STORE_ENTRY: return (EObject)createDestinationDataStoreEntry();
@@ -106,10 +108,10 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 			case RfcPackage.FIELD_META_DATA: return createFieldMetaData();
 			case RfcPackage.LIST_FIELD_META_DATA: return createListFieldMetaData();
 			case RfcPackage.ABAP_EXCEPTION: return createAbapException();
-			case RfcPackage.RESPOSITORY_DATA_ENTRY: return (EObject)createRespositoryDataEntry();
+			case RfcPackage.REPOSITORY_DATA_ENTRY: return (EObject)createRepositoryDataEntry();
 			case RfcPackage.REPOSITORY_DATA: return createRepositoryData();
 			case RfcPackage.REPOSITORY_DATA_STORE: return createRepositoryDataStore();
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY: return (EObject)createRespositoryDataStoreEntry();
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY: return (EObject)createRepositoryDataStoreEntry();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -183,6 +185,26 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 	public Structure createStructure() {
 		StructureImpl structure = new StructureImpl();
 		return structure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Request createRequest() {
+		RequestImpl request = new RequestImpl();
+		return request;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Response createResponse() {
+		ResponseImpl response = new ResponseImpl();
+		return response;
 	}
 
 	/**
@@ -330,9 +352,9 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map.Entry<String, FunctionTemplate> createRespositoryDataEntry() {
-		RespositoryDataEntryImpl respositoryDataEntry = new RespositoryDataEntryImpl();
-		return respositoryDataEntry;
+	public Map.Entry<String, FunctionTemplate> createRepositoryDataEntry() {
+		RepositoryDataEntryImpl repositoryDataEntry = new RepositoryDataEntryImpl();
+		return repositoryDataEntry;
 	}
 
 	/**
@@ -360,9 +382,9 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map.Entry<String, RepositoryData> createRespositoryDataStoreEntry() {
-		RespositoryDataStoreEntryImpl respositoryDataStoreEntry = new RespositoryDataStoreEntryImpl();
-		return respositoryDataStoreEntry;
+	public Map.Entry<String, RepositoryData> createRepositoryDataStoreEntry() {
+		RepositoryDataStoreEntryImpl repositoryDataStoreEntry = new RepositoryDataStoreEntryImpl();
+		return repositoryDataStoreEntry;
 	}
 
 	/**

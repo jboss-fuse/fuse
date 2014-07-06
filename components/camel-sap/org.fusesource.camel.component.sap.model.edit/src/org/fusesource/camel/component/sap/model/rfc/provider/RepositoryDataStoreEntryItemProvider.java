@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Red Hat, Inc.
+ * Copyright 2014 Red Hat, Inc.
  * 
  * Red Hat licenses this file to you under the Apache License, version
  * 2.0 (the "License"); you may not use this file except in compliance
@@ -10,7 +10,7 @@
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- *  implied.  See the License for the specific language governing
+ * implied.  See the License for the specific language governing
  * permissions and limitations under the License.
  * 
  */
@@ -19,10 +19,13 @@ package org.fusesource.camel.component.sap.model.rfc.provider;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -33,17 +36,18 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.fusesource.camel.component.sap.model.SAPEditPlugin;
+
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
-import org.fusesource.camel.component.sap.model.rfc.Table;
 
 /**
- * This is the item provider adapter for a {@link org.fusesource.camel.component.sap.model.rfc.Table} object.
+ * This is the item provider adapter for a {@link java.util.Map.Entry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TableItemProvider
+public class RepositoryDataStoreEntryItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -57,7 +61,7 @@ public class TableItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableItemProvider(AdapterFactory adapterFactory) {
+	public RepositoryDataStoreEntryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,26 +76,26 @@ public class TableItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addLineTypePropertyDescriptor(object);
+			addKeyPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Table_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_name_feature", "_UI_Table_type"),
-				 RfcPackage.Literals.TABLE__NAME,
+				 getString("_UI_RepositoryDataStoreEntry_key_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryDataStoreEntry_key_feature", "_UI_RepositoryDataStoreEntry_type"),
+				 RfcPackage.Literals.REPOSITORY_DATA_STORE_ENTRY__KEY,
 				 true,
 				 false,
 				 false,
@@ -101,36 +105,36 @@ public class TableItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Line Type feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLineTypePropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Table_lineType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_lineType_feature", "_UI_Table_type"),
-				 RfcPackage.Literals.TABLE__LINE_TYPE,
+				 getString("_UI_RepositoryDataStoreEntry_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryDataStoreEntry_value_feature", "_UI_RepositoryDataStoreEntry_type"),
+				 RfcPackage.Literals.REPOSITORY_DATA_STORE_ENTRY__VALUE,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns Table.gif.
+	 * This returns RepositoryDataStoreEntry.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Table"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RepositoryDataStoreEntry"));
 	}
 
 	/**
@@ -141,10 +145,8 @@ public class TableItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Table<?>)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Table_type") :
-			getString("_UI_Table_type") + " " + label;
+		Map.Entry<?, ?> repositoryDataStoreEntry = (Map.Entry<?, ?>)object;
+		return "" + repositoryDataStoreEntry.getKey() + " -> " + repositoryDataStoreEntry.getValue();
 	}
 
 	/**
@@ -158,9 +160,8 @@ public class TableItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Table.class)) {
-			case RfcPackage.TABLE__NAME:
-			case RfcPackage.TABLE__LINE_TYPE:
+		switch (notification.getFeatureID(Map.Entry.class)) {
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY__KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

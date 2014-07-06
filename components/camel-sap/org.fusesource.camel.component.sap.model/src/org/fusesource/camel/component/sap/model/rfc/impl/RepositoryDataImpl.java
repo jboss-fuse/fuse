@@ -80,7 +80,7 @@ public class RepositoryDataImpl extends EObjectImpl implements RepositoryData {
 	 */
 	public EMap<String, FunctionTemplate> getEntries() {
 		if (entries == null) {
-			entries = new EcoreEMap<String,FunctionTemplate>(RfcPackage.Literals.RESPOSITORY_DATA_ENTRY, RespositoryDataEntryImpl.class, this, RfcPackage.REPOSITORY_DATA__ENTRIES);
+			entries = new EcoreEMap<String,FunctionTemplate>(RfcPackage.Literals.REPOSITORY_DATA_ENTRY, RepositoryDataEntryImpl.class, this, RfcPackage.REPOSITORY_DATA__ENTRIES);
 		}
 		return entries;
 	}

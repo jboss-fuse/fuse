@@ -1,7 +1,6 @@
 package org.fusesource.camel.component.sap.util;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,13 +10,9 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.fusesource.camel.component.sap.model.idoc.Document;
-import org.fusesource.camel.component.sap.model.idoc.IdocPackage;
 import org.fusesource.camel.component.sap.model.idoc.Segment;
 import org.fusesource.camel.component.sap.model.idoc.SegmentList;
 import org.fusesource.camel.component.sap.model.rfc.DestinationData;
@@ -103,23 +98,12 @@ public class IDocUtilTest {
 		IDocUtil.saveRegistry(file);
 	}
 	
+	//@Test
 	public void testPackage() throws Exception {
 		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
 		IDocRepository repository = JCoIDoc.getIDocRepository(jcoDestination);
         EPackage ePackage = IDocUtil.getEPackage(repository, "http://sap.fusesource.org/idoc/NPL/HRMD_B01//31G/");
-
-        ResourceSet resourceSet = new ResourceSetImpl();
-        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(".ecore", new EcoreResourceFactoryImpl());
-        URI uri = URI.createURI(ePackage.getName() + ".ecore");
-        Resource res = resourceSet.createResource(uri);
-        res.getContents().add(IdocPackage.eINSTANCE);
-        res.getContents().add(ePackage);
-        FileOutputStream fos = new FileOutputStream(ePackage.getName() + ".ecore");
-        
-        Map<String,Object> options = new HashMap<String,Object>();
-        options.put(XMIResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.FALSE);
-        res.save(fos, options);
-        fos.close();
+		Util.print(ePackage);
 	}
 	
 	/**
@@ -298,10 +282,24 @@ public class IDocUtilTest {
 		
 	}
 	
+	/**
+	 * Creates and saves Test Registry for off-line tests
+	 * @throws Exception
+	 */
+	//@Test
+	public void createLoadIDocRegistry() throws Exception {
+		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
+		IDocRepository repository = JCoIDoc.getIDocRepository(jcoDestination);
+		IDocUtil.getEPackage(repository, "http://sap.fusesource.org/idoc");
+		IDocUtil.getEPackage(repository, "http://sap.fusesource.org/idoc/NPL/FLCUSTOMER_CREATEFROMDATA01///");
+        File file = new File("data/testLoadIDocRegistry.ecore");
+		IDocUtil.saveRegistry(file);
+	}
+	
 	@Test
 	public void testSaveAndLoadIDoc() throws Exception {
 		// Load base and derived IDoc packages in global registry from test file.  
-        File file = new File("data/testLoadIDocRegistry.ecore");
+		File file = new File("data/testLoadIDocRegistry.ecore");
 		IDocUtil.loadRegistry(file);
 
 		// Create IDoc document
@@ -381,7 +379,7 @@ public class IDocUtilTest {
 		Segment newCustomerSegment = headerSegment.getChildren("E1BPSCUNEW").add();
 
 		// Fill in New Customer Info
-		newCustomerSegment.put("CUSTNAME", "Fred Flintstoned");
+		newCustomerSegment.put("CUSTNAME", "Fred Flintstone");
 		newCustomerSegment.put("FORM", "Mr.");
 		newCustomerSegment.put("STREET", "123 Rubble Lane");
 		newCustomerSegment.put("POSTCODE", "01234");

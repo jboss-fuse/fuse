@@ -120,6 +120,20 @@ public class RfcSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RfcPackage.REQUEST: {
+				Request request = (Request)theEObject;
+				T result = caseRequest(request);
+				if (result == null) result = caseStructure(request);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RfcPackage.RESPONSE: {
+				Response response = (Response)theEObject;
+				T result = caseResponse(response);
+				if (result == null) result = caseStructure(response);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RfcPackage.DESTINATION_DATA_ENTRY: {
 				@SuppressWarnings("unchecked") Map.Entry<String, String> destinationDataEntry = (Map.Entry<String, String>)theEObject;
 				T result = caseDestinationDataEntry(destinationDataEntry);
@@ -204,9 +218,9 @@ public class RfcSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RfcPackage.RESPOSITORY_DATA_ENTRY: {
-				@SuppressWarnings("unchecked") Map.Entry<String, FunctionTemplate> respositoryDataEntry = (Map.Entry<String, FunctionTemplate>)theEObject;
-				T result = caseRespositoryDataEntry(respositoryDataEntry);
+			case RfcPackage.REPOSITORY_DATA_ENTRY: {
+				@SuppressWarnings("unchecked") Map.Entry<String, FunctionTemplate> repositoryDataEntry = (Map.Entry<String, FunctionTemplate>)theEObject;
+				T result = caseRepositoryDataEntry(repositoryDataEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -222,9 +236,9 @@ public class RfcSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY: {
-				@SuppressWarnings("unchecked") Map.Entry<String, RepositoryData> respositoryDataStoreEntry = (Map.Entry<String, RepositoryData>)theEObject;
-				T result = caseRespositoryDataStoreEntry(respositoryDataStoreEntry);
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY: {
+				@SuppressWarnings("unchecked") Map.Entry<String, RepositoryData> repositoryDataStoreEntry = (Map.Entry<String, RepositoryData>)theEObject;
+				T result = caseRepositoryDataStoreEntry(repositoryDataStoreEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -289,6 +303,36 @@ public class RfcSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStructure(Structure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Request</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRequest(Request object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Response</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Response</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResponse(Response object) {
 		return null;
 	}
 
@@ -503,17 +547,17 @@ public class RfcSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Respository Data Entry</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Repository Data Entry</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Respository Data Entry</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Repository Data Entry</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRespositoryDataEntry(Map.Entry<String, FunctionTemplate> object) {
+	public T caseRepositoryDataEntry(Map.Entry<String, FunctionTemplate> object) {
 		return null;
 	}
 
@@ -548,17 +592,17 @@ public class RfcSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Respository Data Store Entry</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Repository Data Store Entry</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Respository Data Store Entry</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Repository Data Store Entry</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRespositoryDataStoreEntry(Map.Entry<String, RepositoryData> object) {
+	public T caseRepositoryDataStoreEntry(Map.Entry<String, RepositoryData> object) {
 		return null;
 	}
 

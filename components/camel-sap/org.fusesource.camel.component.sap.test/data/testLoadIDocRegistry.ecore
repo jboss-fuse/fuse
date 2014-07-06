@@ -191,11 +191,11 @@
           transient="true" defaultValueLiteral="0" derived="true">
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMandatory" volatile="true"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatory" volatile="true"
           transient="true" defaultValueLiteral="false" derived="true">
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isQualified" volatile="true"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualified" volatile="true"
           transient="true" defaultValueLiteral="false" derived="true">
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eStructuralFeatures>

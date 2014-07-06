@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Red Hat, Inc.
+ * Copyright 2014 Red Hat, Inc.
  * 
  * Red Hat licenses this file to you under the Apache License, version
  * 2.0 (the "License"); you may not use this file except in compliance
@@ -23,7 +23,9 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -34,7 +36,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.fusesource.camel.component.sap.model.SAPEditPlugin;
+
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
 
 /**
@@ -43,7 +47,7 @@ import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RespositoryDataEntryItemProvider
+public class RepositoryDataEntryItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -57,7 +61,7 @@ public class RespositoryDataEntryItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RespositoryDataEntryItemProvider(AdapterFactory adapterFactory) {
+	public RepositoryDataEntryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -89,9 +93,9 @@ public class RespositoryDataEntryItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RespositoryDataEntry_key_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RespositoryDataEntry_key_feature", "_UI_RespositoryDataEntry_type"),
-				 RfcPackage.Literals.RESPOSITORY_DATA_ENTRY__KEY,
+				 getString("_UI_RepositoryDataEntry_key_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryDataEntry_key_feature", "_UI_RepositoryDataEntry_type"),
+				 RfcPackage.Literals.REPOSITORY_DATA_ENTRY__KEY,
 				 true,
 				 false,
 				 false,
@@ -111,9 +115,9 @@ public class RespositoryDataEntryItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RespositoryDataEntry_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RespositoryDataEntry_value_feature", "_UI_RespositoryDataEntry_type"),
-				 RfcPackage.Literals.RESPOSITORY_DATA_ENTRY__VALUE,
+				 getString("_UI_RepositoryDataEntry_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryDataEntry_value_feature", "_UI_RepositoryDataEntry_type"),
+				 RfcPackage.Literals.REPOSITORY_DATA_ENTRY__VALUE,
 				 true,
 				 false,
 				 true,
@@ -123,14 +127,14 @@ public class RespositoryDataEntryItemProvider
 	}
 
 	/**
-	 * This returns RespositoryDataEntry.gif.
+	 * This returns RepositoryDataEntry.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RespositoryDataEntry"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RepositoryDataEntry"));
 	}
 
 	/**
@@ -141,8 +145,8 @@ public class RespositoryDataEntryItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Map.Entry<?, ?> respositoryDataEntry = (Map.Entry<?, ?>)object;
-		return "" + respositoryDataEntry.getKey() + " -> " + respositoryDataEntry.getValue();
+		Map.Entry<?, ?> repositoryDataEntry = (Map.Entry<?, ?>)object;
+		return "" + repositoryDataEntry.getKey() + " -> " + repositoryDataEntry.getValue();
 	}
 
 	/**
@@ -157,7 +161,7 @@ public class RespositoryDataEntryItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Map.Entry.class)) {
-			case RfcPackage.RESPOSITORY_DATA_ENTRY__KEY:
+			case RfcPackage.REPOSITORY_DATA_ENTRY__KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

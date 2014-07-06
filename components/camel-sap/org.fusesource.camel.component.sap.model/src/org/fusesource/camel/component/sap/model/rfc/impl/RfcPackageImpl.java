@@ -42,6 +42,8 @@ import org.fusesource.camel.component.sap.model.rfc.ListFieldMetaData;
 import org.fusesource.camel.component.sap.model.rfc.RecordMetaData;
 import org.fusesource.camel.component.sap.model.rfc.RepositoryData;
 import org.fusesource.camel.component.sap.model.rfc.RepositoryDataStore;
+import org.fusesource.camel.component.sap.model.rfc.Request;
+import org.fusesource.camel.component.sap.model.rfc.Response;
 import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
 import org.fusesource.camel.component.sap.model.rfc.Server;
@@ -84,6 +86,20 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * @generated
 	 */
 	private EClass structureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass requestEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass responseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,7 +204,7 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass respositoryDataEntryEClass = null;
+	private EClass repositoryDataEntryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -209,7 +225,7 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass respositoryDataStoreEntryEClass = null;
+	private EClass repositoryDataStoreEntryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -425,8 +441,89 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTable_Name() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_LineType() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStructure() {
 		return structureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructure_Name() {
+		return (EAttribute)structureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructure_FieldCount() {
+		return (EAttribute)structureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructure_RecordLength() {
+		return (EAttribute)structureEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructure_UnicodeRecordLength() {
+		return (EAttribute)structureEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructure_NestedType1Structure() {
+		return (EAttribute)structureEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRequest() {
+		return requestEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getResponse() {
+		return responseEClass;
 	}
 
 	/**
@@ -1586,8 +1683,8 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRespositoryDataEntry() {
-		return respositoryDataEntryEClass;
+	public EClass getRepositoryDataEntry() {
+		return repositoryDataEntryEClass;
 	}
 
 	/**
@@ -1595,8 +1692,8 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRespositoryDataEntry_Key() {
-		return (EAttribute)respositoryDataEntryEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRepositoryDataEntry_Key() {
+		return (EAttribute)repositoryDataEntryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1604,8 +1701,8 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRespositoryDataEntry_Value() {
-		return (EReference)respositoryDataEntryEClass.getEStructuralFeatures().get(1);
+	public EReference getRepositoryDataEntry_Value() {
+		return (EReference)repositoryDataEntryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1658,8 +1755,8 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRespositoryDataStoreEntry() {
-		return respositoryDataStoreEntryEClass;
+	public EClass getRepositoryDataStoreEntry() {
+		return repositoryDataStoreEntryEClass;
 	}
 
 	/**
@@ -1667,8 +1764,8 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRespositoryDataStoreEntry_Key() {
-		return (EAttribute)respositoryDataStoreEntryEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRepositoryDataStoreEntry_Key() {
+		return (EAttribute)repositoryDataStoreEntryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1676,8 +1773,8 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRespositoryDataStoreEntry_Value() {
-		return (EReference)respositoryDataStoreEntryEClass.getEStructuralFeatures().get(1);
+	public EReference getRepositoryDataStoreEntry_Value() {
+		return (EReference)repositoryDataStoreEntryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1767,8 +1864,19 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		createEReference(rfcEClass, RFC__DESTINATION);
 
 		tableEClass = createEClass(TABLE);
+		createEAttribute(tableEClass, TABLE__NAME);
+		createEAttribute(tableEClass, TABLE__LINE_TYPE);
 
 		structureEClass = createEClass(STRUCTURE);
+		createEAttribute(structureEClass, STRUCTURE__NAME);
+		createEAttribute(structureEClass, STRUCTURE__FIELD_COUNT);
+		createEAttribute(structureEClass, STRUCTURE__RECORD_LENGTH);
+		createEAttribute(structureEClass, STRUCTURE__UNICODE_RECORD_LENGTH);
+		createEAttribute(structureEClass, STRUCTURE__NESTED_TYPE1_STRUCTURE);
+
+		requestEClass = createEClass(REQUEST);
+
+		responseEClass = createEClass(RESPONSE);
 
 		destinationDataEntryEClass = createEClass(DESTINATION_DATA_ENTRY);
 		createEAttribute(destinationDataEntryEClass, DESTINATION_DATA_ENTRY__KEY);
@@ -1912,9 +2020,9 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		createEAttribute(abapExceptionEClass, ABAP_EXCEPTION__KEY);
 		createEAttribute(abapExceptionEClass, ABAP_EXCEPTION__MESSAGE);
 
-		respositoryDataEntryEClass = createEClass(RESPOSITORY_DATA_ENTRY);
-		createEAttribute(respositoryDataEntryEClass, RESPOSITORY_DATA_ENTRY__KEY);
-		createEReference(respositoryDataEntryEClass, RESPOSITORY_DATA_ENTRY__VALUE);
+		repositoryDataEntryEClass = createEClass(REPOSITORY_DATA_ENTRY);
+		createEAttribute(repositoryDataEntryEClass, REPOSITORY_DATA_ENTRY__KEY);
+		createEReference(repositoryDataEntryEClass, REPOSITORY_DATA_ENTRY__VALUE);
 
 		repositoryDataEClass = createEClass(REPOSITORY_DATA);
 		createEReference(repositoryDataEClass, REPOSITORY_DATA__ENTRIES);
@@ -1923,9 +2031,9 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		repositoryDataStoreEClass = createEClass(REPOSITORY_DATA_STORE);
 		createEReference(repositoryDataStoreEClass, REPOSITORY_DATA_STORE__ENTRIES);
 
-		respositoryDataStoreEntryEClass = createEClass(RESPOSITORY_DATA_STORE_ENTRY);
-		createEAttribute(respositoryDataStoreEntryEClass, RESPOSITORY_DATA_STORE_ENTRY__KEY);
-		createEReference(respositoryDataStoreEntryEClass, RESPOSITORY_DATA_STORE_ENTRY__VALUE);
+		repositoryDataStoreEntryEClass = createEClass(REPOSITORY_DATA_STORE_ENTRY);
+		createEAttribute(repositoryDataStoreEntryEClass, REPOSITORY_DATA_STORE_ENTRY__KEY);
+		createEReference(repositoryDataStoreEntryEClass, REPOSITORY_DATA_STORE_ENTRY__VALUE);
 
 		// Create enums
 		dataTypeEEnum = createEEnum(DATA_TYPE);
@@ -1968,6 +2076,8 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		tableEClass_S.getEBounds().add(g1);
 
 		// Add supertypes to classes
+		requestEClass.getESuperTypes().add(this.getStructure());
+		responseEClass.getESuperTypes().add(this.getStructure());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(destinationEClass, Destination.class, "Destination", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1984,8 +2094,15 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		initEReference(getRFC_Destination(), this.getDestination(), this.getDestination_Rfcs(), "destination", null, 0, 1, org.fusesource.camel.component.sap.model.rfc.RFC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Table.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_LineType(), ecorePackage.getEString(), "lineType", null, 0, 1, Table.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(tableEClass, null, "getRows", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(tableEClass_S);
+		initEOperation(op, g1);
+
+		op = addEOperation(tableEClass, null, "getRow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(tableEClass_S);
 		initEOperation(op, g1);
 
@@ -1999,6 +2116,11 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		initEOperation(op, g1);
 
 		initEClass(structureEClass, Structure.class, "Structure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStructure_Name(), ecorePackage.getEString(), "name", null, 0, 1, Structure.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStructure_FieldCount(), ecorePackage.getEInt(), "fieldCount", null, 0, 1, Structure.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStructure_RecordLength(), ecorePackage.getEInt(), "recordLength", null, 0, 1, Structure.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStructure_UnicodeRecordLength(), ecorePackage.getEInt(), "unicodeRecordLength", null, 0, 1, Structure.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStructure_NestedType1Structure(), ecorePackage.getEBoolean(), "nestedType1Structure", null, 0, 1, Structure.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(structureEClass, null, "get", 0, 1, IS_UNIQUE, IS_ORDERED);
 		ETypeParameter t1 = addETypeParameter(op, "T");
@@ -2009,6 +2131,10 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		addEParameter(op, g1, "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
+
+		initEClass(requestEClass, Request.class, "Request", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(responseEClass, Response.class, "Response", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(destinationDataEntryEClass, Map.Entry.class, "DestinationDataEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDestinationDataEntry_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2152,20 +2278,20 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		initEAttribute(getAbapException_Key(), ecorePackage.getEString(), "key", null, 0, 1, AbapException.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbapException_Message(), ecorePackage.getEString(), "message", null, 0, 1, AbapException.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(respositoryDataEntryEClass, Map.Entry.class, "RespositoryDataEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRespositoryDataEntry_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRespositoryDataEntry_Value(), this.getFunctionTemplate(), null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(repositoryDataEntryEClass, Map.Entry.class, "RepositoryDataEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRepositoryDataEntry_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRepositoryDataEntry_Value(), this.getFunctionTemplate(), null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(repositoryDataEClass, RepositoryData.class, "RepositoryData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRepositoryData_Entries(), this.getRespositoryDataEntry(), null, "entries", null, 0, -1, RepositoryData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRepositoryData_Entries(), this.getRepositoryDataEntry(), null, "entries", null, 0, -1, RepositoryData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRepositoryData_FunctionTemplates(), this.getFunctionTemplateMap(), "functionTemplates", null, 0, 1, RepositoryData.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(repositoryDataStoreEClass, RepositoryDataStore.class, "RepositoryDataStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRepositoryDataStore_Entries(), this.getRespositoryDataStoreEntry(), null, "entries", null, 0, -1, RepositoryDataStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRepositoryDataStore_Entries(), this.getRepositoryDataStoreEntry(), null, "entries", null, 0, -1, RepositoryDataStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(respositoryDataStoreEntryEClass, Map.Entry.class, "RespositoryDataStoreEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRespositoryDataStoreEntry_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRespositoryDataStoreEntry_Value(), this.getRepositoryData(), null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(repositoryDataStoreEntryEClass, Map.Entry.class, "RepositoryDataStoreEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRepositoryDataStoreEntry_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRepositoryDataStoreEntry_Value(), this.getRepositoryData(), null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataTypeEEnum, DataType.class, "DataType");

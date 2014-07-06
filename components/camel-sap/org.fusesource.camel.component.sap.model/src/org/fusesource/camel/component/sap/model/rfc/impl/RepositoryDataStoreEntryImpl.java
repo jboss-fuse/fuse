@@ -33,19 +33,19 @@ import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Respository Data Store Entry</b></em>'.
+ * An implementation of the model object '<em><b>Repository Data Store Entry</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataStoreEntryImpl#getTypedKey <em>Key</em>}</li>
- *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.RespositoryDataStoreEntryImpl#getTypedValue <em>Value</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataStoreEntryImpl#getTypedKey <em>Key</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataStoreEntryImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicEMap.Entry<String,RepositoryData> {
+public class RepositoryDataStoreEntryImpl extends EObjectImpl implements BasicEMap.Entry<String,RepositoryData> {
 	/**
 	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,7 +81,7 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RespositoryDataStoreEntryImpl() {
+	protected RepositoryDataStoreEntryImpl() {
 		super();
 	}
 
@@ -92,7 +92,7 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RfcPackage.Literals.RESPOSITORY_DATA_STORE_ENTRY;
+		return RfcPackage.Literals.REPOSITORY_DATA_STORE_ENTRY;
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 		String oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, RfcPackage.REPOSITORY_DATA_STORE_ENTRY__KEY, oldKey, key));
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 			value = (RepositoryData)eResolveProxy(oldValue);
 			if (value != oldValue) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__VALUE, oldValue, value));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RfcPackage.REPOSITORY_DATA_STORE_ENTRY__VALUE, oldValue, value));
 			}
 		}
 		return value;
@@ -151,7 +151,7 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 		RepositoryData oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, RfcPackage.REPOSITORY_DATA_STORE_ENTRY__VALUE, oldValue, value));
 	}
 
 	/**
@@ -162,9 +162,9 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__KEY:
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY__KEY:
 				return getTypedKey();
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__VALUE:
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY__VALUE:
 				if (resolve) return getTypedValue();
 				return basicGetTypedValue();
 		}
@@ -179,10 +179,10 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__KEY:
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY__KEY:
 				setTypedKey((String)newValue);
 				return;
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__VALUE:
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY__VALUE:
 				setTypedValue((RepositoryData)newValue);
 				return;
 		}
@@ -197,10 +197,10 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__KEY:
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY__KEY:
 				setTypedKey(KEY_EDEFAULT);
 				return;
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__VALUE:
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY__VALUE:
 				setTypedValue((RepositoryData)null);
 				return;
 		}
@@ -215,9 +215,9 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__KEY:
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-			case RfcPackage.RESPOSITORY_DATA_STORE_ENTRY__VALUE:
+			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY__VALUE:
 				return value != null;
 		}
 		return super.eIsSet(featureID);
@@ -317,4 +317,4 @@ public class RespositoryDataStoreEntryImpl extends EObjectImpl implements BasicE
 		return container == null ? null : (EMap<String, RepositoryData>)container.eGet(eContainmentFeature());
 	}
 
-} //RespositoryDataStoreEntryImpl
+} //RepositoryDataStoreEntryImpl

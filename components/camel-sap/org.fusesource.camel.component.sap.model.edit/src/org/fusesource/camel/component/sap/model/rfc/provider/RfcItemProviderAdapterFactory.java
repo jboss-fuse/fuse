@@ -176,6 +176,52 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.fusesource.camel.component.sap.model.rfc.Request} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RequestItemProvider requestItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.fusesource.camel.component.sap.model.rfc.Request}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRequestAdapter() {
+		if (requestItemProvider == null) {
+			requestItemProvider = new RequestItemProvider(this);
+		}
+
+		return requestItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.fusesource.camel.component.sap.model.rfc.Response} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResponseItemProvider responseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.fusesource.camel.component.sap.model.rfc.Response}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResponseAdapter() {
+		if (responseItemProvider == null) {
+			responseItemProvider = new ResponseItemProvider(this);
+		}
+
+		return responseItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -503,7 +549,7 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RespositoryDataEntryItemProvider respositoryDataEntryItemProvider;
+	protected RepositoryDataEntryItemProvider repositoryDataEntryItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link java.util.Map.Entry}.
@@ -512,12 +558,12 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 	 * @generated
 	 */
 	@Override
-	public Adapter createRespositoryDataEntryAdapter() {
-		if (respositoryDataEntryItemProvider == null) {
-			respositoryDataEntryItemProvider = new RespositoryDataEntryItemProvider(this);
+	public Adapter createRepositoryDataEntryAdapter() {
+		if (repositoryDataEntryItemProvider == null) {
+			repositoryDataEntryItemProvider = new RepositoryDataEntryItemProvider(this);
 		}
 
-		return respositoryDataEntryItemProvider;
+		return repositoryDataEntryItemProvider;
 	}
 
 	/**
@@ -572,7 +618,7 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RespositoryDataStoreEntryItemProvider respositoryDataStoreEntryItemProvider;
+	protected RepositoryDataStoreEntryItemProvider repositoryDataStoreEntryItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link java.util.Map.Entry}.
@@ -581,12 +627,12 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 	 * @generated
 	 */
 	@Override
-	public Adapter createRespositoryDataStoreEntryAdapter() {
-		if (respositoryDataStoreEntryItemProvider == null) {
-			respositoryDataStoreEntryItemProvider = new RespositoryDataStoreEntryItemProvider(this);
+	public Adapter createRepositoryDataStoreEntryAdapter() {
+		if (repositoryDataStoreEntryItemProvider == null) {
+			repositoryDataStoreEntryItemProvider = new RepositoryDataStoreEntryItemProvider(this);
 		}
 
-		return respositoryDataStoreEntryItemProvider;
+		return repositoryDataStoreEntryItemProvider;
 	}
 
 	/**
@@ -692,6 +738,8 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 		if (rfcItemProvider != null) rfcItemProvider.dispose();
 		if (tableItemProvider != null) tableItemProvider.dispose();
 		if (structureItemProvider != null) structureItemProvider.dispose();
+		if (requestItemProvider != null) requestItemProvider.dispose();
+		if (responseItemProvider != null) responseItemProvider.dispose();
 		if (destinationDataEntryItemProvider != null) destinationDataEntryItemProvider.dispose();
 		if (destinationDataItemProvider != null) destinationDataItemProvider.dispose();
 		if (destinationDataStoreEntryItemProvider != null) destinationDataStoreEntryItemProvider.dispose();
@@ -706,10 +754,10 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 		if (fieldMetaDataItemProvider != null) fieldMetaDataItemProvider.dispose();
 		if (listFieldMetaDataItemProvider != null) listFieldMetaDataItemProvider.dispose();
 		if (abapExceptionItemProvider != null) abapExceptionItemProvider.dispose();
-		if (respositoryDataEntryItemProvider != null) respositoryDataEntryItemProvider.dispose();
+		if (repositoryDataEntryItemProvider != null) repositoryDataEntryItemProvider.dispose();
 		if (repositoryDataItemProvider != null) repositoryDataItemProvider.dispose();
 		if (repositoryDataStoreItemProvider != null) repositoryDataStoreItemProvider.dispose();
-		if (respositoryDataStoreEntryItemProvider != null) respositoryDataStoreEntryItemProvider.dispose();
+		if (repositoryDataStoreEntryItemProvider != null) repositoryDataStoreEntryItemProvider.dispose();
 	}
 
 }

@@ -22,13 +22,11 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 
@@ -37,11 +35,69 @@ import org.fusesource.camel.component.sap.model.rfc.Structure;
  * An implementation of the model object '<em><b>Structure</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.StructureImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.StructureImpl#getFieldCount <em>Field Count</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.StructureImpl#getRecordLength <em>Record Length</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.StructureImpl#getUnicodeRecordLength <em>Unicode Record Length</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.StructureImpl#isNestedType1Structure <em>Nested Type1 Structure</em>}</li>
+ * </ul>
  * </p>
  *
  * @generated
  */
 public class StructureImpl extends EObjectImpl implements Structure {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getFieldCount() <em>Field Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFieldCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int FIELD_COUNT_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getRecordLength() <em>Record Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecordLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RECORD_LENGTH_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getUnicodeRecordLength() <em>Unicode Record Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnicodeRecordLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int UNICODE_RECORD_LENGTH_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #isNestedType1Structure() <em>Nested Type1 Structure</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNestedType1Structure()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NESTED_TYPE1_STRUCTURE_EDEFAULT = false;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,6 +122,141 @@ public class StructureImpl extends EObjectImpl implements Structure {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public String getName() {
+		String name = null;
+		EAnnotation idocAnnotation = eClass().getEAnnotation(RfcPackage.eNS_URI);
+		if (idocAnnotation != null) {
+			name = idocAnnotation.getDetails().get("name");
+		}
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setName(String newName) {
+		// NOOP
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public int getFieldCount() {
+		int fieldCount = -1;
+		EAnnotation idocAnnotation = eClass().getEAnnotation(RfcPackage.eNS_URI);
+		if (idocAnnotation != null) {
+			String fieldCountString = idocAnnotation.getDetails().get("fieldCount");
+			try {
+				fieldCount = Integer.parseInt(fieldCountString);
+			} catch (NumberFormatException e) {
+				// TODO log warning.
+			}
+		}
+		return fieldCount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setFieldCount(int newFieldCount) {
+		// NOOP
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public int getRecordLength() {
+		int recordLength = -1;
+		EAnnotation idocAnnotation = eClass().getEAnnotation(RfcPackage.eNS_URI);
+		if (idocAnnotation != null) {
+			String recordLengthString = idocAnnotation.getDetails().get("recordLength");
+			try {
+				recordLength = Integer.parseInt(recordLengthString);
+			} catch (NumberFormatException e) {
+				// TODO log warning.
+			}
+		}
+		return recordLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setRecordLength(int newRecordLength) {
+		// NOOP
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public int getUnicodeRecordLength() {
+		int unicodeRecordLength = -1;
+		EAnnotation idocAnnotation = eClass().getEAnnotation(RfcPackage.eNS_URI);
+		if (idocAnnotation != null) {
+			String unicodeRecordLengthString = idocAnnotation.getDetails().get("unicodeRecordLength");
+			try {
+				unicodeRecordLength = Integer.parseInt(unicodeRecordLengthString);
+			} catch (NumberFormatException e) {
+				// TODO log warning.
+			}
+		}
+		return unicodeRecordLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setUnicodeRecordLength(int newUnicodeRecordLength) {
+		// NOOP
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isNestedType1Structure() {
+		boolean isNestedType1Structure = false;
+		EAnnotation idocAnnotation = eClass().getEAnnotation(RfcPackage.eNS_URI);
+		if (idocAnnotation != null) {
+			String isNestedType1StructureString = idocAnnotation.getDetails().get("isNestedType1Structure");
+			try {
+				isNestedType1Structure = Boolean.parseBoolean(isNestedType1StructureString);
+			} catch (NumberFormatException e) {
+				// TODO log warning.
+			}
+		}
+		return isNestedType1Structure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setNestedType1Structure(boolean newIsNestedType1Structure) {
+		// NOOP
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public <T> T get(Object key, Class<T> type) {
 		Object value = get(key);
 		if (value == null) {
@@ -76,6 +267,104 @@ public class StructureImpl extends EObjectImpl implements Structure {
 		} else {
 			throw new IllegalArgumentException("The value is not of type: " + type + " but is : " + value.getClass().getCanonicalName());
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case RfcPackage.STRUCTURE__NAME:
+				return getName();
+			case RfcPackage.STRUCTURE__FIELD_COUNT:
+				return getFieldCount();
+			case RfcPackage.STRUCTURE__RECORD_LENGTH:
+				return getRecordLength();
+			case RfcPackage.STRUCTURE__UNICODE_RECORD_LENGTH:
+				return getUnicodeRecordLength();
+			case RfcPackage.STRUCTURE__NESTED_TYPE1_STRUCTURE:
+				return isNestedType1Structure();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case RfcPackage.STRUCTURE__NAME:
+				setName((String)newValue);
+				return;
+			case RfcPackage.STRUCTURE__FIELD_COUNT:
+				setFieldCount((Integer)newValue);
+				return;
+			case RfcPackage.STRUCTURE__RECORD_LENGTH:
+				setRecordLength((Integer)newValue);
+				return;
+			case RfcPackage.STRUCTURE__UNICODE_RECORD_LENGTH:
+				setUnicodeRecordLength((Integer)newValue);
+				return;
+			case RfcPackage.STRUCTURE__NESTED_TYPE1_STRUCTURE:
+				setNestedType1Structure((Boolean)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case RfcPackage.STRUCTURE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case RfcPackage.STRUCTURE__FIELD_COUNT:
+				setFieldCount(FIELD_COUNT_EDEFAULT);
+				return;
+			case RfcPackage.STRUCTURE__RECORD_LENGTH:
+				setRecordLength(RECORD_LENGTH_EDEFAULT);
+				return;
+			case RfcPackage.STRUCTURE__UNICODE_RECORD_LENGTH:
+				setUnicodeRecordLength(UNICODE_RECORD_LENGTH_EDEFAULT);
+				return;
+			case RfcPackage.STRUCTURE__NESTED_TYPE1_STRUCTURE:
+				setNestedType1Structure(NESTED_TYPE1_STRUCTURE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case RfcPackage.STRUCTURE__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case RfcPackage.STRUCTURE__FIELD_COUNT:
+				return getFieldCount() != FIELD_COUNT_EDEFAULT;
+			case RfcPackage.STRUCTURE__RECORD_LENGTH:
+				return getRecordLength() != RECORD_LENGTH_EDEFAULT;
+			case RfcPackage.STRUCTURE__UNICODE_RECORD_LENGTH:
+				return getUnicodeRecordLength() != UNICODE_RECORD_LENGTH_EDEFAULT;
+			case RfcPackage.STRUCTURE__NESTED_TYPE1_STRUCTURE:
+				return isNestedType1Structure() != NESTED_TYPE1_STRUCTURE_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
 	}
 
 	public static class Entry implements Map.Entry<String,Object> {

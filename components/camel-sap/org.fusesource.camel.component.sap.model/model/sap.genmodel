@@ -29,11 +29,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/iDocTypeExtension"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/messageCode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/messageFunction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/messageType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/outputMode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientAddress"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientLogicalAddress"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientPartnerFunction"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientPatnerNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientPartnerNumber"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientPartnerType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/recipientPort"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/senderAddress"/>
@@ -44,21 +45,54 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/senderPort"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/serialization"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/status"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/test"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Document/testFlag"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Document/rootSegment"/>
     </genClasses>
     <genClasses ecoreClass="sap-idoc.ecore#//Segment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Segment/parent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Segment/children"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Segment/document"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/definition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/hierarchyLevel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//Segment/childSegmentTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/idocType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/idocTypeExtension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/systemRelease"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/applicationRelease"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/numFields"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/maxOccurrence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/minOccurrence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/mandatory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/qualified"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//Segment/recordLength"/>
       <genOperations ecoreOperation="sap-idoc.ecore#//Segment/get">
         <genParameters ecoreParameter="sap-idoc.ecore#//Segment/get/key"/>
         <genParameters ecoreParameter="sap-idoc.ecore#//Segment/get/type"/>
         <genTypeParameters ecoreTypeParameter="sap-idoc.ecore#//Segment/get/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="sap-idoc.ecore#//Segment/getChildren">
+        <genTypeParameters ecoreTypeParameter="sap-idoc.ecore#//Segment/getChildren/S"/>
+      </genOperations>
+      <genOperations ecoreOperation="sap-idoc.ecore#//Segment/getChildren.1">
+        <genParameters ecoreParameter="sap-idoc.ecore#//Segment/getChildren.1/segmentType"/>
+        <genTypeParameters ecoreTypeParameter="sap-idoc.ecore#//Segment/getChildren.1/S"/>
+      </genOperations>
+      <genOperations ecoreOperation="sap-idoc.ecore#//Segment/getTypes"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-idoc.ecore#//SegmentChildren">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute sap-idoc.ecore#//SegmentChildren/segments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-idoc.ecore#//SegmentChildren/parent"/>
+      <genOperations ecoreOperation="sap-idoc.ecore#//SegmentChildren/get">
+        <genParameters ecoreParameter="sap-idoc.ecore#//SegmentChildren/get/segmentType"/>
+        <genTypeParameters ecoreTypeParameter="sap-idoc.ecore#//SegmentChildren/get/S"/>
+      </genOperations>
+      <genOperations ecoreOperation="sap-idoc.ecore#//SegmentChildren/getTypes"/>
+    </genClasses>
+    <genClasses ecoreClass="sap-idoc.ecore#//SegmentList">
+      <genTypeParameters ecoreTypeParameter="sap-idoc.ecore#//SegmentList/S"/>
+      <genOperations ecoreOperation="sap-idoc.ecore#//SegmentList/add"/>
+      <genOperations ecoreOperation="sap-idoc.ecore#//SegmentList/add.1">
+        <genParameters ecoreParameter="sap-idoc.ecore#//SegmentList/add.1/index"/>
       </genOperations>
     </genClasses>
   </genPackages>
@@ -256,9 +290,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//AbapException/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//AbapException/message"/>
     </genClasses>
-    <genClasses ecoreClass="sap-rfc.ecore#//RespositoryDataEntry">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RespositoryDataEntry/key"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RespositoryDataEntry/value"/>
+    <genClasses ecoreClass="sap-rfc.ecore#//RepositoryDataEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RepositoryDataEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RepositoryDataEntry/value"/>
     </genClasses>
     <genClasses ecoreClass="sap-rfc.ecore#//RepositoryData">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RepositoryData/entries"/>
@@ -267,9 +301,9 @@
     <genClasses ecoreClass="sap-rfc.ecore#//RepositoryDataStore">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RepositoryDataStore/entries"/>
     </genClasses>
-    <genClasses ecoreClass="sap-rfc.ecore#//RespositoryDataStoreEntry">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RespositoryDataStoreEntry/key"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RespositoryDataStoreEntry/value"/>
+    <genClasses ecoreClass="sap-rfc.ecore#//RepositoryDataStoreEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sap-rfc.ecore#//RepositoryDataStoreEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sap-rfc.ecore#//RepositoryDataStoreEntry/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

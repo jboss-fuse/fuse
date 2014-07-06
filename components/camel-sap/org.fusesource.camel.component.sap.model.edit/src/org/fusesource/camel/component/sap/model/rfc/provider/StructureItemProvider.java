@@ -23,14 +23,19 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.fusesource.camel.component.sap.model.SAPEditPlugin;
+import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
+import org.fusesource.camel.component.sap.model.rfc.Structure;
 
 /**
  * This is the item provider adapter for a {@link org.fusesource.camel.component.sap.model.rfc.Structure} object.
@@ -67,8 +72,123 @@ public class StructureItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
+			addFieldCountPropertyDescriptor(object);
+			addRecordLengthPropertyDescriptor(object);
+			addUnicodeRecordLengthPropertyDescriptor(object);
+			addNestedType1StructurePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Structure_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Structure_name_feature", "_UI_Structure_type"),
+				 RfcPackage.Literals.STRUCTURE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Field Count feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFieldCountPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Structure_fieldCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Structure_fieldCount_feature", "_UI_Structure_type"),
+				 RfcPackage.Literals.STRUCTURE__FIELD_COUNT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Record Length feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRecordLengthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Structure_recordLength_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Structure_recordLength_feature", "_UI_Structure_type"),
+				 RfcPackage.Literals.STRUCTURE__RECORD_LENGTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Unicode Record Length feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUnicodeRecordLengthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Structure_unicodeRecordLength_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Structure_unicodeRecordLength_feature", "_UI_Structure_type"),
+				 RfcPackage.Literals.STRUCTURE__UNICODE_RECORD_LENGTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nested Type1 Structure feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNestedType1StructurePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Structure_nestedType1Structure_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Structure_nestedType1Structure_feature", "_UI_Structure_type"),
+				 RfcPackage.Literals.STRUCTURE__NESTED_TYPE1_STRUCTURE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -90,7 +210,10 @@ public class StructureItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Structure_type");
+		String label = ((Structure)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Structure_type") :
+			getString("_UI_Structure_type") + " " + label;
 	}
 
 	/**
@@ -103,6 +226,16 @@ public class StructureItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Structure.class)) {
+			case RfcPackage.STRUCTURE__NAME:
+			case RfcPackage.STRUCTURE__FIELD_COUNT:
+			case RfcPackage.STRUCTURE__RECORD_LENGTH:
+			case RfcPackage.STRUCTURE__UNICODE_RECORD_LENGTH:
+			case RfcPackage.STRUCTURE__NESTED_TYPE1_STRUCTURE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

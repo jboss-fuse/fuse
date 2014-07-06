@@ -1,38 +1,42 @@
 package org.fusesource.camel.component.sap.util;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import static org.junit.Assert.assertEquals;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.ETypeParameter;
-import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.fusesource.camel.component.sap.model.rfc.DestinationData;
 import org.fusesource.camel.component.sap.model.rfc.DestinationDataStore;
+import org.fusesource.camel.component.sap.model.rfc.Request;
+import org.fusesource.camel.component.sap.model.rfc.Response;
 import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.model.rfc.Table;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoDestinationManager;
 import com.sap.conn.jco.JCoException;
-import com.sap.conn.jco.JCoFunctionTemplate;
-import com.sap.conn.jco.JCoRecordMetaData;
 import com.sap.conn.jco.JCoRepository;
+
+import static org.hamcrest.CoreMatchers.instanceOf;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 public class RfcUtilTest {
 
@@ -55,13 +59,340 @@ public class RfcUtilTest {
 		ComponentDestinationDataProvider.INSTANCE.addDestinationDataStore(destinationDataStore);
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		//ComponentDestinationDataProvider.INSTANCE.removeDestinationDataStore(destinationDataStore);
+	/**
+	 * Creates and saves Test Registry for off-line tests
+	 * @throws Exception
+	 */
+	//@Test
+	public void createTestRfcRegistry() throws Exception {
+		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
+		JCoRepository repository = jcoDestination.getRepository();
+		RfcUtil.getEPackage(repository, "http://sap.fusesource.org/rfc");
+		RfcUtil.getEPackage(repository, "http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
+        File file = new File("data/testRfcRegistry.ecore");
+		Util.saveRegistry(file);
 	}
 
 	//@Test
-	public void test() throws JCoException {
+	public void testPackage() throws Exception {
+		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
+		EPackage ePackage = RfcUtil.getEPackage(jcoDestination.getRepository(), "http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
+		Util.print(ePackage);
+	}
+	
+	/**
+	 * Tests the saving and loading of Rfc packages into global package registry.
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void testRegistrySaveAndLoad() throws Exception {
+		
+		// Load base and derived Rfc packages in global registry from test file.  
+        File file = new File("data/testRfcRegistry.ecore");
+		Util.loadRegistry(file);
+		
+		EPackage ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc");
+		assertNotNull("Failded to load base RFC package", ePackage);
+		ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
+		assertNotNull("Failed to load derived Rfc package", ePackage);
+		
+		// Save base and derived IDoc packages to new test file.
+        file = new File("data/savedRfcTestRegistry.ecore");
+		Util.saveRegistry(file);
+		
+		// Clear IDoc packages from registry.
+		EPackage.Registry.INSTANCE.remove("http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
+
+		// Make sure they were cleared.
+		ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
+		assertNull("Failed to clear derived Rfc package", ePackage);
+		
+		Util.loadRegistry(file);
+		
+		ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc");
+		assertNotNull("Failded to load base RFC package", ePackage);
+		ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
+		assertNotNull("Failed to load derived RFC package", ePackage);
+	}
+	
+	@Test
+	public void testCreateAndBuildRequest() throws Exception {
+		// Load base and derived RFC packages in global registry from test file.  
+        File file = new File("data/testRfcRegistry.ecore");
+		IDocUtil.loadRegistry(file);
+
+		// Test that packages loaded.
+		EPackage ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc");
+		assertNotNull("Failded to load base RFC package", ePackage);
+		ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
+		assertNotNull("Failed to load derived RFC package", ePackage);
+
+		// Test create request
+		Request request = RfcUtil.getRequest("NPL", "BAPI_FLCONN_GETDETAIL");
+		assertNotNull("Failed to create request", request);
+		assertEquals("New request has incorrect name", "Request", request.getName());
+		assertEquals("New request has incorrect field count", 9, request.getFieldCount());
+		assertEquals("New request has incorrect record length", -1, request.getRecordLength());
+		assertEquals("New request has incorrect unicode record length", -1, request.getUnicodeRecordLength());
+		assertEquals("New request has incorrect nested type1 structure flag", false, request.isNestedType1Structure());
+		
+		// Test field values and type
+		try {
+			request.put("CONNECTIONNUMBER", "1234");
+		} catch (IllegalArgumentException e) {
+			fail("New request field CONNECTIONNUMBER does not exist");
+		}
+		assertThat("New request field CONNECTIONNUMBER has incorrect type", request.get("CONNECTIONNUMBER"), instanceOf(String.class));
+		try {
+			request.put("FLIGHTDATE", new Date());
+		} catch (IllegalArgumentException e) {
+			fail("New request field FLIGHTDATE does not exist");
+		}
+		assertThat("New request field FLIGHTDATE has incorrect type", request.get("FLIGHTDATE"), instanceOf(Date.class));
+		try {
+			request.put("NO_AVAILIBILITY", "X");
+		} catch (IllegalArgumentException e) {
+			fail("New request field NO_AVAILIBILITY does not exist");
+		}
+		assertThat("New request field NO_AVAILIBILITY has incorrect type", request.get("NO_AVAILIBILITY"), instanceOf(String.class));
+		try {
+			request.put("TRAVELAGENCYNUMBER", "12345678");
+		} catch (IllegalArgumentException e) {
+			fail("New request field TRAVELAGENCYNUMBER does not exist");
+		}
+		assertThat("New request field TRAVELAGENCYNUMBER has incorrect type", request.get("TRAVELAGENCYNUMBER"), instanceOf(String.class));
+		assertThat("New request field AVAILIBILITY has incorrect type", request.get("AVAILIBILITY"), instanceOf(Table.class));
+		assertThat("New request field EXTENSION_IN has incorrect type", request.get("EXTENSION_IN"), instanceOf(Table.class));
+		assertThat("New request field EXTENSION_OUT has incorrect type", request.get("EXTENSION_OUT"), instanceOf(Table.class));
+		assertThat("New request field FLIGHT_HOP_LIST has incorrect type", request.get("FLIGHT_HOP_LIST"), instanceOf(Table.class));
+		@SuppressWarnings("rawtypes")
+		Table rtn = request.get("RETURN", Table.class);
+		assertThat("New request field RETURN has incorrect type", rtn, instanceOf(Table.class));
+		Structure bapiRtn2 = rtn.add();
+		assertNotNull("Failed to creat row in RETURN table", bapiRtn2);
+		try {
+			bapiRtn2.put("TYPE", "S");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field TYPE does not exist");
+		}
+		assertThat("New request field TYPE has incorrect type", bapiRtn2.get("TYPE"), instanceOf(String.class));
+		assertEquals("New request field TYPE has incorrect value", "S", bapiRtn2.get("TYPE"));
+		try {
+			bapiRtn2.put("ID", "ABCDEFGHIJ0123456789");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field ID does not exist");
+		}
+		assertThat("New request field ID has incorrect type", bapiRtn2.get("ID"), instanceOf(String.class));
+		assertEquals("New request field ID has incorrect value", "ABCDEFGHIJ0123456789", bapiRtn2.get("ID"));
+		try {
+			bapiRtn2.put("MESSAGE", "Four score and seven years ago our fathers brought forth on this continent a new nation ...");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field MESSAGE does not exist");
+		}
+		assertThat("New request field MESSAGE has incorrect type", bapiRtn2.get("MESSAGE"), instanceOf(String.class));
+		assertEquals("New request field MESSAGE has incorrect value", "Four score and seven years ago our fathers brought forth on this continent a new nation ...", bapiRtn2.get("MESSAGE"));
+		try {
+			bapiRtn2.put("LOG_NO", "ABCDEFGHIJ0123456789");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field LOG_NO does not exist");
+		}
+		assertThat("New request field LOG_NO has incorrect type", bapiRtn2.get("LOG_NO"), instanceOf(String.class));
+		assertEquals("New request field LOG_NO has incorrect value", "ABCDEFGHIJ0123456789", bapiRtn2.get("LOG_NO"));
+		try {
+			bapiRtn2.put("LOG_MSG_NO", "012345");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field LOG_MSG_NO does not exist");
+		}
+		assertThat("New request field LOG_MSG_NO has incorrect type", bapiRtn2.get("LOG_MSG_NO"), instanceOf(String.class));
+		assertEquals("New request field LOG_MSG_NO has incorrect value", "012345", bapiRtn2.get("LOG_MSG_NO"));
+		try {
+			bapiRtn2.put("PARAMETER", "FLIGHT_HOP_LIST");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field PARAMETER does not exist");
+		}
+		assertThat("New request field PARAMETER has incorrect type", bapiRtn2.get("PARAMETER"), instanceOf(String.class));
+		assertEquals("New request field PARAMETER has incorrect value", "FLIGHT_HOP_LIST", bapiRtn2.get("PARAMETER"));
+		try {
+			bapiRtn2.put("ROW", 0);
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field ROW does not exist");
+		}
+		assertThat("New request field ROW has incorrect type", bapiRtn2.get("ROW"), instanceOf(Integer.class));
+		assertEquals("New request field ROW has incorrect value", 0, bapiRtn2.get("ROW"));
+		try {
+			bapiRtn2.put("FIELD", "HOP");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field FIELD does not exist");
+		}
+		assertThat("New request field FIELD has incorrect type", bapiRtn2.get("FIELD"), instanceOf(String.class));
+		assertEquals("New request field FIELD has incorrect value", "HOP", bapiRtn2.get("FIELD"));
+		try {
+			bapiRtn2.put("SYSTEM", "NPL");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field SYSTEM does not exist");
+		}
+		assertThat("New request field SYSTEM has incorrect type", bapiRtn2.get("SYSTEM"), instanceOf(String.class));
+		assertEquals("New request field SYSTEM has incorrect value", "NPL", bapiRtn2.get("SYSTEM"));
+	
+	}
+
+	@Test
+	public void testCreateResponse() throws Exception {
+		// Load base and derived RFC packages in global registry from test file.  
+        File file = new File("data/testRfcRegistry.ecore");
+		IDocUtil.loadRegistry(file);
+
+		// Test that packages loaded.
+		EPackage ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc");
+		assertNotNull("Failded to load base RFC package", ePackage);
+		ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
+		assertNotNull("Failed to load derived RFC package", ePackage);
+
+		Response response = RfcUtil.getResponse("NPL", "BAPI_FLCONN_GETDETAIL");
+		assertNotNull("Failed to create response", response);
+		assertEquals("New response has incorrect name", "Response", response.getName());
+		assertEquals("New response has incorrect field count", 7, response.getFieldCount());
+		assertEquals("New response has incorrect record length", -1, response.getRecordLength());
+		assertEquals("New response has incorrect unicode record length", -1, response.getUnicodeRecordLength());
+		assertEquals("New response has incorrect nested type1 structure flag", false, response.isNestedType1Structure());
+		
+		assertThat("New request field CONNECTION_DATA has incorrect type", response.get("CONNECTION_DATA"), instanceOf(Structure.class));
+		assertThat("New request field PRICE_INFO has incorrect type", response.get("PRICE_INFO"), instanceOf(Structure.class));
+		assertThat("New request field AVAILIBILITY has incorrect type", response.get("AVAILIBILITY"), instanceOf(Table.class));
+		assertThat("New request field EXTENSION_IN has incorrect type", response.get("EXTENSION_IN"), instanceOf(Table.class));
+		assertThat("New request field EXTENSION_OUT has incorrect type", response.get("EXTENSION_OUT"), instanceOf(Table.class));
+		assertThat("New request field FLIGHT_HOP_LIST has incorrect type", response.get("FLIGHT_HOP_LIST"), instanceOf(Table.class));
+		@SuppressWarnings("rawtypes")
+		Table rtn = response.get("RETURN", Table.class);
+		assertThat("New request field RETURN has incorrect type", rtn, instanceOf(Table.class));
+		Structure bapiRtn2 = rtn.add();
+		assertNotNull("Failed to creat row in RETURN table", bapiRtn2);
+		try {
+			bapiRtn2.put("TYPE", "S");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field TYPE does not exist");
+		}
+		assertThat("New request field TYPE has incorrect type", bapiRtn2.get("TYPE"), instanceOf(String.class));
+		assertEquals("New request field TYPE has incorrect value", "S", bapiRtn2.get("TYPE"));
+		try {
+			bapiRtn2.put("ID", "ABCDEFGHIJ0123456789");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field ID does not exist");
+		}
+		assertThat("New request field ID has incorrect type", bapiRtn2.get("ID"), instanceOf(String.class));
+		assertEquals("New request field ID has incorrect value", "ABCDEFGHIJ0123456789", bapiRtn2.get("ID"));
+		try {
+			bapiRtn2.put("MESSAGE", "Four score and seven years ago our fathers brought forth on this continent a new nation ...");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field MESSAGE does not exist");
+		}
+		assertThat("New request field MESSAGE has incorrect type", bapiRtn2.get("MESSAGE"), instanceOf(String.class));
+		assertEquals("New request field MESSAGE has incorrect value", "Four score and seven years ago our fathers brought forth on this continent a new nation ...", bapiRtn2.get("MESSAGE"));
+		try {
+			bapiRtn2.put("LOG_NO", "ABCDEFGHIJ0123456789");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field LOG_NO does not exist");
+		}
+		assertThat("New request field LOG_NO has incorrect type", bapiRtn2.get("LOG_NO"), instanceOf(String.class));
+		assertEquals("New request field LOG_NO has incorrect value", "ABCDEFGHIJ0123456789", bapiRtn2.get("LOG_NO"));
+		try {
+			bapiRtn2.put("LOG_MSG_NO", "012345");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field LOG_MSG_NO does not exist");
+		}
+		assertThat("New request field LOG_MSG_NO has incorrect type", bapiRtn2.get("LOG_MSG_NO"), instanceOf(String.class));
+		assertEquals("New request field LOG_MSG_NO has incorrect value", "012345", bapiRtn2.get("LOG_MSG_NO"));
+		try {
+			bapiRtn2.put("PARAMETER", "FLIGHT_HOP_LIST");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field PARAMETER does not exist");
+		}
+		assertThat("New request field PARAMETER has incorrect type", bapiRtn2.get("PARAMETER"), instanceOf(String.class));
+		assertEquals("New request field PARAMETER has incorrect value", "FLIGHT_HOP_LIST", bapiRtn2.get("PARAMETER"));
+		try {
+			bapiRtn2.put("ROW", 0);
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field ROW does not exist");
+		}
+		assertThat("New request field ROW has incorrect type", bapiRtn2.get("ROW"), instanceOf(Integer.class));
+		assertEquals("New request field ROW has incorrect value", 0, bapiRtn2.get("ROW"));
+		try {
+			bapiRtn2.put("FIELD", "HOP");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field FIELD does not exist");
+		}
+		assertThat("New request field FIELD has incorrect type", bapiRtn2.get("FIELD"), instanceOf(String.class));
+		assertEquals("New request field FIELD has incorrect value", "HOP", bapiRtn2.get("FIELD"));
+		try {
+			bapiRtn2.put("SYSTEM", "NPL");
+		} catch (IllegalArgumentException e) {
+			fail("RETURN field SYSTEM does not exist");
+		}
+		assertThat("New request field SYSTEM has incorrect type", bapiRtn2.get("SYSTEM"), instanceOf(String.class));
+		assertEquals("New request field SYSTEM has incorrect value", "NPL", bapiRtn2.get("SYSTEM"));
+
+	}
+	
+	@Test
+	public void testSaveAndLoadResponse() throws Exception {
+		// Load base and derived RFC packages in global registry from test file.
+		File file = new File("data/testRfcRegistry.ecore");
+		IDocUtil.loadRegistry(file);
+
+		// Test that packages loaded.
+		EPackage ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc");
+		assertNotNull("Failded to load base RFC package", ePackage);
+		ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
+		assertNotNull("Failed to load derived RFC package", ePackage);
+
+		Response response = RfcUtil.getResponse("NPL", "BAPI_FLCONN_GETDETAIL");
+		@SuppressWarnings("rawtypes")
+		Table rtn = response.get("RETURN", Table.class);
+		assertThat("New request field RETURN has incorrect type", rtn, instanceOf(Table.class));
+		Structure bapiRtn2 = rtn.add();
+		assertNotNull("Failed to creat row in RETURN table", bapiRtn2);
+		bapiRtn2.put("TYPE", "S");
+		bapiRtn2.put("ID", "ABCDEFGHIJ0123456789");
+		bapiRtn2.put("MESSAGE", "Four score and seven years ago our fathers brought forth on this continent a new nation ...");
+		bapiRtn2.put("LOG_NO", "ABCDEFGHIJ0123456789");
+		bapiRtn2.put("LOG_MSG_NO", "012345");
+		bapiRtn2.put("PARAMETER", "FLIGHT_HOP_LIST");
+		bapiRtn2.put("ROW", 0);
+		bapiRtn2.put("FIELD", "HOP");
+		bapiRtn2.put("SYSTEM", "NPL");
+		
+		// Save IDoc document
+		file = new File("data/testResponse.xml");
+		IDocUtil.save(file, response);
+		
+		// Load saved IDoc document
+		response = (Response) IDocUtil.load(file);
+		
+		rtn = response.get("RETURN", Table.class);
+		assertThat("New request field RETURN has incorrect type", rtn, instanceOf(Table.class));
+		bapiRtn2 = rtn.getRow(0);
+		assertNotNull("Failed to creat row in RETURN table", bapiRtn2);
+		assertThat("New request field ID has incorrect type", bapiRtn2.get("ID"), instanceOf(String.class));
+		assertEquals("New request field ID has incorrect value", "ABCDEFGHIJ0123456789", bapiRtn2.get("ID"));
+		assertThat("New request field MESSAGE has incorrect type", bapiRtn2.get("MESSAGE"), instanceOf(String.class));
+		assertEquals("New request field MESSAGE has incorrect value", "Four score and seven years ago our fathers brought forth on this continent a new nation ...", bapiRtn2.get("MESSAGE"));
+		assertThat("New request field LOG_NO has incorrect type", bapiRtn2.get("LOG_NO"), instanceOf(String.class));
+		assertEquals("New request field LOG_NO has incorrect value", "ABCDEFGHIJ0123456789", bapiRtn2.get("LOG_NO"));
+		assertThat("New request field LOG_MSG_NO has incorrect type", bapiRtn2.get("LOG_MSG_NO"), instanceOf(String.class));
+		assertEquals("New request field LOG_MSG_NO has incorrect value", "012345", bapiRtn2.get("LOG_MSG_NO"));
+		assertThat("New request field PARAMETER has incorrect type", bapiRtn2.get("PARAMETER"), instanceOf(String.class));
+		assertEquals("New request field PARAMETER has incorrect value", "FLIGHT_HOP_LIST", bapiRtn2.get("PARAMETER"));
+		assertThat("New request field ROW has incorrect type", bapiRtn2.get("ROW"), instanceOf(Integer.class));
+		assertEquals("New request field ROW has incorrect value", 0, bapiRtn2.get("ROW"));
+		assertThat("New request field FIELD has incorrect type", bapiRtn2.get("FIELD"), instanceOf(String.class));
+		assertEquals("New request field FIELD has incorrect value", "HOP", bapiRtn2.get("FIELD"));
+		assertThat("New request field SYSTEM has incorrect type", bapiRtn2.get("SYSTEM"), instanceOf(String.class));
+		assertEquals("New request field SYSTEM has incorrect value", "NPL", bapiRtn2.get("SYSTEM"));
+	}
+	
+	//@Test
+	public void testFunctionCall() throws JCoException {
 		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination"); 
 		
 		Structure request = RfcUtil.getRequest(jcoDestination.getRepository(), "STFC_CONNECTION");
@@ -80,7 +411,7 @@ public class RfcUtilTest {
 	public void testMashalling() throws Exception {
 		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
 		
-		Structure customerData = (Structure) RfcUtil.getInstance(jcoDestination.getRepository(), "BAPI_FLCUST_GETLIST", "BAPISCUDAT");
+		Structure customerData = (Structure) RfcUtil.createInstance(jcoDestination.getRepository(), "BAPI_FLCUST_GETLIST", "BAPISCUDAT");
 		EList<EStructuralFeature> list = customerData.eClass().getEAllStructuralFeatures();
 		for(EStructuralFeature f: list) {
 			System.out.println(f);
@@ -113,186 +444,7 @@ public class RfcUtilTest {
 		@SuppressWarnings("unused")
 		ETypeParameter typeParameter = tableClassTypeParameters.get(0);
 	}
-	
-	//@Test
-	public void testCreateTableSubclass() throws Exception {
-		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
 		
-		JCoRepository jcoRepository = jcoDestination.getRepository();
-		JCoFunctionTemplate functionTemplate = jcoRepository.getFunctionTemplate("BAPI_FLCUST_GETLIST");
-		JCoRecordMetaData jcoRecordMetaData = functionTemplate.getTableParameterList().getRecordMetaData("CUSTOMER_LIST");
-
-		// Create and initialize package
-		EcoreFactory ecoreFactory = EcoreFactory.eINSTANCE;
-		EPackage ePackage = ecoreFactory.createEPackage();
-		ePackage.setName("BAPI_FLCUST_GETLIST");
-		ePackage.setNsPrefix("BAPI_FLCUST_GETLIST");
-		ePackage.setNsURI("http://sap.fusesource.org/rfc/NPL/BAPI_FLCUST_GETLIST");
-		
-		// Create the super type inherited by this Table subclass: i.e.
-		// 'Table<S extends Structure>'
-		EGenericType tableGenericSuperType = EcoreFactory.eINSTANCE.createEGenericType();
-		EClass tableSuperClass = RfcPackage.eINSTANCE.getTable();
-		tableGenericSuperType.setEClassifier(tableSuperClass);
-
-		// Create type parameter for row type: i.e. the 'S' in 'S extends
-		// Structure'
-		EGenericType rowGenericType = EcoreFactory.eINSTANCE.createEGenericType();
-		EClass structureType = RfcUtil.getStructureClass(ePackage, jcoRecordMetaData);
-		rowGenericType.setEClassifier(structureType);
-		
-		// Add the type parameter to super type: i.e. 'S'
-		tableGenericSuperType.getETypeArguments().add(rowGenericType);
-
-		// Create the Table subclass and add to package
-		EClass tableClass = EcoreFactory.eINSTANCE.createEClass();
-		ePackage.getEClassifiers().add(tableClass);
-		tableClass.setName(jcoRecordMetaData.getName() + "_TABLE");
-		((EClass) tableClass).getEGenericSuperTypes().add(tableGenericSuperType);
-
-        Resource res = new XMLResourceImpl();
-        res.getContents().add(ePackage);
-        res.save(System.out, null);
-        
-        // Test instance of table class
-		EObject eObject = ePackage.getEFactoryInstance().create(tableClass);
-		EStructuralFeature rowFeature = eObject.eClass().getEStructuralFeature("row");
-		System.out.println("Row feature: " + rowFeature);
-        System.out.println("Row feature type: " + rowFeature.getEType());
-        System.out.println("Row feature generic type: " + rowFeature.getEGenericType());
-		
-	}
-	
-	//@Test
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void testApplesAndOranges() throws Exception {
-		// Create and initialize package
-		EcoreFactory ecoreFactory = EcoreFactory.eINSTANCE;
-		EPackage ePackage = ecoreFactory.createEPackage();
-		ePackage.setName("fruit");
-		ePackage.setNsPrefix("fruit");
-		ePackage.setNsURI("http://fruit");
-		
-		// Create Fruit class
-		EClass fruitClass = ecoreFactory.createEClass();
-		ePackage.getEClassifiers().add(fruitClass);
-		fruitClass.setName("Fruit");
-		
-		// Create Apple class
-		EClass appleClass = ecoreFactory.createEClass();
-		ePackage.getEClassifiers().add(appleClass);
-		appleClass.setName("Apple");
-		appleClass.getESuperTypes().add(fruitClass);
-		
-		// Create Orange class
-		EClass orangeClass = ecoreFactory.createEClass();
-		ePackage.getEClassifiers().add(orangeClass);
-		orangeClass.setName("Orange");
-		orangeClass.getESuperTypes().add(fruitClass);
-		
-		// Create Basket class
-		//
-		EClass basketClass = ecoreFactory.createEClass();
-		ePackage.getEClassifiers().add(basketClass);
-		basketClass.setName("Basket");
-		
-		EGenericType fTypeParamterBounds = ecoreFactory.createEGenericType();
-		fTypeParamterBounds.setEClassifier(fruitClass);
-		
-		ETypeParameter fTypeParameter = ecoreFactory.createETypeParameter();
-		fTypeParameter.setName("F");
-		fTypeParameter.getEBounds().add(fTypeParamterBounds);
-		
-		basketClass.getETypeParameters().add(fTypeParameter);
-		
-		EReference contentsFeature = ecoreFactory.createEReference();
-		contentsFeature.setName("contents");
-		contentsFeature.setLowerBound(1);
-		contentsFeature.setUpperBound(-1);
-		
-		EGenericType contentsGenericType = ecoreFactory.createEGenericType();
-		contentsGenericType.setETypeParameter(fTypeParameter);
-		contentsFeature.setEGenericType(contentsGenericType);
-		
-		basketClass.getEStructuralFeatures().add(contentsFeature);
-		
-		//
-		// End create Basket class
-		
-		// Create AppleBasket class
-		//
-		
-		EClass appleBasketClass = ecoreFactory.createEClass();
-		ePackage.getEClassifiers().add(appleBasketClass);
-		appleBasketClass.setName("AppleBasket");
-		
-		EGenericType appleBasketGenericSuperType = ecoreFactory.createEGenericType();
-		appleBasketGenericSuperType.setEClassifier(basketClass);
-		
-		EGenericType appleBasketTypeArgument = ecoreFactory.createEGenericType();
-		appleBasketTypeArgument.setEClassifier(appleClass);
-		
-		appleBasketGenericSuperType.getETypeArguments().add(appleBasketTypeArgument);
-		
-		appleBasketClass.getEGenericSuperTypes().add(appleBasketGenericSuperType);
-		
-		// Workaround for type erasure in feature.
-		EReference rowReference = ecoreFactory.createEReference();
-		rowReference.setEType(appleClass);
-		rowReference.setName("contents");
-		rowReference.setContainment(true);
-		rowReference.setLowerBound(0);
-		rowReference.setUpperBound(-1);
-		appleBasketClass.getEStructuralFeatures().add(rowReference);
-		
-		//
-		// End Create AppleBasket class
-		
-		
-        Resource res = new XMLResourceImpl();
-        res.getContents().add(ePackage);
-        res.save(System.out, null);
-	
-        // Now test instance of appleBasket.
-        EObject appleBasket = ePackage.getEFactoryInstance().create(appleBasketClass);
-        EStructuralFeature feature = appleBasket.eClass().getEStructuralFeature("contents");
-        System.out.println("Contents Feature: " + feature);
-        System.out.println("Contents Feature Type: " + feature.getEType());
-
-        // Test fruit type of AppleBasket
-        EObject apple = ePackage.getEFactoryInstance().create(appleClass);
-        System.out.println("Apple instance: " + apple);
-        EObject orange = ePackage.getEFactoryInstance().create(orangeClass);
-        System.out.println("Orange instance: " + orange);
-        @SuppressWarnings("unused")
-		EList contents = (EList) appleBasket.eGet(feature);
-        System.out.println("Apple basket contents: " + appleBasket.eGet(feature));
-        ((EList)appleBasket.eGet(feature)).add(apple);
-        System.out.println("Apple basket contents: " + appleBasket.eGet(feature));
-        if (feature.getEType().isInstance(orange)) {
-        	System.out.println("Orange is instance of feature type");
-        } else {
-        	System.out.println("Orange is NOT instance of feature type");
-        }
-        if (feature.getEType().isInstance(apple)) {
-        	System.out.println("Apple is instance of feature type");
-        } else {
-        	System.out.println("Apple is NOT instance of feature type");
-        }
-        ((EList)appleBasket.eGet(feature)).add(orange);
-        System.out.println("Apple basket contents: " + appleBasket.eGet(feature));
-        
-	}
-	
-	//@Test
-	public void testPackage() throws Exception {
-		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
-		EPackage ePackage = RfcUtil.getEPackage(jcoDestination.getRepository(), "http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL");
-        Resource res = new XMLResourceImpl();
-        res.getContents().add(ePackage);
-        res.save(System.out, null);
-	}
-	
 	//@Test
 	public void testRequest() throws Exception {
 		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
@@ -306,7 +458,7 @@ public class RfcUtilTest {
         res.save(System.out, null);
 	}
 	
-	@Test
+	//@Test
 	public void testFlightConnectionGetListRequest() throws Exception {
 
 		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
