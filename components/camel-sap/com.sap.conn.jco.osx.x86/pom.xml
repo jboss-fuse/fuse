@@ -17,7 +17,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sap.conn.jco</groupId>
-	<artifactId>com.sap.conn.jco.osx.x86_64</artifactId>
+	<artifactId>com.sap.conn.jco.osx.x86</artifactId>
 	<version>3.0.11.redhat_1</version>
 	<packaging>eclipse-plugin</packaging>
 	<parent>
@@ -26,9 +26,9 @@
 		<version>1.9</version>
 	</parent>
 
-	<name>SAP Java Connector v3 - Native Library for OS X (64-bit x86) Plugin</name>
+	<name>SAP Java Connector v3 - Native Library for OS X (32-bit x86) Plugin</name>
 	<url>http://www.fusesource.org</url>
-	<description>Builds Plugin Fragment exporting the Java Connector v3 Native Library for OS X (64-bit x86) </description>
+	<description>Builds Plugin Fragment exporting the Java Connector v3 Native Library for OS X (32-bit x86)</description>
 	<organization>
 		<name>Red Hat, Inc.</name>
 		<url>http://www.redhat.com</url>
@@ -50,7 +50,7 @@
 						<environment>
 							<os>macosx</os>
 							<ws>cocoa</ws>
-							<arch>x86_64</arch>
+							<arch>x86</arch>
 						</environment>
 					</environments>
 				</configuration>
@@ -81,7 +81,7 @@
 									<groupId>com.sap.conn.jco</groupId>
 									<artifactId>sapjco3</artifactId>
 									<version>3.0.11</version>
-									<classifier>macosx-X86_64</classifier>
+									<classifier>macosx-i686</classifier>
 									<type>jnilib</type>
 									<overWrite>true</overWrite>
 									<destFileName>libsapjco3.jnilib</destFileName>

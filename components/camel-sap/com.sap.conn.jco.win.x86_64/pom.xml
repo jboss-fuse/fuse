@@ -1,39 +1,21 @@
-<!--
- Copyright 2013 Red Hat, Inc.
-
- Red Hat licenses this file to you under the Apache License, version
- 2.0 (the "License"); you may not use this file except in compliance
- with the License.  You may obtain a copy of the License at
- 
-     http://www.apache.org/licenses/LICENSE-2.0
- 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-  implied.  See the License for the specific language governing
- permissions and limitations under the License.
- -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.sap.conn.jco</groupId>
-	<artifactId>com.sap.conn.jco.osx.x86_64</artifactId>
-	<version>3.0.11.redhat_1</version>
-	<packaging>eclipse-plugin</packaging>
-	<parent>
-		<groupId>org.fusesource</groupId>
-		<artifactId>fusesource-pom</artifactId>
-		<version>1.9</version>
-	</parent>
-
-	<name>SAP Java Connector v3 - Native Library for OS X (64-bit x86) Plugin</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.fusesource</groupId>
+    <artifactId>fusesource-pom</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>com.sap.conn.jco</groupId>
+  <artifactId>com.sap.conn.jco.win32.x86_64</artifactId>
+  <version>3.0.11.redhat_1</version>
+  <packaging>eclipse-plugin</packaging>
+	<name>SAP Java Connector v3 - Native Library for Windows (64-bit x86) Plugin</name>
 	<url>http://www.fusesource.org</url>
-	<description>Builds Plugin Fragment exporting the Java Connector v3 Native Library for OS X (64-bit x86) </description>
+	<description>Builds Plugin Fragment exporting the Java Connector v3 Native Library for Windows (64-bit x86) </description>
 	<organization>
 		<name>Red Hat, Inc.</name>
 		<url>http://www.redhat.com</url>
 	</organization>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -48,8 +30,8 @@
 					<pomDependencies>consider</pomDependencies>
 					<environments>
 						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
+							<os>win32</os>
+							<ws>win32</ws>
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
@@ -81,10 +63,10 @@
 									<groupId>com.sap.conn.jco</groupId>
 									<artifactId>sapjco3</artifactId>
 									<version>3.0.11</version>
-									<classifier>macosx-X86_64</classifier>
-									<type>jnilib</type>
+									<classifier>win-x86_64</classifier>
+									<type>dll</type>
 									<overWrite>true</overWrite>
-									<destFileName>libsapjco3.jnilib</destFileName>
+									<destFileName>sapjco3.dll</destFileName>
 								</artifactItem>
 							</artifactItems>
 						</configuration>

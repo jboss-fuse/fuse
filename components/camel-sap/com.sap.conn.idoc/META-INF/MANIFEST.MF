@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SAP IDoc Class Library v3
+Bundle-SymbolicName: com.sap.conn.idoc
+Bundle-Version: 3.0.10.redhat_1
+Bundle-ClassPath: sapidoc3.jar
+Bundle-Vendor: Red Hat, Inc.
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: com.sap.conn.idoc,
+ com.sap.conn.idoc.jco
+Bundle-ActivationPolicy: lazy
+Import-Package: com.sap.conn.jco,
+ com.sap.conn.jco.ext,
+ com.sap.conn.jco.monitor,
+ com.sap.conn.jco.rt,
+ com.sap.conn.jco.server
