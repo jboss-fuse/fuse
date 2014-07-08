@@ -34,6 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.fusesource.camel.component.sap.model.SAPEditPlugin;
 import org.fusesource.camel.component.sap.model.rfc.Destination;
 import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
@@ -226,7 +227,7 @@ public class DestinationItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return SAPRFCEditPlugin.INSTANCE;
+		return SAPEditPlugin.INSTANCE;
 	}
 
 }

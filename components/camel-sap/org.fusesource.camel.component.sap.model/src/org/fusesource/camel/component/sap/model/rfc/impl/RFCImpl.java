@@ -306,7 +306,7 @@ public class RFCImpl extends EObjectImpl implements RFC {
 	 */
 	public Destination getDestination() {
 		if (eContainerFeatureID() != RfcPackage.RFC__DESTINATION) return null;
-		return (Destination)eContainer();
+		return (Destination)eInternalContainer();
 	}
 
 	/**

@@ -113,6 +113,14 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 				return createStructureAdapter();
 			}
 			@Override
+			public Adapter caseRequest(Request object) {
+				return createRequestAdapter();
+			}
+			@Override
+			public Adapter caseResponse(Response object) {
+				return createResponseAdapter();
+			}
+			@Override
 			public Adapter caseDestinationDataEntry(Map.Entry<String, String> object) {
 				return createDestinationDataEntryAdapter();
 			}
@@ -169,8 +177,8 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 				return createAbapExceptionAdapter();
 			}
 			@Override
-			public Adapter caseRespositoryDataEntry(Map.Entry<String, FunctionTemplate> object) {
-				return createRespositoryDataEntryAdapter();
+			public Adapter caseRepositoryDataEntry(Map.Entry<String, FunctionTemplate> object) {
+				return createRepositoryDataEntryAdapter();
 			}
 			@Override
 			public Adapter caseRepositoryData(RepositoryData object) {
@@ -181,8 +189,8 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 				return createRepositoryDataStoreAdapter();
 			}
 			@Override
-			public Adapter caseRespositoryDataStoreEntry(Map.Entry<String, RepositoryData> object) {
-				return createRespositoryDataStoreEntryAdapter();
+			public Adapter caseRepositoryDataStoreEntry(Map.Entry<String, RepositoryData> object) {
+				return createRepositoryDataStoreEntryAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -257,6 +265,34 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStructureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.fusesource.camel.component.sap.model.rfc.Request <em>Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Request
+	 * @generated
+	 */
+	public Adapter createRequestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.fusesource.camel.component.sap.model.rfc.Response <em>Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.fusesource.camel.component.sap.model.rfc.Response
+	 * @generated
+	 */
+	public Adapter createResponseAdapter() {
 		return null;
 	}
 
@@ -457,7 +493,7 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Respository Data Entry</em>}'.
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Repository Data Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -466,7 +502,7 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 	 * @see java.util.Map.Entry
 	 * @generated
 	 */
-	public Adapter createRespositoryDataEntryAdapter() {
+	public Adapter createRepositoryDataEntryAdapter() {
 		return null;
 	}
 
@@ -499,7 +535,7 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Respository Data Store Entry</em>}'.
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Repository Data Store Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -508,7 +544,7 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 	 * @see java.util.Map.Entry
 	 * @generated
 	 */
-	public Adapter createRespositoryDataStoreEntryAdapter() {
+	public Adapter createRepositoryDataStoreEntryAdapter() {
 		return null;
 	}
 

@@ -120,7 +120,7 @@
         <repository>
             <id>fusesource.ea</id>
             <name>JBoss Community Early Access Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
+            <url>https://repository.jboss.org/nexus/content/groups/ea/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -132,7 +132,7 @@
         <repository>
             <id>fusesource.m2</id>
             <name>JBoss FS Public Repository Group</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <url>https://repository.jboss.org/nexus/content/groups/fs-public/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -159,7 +159,7 @@
         <repository>
             <id>fusesource.m2-snapshot</id>
             <name>FuseSource Community Snapshot Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public-snapshots</url>
+            <url>https://repository.jboss.org/nexus/content/groups/fs-public-snapshots/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -261,7 +261,7 @@
         <pluginRepository>
             <id>fusesource.m2</id>
             <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <url>https://repository.jboss.org/nexus/content/groups/fs-public/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -273,7 +273,7 @@
         <pluginRepository>
             <id>fusesource.ea</id>
             <name>FuseSource Community Early Access Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
+            <url>https://repository.jboss.org/nexus/content/groups/ea/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>

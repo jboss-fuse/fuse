@@ -72,6 +72,24 @@ public interface RfcFactory extends EFactory {
 	Structure createStructure();
 
 	/**
+	 * Returns a new object of class '<em>Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Request</em>'.
+	 * @generated
+	 */
+	Request createRequest();
+
+	/**
+	 * Returns a new object of class '<em>Response</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Response</em>'.
+	 * @generated
+	 */
+	Response createResponse();
+
+	/**
 	 * Returns a new object of class '<em>Destination Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

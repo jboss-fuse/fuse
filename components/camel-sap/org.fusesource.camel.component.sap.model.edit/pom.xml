@@ -42,4 +42,5 @@
   </build>
   <url>http://www.fusesource.org</url>
   <name>Camel SAP Component Edit Plugin</name>
+  <version>6.2.0-SNAPSHOT</version>
 </project>

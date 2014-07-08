@@ -24,7 +24,7 @@ import org.apache.camel.Converter;
 import org.eclipse.emf.ecore.EObject;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.model.rfc.impl.StructureImpl;
-import org.fusesource.camel.component.sap.util.RfcUtil;
+import org.fusesource.camel.component.sap.util.Util;
 
 /**
  * A Type Converter for SAP structure objects.
@@ -39,7 +39,7 @@ public enum StructureConverter {
 	@Converter
 	public static Structure toStructure(String string) {
 		try {
-			EObject eObject = RfcUtil.unmarshal(string);
+			EObject eObject = Util.unmarshal(string);
 			
 			if (StructureImpl.class.isInstance(eObject)) {
 				return (StructureImpl) eObject;
@@ -53,7 +53,7 @@ public enum StructureConverter {
 	@Converter
 	public static Structure toStructure(InputStream in) {
 		try {
-			EObject eObject = RfcUtil.fromInputStream(in);
+			EObject eObject = Util.fromInputStream(in);
 			
 			if (StructureImpl.class.isInstance(eObject)) {
 				return (StructureImpl) eObject;
@@ -67,7 +67,7 @@ public enum StructureConverter {
 	@Converter
 	public static Structure toStructure(byte[] byteArray) {
 		try {
-			EObject eObject = RfcUtil.unmarshal(new String(byteArray));
+			EObject eObject = Util.unmarshal(new String(byteArray));
 			
 			if (StructureImpl.class.isInstance(eObject)) {
 				return (StructureImpl) eObject;
@@ -81,7 +81,7 @@ public enum StructureConverter {
 	@Converter
 	public static String toString(StructureImpl structure) {
 		try {
-			return RfcUtil.marshal(structure);
+			return Util.marshal(structure);
 		} catch (IOException e) {
 			return null;
 		}
@@ -90,7 +90,7 @@ public enum StructureConverter {
 	@Converter
 	public static OutputStream toOutputStream(StructureImpl structure) {
 		try {
-			return RfcUtil.toOutputStream(structure);
+			return Util.toOutputStream(structure);
 		} catch (IOException e) {
 			return null;
 		}
@@ -99,7 +99,7 @@ public enum StructureConverter {
 	@Converter
 	public static InputStream toInputStream(StructureImpl structure) {
 		try {
-			return RfcUtil.toInputStream(structure);
+			return Util.toInputStream(structure);
 		} catch (IOException e) {
 			return null;
 		}

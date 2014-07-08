@@ -18,7 +18,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sap.conn.jco</groupId>
 	<artifactId>com.sap.conn.jco</artifactId>
-	<version>3.0.8.redhat_1</version>
+	<version>3.0.11.redhat_1</version>
 	<packaging>eclipse-plugin</packaging>
 	<parent>
 		<groupId>org.fusesource</groupId>
@@ -53,7 +53,7 @@
 								<artifactItem>
 									<groupId>com.sap.conn.jco</groupId>
 									<artifactId>sapjco3</artifactId>
-									<version>3.0.8</version>
+									<version>3.0.11</version>
 									<type>jar</type>
 									<overWrite>true</overWrite>
 								</artifactItem>

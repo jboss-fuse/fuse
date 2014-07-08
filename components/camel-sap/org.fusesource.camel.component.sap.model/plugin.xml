@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
- Copyright 2013 Red Hat, Inc.
+ Copyright 2014 Red Hat, Inc.
  
  Red Hat licenses this file to you under the Apache License, version
  2.0 (the "License"); you may not use this file except in compliance
@@ -13,7 +13,7 @@
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-  implied.  See the License for the specific language governing
+ implied.  See the License for the specific language governing
  permissions and limitations under the License.
  
 -->
@@ -21,10 +21,19 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sap -->
+      <package
+            uri="http://sap.fusesource.org/idoc"
+            class="org.fusesource.camel.component.sap.model.idoc.IdocPackage"
+            genModel="model/sap.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sap -->
       <package
             uri="http://sap.fusesource.org/rfc"
             class="org.fusesource.camel.component.sap.model.rfc.RfcPackage"
-            genModel="model/sap-rfc.genmodel"/>
+            genModel="model/sap.genmodel"/>
    </extension>
 
 </plugin>

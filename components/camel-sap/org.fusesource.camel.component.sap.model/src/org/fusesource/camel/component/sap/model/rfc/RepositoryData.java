@@ -50,7 +50,7 @@ public interface RepositoryData extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entries</em>' map.
 	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getRepositoryData_Entries()
-	 * @model mapType="org.fusesource.camel.component.sap.model.rfc.RespositoryDataEntry<org.eclipse.emf.ecore.EString, org.fusesource.camel.component.sap.model.rfc.FunctionTemplate>"
+	 * @model mapType="org.fusesource.camel.component.sap.model.rfc.RepositoryDataEntry<org.eclipse.emf.ecore.EString, org.fusesource.camel.component.sap.model.rfc.FunctionTemplate>"
 	 * @generated
 	 */
 	EMap<String, FunctionTemplate> getEntries();

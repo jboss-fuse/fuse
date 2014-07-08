@@ -78,7 +78,7 @@ public class RepositoryDataStoreImpl extends EObjectImpl implements RepositoryDa
 	 */
 	public EMap<String, RepositoryData> getEntries() {
 		if (entries == null) {
-			entries = new EcoreEMap<String,RepositoryData>(RfcPackage.Literals.RESPOSITORY_DATA_STORE_ENTRY, RespositoryDataStoreEntryImpl.class, this, RfcPackage.REPOSITORY_DATA_STORE__ENTRIES);
+			entries = new EcoreEMap<String,RepositoryData>(RfcPackage.Literals.REPOSITORY_DATA_STORE_ENTRY, RepositoryDataStoreEntryImpl.class, this, RfcPackage.REPOSITORY_DATA_STORE__ENTRIES);
 		}
 		return entries;
 	}

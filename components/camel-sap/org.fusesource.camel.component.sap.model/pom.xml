@@ -46,4 +46,5 @@
   	<name>Red Hat, Inc.</name>
   	<url>http://www.redhat.com</url>
   </organization>
+  <version>6.2.0-SNAPSHOT</version>
 </project>

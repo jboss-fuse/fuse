@@ -34,6 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.fusesource.camel.component.sap.model.SAPEditPlugin;
 import org.fusesource.camel.component.sap.model.rfc.RFC;
 import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
@@ -245,8 +246,28 @@ public class RFCItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(RfcPackage.Literals.RFC__REQUEST,
+				 RfcFactory.eINSTANCE.createRequest()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RfcPackage.Literals.RFC__REQUEST,
+				 RfcFactory.eINSTANCE.createResponse()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(RfcPackage.Literals.RFC__RESPONSE,
 				 RfcFactory.eINSTANCE.createStructure()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RfcPackage.Literals.RFC__RESPONSE,
+				 RfcFactory.eINSTANCE.createRequest()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RfcPackage.Literals.RFC__RESPONSE,
+				 RfcFactory.eINSTANCE.createResponse()));
 	}
 
 	/**
@@ -280,7 +301,7 @@ public class RFCItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return SAPRFCEditPlugin.INSTANCE;
+		return SAPEditPlugin.INSTANCE;
 	}
 
 }

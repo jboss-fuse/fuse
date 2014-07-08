@@ -290,7 +290,7 @@ public class SAPComponentTest extends SAPTestSupport {
 		// Changing Parameter List
 		//
 		RepositoryData nplRepositoryData = component.getRepositoryDataStore().get("nplServer");
-		assertNotNull("Respository Data 'nplServer' not loaded into Repository Data Store", nplRepositoryData);
+		assertNotNull("Repository Data 'nplServer' not loaded into Repository Data Store", nplRepositoryData);
 		FunctionTemplate paramTestFunctionTemplate = nplRepositoryData.getFunctionTemplates().get("PARAM_TEST");
 		assertNotNull("Function Template 'PARAM_TEST' not loaded into Repository Data Store", paramTestFunctionTemplate);
 		// PARAM_LIST_CHAR_PARAM

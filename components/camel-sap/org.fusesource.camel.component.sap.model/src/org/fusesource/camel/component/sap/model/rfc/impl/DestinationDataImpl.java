@@ -1147,6 +1147,7 @@ public class DestinationDataImpl extends EObjectImpl implements DestinationData 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@SuppressWarnings("deprecation")
 	public String getUserId() {
 		return getEntries().get(DestinationDataProvider.JCO_USER_ID);
 	}
@@ -1711,6 +1712,7 @@ public class DestinationDataImpl extends EObjectImpl implements DestinationData 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@SuppressWarnings("deprecation")
 	public void setUserId(String userId) {
 		getEntries().put(DestinationDataProvider.JCO_USER_ID, userId);
 	}

@@ -24,12 +24,97 @@ import org.eclipse.emf.ecore.EObject;
  * @extends java.util.Map<String,Object>
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.Structure#getName <em>Name</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.Structure#getFieldCount <em>Field Count</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.Structure#getRecordLength <em>Record Length</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.Structure#getUnicodeRecordLength <em>Unicode Record Length</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.Structure#isNestedType1Structure <em>Nested Type1 Structure</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getStructure()
  * @model
  * @generated
  */
 public interface Structure extends EObject, java.util.Map<String, Object> {
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getStructure_Name()
+	 * @model transient="true" volatile="true" derived="true" suppressedSetVisibility="true"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Returns the value of the '<em><b>Field Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Field Count</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Field Count</em>' attribute.
+	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getStructure_FieldCount()
+	 * @model transient="true" volatile="true" derived="true" suppressedSetVisibility="true"
+	 * @generated
+	 */
+	int getFieldCount();
+
+	/**
+	 * Returns the value of the '<em><b>Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Record Length</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Record Length</em>' attribute.
+	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getStructure_RecordLength()
+	 * @model transient="true" volatile="true" derived="true" suppressedSetVisibility="true"
+	 * @generated
+	 */
+	int getRecordLength();
+
+	/**
+	 * Returns the value of the '<em><b>Unicode Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unicode Record Length</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unicode Record Length</em>' attribute.
+	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getStructure_UnicodeRecordLength()
+	 * @model transient="true" volatile="true" derived="true" suppressedSetVisibility="true"
+	 * @generated
+	 */
+	int getUnicodeRecordLength();
+
+	/**
+	 * Returns the value of the '<em><b>Nested Type1 Structure</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nested Type1 Structure</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nested Type1 Structure</em>' attribute.
+	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getStructure_NestedType1Structure()
+	 * @model transient="true" volatile="true" derived="true" suppressedSetVisibility="true"
+	 * @generated
+	 */
+	boolean isNestedType1Structure();
 
 	/**
 	 * <!-- begin-user-doc -->

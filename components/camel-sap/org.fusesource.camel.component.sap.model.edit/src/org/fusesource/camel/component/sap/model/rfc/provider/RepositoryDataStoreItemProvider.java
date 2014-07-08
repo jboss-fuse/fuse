@@ -32,6 +32,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.fusesource.camel.component.sap.model.SAPEditPlugin;
 import org.fusesource.camel.component.sap.model.rfc.RepositoryDataStore;
 import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
@@ -160,7 +161,7 @@ public class RepositoryDataStoreItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(RfcPackage.Literals.REPOSITORY_DATA_STORE__ENTRIES,
-				 RfcFactory.eINSTANCE.create(RfcPackage.Literals.RESPOSITORY_DATA_STORE_ENTRY)));
+				 RfcFactory.eINSTANCE.create(RfcPackage.Literals.REPOSITORY_DATA_STORE_ENTRY)));
 	}
 
 	/**
@@ -171,7 +172,7 @@ public class RepositoryDataStoreItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return SAPRFCEditPlugin.INSTANCE;
+		return SAPEditPlugin.INSTANCE;
 	}
 
 }

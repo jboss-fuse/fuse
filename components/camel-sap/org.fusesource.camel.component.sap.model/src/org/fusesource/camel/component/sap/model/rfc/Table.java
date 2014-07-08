@@ -26,6 +26,13 @@ import org.eclipse.emf.ecore.EObject;
  * @extends java.util.List<S>
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.Table#getName <em>Name</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.Table#getLineType <em>Line Type</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getTable()
  * @model
@@ -33,12 +40,53 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Table<S extends Structure> extends EObject, java.util.List<S> {
 	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getTable_Name()
+	 * @model transient="true" volatile="true" derived="true" suppressedSetVisibility="true"
+	 * @generated
+	 */
+	String getName();
+
+
+	/**
+	 * Returns the value of the '<em><b>Line Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Line Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Line Type</em>' attribute.
+	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getTable_LineType()
+	 * @model transient="true" volatile="true" derived="true" suppressedSetVisibility="true"
+	 * @generated
+	 */
+	String getLineType();
+
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	EList<S> getRows();
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	S getRow(int index);
 
 
 	/**

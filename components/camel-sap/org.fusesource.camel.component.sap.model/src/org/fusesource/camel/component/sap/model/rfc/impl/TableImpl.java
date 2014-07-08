@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -34,12 +35,36 @@ import org.fusesource.camel.component.sap.model.rfc.Table;
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Table</b></em>'. <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.TableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.TableImpl#getLineType <em>Line Type</em>}</li>
+ * </ul>
  * </p>
  *
  * @generated
  */
 public class TableImpl<S extends Structure> extends EObjectImpl implements
 		Table<S> {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getLineType() <em>Line Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LINE_TYPE_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -58,6 +83,52 @@ public class TableImpl<S extends Structure> extends EObjectImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getName() {
+		String name = null;
+		EAnnotation idocAnnotation = eClass().getEAnnotation(RfcPackage.eNS_URI);
+		if (idocAnnotation != null) {
+			name = idocAnnotation.getDetails().get("name");
+		}
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT 
+	 */
+	public void setName(String newName) {
+		// NOOP
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getLineType() {
+		String lineType = null;
+		EAnnotation idocAnnotation = eClass().getEAnnotation(RfcPackage.eNS_URI);
+		if (idocAnnotation != null) {
+			lineType = idocAnnotation.getDetails().get("lineType");
+		}
+		return lineType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setLineType(String newLineType) {
+		// NOOP
+	}
+
+	/**
 	 * @generated NOT 
 	 */
 	@SuppressWarnings("unchecked")
@@ -70,6 +141,15 @@ public class TableImpl<S extends Structure> extends EObjectImpl implements
 			eSet(feature, value);
 		}
 		return (EList<S>) value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public S getRow(int index) {
+		return (S) get(index);
 	}
 
 	@Override
@@ -112,6 +192,74 @@ public class TableImpl<S extends Structure> extends EObjectImpl implements
 		S newRow = createNewRow();
 		getRows().add(index, newRow);
 		return newRow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case RfcPackage.TABLE__NAME:
+				return getName();
+			case RfcPackage.TABLE__LINE_TYPE:
+				return getLineType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case RfcPackage.TABLE__NAME:
+				setName((String)newValue);
+				return;
+			case RfcPackage.TABLE__LINE_TYPE:
+				setLineType((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case RfcPackage.TABLE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case RfcPackage.TABLE__LINE_TYPE:
+				setLineType(LINE_TYPE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case RfcPackage.TABLE__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case RfcPackage.TABLE__LINE_TYPE:
+				return LINE_TYPE_EDEFAULT == null ? getLineType() != null : !LINE_TYPE_EDEFAULT.equals(getLineType());
+		}
+		return super.eIsSet(featureID);
 	}
 
 	@Override
