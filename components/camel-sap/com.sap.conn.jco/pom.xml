@@ -37,6 +37,14 @@
 				<artifactId>target-platform-configuration</artifactId>
 			</plugin>
 			<plugin>
+			  <artifactId>maven-compiler-plugin</artifactId>
+			  <configuration>
+			    <source>1.7</source>
+			    <target>1.7</target>
+			    <encoding>UTF-8</encoding>
+			  </configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
@@ -106,4 +114,17 @@
 		<name>Red Hat, Inc.</name>
 		<url>http://www.redhat.com</url>
 	</organization>
+	<repositories>
+		<repository>
+			<id>fusesource-third-party-internal</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/fs-maven2-all/</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
 </project>

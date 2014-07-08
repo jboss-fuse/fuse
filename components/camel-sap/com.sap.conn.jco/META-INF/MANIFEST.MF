@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.sap.conn.jco
 Bundle-Version: 3.0.11.redhat_1
 Bundle-ClassPath: sapjco3.jar
 Bundle-Vendor: Red Hat, Inc.
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.sap.conn.jco,
  com.sap.conn.jco.ext,
  com.sap.conn.jco.monitor,
