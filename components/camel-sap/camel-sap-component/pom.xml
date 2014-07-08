@@ -55,6 +55,7 @@
 		</fuse.osgi.private.pkg>
 		<fuse.osgi.services.export>org.apache.camel.spi.ComponentResolver;component=sap</fuse.osgi.services.export>
 		<native.lib.directory>${project.build.directory}/jni</native.lib.directory>
+		<lib.directory>${project.build.directory}/lib</lib.directory>
 		<!-- Temporary Overrides for testing 
 		<camel-version>2.12.0</camel-version>
 		<karaf-version>2.3.3</karaf-version>
@@ -130,8 +131,9 @@
 		<dependency>
 			<groupId>com.sap.conn.jco</groupId>
 			<artifactId>sapjco3</artifactId>
+			<scope>system</scope>
+			<systemPath>${lib.directory}/sapjco3.jar</systemPath>
 		</dependency>
-
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
@@ -230,6 +232,31 @@
             				</artifactItems>
             			</configuration>
             		</execution>
+            		<execution>
+            			<id>copy-jco-libs-unit-tests</id>
+            			<phase>process-resources</phase>
+            			<goals>
+            				<goal>copy</goal>
+            			</goals>
+            			<configuration>
+            				<stripVersion>true</stripVersion>
+            				<outputDirectory>${lib.directory}</outputDirectory>
+            				<artifactItems>
+            					<artifactItem>
+            						<groupId>com.sap.conn.jco</groupId>
+            						<artifactId>sapjco3</artifactId>
+            						<overWrite>true</overWrite>
+            						<destFileName>sapjco3.jar</destFileName>
+            					</artifactItem>
+            					<artifactItem>
+            						<groupId>com.sap.conn.idoc</groupId>
+            						<artifactId>sapidoc3</artifactId>
+            						<overWrite>true</overWrite>
+            						<destFileName>sapidoc3.jar</destFileName>
+            					</artifactItem>
+            				</artifactItems>
+            			</configuration>
+            		</execution>
             	</executions>
             </plugin>
             <plugin>
@@ -237,7 +264,7 @@
             	<artifactId>maven-surefire-plugin</artifactId>
             	<configuration>
             		<argLine>-Djava.library.path=${native.lib.directory}</argLine>
-            	</configuration>
+           		</configuration>
             </plugin>
 		</plugins>
 		<pluginManagement>

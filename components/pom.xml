@@ -36,7 +36,7 @@
     <profile>
       <!--
         Define the SAP example in a separate profile
-        Requires access to the proprietary SAP JCO library at build-time
+        Requires access to the proprietary SAP JCO and IDoc libraries at build-time
       -->
       <id>sap</id>
       <modules>
@@ -48,7 +48,12 @@
       	<dependency>
       		<groupId>com.sap.conn.jco</groupId>
       		<artifactId>com.sap.conn.jco</artifactId>
-      		<version>3.0.8.redhat_1</version>
+      		<version>3.0.11.redhat_1</version>
+      	</dependency>
+      	<dependency>
+      		<groupId>com.sap.conn.idoc</groupId>
+      		<artifactId>com.sap.conn.idoc</artifactId>
+      		<version>3.0.10.redhat_1</version>
       	</dependency>
       </dependencies>
       <repositories>
