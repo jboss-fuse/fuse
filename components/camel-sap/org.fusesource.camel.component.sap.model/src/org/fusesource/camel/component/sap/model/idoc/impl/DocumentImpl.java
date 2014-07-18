@@ -16,8 +16,6 @@
  */
 package org.fusesource.camel.component.sap.model.idoc.impl;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -79,17 +77,6 @@ import org.fusesource.camel.component.sap.model.idoc.Segment;
  */
 public class DocumentImpl extends EObjectImpl implements Document {
 	
-	public static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd") {
-		private static final long serialVersionUID = -5092705617476439640L;
-		public boolean isLenient() {return false; }
-	}; 
-	
-	public static final SimpleDateFormat timeFormat = new SimpleDateFormat("HHmmss") {
-		private static final long serialVersionUID = -414235918378923952L;
-		public boolean isLenient() {return false; }
-	}; 
-	
-	
 	/**
 	 * The default value of the '{@link #getArchiveKey() <em>Archive Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -138,7 +125,7 @@ public class DocumentImpl extends EObjectImpl implements Document {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CREATION_DATE_EDEFAULT = null;
+	protected static final Date CREATION_DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getCreationDate() <em>Creation Date</em>}' attribute.
@@ -148,7 +135,7 @@ public class DocumentImpl extends EObjectImpl implements Document {
 	 * @generated
 	 * @ordered
 	 */
-	protected String creationDate = CREATION_DATE_EDEFAULT;
+	protected Date creationDate = CREATION_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCreationTime() <em>Creation Time</em>}' attribute.
@@ -158,7 +145,7 @@ public class DocumentImpl extends EObjectImpl implements Document {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CREATION_TIME_EDEFAULT = null;
+	protected static final Date CREATION_TIME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getCreationTime() <em>Creation Time</em>}' attribute.
@@ -168,7 +155,7 @@ public class DocumentImpl extends EObjectImpl implements Document {
 	 * @generated
 	 * @ordered
 	 */
-	protected String creationTime = CREATION_TIME_EDEFAULT;
+	protected Date creationTime = CREATION_TIME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -866,36 +853,20 @@ public class DocumentImpl extends EObjectImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCreationDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @param newCreationDate
+	 * @generated 
 	 */
-	public void setCreationDate(String newCreationDate) {
-		String oldCreationDate = creationDate;
+	public void setCreationDate(Date newCreationDate) {
+		Date oldCreationDate = creationDate;
 		creationDate = newCreationDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IdocPackage.DOCUMENT__CREATION_DATE, oldCreationDate, creationDate));
-	}
-	
-	/**
-	 * 
-	 * @param newCreationDate
-	 * @generated NOT
-	 */
-	public void setCreationDate(Date newCreationDate) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(newCreationDate);
-		calendar.set(Calendar.HOUR_OF_DAY, 0);
-		calendar.clear(Calendar.MINUTE);
-		calendar.clear(Calendar.SECOND);
-		calendar.clear(Calendar.MILLISECOND);
-		Date creationDate = calendar.getTime();
-		setCreationDate(dateFormat.format(creationDate));
 	}
 
 	/**
@@ -903,7 +874,7 @@ public class DocumentImpl extends EObjectImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCreationTime() {
+	public Date getCreationTime() {
 		return creationTime;
 	}
 	
@@ -912,21 +883,11 @@ public class DocumentImpl extends EObjectImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCreationTime(String newCreationTime) {
-		String oldCreationTime = creationTime;
+	public void setCreationTime(Date newCreationTime) {
+		Date oldCreationTime = creationTime;
 		creationTime = newCreationTime;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IdocPackage.DOCUMENT__CREATION_TIME, oldCreationTime, creationTime));
-	}
-	
-	public void setCreationTime(Date newCreationTime) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(newCreationTime);
-		calendar.clear(Calendar.YEAR);
-		calendar.clear(Calendar.MONTH);
-		calendar.set(Calendar.DAY_OF_MONTH, 1);
-		Date createTime = calendar.getTime();
-		setCreationTime(timeFormat.format(createTime));
 	}
 
 	/**
@@ -1736,10 +1697,10 @@ public class DocumentImpl extends EObjectImpl implements Document {
 				setClient((String)newValue);
 				return;
 			case IdocPackage.DOCUMENT__CREATION_DATE:
-				setCreationDate((String)newValue);
+				setCreationDate((Date)newValue);
 				return;
 			case IdocPackage.DOCUMENT__CREATION_TIME:
-				setCreationTime((String)newValue);
+				setCreationTime((Date)newValue);
 				return;
 			case IdocPackage.DOCUMENT__DIRECTION:
 				setDirection((String)newValue);

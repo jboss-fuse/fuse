@@ -135,6 +135,12 @@
 			<systemPath>${lib.directory}/sapjco3.jar</systemPath>
 		</dependency>
 		<dependency>
+			<groupId>com.sap.conn.idoc</groupId>
+			<artifactId>sapidoc3</artifactId>
+			<scope>system</scope>
+			<systemPath>${lib.directory}/sapidoc3.jar</systemPath>
+		</dependency>
+		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 		</dependency>
@@ -263,6 +269,7 @@
             	<groupId>org.apache.maven.plugins</groupId>
             	<artifactId>maven-surefire-plugin</artifactId>
             	<configuration>
+		            <reuseForks>false</reuseForks><!-- Added to resolve issues with multiple loading of JCo native library -->
             		<argLine>-Djava.library.path=${native.lib.directory}</argLine>
            		</configuration>
             </plugin>

@@ -132,22 +132,12 @@ public interface Document extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Creation Date</em>' attribute.
-	 * @see #setCreationDate(String)
+	 * @see #setCreationDate(Date)
 	 * @see org.fusesource.camel.component.sap.model.idoc.IdocPackage#getDocument_CreationDate()
 	 * @model
 	 * @generated
 	 */
-	String getCreationDate();
-
-	/**
-	 * Sets the value of the '{@link org.fusesource.camel.component.sap.model.idoc.Document#getCreationDate <em>Creation Date</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Creation Date</em>' attribute.
-	 * @see #getCreationDate()
-	 * @generated
-	 */
-	void setCreationDate(String value);
+	Date getCreationDate();
 
 	/**
 	 * Sets the value of the '{@link org.fusesource.camel.component.sap.model.idoc.Document#getCreationDate <em>Creation Date</em>}' attribute.
@@ -168,22 +158,12 @@ public interface Document extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Creation Time</em>' attribute.
-	 * @see #setCreationTime(String)
+	 * @see #setCreationTime(Date)
 	 * @see org.fusesource.camel.component.sap.model.idoc.IdocPackage#getDocument_CreationTime()
 	 * @model
 	 * @generated
 	 */
-	String getCreationTime();
-
-	/**
-	 * Sets the value of the '{@link org.fusesource.camel.component.sap.model.idoc.Document#getCreationTime <em>Creation Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Creation Time</em>' attribute.
-	 * @see #getCreationTime()
-	 * @generated
-	 */
-	void setCreationTime(String value);
+	Date getCreationTime();
 
 	/**
 	 * Sets the value of the '{@link org.fusesource.camel.component.sap.model.idoc.Document#getCreationTime <em>Creation Time</em>}' attribute.
