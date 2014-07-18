@@ -128,7 +128,6 @@
                                 <descriptor>mvn:org.apache.karaf.assemblies.features/standard/${karaf-version}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.karaf.assemblies.features/spring/${karaf-version}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.karaf.assemblies.features/enterprise/${karaf-version}/xml/features</descriptor>
-                                <descriptor>mvn:org.apache.servicemix.nmr/apache-servicemix-nmr/${servicemix-nmr-version}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.activemq/activemq-karaf/${activemq-version}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.camel.karaf/apache-camel/${camel-version}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.cxf.karaf/apache-cxf/${cxf-version}/xml/features</descriptor>
@@ -158,7 +157,6 @@
                                 <feature>camel-amq</feature>
                                 <feature>camel</feature>
                                 <feature>activemq-camel</feature>
-                                <feature>camel-nmr</feature>
                                 <feature>camel-cxf</feature>
                                 <feature>camel-blueprint</feature>
                                 <feature>camel-jms</feature>

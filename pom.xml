@@ -59,14 +59,12 @@
         <fabric.version>1.1.0.CR3</fabric.version>
                  
         <fuse-cdc-version>1.1.0</fuse-cdc-version>                
-        <hibernate.version>4.2.9.Final</hibernate.version>
         <cxf-java2wadl-plugin-version>2.7.0.redhat-${full-perfectus-build}</cxf-java2wadl-plugin-version>
 
         <activemqcpp.version>3.8.2</activemqcpp.version>
         <activemqnms.version>1.6.2</activemqnms.version>
- 
-        <!-- these are used by the ServiceMix components we defined in esb-features-->
-        <!-- TODO just use jbi stuff from asf smx and get rid of these-->
+
+      <!-- TODO trim this list as we don't use ServiceMix components anymore -->
         <saxon.bundle.version>9.5.1-1_1</saxon.bundle.version>
         <jaxws-api.version>2.2</jaxws-api.version>
         <saaj-impl.bundle.version>1.3.21_1</saaj-impl.bundle.version>
@@ -2827,11 +2825,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-drools</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.apache.servicemix.specs</groupId>
                 <artifactId>org.apache.servicemix.specs.java-persistence-api-1.1.1</artifactId>
                 <version>${servicemix-specs-version}</version>
@@ -2875,221 +2868,6 @@
                 <groupId>org.apache.servicemix.specs</groupId>
                 <artifactId>org.apache.servicemix.specs.jbi-api-1.0</artifactId>
                 <version>${servicemix-specs-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.cxf</groupId>
-                <artifactId>org.apache.servicemix.cxf.binding.nmr</artifactId>
-                <version>${servicemix-features-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.cxf</groupId>
-                <artifactId>org.apache.servicemix.cxf.transport.nmr</artifactId>
-                <version>${servicemix-features-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.jbi</groupId>
-                <artifactId>org.apache.servicemix.jbi.deployer</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.jbi</groupId>
-                <artifactId>org.apache.servicemix.jbi.commands</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.jbi.cluster</groupId>
-                <artifactId>org.apache.servicemix.jbi.cluster.config</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.jbi.cluster</groupId>
-                <artifactId>org.apache.servicemix.jbi.cluster.engine</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.jbi.cluster</groupId>
-                <artifactId>org.apache.servicemix.jbi.cluster.requestor</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.jbi</groupId>
-                <artifactId>org.apache.servicemix.jbi.runtime</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.jbi</groupId>
-                <artifactId>org.apache.servicemix.jbi.osgi</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-file</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-snmp</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-soap</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.document</groupId>
-                <artifactId>org.apache.servicemix.document</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-vfs</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.naming</groupId>
-                <artifactId>org.apache.servicemix.naming</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-http</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-scripting</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.nmr</groupId>
-                <artifactId>org.apache.servicemix.nmr.api</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.nmr.examples</groupId>
-                <artifactId>org.apache.servicemix.nmr.examples.nmr.client</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.nmr.examples</groupId>
-                <artifactId>org.apache.servicemix.nmr.examples.nmr.endpoint</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.nmr</groupId>
-                <artifactId>org.apache.servicemix.nmr.audit</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.nmr</groupId>
-                <artifactId>org.apache.servicemix.nmr.management</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.nmr</groupId>
-                <artifactId>org.apache.servicemix.nmr.commands</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.nmr</groupId>
-                <artifactId>org.apache.servicemix.nmr.osgi</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.nmr</groupId>
-                <artifactId>org.apache.servicemix.nmr.core</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-cxf-bc</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-ftp</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-camel</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-osworkflow</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-eip</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-jms</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-bean</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix.camel</groupId>
-                <artifactId>org.apache.servicemix.camel.component</artifactId>
-                <version>${servicemix-features-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-quartz</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-mail</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-saxon</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-wsn2005</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-utils</artifactId>
-                <version>${servicemix-nmr-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-validation</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-cxf-se</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-common</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-smpp</artifactId>
-                <version>${servicemix-components-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.servicemix</groupId>
-                <artifactId>servicemix-soap2</artifactId>
-                <version>${servicemix-components-version}</version>
             </dependency>
 
             <dependency>

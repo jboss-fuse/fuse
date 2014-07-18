@@ -16,10 +16,6 @@
     
     <name>JBoss Fuse :: ESB :: Integration Tests</name>
 
-    <modules>
-        <module>common</module>
-    </modules>
-
     <profiles>
         <profile>
             <id>ts.all</id>
@@ -29,6 +25,7 @@
                 </property>
             </activation>
             <modules>
+                <module>common</module>
                 <module>smoke</module>
                 <module>basic</module>
                 <module>extra</module>
@@ -42,6 +39,7 @@
                 </property>
             </activation>
             <modules>
+                <module>common</module>
                 <module>smoke</module>
             </modules>
         </profile>
@@ -53,6 +51,7 @@
                 </property>
             </activation>
             <modules>
+                <module>common</module>
                 <module>basic</module>
             </modules>
         </profile>
@@ -64,6 +63,7 @@
                 </property>
             </activation>
             <modules>
+                <module>common</module>
                 <module>extra</module>
             </modules>
         </profile>
