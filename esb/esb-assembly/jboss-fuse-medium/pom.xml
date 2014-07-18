@@ -155,7 +155,7 @@
                                 <feature>activemq-broker</feature>
                                 <feature>mq-fabric</feature>
                                 <feature>mq-fabric-http-discovery</feature>
-                                <feature>mq-fabric-camel</feature>
+                                <feature>camel-amq</feature>
                                 <feature>camel</feature>
                                 <feature>activemq-camel</feature>
                                 <feature>camel-nmr</feature>

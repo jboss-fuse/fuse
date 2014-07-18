@@ -37,12 +37,18 @@
         </dependency>
 
         <!-- Download Karaf assemblies for dependency:unpack-->
-        <dependency>
-            <groupId>io.fabric8</groupId>
-            <artifactId>fabric8-karaf</artifactId>
-            <version>${fabric.version}</version>
-            <type>zip</type>
-        </dependency>
+           <dependency>
+               <groupId>io.fabric8</groupId>
+               <artifactId>fabric8-karaf</artifactId>
+               <version>${fabric.version}</version>
+               <type>zip</type>
+               <exclusions> <!-- TODO need to remove this when next CR build of 1.1.0 is available (CR3 was missing this)-->
+                   <exclusion>
+                       <groupId>io.fabric8.quickstarts</groupId>
+                       <artifactId>fabric8-quickstarts-parent</artifactId>
+                   </exclusion>
+               </exclusions>
+           </dependency>
 
         <!-- branding -->
         <dependency>

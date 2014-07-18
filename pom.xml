@@ -21,7 +21,7 @@
     <parent>
         <groupId>io.fabric8.bom</groupId>
         <artifactId>fabric8-bom</artifactId>
-        <version>1.1.0.Beta1</version>
+        <version>1.1.0.CR3</version>
     </parent>
 
     <groupId>org.jboss.fuse.bom</groupId>
@@ -56,12 +56,15 @@
         <full-perfectus-build>610${perfectus-build}</full-perfectus-build>
 
         <!-- we inherit from the fabric8 BOM so most versions we need are defined there-->
-        <fabric.version>1.1.0.Beta4</fabric.version>
+        <fabric.version>1.1.0.CR3</fabric.version>
                  
         <fuse-cdc-version>1.1.0</fuse-cdc-version>                
         <hibernate.version>4.2.9.Final</hibernate.version>
         <cxf-java2wadl-plugin-version>2.7.0.redhat-${full-perfectus-build}</cxf-java2wadl-plugin-version>
-        
+
+        <activemqcpp.version>3.8.2</activemqcpp.version>
+        <activemqnms.version>1.6.2</activemqnms.version>
+ 
         <!-- these are used by the ServiceMix components we defined in esb-features-->
         <!-- TODO just use jbi stuff from asf smx and get rid of these-->
         <saxon.bundle.version>9.5.1-1_1</saxon.bundle.version>
@@ -286,54 +289,6 @@
 
     <dependencyManagement>
         <dependencies>
-
-            <!-- Commons -->
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>${commons-codec-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>${commons-collections-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>${commons-beanutils-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>servlet-api</artifactId>
-                <version>${servlet-api-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${servlet30-api-version}</version>
-            </dependency>
-
-            <!-- Eclipse -->
-            <dependency>
-                <groupId>org.eclipse.jgit</groupId>
-                <artifactId>org.eclipse.jgit</artifactId>
-                <version>${jgit-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.jgit</groupId>
-                <artifactId>org.eclipse.jgit.http.server</artifactId>
-                <version>${jgit-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.fabric8</groupId>
-                <artifactId>maven-util</artifactId>
-                <version>${fabric.version}</version>
-            </dependency>
-
-
             <!-- Fabric -->
             <dependency>
                 <groupId>io.fabric8</groupId>
@@ -350,11 +305,6 @@
                 <artifactId>fabric-zookeeper-spring</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
-            <dependency>
-                <groupId>io.fabric8.itests</groupId>
-                <artifactId>fabric-itests-common</artifactId>
-                <version>${fabric.version}</version>
-            </dependency>
             <dependency>             
                 <groupId>io.fabric8.tooling.testing</groupId>
                 <artifactId>pax-exam-karaf</artifactId>
@@ -368,6 +318,11 @@
             <dependency>
                 <groupId>io.fabric8.insight</groupId>
                 <artifactId>insight-log-core</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8.insight</groupId>
+                <artifactId>insight-rhq-metrics</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
@@ -427,6 +382,11 @@
             </dependency>
             <dependency>
                 <groupId>io.fabric8</groupId>
+                <artifactId>fabric-rest</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
                 <artifactId>gateway-fabric-haproxy</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
@@ -458,6 +418,11 @@
             <dependency>
                 <groupId>io.fabric8</groupId>
                 <artifactId>fabric-groups</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric-groovy</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
@@ -562,6 +527,21 @@
             </dependency>
             <dependency>
                 <groupId>io.fabric8</groupId>
+                <artifactId>process-spring-boot-container</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>process-spring-boot-starter-activemq</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>process-spring-boot-starter-camel</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
                 <artifactId>fabric-docker-provider</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
@@ -597,6 +577,11 @@
             </dependency>
             <dependency>
                 <groupId>io.fabric8</groupId>
+                <artifactId>fabric-process-container</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
                 <artifactId>fabric-project-deployer</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
@@ -613,6 +598,11 @@
             <dependency>
                 <groupId>io.fabric8</groupId>
                 <artifactId>process-manager</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>process-test</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
@@ -652,12 +642,22 @@
             </dependency>
             <dependency>
                 <groupId>io.fabric8.mq</groupId>
-                <artifactId>mq-fabric-camel</artifactId>
+                <artifactId>camel-amq</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.fabric8.mq</groupId>
                 <artifactId>mq-http-discovery</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8.insight</groupId>
+                <artifactId>insight-metrics-model</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8.insight</groupId>
+                <artifactId>insight-metrics-mvel</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
@@ -709,6 +709,80 @@
                 <groupId>io.fabric8.patch</groupId>
                 <artifactId>patch-commands</artifactId>
                 <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>archetype-builder</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>archetype-commands</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.fabric8.runtime</groupId>
+                <artifactId>fabric-runtime-container-karaf-registration</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+
+            <!-- Utils -->
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>maven-util</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+        <dependency>
+            <groupId>io.fabric8.itests</groupId>
+            <artifactId>fabric-itests-common</artifactId>
+            <version>${fabric.version}</version>
+        </dependency>
+
+            <!-- Commons -->
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet30-api-version}</version>
+            </dependency>
+
+            <!-- Eclipse -->
+            <dependency>
+                <groupId>org.eclipse.jgit</groupId>
+                <artifactId>org.eclipse.jgit</artifactId>
+                <version>${jgit-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jgit</groupId>
+                <artifactId>org.eclipse.jgit.http.server</artifactId>
+                <version>${jgit-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.fusesource.jansi</groupId>
+                <artifactId>jansi</artifactId>
+                <version>${jansi-version}</version>
             </dependency>
 
             <!-- OSGi -->
@@ -2300,17 +2374,17 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${jackson-2-version}</version>
+                <version>${jackson2-version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>${jackson-2-version}</version>
+                <version>${jackson2-version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>${jackson-2-annotations-version}</version>
+                <version>${jackson2-version}</version>
             </dependency>
 
             <dependency>

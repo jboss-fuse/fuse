@@ -62,6 +62,12 @@
                <artifactId>fabric8-karaf</artifactId>
                <version>${fabric.version}</version>
                <type>zip</type>
+               <exclusions>
+                   <exclusion>
+                       <groupId>io.fabric8.quickstarts</groupId>
+                       <artifactId>fabric8-quickstarts-parent</artifactId>
+                   </exclusion>
+               </exclusions>
            </dependency>
 
            <dependency>
