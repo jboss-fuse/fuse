@@ -17,9 +17,6 @@
 package org.fusesource.camel.component.sap;
 
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
-
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +25,6 @@ import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.model.rfc.Table;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -38,6 +34,9 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.sap.conn.jco.JCoDestinationManager;
 import com.sap.conn.jco.ext.Environment;
+
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 /**
  * SAP Producer test cases.
@@ -49,11 +48,6 @@ import com.sap.conn.jco.ext.Environment;
 @PrepareForTest({ JCoDestinationManager.class, Environment.class })
 public class SAPProducerTest extends SAPTestSupport {
 	
-	@BeforeClass
-	public static void setupBeforeClass() {
-		PowerMockito.mockStatic(Environment.class);
-	}
-
 	@Test
 	public void testProducer() throws Exception{ 
 		

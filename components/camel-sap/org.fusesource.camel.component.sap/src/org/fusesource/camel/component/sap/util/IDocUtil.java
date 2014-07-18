@@ -545,6 +545,7 @@ public class IDocUtil extends Util {
 		document.setClient(idocDocument.getClient());
 		document.setCreationDate(idocDocument.getCreationDate());
 		document.setCreationTime(idocDocument.getCreationTime());
+		document.setDirection(idocDocument.getDirection());
 		document.setEDIMessage(idocDocument.getEDIMessage());
 		document.setEDIMessageGroup(idocDocument.getEDIMessageGroup());
 		document.setEDIMessageType(idocDocument.getEDIMessageType());
@@ -558,6 +559,7 @@ public class IDocUtil extends Util {
 		document.setIDocTypeExtension(idocDocument.getIDocTypeExtension());
 		document.setMessageCode(idocDocument.getMessageCode());
 		document.setMessageFunction(idocDocument.getMessageFunction());
+		document.setMessageType(idocDocument.getMessageType());
 		document.setOutputMode(idocDocument.getOutputMode());
 		document.setRecipientAddress(idocDocument.getRecipientAddress());
 		document.setRecipientLogicalAddress(idocDocument.getRecipientLogicalAddress());

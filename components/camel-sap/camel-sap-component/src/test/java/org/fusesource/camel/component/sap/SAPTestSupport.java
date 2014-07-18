@@ -16,15 +16,11 @@
  */
 package org.fusesource.camel.component.sap;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.NoSuchElementException;
 
-import org.apache.camel.test.spring.CamelSpringTestSupport;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.model.rfc.Table;
 import org.fusesource.camel.component.sap.util.RfcUtil;
@@ -46,13 +42,16 @@ import com.sap.conn.jco.JCoResponse;
 import com.sap.conn.jco.JCoStructure;
 import com.sap.conn.jco.JCoTable;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 /**
  * Support base class for SAP test cases. 
  * 
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-public abstract class SAPTestSupport extends CamelSpringTestSupport {
+public abstract class SAPTestSupport extends JCoTestSupport {
 	/*********************************************************************
 	 * Test Destination, Repository, and Function Module
 	 *********************************************************************/
