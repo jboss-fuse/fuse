@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ JCoDestinationManager.class, Environment.class, JCoIDoc.class })
-public class IDocProducerTest extends IDocTestSupport {
+public class SapIDocProducerTest extends SapIDocTestSupport {
 
 	@Override
 	public void doPreSetup() throws Exception {
@@ -160,7 +160,7 @@ public class IDocProducerTest extends IDocTestSupport {
 		return new RouteBuilder() {
 			@Override
 			public void configure() throws Exception {
-				from("direct:start").to("idoc:destination:TEST_DEST:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_VERSION:TEST_APPLICATION_VERSION");
+				from("direct:start").to("sap-idoc-destination:TEST_DEST:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_VERSION:TEST_APPLICATION_VERSION");
 			}
 		};
 	}

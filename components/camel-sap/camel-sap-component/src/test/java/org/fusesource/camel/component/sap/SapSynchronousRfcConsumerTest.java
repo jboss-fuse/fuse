@@ -21,22 +21,26 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.camel.CamelContext;
+import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
+import org.apache.camel.Producer;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.mock.MockEndpoint;
+import org.fusesource.camel.component.sap.model.rfc.Request;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.model.rfc.Table;
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.sap.conn.jco.JCoDestinationManager;
 import com.sap.conn.jco.ext.Environment;
+import com.sap.conn.jco.server.JCoServerFactory;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.mockito.Mockito.when;
 
 /**
  * SAP Producer test cases.
@@ -45,29 +49,41 @@ import static org.hamcrest.Matchers.notNullValue;
  *
  */
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({ JCoDestinationManager.class, Environment.class })
-public class SAPProducerTest extends SAPTestSupport {
+@PrepareForTest({ JCoDestinationManager.class, Environment.class, JCoServerFactory.class })
+public class SapSynchronousRfcConsumerTest extends SapRfcTestSupport {
 	
-	@Test
+	@SuppressWarnings("deprecation")
+	@Override
+	public void doPreSetup() throws Exception {
+		super.doPreSetup();
+
+		when(JCoDestinationManager.getDestination(DESTINATION_NAME)).thenReturn(mockDestination);
+		when(JCoServerFactory.get()).thenReturn(mockServerFactory);
+		when(JCoServerFactory.getServer(SERVER_NAME)).thenReturn(mockServer);
+		
+	}
+
+	//@Test
 	public void testProducer() throws Exception{ 
 		
 		//
 		// Given
 		//
 		
-		PowerMockito.mockStatic(JCoDestinationManager.class);
-		Mockito.when(JCoDestinationManager.getDestination("TEST_DEST")).thenReturn(mockDestination);
-		
-		enhanceParameterListMetaData();
-		Structure request = createAndPopulateRequest();
-		
-		getMockEndpoint("mock:result").expectedMessageCount(1);
+
+		MockEndpoint mockEndpoint = getMockEndpoint("mock:result");
+		mockEndpoint.expectedMessageCount(1);
+		Producer mockEndpointProducer = mockEndpoint.createProducer();
+	
+		CamelContext context = context();
+		Endpoint endpoint = context.getEndpoint("sap-srfc-server:TEST_SERVER:TEST_FUNCTION_MODULE");
+		SapSynchronousRfcConsumer rfcConsumer = (SapSynchronousRfcConsumer) endpoint.createConsumer(mockEndpointProducer);
 		
 		//
 		// When
 		//
 		
-		template.sendBody("direct:start", request);
+		rfcConsumer.handleRequest(mockServerContext, mockFunction);
 		
 		//
 		// Then
@@ -77,7 +93,7 @@ public class SAPProducerTest extends SAPTestSupport {
 		
 		// check response
 		Exchange exchange = getMockEndpoint("mock:result").getExchanges().get(0);
-		Structure response = exchange.getIn().getBody(Structure.class);
+		Request response = exchange.getIn().getBody(Request.class);
 		assertThat("The response returned by route is an unexpected null value", response, notNullValue());
 		
 		assertThat("response.get(PARAM_LIST_CHAR_PARAM) returned '" +  response.get(PARAM_LIST_CHAR_PARAM) + "' instead of expected value '" + CHAR_PARAM_OUT_VAL + "'", (String) response.get(PARAM_LIST_CHAR_PARAM), is(CHAR_PARAM_OUT_VAL));
@@ -127,7 +143,7 @@ public class SAPProducerTest extends SAPTestSupport {
 		return new RouteBuilder() {
 			@Override
 			public void configure() throws Exception {
-				from("direct:start").to("sap:destination:TEST_DEST:TEST_FUNCTION_MODULE").to("mock:result");
+				from("direct:start").to("sap-srfc-destination:TEST_DEST:TEST_FUNCTION_MODULE").to("mock:result");
 			}
 		};
 	}

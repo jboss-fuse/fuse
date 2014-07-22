@@ -19,7 +19,6 @@ package org.fusesource.camel.component.sap;
 import java.util.Calendar;
 import java.util.NoSuchElementException;
 
-import org.fusesource.camel.component.sap.SAPComponent.IDocHandlerFactory;
 import org.fusesource.camel.component.sap.model.idoc.Document;
 import org.fusesource.camel.component.sap.model.idoc.Segment;
 import org.fusesource.camel.component.sap.util.IDocUtil;
@@ -43,7 +42,7 @@ import com.sap.conn.jco.server.JCoServerContext;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public abstract class IDocTestSupport extends JCoTestSupport {
+public abstract class SapIDocTestSupport extends JCoTestSupport {
 	
 	public static final String TEST_PROGRAM_ID = "TEST_PROGRAM_ID";
 	public static final String TEST_DEST = "TEST_DEST";
@@ -194,6 +193,7 @@ public abstract class IDocTestSupport extends JCoTestSupport {
 		/* Create mocks for destination, IDoc Respository, IDoc Factory and IDoc Document  */
 		mockDestination = mock(JCoDestination.class, "TestDestination");
 		mockIDocServer = mock(JCoIDocServer.class);
+		mockServerContext = mock(JCoServerContext.class);
 		mockIDocRepository = mock(IDocRepository.class, "IDocRepository");
 		mockIDocFactory = mock(IDocFactory.class, "IDocFactory");
 		mockIDocDocumentList = mock(IDocDocumentList.class);
@@ -1623,6 +1623,10 @@ public abstract class IDocTestSupport extends JCoTestSupport {
 		
 		/* Enhance IDoc Document List mock */
 		when(mockIDocDocumentList.iterator()).thenReturn(mockIDocDocumentListIterator);
+		when(mockIDocDocumentList.getIDocType()).thenReturn(TEST_IDOC_TYPE);
+		when(mockIDocDocumentList.getIDocTypeExtension()).thenReturn(TEST_IDOC_TYPE_EXTENSION);
+		when(mockIDocDocumentList.getSystemRelease()).thenReturn(TEST_SYSTEM_RELEASE);
+		when(mockIDocDocumentList.getApplicationRelease()).thenReturn(TEST_APPLICATION_RELEASE);
 		
 		/* Enhance IDoc Document List Iterator mock */
 		when(mockIDocDocumentListIterator.hasNext()).thenReturn(true).thenReturn(false);

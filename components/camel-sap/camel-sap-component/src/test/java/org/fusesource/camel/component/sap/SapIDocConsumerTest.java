@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ JCoDestinationManager.class, Environment.class, JCoIDoc.class })
-public class IDocConsumerTest extends IDocTestSupport {
+public class SapIDocConsumerTest extends SapIDocTestSupport {
 
 	@Override
 	public void doPreSetup() throws Exception {
@@ -49,8 +49,8 @@ public class IDocConsumerTest extends IDocTestSupport {
 		Producer mockEndpointProducer = mockEndpoint.createProducer();
 		
 		CamelContext context = context();
-		Endpoint endpoint = context.getEndpoint("idoc:server:TEST_SERVER:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_RELEASE:TEST_APPLICATION_RELEASE");
-		IDocConsumer idocConsumer = (IDocConsumer) endpoint.createConsumer(mockEndpointProducer);
+		Endpoint endpoint = context.getEndpoint("sap-idoc-server:TEST_SERVER:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_RELEASE:TEST_APPLICATION_RELEASE");
+		SapIDocConsumer idocConsumer = (SapIDocConsumer) endpoint.createConsumer(mockEndpointProducer);
 
 		//
 		// When
@@ -240,7 +240,7 @@ public class IDocConsumerTest extends IDocTestSupport {
 		return new RouteBuilder() {
 			@Override
 			public void configure() throws Exception {
-				from("idoc:server:TEST_SERVER:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_RELEASE:TEST_APPLICATION_RELEASE").to("mock:result");
+				from("sap-idoc-server:TEST_SERVER:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_RELEASE:TEST_APPLICATION_RELEASE").to("mock:result");
 			}
 		};
 	}

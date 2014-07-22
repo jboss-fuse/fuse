@@ -41,6 +41,10 @@ import com.sap.conn.jco.JCoRequest;
 import com.sap.conn.jco.JCoResponse;
 import com.sap.conn.jco.JCoStructure;
 import com.sap.conn.jco.JCoTable;
+import com.sap.conn.jco.server.JCoServer;
+import com.sap.conn.jco.server.JCoServerContext;
+import com.sap.conn.jco.server.JCoServerFactory;
+import com.sap.conn.jco.server.JCoServerFunctionHandlerFactory;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -51,14 +55,17 @@ import static org.mockito.Mockito.when;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-public abstract class SAPTestSupport extends JCoTestSupport {
+public abstract class SapRfcTestSupport extends JCoTestSupport {
 	/*********************************************************************
 	 * Test Destination, Repository, and Function Module
 	 *********************************************************************/
 
 	public static final String DESTINATION_NAME = "TEST_DEST";
+	public static final String SERVER_NAME = "TEST_SERVER";
 	public static final String REPOSITORY_NAME = "TEST_REPOSITORY";
 	public static final String FUNCTION_MODULE_NAME = "TEST_FUNCTION_MODULE";
+	public static final String SERVER_PROGRAM_ID = "TEST_PROGRAM_ID";
+	
 	
 	/*********************************************************************
 	 * Test Structure Names
@@ -174,13 +181,20 @@ public abstract class SAPTestSupport extends JCoTestSupport {
 	protected JCoRequest mockRequest;
 	protected JCoResponse mockResponse;
 	protected JCoDestination mockDestination;
+	protected JCoServer mockServer;
+	protected JCoServerFactory mockServerFactory;
+	protected JCoServerContext mockServerContext;
 	protected JCoFieldIterator mockEmptyParameterListFieldIterator;
+	protected JCoServerFunctionHandlerFactory mockFunctionHandlerFactory;
 	
 	public void doPreSetup() throws Exception {	
 		super.doPreSetup();
 		
 		/* Create mocks for repository and function template */
 		mockDestination = mock(JCoDestination.class);
+		mockServer = mock(JCoServer.class);
+		mockServerFactory = mock(JCoServerFactory.class);
+		mockServerContext = mock(JCoServerContext.class);
 		mockRepository = mock(JCoRepository.class);
 		mockFunction = mock(JCoFunction.class);
 		mockFunctionTemplate = mock(JCoFunctionTemplate.class);
@@ -245,6 +259,14 @@ public abstract class SAPTestSupport extends JCoTestSupport {
 		
 		/* Enhance destination mock */
 		when(mockDestination.getRepository()).thenReturn(mockRepository);
+		
+		/* Enhance server mock */
+		when(mockServer.getRepositoryDestination()).thenReturn(DESTINATION_NAME);
+		when(mockServer.getProgramID()).thenReturn(SERVER_PROGRAM_ID);
+		when(mockServer.getCallHandlerFactory()).thenReturn(new FunctionHandlerFactory());
+		
+		/* Enhance server context mock */
+		when(mockServerContext.getRepository()).thenReturn(mockRepository);
 
 		/* Enhance repository mock */
 		when(mockRepository.getFunction(FUNCTION_MODULE_NAME)).thenReturn(mockFunction);
@@ -252,6 +274,7 @@ public abstract class SAPTestSupport extends JCoTestSupport {
 		when(mockRepository.getName()).thenReturn(REPOSITORY_NAME);
 		
 		/* Enhance function mock */
+		when(mockFunction.getName()).thenReturn(FUNCTION_MODULE_NAME);
 		when(mockFunction.getImportParameterList()).thenReturn(mockImportParameterList);
 		when(mockFunction.getChangingParameterList()).thenReturn(mockChangingParameterList);
 		when(mockFunction.getExportParameterList()).thenReturn(mockExportParameterList);
