@@ -25,7 +25,7 @@ public class SapIDocProducerTest extends SapIDocTestSupport {
 	public void doPreSetup() throws Exception {
 		super.doPreSetup();
 
-		when(JCoDestinationManager.getDestination(SapIDocDestinationComponent.DESTINATION_NAME_PREFIX + "." + TEST_DEST)).thenReturn(mockDestination);
+		when(JCoDestinationManager.getDestination(TEST_DEST)).thenReturn(mockDestination);
 		when(JCoIDoc.getIDocRepository(mockDestination)).thenReturn(mockIDocRepository);
 		when(JCoIDoc.getIDocFactory()).thenReturn(mockIDocFactory);
 		

@@ -24,9 +24,6 @@ import org.apache.camel.impl.UriEndpointComponent;
 import org.fusesource.camel.component.sap.model.rfc.RepositoryData;
 import org.fusesource.camel.component.sap.model.rfc.RepositoryDataStore;
 import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
-import org.fusesource.camel.component.sap.model.rfc.ServerData;
-import org.fusesource.camel.component.sap.model.rfc.ServerDataStore;
-import org.fusesource.camel.component.sap.util.ComponentServerDataProvider;
 import org.fusesource.camel.component.sap.util.RfcUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,11 +35,9 @@ import com.sap.conn.jco.server.JCoServer;
 import com.sap.conn.jco.server.JCoServerFactory;
 
 /**
- * Represents the component that manages {@link SapSynchronousRfcServerEndpoint}. Maintains
- * map of server configurations that it registers and unregisters with the SAP
- * JCo runtime at component startup and shutdown. It also maintains a map of
- * repository configurations that specifies the remote functions calls (RFC)
- * that are handled by the endpoints of this component.
+ * Represents the component that manages {@link SapSynchronousRfcServerEndpoint}
+ * . Maintains a map of repository configurations that specifies the remote
+ * functions calls (RFC) that are handled by the endpoints of this component.
  * 
  * @author William Collins <punkhornsw@gmail.com>
  * 
@@ -51,10 +46,6 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcServerComponent.class);
 
-	protected static final String SERVER_NAME_PREFIX = SapSynchronousRfcServerComponent.class.getName();
-
-	protected final ServerDataStore serverDataStore = RfcFactory.eINSTANCE.createServerDataStore();
-	
 	protected final RepositoryDataStore repositoryDataStore = RfcFactory.eINSTANCE.createRepositoryDataStore();
 	
 	protected Map<String,JCoServer> activeServers = new HashMap<String,JCoServer>();
@@ -83,7 +74,7 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 		
 		// Extract URI components
 		// Add component specific prefix to server name to scope server configurations to this component.
-		parameters.put("serverName", SERVER_NAME_PREFIX + "." + uriComponents[0]);
+		parameters.put("serverName", uriComponents[0]);
 		parameters.put("rfcName", uriComponents[1]);
 		Endpoint endpoint = new SapSynchronousRfcServerEndpoint(uri, this);
 
@@ -93,28 +84,13 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 		return endpoint;
 	}
 
-    public Map<String, ServerData> getServerDataStore() {
-    	return serverDataStore.getEntries().map();
-    }
-    
-    public void setServerDataStore(Map<String, ServerData> serverDataEntries) {
-    	serverDataStore.getEntries().clear();
-    	for(Map.Entry<String, ServerData> entry: serverDataEntries.entrySet()) {
-    		// Add component specific prefix to server name to scope server configurations to this component.
-    		serverDataStore.getEntries().put(SERVER_NAME_PREFIX + "." + entry.getKey(), entry.getValue());
-    	}
-    }
-    
     public Map<String, RepositoryData> getRepositoryDataStore() {
 		return repositoryDataStore.getEntries().map();
 	}
 
 	public void setRepositoryDataStore(Map<String, RepositoryData> repositoryDataEntries) {
 		this.repositoryDataStore.getEntries().clear();
-    	for(Map.Entry<String, RepositoryData> entry: repositoryDataEntries.entrySet()) {
-    		// Add component specific prefix to repository name to scope repository configurations to this component.
-    		repositoryDataStore.getEntries().put(SERVER_NAME_PREFIX + "." +entry.getKey(), entry.getValue());
-    	}
+		this.repositoryDataStore.getEntries().putAll(repositoryDataEntries);
 	}
 	
 	protected FunctionHandlerFactory getServerHandlerFactory(String serverName) throws Exception {
@@ -130,7 +106,7 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 			server = JCoServerFactory.getServer(serverName);
 			
 			server.setCallHandlerFactory(new FunctionHandlerFactory());
-			server.setTIDHandler(new ServerTIDHandler());
+			server.setTIDHandler(new ServerTIDHandler(serverName));
 			
 			server.addServerExceptionListener(serverErrorAndExceptionListener);
 			server.addServerErrorListener(serverErrorAndExceptionListener);
@@ -182,7 +158,6 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 	@Override
     protected void doStart() throws Exception {
     	super.doStart();
-    	ComponentServerDataProvider.INSTANCE.addServerDataStore(serverDataStore);
     	for(JCoServer server: activeServers.values()) {
     		server.start();
     	}
@@ -190,7 +165,6 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
     
     @Override
     protected void doStop() throws Exception {
-    	ComponentServerDataProvider.INSTANCE.removeServerDataStore(serverDataStore);
     	super.doStop();
     }
 }

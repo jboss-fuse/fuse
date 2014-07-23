@@ -335,6 +335,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//RepositoryData"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TIDStoreEntry" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TIDStore">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//TIDStoreEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TIDState">
+    <eLiterals name="CREATED"/>
+    <eLiterals name="EXECUTED" value="1"/>
+    <eLiterals name="COMMITTED" value="2"/>
+    <eLiterals name="ROLLED_BACK" value="3"/>
+    <eLiterals name="CONFIRMED" value="4"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataType">
     <eLiterals name="CHAR"/>
     <eLiterals name="DATE" value="1"/>

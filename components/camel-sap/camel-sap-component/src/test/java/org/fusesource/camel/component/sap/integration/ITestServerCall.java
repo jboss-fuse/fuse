@@ -22,7 +22,7 @@ public class ITestServerCall extends CamelSpringTestSupport {
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("sap:server:nplServer:PARAM_TEST").to("mock:result");
+                from("sap-srfc-server:nplServer:PARAM_TEST").to("mock:result");
             }
         };
     }

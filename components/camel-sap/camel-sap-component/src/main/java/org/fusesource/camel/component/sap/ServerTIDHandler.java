@@ -16,9 +16,14 @@
  */
 package org.fusesource.camel.component.sap;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
+import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
+import org.fusesource.camel.component.sap.model.rfc.TIDState;
+import org.fusesource.camel.component.sap.model.rfc.TIDStore;
+import org.fusesource.camel.component.sap.util.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,21 +33,54 @@ import com.sap.conn.jco.server.JCoServerTIDHandler;
 /**
  * Handler for transactions received from an SAP system.
  * 
+ * <ul><b>Successful transaction call sequence</b>
+ * 	<li>checkTID - returns true</li>
+ * 	<li>call handler- no exception</li>
+ * 	<li>commit</li>
+ * 	<li>confirmTID</li>
+ * </ul> 
+ * 
+ * <ul><b>Unsuccessful transaction call sequence</b>
+ * 	<li>checkTID - returns true</li>
+ * 	<li>call handler- throws exception</li>
+ * 	<li>rollback</li>
+ * </ul> 
+ * 
+ * <ul><b>Unsuccessfully committed transaction call sequence</b>
+ * 	<li>checkTID - returns true</li>
+ * 	<li>call handler- throws exception</li>
+ * 	<li>commit - throws exception</li>
+ * 	<li>rollback</li>
+ * </ul> 
+ * 
+ * <ul><b>Duplicate transaction call sequence</b>
+ * 	<li>checkTID - returns false</li>
+ * 	<li>call handler- throws exception</li>
+ * 	<li>confirmTID</li>
+ * </ul> 
+ * 
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
 public class ServerTIDHandler implements JCoServerTIDHandler {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcServerComponent.class);
-
-	// TODO Replace with persistent data store.
-    Map<String, TIDState> availableTIDs = new HashMap<String, TIDState>();
+	
+    TIDStore availableTIDs = RfcFactory.eINSTANCE.createTIDStore();
+    
+    String serverName;
+    
+    public ServerTIDHandler(String serverName) {
+    	this.serverName = serverName;
+    	loadTIDs();
+    }
 
     @Override
 	public boolean checkTID(JCoServerContext serverContext, String tid) {
-		TIDState state = availableTIDs.get(tid);
+		TIDState state = TIDState.getByName(availableTIDs.getEntries().get(tid));
 		if (state == null) {
-			availableTIDs.put(tid, TIDState.CREATED);
+			availableTIDs.getEntries().put(tid, TIDState.CREATED.getName());
+			saveTIDs();
 			LOG.debug("Checked TID '" + tid +"': true");
 			return true;
 		}
@@ -58,27 +96,53 @@ public class ServerTIDHandler implements JCoServerTIDHandler {
 
 	@Override
 	public void commit(JCoServerContext serverContext, String tid) {
-		availableTIDs.put(tid, TIDState.COMMITTED);
+		availableTIDs.getEntries().put(tid, TIDState.COMMITTED.getName());
+		saveTIDs();
 		LOG.debug("Committed TID '" + tid +"'");
 	}
 
 	@Override
 	public void rollback(JCoServerContext serverContext, String tid) {
-		availableTIDs.put(tid, TIDState.ROLLED_BACK);
+		availableTIDs.getEntries().put(tid, TIDState.ROLLED_BACK.getName());
+		saveTIDs();
 		LOG.debug("Rolledback TID '" + tid +"'");
 	}
 	
 	@Override
 	public void confirmTID(JCoServerContext serverContext, String tid) {
-		availableTIDs.remove(tid);
+		availableTIDs.getEntries().remove(tid);
+		saveTIDs();
 		LOG.debug("Confirmed TID '" + tid +"'");
 	}
 	
 	public void execute(JCoServerContext serverContext) {
 		String tid = serverContext.getTID();
 		if (tid != null) {
-			availableTIDs.put(tid, TIDState.EXECUTED);
+			availableTIDs.getEntries().put(tid, TIDState.EXECUTED.getName());
+			saveTIDs();
 			LOG.debug("Executed TID '" + tid + "'");
+		}
+	}
+	
+	private void saveTIDs() {
+		try {
+			File file = new File(serverName);
+			Util.save(file, availableTIDs);
+		} catch (IOException e) {
+			LOG.warn("Failed to save TID data store '" + serverName +"'", e);
+		}
+	}
+	
+	private void loadTIDs() {
+		try {
+			File file = new File(serverName);
+			TIDStore tidStore = (TIDStore) Util.load(file);
+			availableTIDs.getEntries().clear();
+			availableTIDs.getEntries().addAll(tidStore.getEntries());
+		} catch (FileNotFoundException e) {
+			// No file saved yet: ignore.
+		} catch (IOException e) {
+			LOG.warn("Failed to load TID data store '" + serverName +"'", e);
 		}
 	}
 

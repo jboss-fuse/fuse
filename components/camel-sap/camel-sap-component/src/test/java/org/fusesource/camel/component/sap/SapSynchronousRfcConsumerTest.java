@@ -57,7 +57,7 @@ public class SapSynchronousRfcConsumerTest extends SapRfcTestSupport {
 	public void doPreSetup() throws Exception {
 		super.doPreSetup();
 
-		when(JCoDestinationManager.getDestination(SapSynchronousRfcDestinationComponent.DESTINATION_NAME_PREFIX + "." +  DESTINATION_NAME)).thenReturn(mockDestination);
+		when(JCoDestinationManager.getDestination(DESTINATION_NAME)).thenReturn(mockDestination);
 		when(JCoServerFactory.get()).thenReturn(mockServerFactory);
 		when(JCoServerFactory.getServer(SERVER_NAME)).thenReturn(mockServer);
 		

@@ -32,6 +32,7 @@ import com.sap.conn.idoc.IDocDocumentIterator;
 import com.sap.conn.idoc.IDocDocumentList;
 import com.sap.conn.idoc.jco.JCoIDocHandler;
 import com.sap.conn.jco.server.JCoServerContext;
+import com.sap.conn.jco.server.JCoServerTIDHandler;
 
 /**
  * Represents an SAP consumer receiving an IDoc (Intermediate Document) from in SAP. 
@@ -77,6 +78,11 @@ public class SapIDocConsumer extends DefaultConsumer implements JCoIDocHandler {
 
 				// Process exchange
 				getProcessor().process(exchange);
+				
+				JCoServerTIDHandler jcoServerTidHandler = serverContext.getServer().getTIDHandler();
+				if (jcoServerTidHandler instanceof ServerTIDHandler) {
+					((ServerTIDHandler)jcoServerTidHandler).execute(serverContext);
+				}
 				
 			} catch (Exception e) {
 				getExceptionHandler().handleException("Failed to process IDoc document", e);

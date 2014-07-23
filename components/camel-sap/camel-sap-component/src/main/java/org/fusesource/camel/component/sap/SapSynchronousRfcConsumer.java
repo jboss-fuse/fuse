@@ -36,6 +36,7 @@ import com.sap.conn.jco.AbapException;
 import com.sap.conn.jco.JCoFunction;
 import com.sap.conn.jco.server.JCoServerContext;
 import com.sap.conn.jco.server.JCoServerFunctionHandler;
+import com.sap.conn.jco.server.JCoServerTIDHandler;
 
 /**
  * Represents an SAP consumer receiving a synchronous remote function call (SRFC) from in SAP. 
@@ -110,6 +111,11 @@ public class SapSynchronousRfcConsumer extends DefaultConsumer implements JCoSer
 					}
 				}
 				RfcUtil.fillJCoParameterListsFromResponse(response, jcoFunction);
+			}
+
+			JCoServerTIDHandler jcoServerTidHandler = serverContext.getServer().getTIDHandler();
+			if (jcoServerTidHandler instanceof ServerTIDHandler) {
+				((ServerTIDHandler)jcoServerTidHandler).execute(serverContext);
 			}
 		} catch (IOException e) {
 			getExceptionHandler().handleException("Failed to marshal request", e);

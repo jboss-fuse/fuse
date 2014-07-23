@@ -50,6 +50,8 @@ import org.fusesource.camel.component.sap.model.rfc.Server;
 import org.fusesource.camel.component.sap.model.rfc.ServerData;
 import org.fusesource.camel.component.sap.model.rfc.ServerDataStore;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
+import org.fusesource.camel.component.sap.model.rfc.TIDState;
+import org.fusesource.camel.component.sap.model.rfc.TIDStore;
 import org.fusesource.camel.component.sap.model.rfc.Table;
 
 /**
@@ -226,6 +228,27 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * @generated
 	 */
 	private EClass repositoryDataStoreEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tidStoreEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tidStoreEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum tidStateEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1782,6 +1805,60 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTIDStoreEntry() {
+		return tidStoreEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTIDStoreEntry_Key() {
+		return (EAttribute)tidStoreEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTIDStoreEntry_Value() {
+		return (EAttribute)tidStoreEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTIDStore() {
+		return tidStoreEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTIDStore_Entries() {
+		return (EReference)tidStoreEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTIDState() {
+		return tidStateEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDataType() {
 		return dataTypeEEnum;
 	}
@@ -2035,7 +2112,15 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		createEAttribute(repositoryDataStoreEntryEClass, REPOSITORY_DATA_STORE_ENTRY__KEY);
 		createEReference(repositoryDataStoreEntryEClass, REPOSITORY_DATA_STORE_ENTRY__VALUE);
 
+		tidStoreEntryEClass = createEClass(TID_STORE_ENTRY);
+		createEAttribute(tidStoreEntryEClass, TID_STORE_ENTRY__KEY);
+		createEAttribute(tidStoreEntryEClass, TID_STORE_ENTRY__VALUE);
+
+		tidStoreEClass = createEClass(TID_STORE);
+		createEReference(tidStoreEClass, TID_STORE__ENTRIES);
+
 		// Create enums
+		tidStateEEnum = createEEnum(TID_STATE);
 		dataTypeEEnum = createEEnum(DATA_TYPE);
 
 		// Create data types
@@ -2293,7 +2378,21 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 		initEAttribute(getRepositoryDataStoreEntry_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRepositoryDataStoreEntry_Value(), this.getRepositoryData(), null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(tidStoreEntryEClass, Map.Entry.class, "TIDStoreEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTIDStoreEntry_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTIDStoreEntry_Value(), ecorePackage.getEString(), "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tidStoreEClass, TIDStore.class, "TIDStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTIDStore_Entries(), this.getTIDStoreEntry(), null, "entries", null, 0, -1, TIDStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
+		initEEnum(tidStateEEnum, TIDState.class, "TIDState");
+		addEEnumLiteral(tidStateEEnum, TIDState.CREATED);
+		addEEnumLiteral(tidStateEEnum, TIDState.EXECUTED);
+		addEEnumLiteral(tidStateEEnum, TIDState.COMMITTED);
+		addEEnumLiteral(tidStateEEnum, TIDState.ROLLED_BACK);
+		addEEnumLiteral(tidStateEEnum, TIDState.CONFIRMED);
+
 		initEEnum(dataTypeEEnum, DataType.class, "DataType");
 		addEEnumLiteral(dataTypeEEnum, DataType.CHAR);
 		addEEnumLiteral(dataTypeEEnum, DataType.DATE);

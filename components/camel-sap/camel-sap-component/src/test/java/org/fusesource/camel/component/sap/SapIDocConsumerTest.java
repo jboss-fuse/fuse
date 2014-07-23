@@ -33,7 +33,7 @@ public class SapIDocConsumerTest extends SapIDocTestSupport {
 		when(JCoDestinationManager.getDestination(TEST_DEST)).thenReturn(mockDestination);
 		when(JCoIDoc.getIDocRepository(mockDestination)).thenReturn(mockIDocRepository);
 		when(JCoIDoc.getIDocFactory()).thenReturn(mockIDocFactory);
-		when(JCoIDoc.getServer(SapIDocServerComponent.SERVER_NAME_PREFIX + "." + TEST_SERVER)).thenReturn(mockIDocServer);
+		when(JCoIDoc.getServer(TEST_SERVER)).thenReturn(mockIDocServer);
 		
 	}
 

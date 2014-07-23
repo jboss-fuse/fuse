@@ -636,6 +636,52 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TIDStoreEntryItemProvider tidStoreEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTIDStoreEntryAdapter() {
+		if (tidStoreEntryItemProvider == null) {
+			tidStoreEntryItemProvider = new TIDStoreEntryItemProvider(this);
+		}
+
+		return tidStoreEntryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.fusesource.camel.component.sap.model.rfc.TIDStore} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TIDStoreItemProvider tidStoreItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.fusesource.camel.component.sap.model.rfc.TIDStore}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTIDStoreAdapter() {
+		if (tidStoreItemProvider == null) {
+			tidStoreItemProvider = new TIDStoreItemProvider(this);
+		}
+
+		return tidStoreItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -758,6 +804,8 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 		if (repositoryDataItemProvider != null) repositoryDataItemProvider.dispose();
 		if (repositoryDataStoreItemProvider != null) repositoryDataStoreItemProvider.dispose();
 		if (repositoryDataStoreEntryItemProvider != null) repositoryDataStoreEntryItemProvider.dispose();
+		if (tidStoreEntryItemProvider != null) tidStoreEntryItemProvider.dispose();
+		if (tidStoreItemProvider != null) tidStoreItemProvider.dispose();
 	}
 
 }

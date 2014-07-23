@@ -17,15 +17,17 @@ public class ITestReceiveIDoc extends CamelSpringTestSupport {
 
 	@Test
 	public void test() throws Exception {
-		Document document = (Document) consumer.receiveBody("direct:out");
-		IDocUtil.print(document);
+		while(true) {
+			Document document = (Document) consumer.receiveBody("direct:out");
+			IDocUtil.print(document);
+		}
 	}
 
 	@Override
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("idoc:server:nplServer:FLCUSTOMER_CREATEFROMDATA01").to("direct:out");
+                from("sap-idoc-server:nplServer:FLCUSTOMER_CREATEFROMDATA01").to("direct:out");
             }
         };
     }

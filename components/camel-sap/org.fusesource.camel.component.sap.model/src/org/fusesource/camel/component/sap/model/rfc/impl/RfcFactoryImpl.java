@@ -112,6 +112,8 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 			case RfcPackage.REPOSITORY_DATA: return createRepositoryData();
 			case RfcPackage.REPOSITORY_DATA_STORE: return createRepositoryDataStore();
 			case RfcPackage.REPOSITORY_DATA_STORE_ENTRY: return (EObject)createRepositoryDataStoreEntry();
+			case RfcPackage.TID_STORE_ENTRY: return (EObject)createTIDStoreEntry();
+			case RfcPackage.TID_STORE: return createTIDStore();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +127,8 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case RfcPackage.TID_STATE:
+				return createTIDStateFromString(eDataType, initialValue);
 			case RfcPackage.DATA_TYPE:
 				return createDataTypeFromString(eDataType, initialValue);
 			default:
@@ -140,6 +144,8 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case RfcPackage.TID_STATE:
+				return convertTIDStateToString(eDataType, instanceValue);
 			case RfcPackage.DATA_TYPE:
 				return convertDataTypeToString(eDataType, instanceValue);
 			default:
@@ -385,6 +391,46 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 	public Map.Entry<String, RepositoryData> createRepositoryDataStoreEntry() {
 		RepositoryDataStoreEntryImpl repositoryDataStoreEntry = new RepositoryDataStoreEntryImpl();
 		return repositoryDataStoreEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<String, String> createTIDStoreEntry() {
+		TIDStoreEntryImpl tidStoreEntry = new TIDStoreEntryImpl();
+		return tidStoreEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TIDStore createTIDStore() {
+		TIDStoreImpl tidStore = new TIDStoreImpl();
+		return tidStore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TIDState createTIDStateFromString(EDataType eDataType, String initialValue) {
+		TIDState result = TIDState.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTIDStateToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

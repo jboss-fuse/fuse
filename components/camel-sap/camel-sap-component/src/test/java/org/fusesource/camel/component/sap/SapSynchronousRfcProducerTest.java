@@ -56,7 +56,7 @@ public class SapSynchronousRfcProducerTest extends SapRfcTestSupport {
 		//
 		
 		PowerMockito.mockStatic(JCoDestinationManager.class);
-		Mockito.when(JCoDestinationManager.getDestination(SapSynchronousRfcDestinationComponent.DESTINATION_NAME_PREFIX + "." + DESTINATION_NAME)).thenReturn(mockDestination);
+		Mockito.when(JCoDestinationManager.getDestination(DESTINATION_NAME)).thenReturn(mockDestination);
 		
 		enhanceParameterListMetaData();
 		Structure request = createAndPopulateRequest();

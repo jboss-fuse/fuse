@@ -20,10 +20,6 @@ import java.util.Map;
 
 import org.apache.camel.Endpoint;
 import org.apache.camel.impl.UriEndpointComponent;
-import org.fusesource.camel.component.sap.model.rfc.DestinationData;
-import org.fusesource.camel.component.sap.model.rfc.DestinationDataStore;
-import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
-import org.fusesource.camel.component.sap.util.ComponentDestinationDataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,26 +35,10 @@ public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent 
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcDestinationComponent.class);
 	
-	protected static final String DESTINATION_NAME_PREFIX = SapSynchronousRfcDestinationComponent.class.getName();
-
-    protected final DestinationDataStore destinationDataStore = RfcFactory.eINSTANCE.createDestinationDataStore();
-	
 	public SapSynchronousRfcDestinationComponent() {
 		super(SapSynchronousRfcDestinationEndpoint.class);
 	}
 
-    public void setDestinationDataStore(Map<String, DestinationData> destinationDataEntries) {
-    	destinationDataStore.getEntries().clear();
-    	for(Map.Entry<String, DestinationData> entry: destinationDataEntries.entrySet()) {
-    		// Add component specific prefix to destination name to scope destination configurations to this component.
-    		destinationDataStore.getEntries().put(DESTINATION_NAME_PREFIX + "." +entry.getKey(), entry.getValue());
-    	}
-    }
-    
-    public Map<String, DestinationData> getDestinationDataStore() {
-    	return destinationDataStore.getEntries().map();
-    }
-    
 	@Override
 	protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
 		if (!uri.startsWith("sap-srfc-destination:")) { 
@@ -73,7 +53,7 @@ public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent 
 
 		// Extract URI components
 		// Add component specific prefix to destination name to scope destination configurations to this component.
-		parameters.put("destinationName", DESTINATION_NAME_PREFIX + "." + uriComponents[0]); 
+		parameters.put("destinationName", uriComponents[0]); 
 		parameters.put("rfcName", uriComponents[1]);
 		Endpoint endpoint = new SapSynchronousRfcDestinationEndpoint(uri, this);
 
@@ -86,13 +66,11 @@ public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent 
 	@Override
     protected void doStart() throws Exception {
     	super.doStart();
-    	ComponentDestinationDataProvider.INSTANCE.addDestinationDataStore(destinationDataStore);
     	LOG.debug("STARTED");
     }
     
     @Override
     protected void doStop() throws Exception {
-    	ComponentDestinationDataProvider.INSTANCE.removeDestinationDataStore(destinationDataStore);
     	super.doStop();
     	LOG.debug("STOPPED");
     }

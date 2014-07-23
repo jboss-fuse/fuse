@@ -21,10 +21,6 @@ import java.util.Map;
 
 import org.apache.camel.Endpoint;
 import org.apache.camel.impl.UriEndpointComponent;
-import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
-import org.fusesource.camel.component.sap.model.rfc.ServerData;
-import org.fusesource.camel.component.sap.model.rfc.ServerDataStore;
-import org.fusesource.camel.component.sap.util.ComponentServerDataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,10 +43,6 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapIDocServerComponent.class);
 
-	protected static final String SERVER_NAME_PREFIX = SapIDocServerComponent.class.getName();
-
-	protected final ServerDataStore serverDataStore = RfcFactory.eINSTANCE.createServerDataStore();
-
 	protected Map<String,JCoIDocServer> activeServers = new HashMap<String,JCoIDocServer>();
 
 	protected ServerErrorAndExceptionListener serverErrorAndExceptionListener = new ServerErrorAndExceptionListener();
@@ -61,18 +53,6 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 		super(SapIDocServerEndpoint.class);
 	}
 
-    public void setServerDataStore(Map<String, ServerData> serverDataEntries) {
-    	serverDataStore.getEntries().clear();
-    	for(Map.Entry<String, ServerData> entry: serverDataEntries.entrySet()) {
-    		// Add component specific prefix to server name to scope server configurations to this component.
-    		serverDataStore.getEntries().put(SERVER_NAME_PREFIX + "." + entry.getKey(), entry.getValue());
-    	}
-    }
-    
-    public Map<String, ServerData> getServerDataStore() {
-    	return serverDataStore.getEntries().map();
-    }
-    
 	@Override
 	protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
 		if (!uri.startsWith("sap-idoc-server:")) { 
@@ -87,7 +67,7 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 		
 		// Extract URI components
 		// Add component specific prefix to server name to scope server configurations to this component.
-		parameters.put("serverName", SERVER_NAME_PREFIX + "." + uriComponents[0]);
+		parameters.put("serverName", uriComponents[0]);
 		parameters.put("idocType", uriComponents[1]);
 		if(uriComponents.length > 2) {
 			parameters.put("idocTypeExtension", uriComponents[2]);
@@ -112,7 +92,7 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 			server = JCoIDoc.getServer(serverName);
 			
 			server.setIDocHandlerFactory(new IDocHandlerFactory());
-			server.setTIDHandler(new ServerTIDHandler());
+			server.setTIDHandler(new ServerTIDHandler(serverName));
 			
 			server.addServerExceptionListener(serverErrorAndExceptionListener);
 			server.addServerErrorListener(serverErrorAndExceptionListener);
@@ -157,15 +137,15 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 	@Override
     protected void doStart() throws Exception {
     	super.doStart();
-    	ComponentServerDataProvider.INSTANCE.addServerDataStore(serverDataStore);
     	for(JCoServer server: activeServers.values()) {
     		server.start();
     	}
-    }
+    	LOG.debug("STARTED");
+   }
     
     @Override
     protected void doStop() throws Exception {
-    	ComponentServerDataProvider.INSTANCE.removeServerDataStore(serverDataStore);
     	super.doStop();
+    	LOG.debug("STOPPED");
     }
 }

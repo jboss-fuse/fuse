@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright 2013 Red Hat, Inc.
+ Copyright 2014 Red Hat, Inc.
 
  Red Hat licenses this file to you under the Apache License, version
  2.0 (the "License"); you may not use this file except in compliance
@@ -19,22 +19,21 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-	<bean id="sap-srfc-destination"
-		class="org.fusesource.camel.component.sap.SapSynchronousRfcDestinationComponent">
+	<bean id="sap-configuration" class="org.fusesource.camel.component.sap.SapConfiguration">
 		<property name="destinationDataStore">
 			<map>
 				<entry key="nplDest" value-ref="nplDestinationData" />
+			</map>
+		</property>
+		<property name="serverDataStore">
+			<map>
+				<entry key="nplServer" value-ref="nplServerData"/>
 			</map>
 		</property>
 	</bean>
 
 	<bean id="sap-srfc-server"
 		class="org.fusesource.camel.component.sap.SapSynchronousRfcServerComponent">
-		<property name="serverDataStore">
-			<map>
-				<entry key="nplServer" value-ref="nplServerData"/>
-			</map>
-		</property>
 		<property name="repositoryDataStore">
 			<map>
 				<entry key="nplServer" value-ref="nplRepositoryData"></entry>
