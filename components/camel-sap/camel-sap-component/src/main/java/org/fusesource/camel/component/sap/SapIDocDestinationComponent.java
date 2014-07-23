@@ -41,15 +41,20 @@ public class SapIDocDestinationComponent extends UriEndpointComponent {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapIDocDestinationComponent.class);
 
-    protected final DestinationDataStore destinationDataStore = RfcFactory.eINSTANCE.createDestinationDataStore();
+	protected static final String DESTINATION_NAME_PREFIX = SapIDocDestinationComponent.class.getName();
+
+	protected final DestinationDataStore destinationDataStore = RfcFactory.eINSTANCE.createDestinationDataStore();
 	
 	public SapIDocDestinationComponent() {
 		super(SapIDocDestinationEndpoint.class);
 	}
 
     public void setDestinationDataStore(Map<String, DestinationData> destinationDataEntries) {
-    	destinationDataStore.getEntries().clear();
-    	destinationDataStore.getEntries().putAll(destinationDataEntries);
+       	destinationDataStore.getEntries().clear();
+    	for(Map.Entry<String, DestinationData> entry: destinationDataEntries.entrySet()) {
+    		// Add component specific prefix to destination name to scope destination configurations to this component.
+    		destinationDataStore.getEntries().put(DESTINATION_NAME_PREFIX + "." +entry.getKey(), entry.getValue());
+    	}
     }
     
     public Map<String, DestinationData> getDestinationDataStore() {
@@ -69,7 +74,8 @@ public class SapIDocDestinationComponent extends UriEndpointComponent {
 		}
 
 		// Extract URI components
-		parameters.put("destinationName", uriComponents[0]);
+		// Add component specific prefix to destination name to scope destination configurations to this component.
+		parameters.put("destinationName", DESTINATION_NAME_PREFIX + "." + uriComponents[0]);
 		parameters.put("idocType", uriComponents[1]);
 		if(uriComponents.length > 2) {
 			parameters.put("idocTypeExtension", uriComponents[2]);

@@ -17,7 +17,7 @@
 package org.fusesource.sap.example.processor;
 
 import org.apache.camel.Exchange;
-import org.fusesource.camel.component.sap.SAPEndpoint;
+import org.fusesource.camel.component.sap.SapSynchronousRfcDestinationEndpoint;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.sap.example.jaxb.BookFlightRequest;
 import org.slf4j.Logger;
@@ -46,7 +46,7 @@ public class CreateFlightCustomerGetListRequest {
 		BookFlightRequest bookFlightRequest = exchange.getIn().getBody(BookFlightRequest.class);
 
 		// Create SAP Request object from target endpoint.
-		SAPEndpoint endpoint = exchange.getContext().getEndpoint("sap:destination:nplDest:BAPI_FLCUST_GETLIST", SAPEndpoint.class);
+		SapSynchronousRfcDestinationEndpoint endpoint = exchange.getContext().getEndpoint("sap-srfc-destination:nplDest:BAPI_FLCUST_GETLIST", SapSynchronousRfcDestinationEndpoint.class);
 		Structure request = endpoint.getRequest();
 		
 		// Add Customer Name to request if set

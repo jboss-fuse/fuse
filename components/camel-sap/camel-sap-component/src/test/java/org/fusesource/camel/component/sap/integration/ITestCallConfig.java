@@ -22,7 +22,8 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
-import org.fusesource.camel.component.sap.SAPComponent;
+import org.fusesource.camel.component.sap.SapSynchronousRfcDestinationComponent;
+import org.fusesource.camel.component.sap.SapSynchronousRfcServerComponent;
 import org.fusesource.camel.component.sap.model.rfc.DestinationData;
 import org.fusesource.camel.component.sap.model.rfc.ServerData;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
@@ -63,8 +64,8 @@ public class ITestCallConfig extends CamelSpringTestSupport {
 	}
 
 	@Test
-	public void testComponentConfiguration() {
-		SAPComponent component = (SAPComponent) context.getComponent("sap");
+	public void testSapSynchronousRfcDestionationComponentConfiguration() {
+		SapSynchronousRfcDestinationComponent component = (SapSynchronousRfcDestinationComponent) context.getComponent("sap");
 		
 		// Validated Destination Data
 		DestinationData nplDestinationData = component.getDestinationDataStore().get("nplDest");
@@ -76,6 +77,12 @@ public class ITestCallConfig extends CamelSpringTestSupport {
 		assertEquals("Destination Data Property 'passwd' has incorrect value set", "ch4ngeme", nplDestinationData.getPasswd());
 		assertEquals("Destination Data Property 'lang' has incorrect value set", "en", nplDestinationData.getLang());
 
+	}
+
+	@Test
+	public void testSapSynchronousRfcServerComponentConfiguration() {
+		SapSynchronousRfcServerComponent component = (SapSynchronousRfcServerComponent) context.getComponent("sap");
+		
 		// Validated Server Data
 		ServerData nplServerData = component.getServerDataStore().get("nplServer");
 		assertNotNull("Server Data 'nplServer' not loaded into Server Data Store", nplServerData);
@@ -91,7 +98,7 @@ public class ITestCallConfig extends CamelSpringTestSupport {
         return new RouteBuilder() {
             public void configure() {
                 from("direct:getFlcustList")
-                  .to("sap:destination:nplDest:BAPI_FLCUST_GETLIST")
+                  .to("sap-sfrc-destination:nplDest:BAPI_FLCUST_GETLIST")
                   .to("mock:result");
             }
         };

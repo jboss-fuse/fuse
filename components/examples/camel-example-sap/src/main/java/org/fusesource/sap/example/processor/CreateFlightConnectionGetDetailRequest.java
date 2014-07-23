@@ -19,7 +19,7 @@ package org.fusesource.sap.example.processor;
 import java.util.Date;
 
 import org.apache.camel.Exchange;
-import org.fusesource.camel.component.sap.SAPEndpoint;
+import org.fusesource.camel.component.sap.SapSynchronousRfcDestinationEndpoint;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.model.rfc.Table;
 import org.slf4j.Logger;
@@ -62,7 +62,7 @@ public class CreateFlightConnectionGetDetailRequest {
 		Structure connection = connectionList.get(0);
 
 		// Create SAP Request object from target endpoint.
-		SAPEndpoint endpoint = exchange.getContext().getEndpoint("sap:destination:nplDest:BAPI_FLCONN_GETDETAIL", SAPEndpoint.class);
+		SapSynchronousRfcDestinationEndpoint endpoint = exchange.getContext().getEndpoint("sap-srfc-destination:nplDest:BAPI_FLCONN_GETDETAIL", SapSynchronousRfcDestinationEndpoint.class);
 		Structure request = endpoint.getRequest();
 		
 		// Copy connection number of matching connection into request.

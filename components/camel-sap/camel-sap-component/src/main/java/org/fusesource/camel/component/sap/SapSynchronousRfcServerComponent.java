@@ -51,6 +51,8 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcServerComponent.class);
 
+	protected static final String SERVER_NAME_PREFIX = SapSynchronousRfcServerComponent.class.getName();
+
 	protected final ServerDataStore serverDataStore = RfcFactory.eINSTANCE.createServerDataStore();
 	
 	protected final RepositoryDataStore repositoryDataStore = RfcFactory.eINSTANCE.createRepositoryDataStore();
@@ -80,7 +82,8 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 		}
 		
 		// Extract URI components
-		parameters.put("serverName", uriComponents[0]);
+		// Add component specific prefix to server name to scope server configurations to this component.
+		parameters.put("serverName", SERVER_NAME_PREFIX + "." + uriComponents[0]);
 		parameters.put("rfcName", uriComponents[1]);
 		Endpoint endpoint = new SapSynchronousRfcServerEndpoint(uri, this);
 
@@ -96,7 +99,10 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
     
     public void setServerDataStore(Map<String, ServerData> serverDataEntries) {
     	serverDataStore.getEntries().clear();
-    	serverDataStore.getEntries().putAll(serverDataEntries);
+    	for(Map.Entry<String, ServerData> entry: serverDataEntries.entrySet()) {
+    		// Add component specific prefix to server name to scope server configurations to this component.
+    		serverDataStore.getEntries().put(SERVER_NAME_PREFIX + "." + entry.getKey(), entry.getValue());
+    	}
     }
     
     public Map<String, RepositoryData> getRepositoryDataStore() {
@@ -105,7 +111,10 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 
 	public void setRepositoryDataStore(Map<String, RepositoryData> repositoryDataEntries) {
 		this.repositoryDataStore.getEntries().clear();
-		this.repositoryDataStore.getEntries().putAll(repositoryDataEntries);
+    	for(Map.Entry<String, RepositoryData> entry: repositoryDataEntries.entrySet()) {
+    		// Add component specific prefix to repository name to scope repository configurations to this component.
+    		repositoryDataStore.getEntries().put(SERVER_NAME_PREFIX + "." +entry.getKey(), entry.getValue());
+    	}
 	}
 	
 	protected FunctionHandlerFactory getServerHandlerFactory(String serverName) throws Exception {

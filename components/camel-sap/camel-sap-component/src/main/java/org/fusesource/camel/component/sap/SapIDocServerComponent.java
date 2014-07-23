@@ -47,6 +47,8 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapIDocServerComponent.class);
 
+	protected static final String SERVER_NAME_PREFIX = SapIDocServerComponent.class.getName();
+
 	protected final ServerDataStore serverDataStore = RfcFactory.eINSTANCE.createServerDataStore();
 
 	protected Map<String,JCoIDocServer> activeServers = new HashMap<String,JCoIDocServer>();
@@ -61,7 +63,10 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 
     public void setServerDataStore(Map<String, ServerData> serverDataEntries) {
     	serverDataStore.getEntries().clear();
-    	serverDataStore.getEntries().putAll(serverDataEntries);
+    	for(Map.Entry<String, ServerData> entry: serverDataEntries.entrySet()) {
+    		// Add component specific prefix to server name to scope server configurations to this component.
+    		serverDataStore.getEntries().put(SERVER_NAME_PREFIX + "." + entry.getKey(), entry.getValue());
+    	}
     }
     
     public Map<String, ServerData> getServerDataStore() {
@@ -81,7 +86,8 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 		}
 		
 		// Extract URI components
-		parameters.put("serverName", uriComponents[0]);
+		// Add component specific prefix to server name to scope server configurations to this component.
+		parameters.put("serverName", SERVER_NAME_PREFIX + "." + uriComponents[0]);
 		parameters.put("idocType", uriComponents[1]);
 		if(uriComponents.length > 2) {
 			parameters.put("idocTypeExtension", uriComponents[2]);

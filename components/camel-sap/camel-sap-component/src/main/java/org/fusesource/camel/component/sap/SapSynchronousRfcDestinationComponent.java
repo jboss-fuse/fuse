@@ -38,6 +38,8 @@ import org.slf4j.LoggerFactory;
 public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcDestinationComponent.class);
+	
+	protected static final String DESTINATION_NAME_PREFIX = SapSynchronousRfcDestinationComponent.class.getName();
 
     protected final DestinationDataStore destinationDataStore = RfcFactory.eINSTANCE.createDestinationDataStore();
 	
@@ -47,7 +49,10 @@ public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent 
 
     public void setDestinationDataStore(Map<String, DestinationData> destinationDataEntries) {
     	destinationDataStore.getEntries().clear();
-    	destinationDataStore.getEntries().putAll(destinationDataEntries);
+    	for(Map.Entry<String, DestinationData> entry: destinationDataEntries.entrySet()) {
+    		// Add component specific prefix to destination name to scope destination configurations to this component.
+    		destinationDataStore.getEntries().put(DESTINATION_NAME_PREFIX + "." +entry.getKey(), entry.getValue());
+    	}
     }
     
     public Map<String, DestinationData> getDestinationDataStore() {
@@ -67,7 +72,8 @@ public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent 
 		}
 
 		// Extract URI components
-		parameters.put("destinationName", uriComponents[0]);
+		// Add component specific prefix to destination name to scope destination configurations to this component.
+		parameters.put("destinationName", DESTINATION_NAME_PREFIX + "." + uriComponents[0]); 
 		parameters.put("rfcName", uriComponents[1]);
 		Endpoint endpoint = new SapSynchronousRfcDestinationEndpoint(uri, this);
 

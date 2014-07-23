@@ -19,12 +19,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-	<bean id="sap" class="org.fusesource.camel.component.sap.SAPComponent">
+	<bean id="sap-idoc-destination" class="org.fusesource.camel.component.sap.SapIDocDestinationComponent">
 		<property name="destinationDataStore">
 			<map>
 				<entry key="nplDest" value-ref="nplDestinationData" />
 			</map>
 		</property>
+	</bean>
+
+	<bean id="sap-idoc-server" class="org.fusesource.camel.component.sap.SapIDocServerComponent">
 		<property name="serverDataStore">
 			<map>
 				<entry key="nplServer" value-ref="nplServerData" />
