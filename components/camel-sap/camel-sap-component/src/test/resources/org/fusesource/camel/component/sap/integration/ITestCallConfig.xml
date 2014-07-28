@@ -19,6 +19,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
+	<bean id="throwUp" class="org.fusesource.camel.component.sap.integration.MeThrowUp"/>
+	<bean id="counter" class="org.fusesource.camel.component.sap.integration.Counter"/>
+
 	<bean id="sap-configuration" class="org.fusesource.camel.component.sap.SapConfiguration">
 		<property name="destinationDataStore">
 			<map>
@@ -39,6 +42,16 @@
 				<entry key="nplServer" value-ref="nplRepositoryData"></entry>
 			</map>
 		</property>
+	</bean>
+
+	<bean id="sap-trfc-server"
+		class="org.fusesource.camel.component.sap.SapTransactionalRfcServerComponent">
+		<property name="repositoryDataStore">
+			<map>
+				<entry key="nplServer" value-ref="nplRepositoryData"></entry>
+			</map>
+		</property>
+		<property name="tidStoresLocation" value="/Users/wcollins/tmp"/>
 	</bean>
 
 	<bean id="nplDestinationData"

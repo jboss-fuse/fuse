@@ -17,6 +17,8 @@
 package org.fusesource.camel.component.sap;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.ExchangePattern;
@@ -32,23 +34,27 @@ import com.sap.conn.jco.AbapException;
 import com.sap.conn.jco.JCoFunction;
 import com.sap.conn.jco.server.JCoServerContext;
 import com.sap.conn.jco.server.JCoServerFunctionHandler;
+import com.sap.conn.jco.server.JCoServerTIDHandler;
 
 /**
- * An SAP consumer receiving a synchronous remote function call (sRFC) from an SAP system. 
+ * An SAP consumer receiving a transactional remote function call (tRFC) from an SAP system. 
  * 
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-public class SapSynchronousRfcConsumer extends SapConsumer implements JCoServerFunctionHandler {
+public class SapTransactionalRfcConsumer extends SapConsumer implements JCoServerFunctionHandler {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcConsumer.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalRfcConsumer.class);
 
-	public SapSynchronousRfcConsumer(SapSynchronousRfcServerEndpoint endpoint, Processor processor) {
+	Map<String, Object> sessionData = new HashMap<String, Object>();
+
+	public SapTransactionalRfcConsumer(SapTransactionalRfcServerEndpoint endpoint, Processor processor) {
 		super(endpoint, processor);
 	}
 
-	public SapSynchronousRfcServerEndpoint getEndpoint() {
-		return (SapSynchronousRfcServerEndpoint) super.getEndpoint();
+	@Override
+	public SapTransactionalRfcServerEndpoint getEndpoint() {
+		return (SapTransactionalRfcServerEndpoint) super.getEndpoint();
 	}
 
 	@Override
@@ -58,7 +64,7 @@ public class SapSynchronousRfcConsumer extends SapConsumer implements JCoServerF
 			LOG.debug("Handling request for RFC '{}'", jcoFunction.getName());
 		}
 
-		Exchange exchange = getEndpoint().createExchange(ExchangePattern.InOut);
+		Exchange exchange = getEndpoint().createExchange(ExchangePattern.InOnly);
 
 		// Create Request structure
 		Structure request = RfcUtil.getRequest(serverContext.getRepository(), jcoFunction.getName());
@@ -76,7 +82,7 @@ public class SapSynchronousRfcConsumer extends SapConsumer implements JCoServerF
 			// Populated request
 			Message message = exchange.getIn();
 			if (isStateful()) {
-				exchange.setProperty(SAP_SESSION_CONTEXT_PROPERTY_NAME, sessionContext);
+				exchange.setProperty(SAP_SESSION_CONTEXT_PROPERTY_NAME, getSessionContext());
 			}
 			message.setBody(request);
 
@@ -84,31 +90,21 @@ public class SapSynchronousRfcConsumer extends SapConsumer implements JCoServerF
 			getProcessor().process(exchange);
 
 		} catch (Exception e) {
-			throw new AbapException("ROUTE_EXCEPTION", e.getMessage());
-		}
-		
-		if(exchange.getException() != null) {
-			throw new AbapException("ROUTE_EXCEPTION", exchange.getException().getMessage());
-		}
-		
-		// Return response
-		Message message;
-		if (exchange.hasOut()) {
-			message = exchange.getOut();
-		} else {
-			message = exchange.getIn();
-		}
-
-		Structure response = message.getBody(Structure.class);
-		if (LOG.isDebugEnabled()) {
-			try {
-				LOG.debug("Response: " + (response == null ? response : RfcUtil.marshal(response)));
-			} catch (Exception e) {
-				LOG.warn("Failed to log response", e);
+			if(getEndpoint().isPropagateExceptions()) {
+				throw new AbapException("ROUTE_EXCEPTION", e.getMessage());
+			} else {
+				getExceptionHandler().handleException("Failed to process request", e);
 			}
 		}
-		RfcUtil.fillJCoParameterListsFromResponse(response, jcoFunction);
 		
+		if(exchange.getException() != null && getEndpoint().isPropagateExceptions()) {
+			throw new AbapException("ROUTE_EXCEPTION", exchange.getException().getMessage());
+		}
+
+		JCoServerTIDHandler jcoServerTidHandler = serverContext.getServer().getTIDHandler();
+		if (jcoServerTidHandler instanceof ServerTIDHandler) {
+			((ServerTIDHandler)jcoServerTidHandler).execute(serverContext);
+		}
 	}
 
 }

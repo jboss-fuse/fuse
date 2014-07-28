@@ -16,12 +16,12 @@
  */
 package org.fusesource.camel.component.sap;
 
-import org.apache.camel.Component;
 import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.apache.camel.spi.UriEndpoint;
+import org.apache.camel.spi.UriParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,13 +45,17 @@ public class SapIDocServerEndpoint extends DefaultEndpoint {
 	protected String idocTypeExtension;
 	protected String systemRelease;
 	protected String applicationRelease;
+	@UriParam
+	protected boolean propagateExceptions;
+	@UriParam
+	protected boolean stateful;
 
 	protected JCoIDocServer server;
 
 	public SapIDocServerEndpoint() {
 	}
 
-	public SapIDocServerEndpoint(String uri, Component component) {
+	public SapIDocServerEndpoint(String uri, SapIDocServerComponent component) {
 		super(uri, component);
 	}
 
@@ -95,6 +99,22 @@ public class SapIDocServerEndpoint extends DefaultEndpoint {
 		this.applicationRelease = applicationRelease;
 	}
 
+	public boolean isPropagateExceptions() {
+		return propagateExceptions;
+	}
+
+	public void setPropagateExceptions(boolean propagateExceptions) {
+		this.propagateExceptions = propagateExceptions;
+	}
+
+	public boolean isStateful() {
+		return stateful;
+	}
+
+	public void setStateful(boolean stateful) {
+		this.stateful = stateful;
+	}
+
 	@Override
 	public boolean isSingleton() {
 		return true;
@@ -113,6 +133,9 @@ public class SapIDocServerEndpoint extends DefaultEndpoint {
 			throw new IllegalStateException("IDoc Handler Factory for '" + serverName + "' missing.");
 		}
 		SapIDocConsumer consumer = new SapIDocConsumer(this, processor);
+		if (isStateful()) {
+			consumer.setStateful(true);
+		}
 		handlerFactory.registerHandler(getIdocType(), getIdocTypeExtension(), getSystemRelease(), getApplicationRelease(), consumer);
 		return consumer;
 	}

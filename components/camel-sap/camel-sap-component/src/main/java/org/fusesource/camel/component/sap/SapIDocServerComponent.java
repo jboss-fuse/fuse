@@ -16,6 +16,7 @@
  */
 package org.fusesource.camel.component.sap;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +43,8 @@ import com.sap.conn.jco.server.JCoServer;
 public class SapIDocServerComponent extends UriEndpointComponent {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapIDocServerComponent.class);
+	
+	protected File tidStoresLocation = new File(".");
 
 	protected Map<String,JCoIDocServer> activeServers = new HashMap<String,JCoIDocServer>();
 
@@ -51,6 +54,14 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 
 	public SapIDocServerComponent() {
 		super(SapIDocServerEndpoint.class);
+	}
+
+	public String getTidStoresLocation() {
+		return tidStoresLocation.getAbsolutePath();
+	}
+
+	public void setTidStoresLocation(String tidStoresLocation) {
+		this.tidStoresLocation = new File(tidStoresLocation);
 	}
 
 	@Override
@@ -92,7 +103,9 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 			server = JCoIDoc.getServer(serverName);
 			
 			server.setIDocHandlerFactory(new IDocHandlerFactory());
-			server.setTIDHandler(new ServerTIDHandler(serverName));
+			
+			File tidStoreFile = new File(tidStoresLocation, serverName);
+			server.setTIDHandler(new ServerTIDHandler(tidStoreFile));
 			
 			server.addServerExceptionListener(serverErrorAndExceptionListener);
 			server.addServerErrorListener(serverErrorAndExceptionListener);

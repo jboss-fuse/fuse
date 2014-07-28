@@ -19,25 +19,37 @@ package org.fusesource.camel.component.sap;
 import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
 import org.apache.camel.spi.UriEndpoint;
+import org.apache.camel.spi.UriParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An SAP endpoint providing inbound sRFC (Synchronous Remote Function Call) communication from SAP.
+ * An SAP endpoint providing inbound tRFC (Transactional Remote Function Call) communication from SAP.
  * 
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-@UriEndpoint(scheme="sap-srfc-server")
-public class SapSynchronousRfcServerEndpoint extends SapRfcServerEndpoint {
+@UriEndpoint(scheme="sap-trfc-server")
+public class SapTransactionalRfcServerEndpoint extends SapRfcServerEndpoint {
 	
-    private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcServerEndpoint.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalRfcServerEndpoint.class);
 
-	public SapSynchronousRfcServerEndpoint() {
+    @UriParam
+	protected boolean propagateExceptions;
+
+	public SapTransactionalRfcServerEndpoint() {
 	}
 
-	public SapSynchronousRfcServerEndpoint(String endpointUri, SapSynchronousRfcServerComponent component) {
+	public SapTransactionalRfcServerEndpoint(String endpointUri, SapTransactionalRfcServerComponent component) {
 		super(endpointUri, component);
+	}
+
+	public boolean isPropagateExceptions() {
+		return propagateExceptions;
+	}
+
+	public void setPropagateExceptions(boolean propagateExceptions) {
+		this.propagateExceptions = propagateExceptions;
 	}
 
 	@Override
@@ -47,8 +59,8 @@ public class SapSynchronousRfcServerEndpoint extends SapRfcServerEndpoint {
 		if (handlerFactory == null) {
 			throw new IllegalStateException("Function Handler Factory for '" + serverName + "' missing.");
 		}
-		SapSynchronousRfcConsumer consumer = new SapSynchronousRfcConsumer(this, processor);
-		if(isStateful()) {
+		SapTransactionalRfcConsumer consumer = new SapTransactionalRfcConsumer(this, processor);
+		if (isStateful()) {
 			consumer.setStateful(true);
 		}
 		handlerFactory.registerHandler(getRfcName(), consumer);
@@ -56,8 +68,8 @@ public class SapSynchronousRfcServerEndpoint extends SapRfcServerEndpoint {
 	}
 
 	@Override
-	public SapSynchronousRfcServerComponent getComponent() {
-		return (SapSynchronousRfcServerComponent) super.getComponent();
+	public SapTransactionalRfcServerComponent getComponent() {
+		return (SapTransactionalRfcServerComponent) super.getComponent();
 	}
 
 }

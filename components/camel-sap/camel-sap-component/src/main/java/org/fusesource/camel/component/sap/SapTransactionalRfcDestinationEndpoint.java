@@ -22,27 +22,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An SAP endpoint providing outbound sRFC (Synchronous Remote Function Call) communication to SAP.
+ * An SAP endpoint providing outbound tRFC (Transactional Remote Function Call) communication to SAP.
  * 
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-@UriEndpoint(scheme="sap-srfc-destination")
-public class SapSynchronousRfcDestinationEndpoint extends SapRfcDestinationEndpoint {
+@UriEndpoint(scheme="sap-trfc-destination")
+public class SapTransactionalRfcDestinationEndpoint extends SapRfcDestinationEndpoint {
 	
-    private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcDestinationEndpoint.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalRfcDestinationEndpoint.class);
 
-	public SapSynchronousRfcDestinationEndpoint() {
+	public SapTransactionalRfcDestinationEndpoint() {
 	}
 
-	public SapSynchronousRfcDestinationEndpoint(String endpointUri, SapSynchronousRfcDestinationComponent component) {
+	public SapTransactionalRfcDestinationEndpoint(String endpointUri, SapTransactionalRfcDestinationComponent component) {
 		super(endpointUri, component);
 	}
 
 	@Override
 	public Producer createProducer() throws Exception {
 		LOG.debug("Created producer for endpoint '" + getEndpointUri() + "'");
-		return new SapSynchronousRfcProducer(this);
+		return new SapTransactionalRfcProducer(this);
 	}
-
 }

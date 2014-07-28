@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.fusesource.camel.component.sap.model.idoc.Document;
+import org.fusesource.camel.component.sap.model.idoc.DocumentList;
 import org.fusesource.camel.component.sap.model.idoc.IdocFactory;
 import org.fusesource.camel.component.sap.model.idoc.IdocPackage;
 import org.fusesource.camel.component.sap.model.idoc.Segment;
@@ -40,6 +41,13 @@ import org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl;
  * @generated
  */
 public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass documentListEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,6 +140,60 @@ public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(IdocPackage.eNS_URI, theIdocPackage);
 		return theIdocPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDocumentList() {
+		return documentListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocumentList_IdocType() {
+		return (EAttribute)documentListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocumentList_IdocTypeExtension() {
+		return (EAttribute)documentListEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocumentList_SystemRelease() {
+		return (EAttribute)documentListEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocumentList_ApplicationRelease() {
+		return (EAttribute)documentListEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentList_Documents() {
+		return (EReference)documentListEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -684,6 +746,13 @@ public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		documentListEClass = createEClass(DOCUMENT_LIST);
+		createEAttribute(documentListEClass, DOCUMENT_LIST__IDOC_TYPE);
+		createEAttribute(documentListEClass, DOCUMENT_LIST__IDOC_TYPE_EXTENSION);
+		createEAttribute(documentListEClass, DOCUMENT_LIST__SYSTEM_RELEASE);
+		createEAttribute(documentListEClass, DOCUMENT_LIST__APPLICATION_RELEASE);
+		createEReference(documentListEClass, DOCUMENT_LIST__DOCUMENTS);
+
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__ARCHIVE_KEY);
 		createEAttribute(documentEClass, DOCUMENT__CLIENT);
@@ -780,6 +849,18 @@ public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(documentListEClass, DocumentList.class, "DocumentList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDocumentList_IdocType(), ecorePackage.getEString(), "idocType", "", 0, 1, DocumentList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocumentList_IdocTypeExtension(), ecorePackage.getEString(), "idocTypeExtension", "", 0, 1, DocumentList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocumentList_SystemRelease(), ecorePackage.getEString(), "systemRelease", "", 0, 1, DocumentList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocumentList_ApplicationRelease(), ecorePackage.getEString(), "applicationRelease", "", 0, 1, DocumentList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentList_Documents(), this.getDocument(), null, "documents", null, 0, -1, DocumentList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(documentListEClass, this.getDocument(), "add", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = addEOperation(documentListEClass, this.getDocument(), "add", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDocument_ArchiveKey(), ecorePackage.getEString(), "archiveKey", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocument_Client(), ecorePackage.getEString(), "client", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -836,7 +917,7 @@ public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
 		initEAttribute(getSegment_Qualified(), ecorePackage.getEBoolean(), "qualified", "false", 0, 1, Segment.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSegment_RecordLength(), ecorePackage.getEInt(), "recordLength", "0", 0, 1, Segment.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(segmentEClass, null, "get", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(segmentEClass, null, "get", 0, 1, IS_UNIQUE, IS_ORDERED);
 		ETypeParameter t1 = addETypeParameter(op, "T");
 		addEParameter(op, ecorePackage.getEJavaObject(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
@@ -907,7 +988,7 @@ public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";																			
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";																							
 		addAnnotation
 		  (getSegmentChildren_Segments(), 
 		   source, 

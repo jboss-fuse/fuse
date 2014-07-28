@@ -50,5 +50,7 @@
 		<property name="repositoryDestination" value="nplDest" />
 		<property name="connectionCount" value="2" />
 	</bean>
+	
+	<bean id="throwUp" class="org.fusesource.camel.component.sap.integration.MeThrowUp"/>
 
 </beans>

@@ -24,36 +24,36 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An SAP component that manages {@link SapSynchronousRfcDestinationEndpoint}.
+ * An SAP component that manages {@link SapTransactionalRfcDestinationEndpoint}.
  * 
  * @author William Collins <punkhornsw@gmail.com>
  * 
  */
-public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent {
+public class SapTransactionalRfcDestinationComponent extends UriEndpointComponent {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcDestinationComponent.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalRfcDestinationComponent.class);
 	
-	public SapSynchronousRfcDestinationComponent() {
+	public SapTransactionalRfcDestinationComponent() {
 		super(SapSynchronousRfcDestinationEndpoint.class);
 	}
 
 	@Override
 	protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
-		if (!uri.startsWith("sap-srfc-destination:")) { 
-			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-srfc-destination:'");			
+		if (!uri.startsWith("sap-trfc-destination:")) { 
+			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-trfc-destination:'");			
 		}
 		// Parse URI
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length != 2) {
-			throw new IllegalArgumentException("URI must be of the form: sap-srfc-destination:<destinationName>:<rfcName>");
+			throw new IllegalArgumentException("URI must be of the form: sap-trfc-destination:<destinationName>:<rfcName>");
 		}
 
 		// Extract URI components
 		// Add component specific prefix to destination name to scope destination configurations to this component.
 		parameters.put("destinationName", uriComponents[0]); 
 		parameters.put("rfcName", uriComponents[1]);
-		Endpoint endpoint = new SapSynchronousRfcDestinationEndpoint(uri, this);
+		Endpoint endpoint = new SapTransactionalRfcDestinationEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);

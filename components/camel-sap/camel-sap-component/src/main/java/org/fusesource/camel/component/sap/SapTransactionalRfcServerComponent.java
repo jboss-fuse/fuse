@@ -19,41 +19,42 @@ package org.fusesource.camel.component.sap;
 import java.util.Map;
 
 import org.apache.camel.Endpoint;
-import org.apache.camel.impl.UriEndpointComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An SAP component that manages {@link SapSynchronousRfcDestinationEndpoint}.
+ * An SAP component that manages {@link SapTransactionalRfcServerEndpoint}
+ * .
  * 
  * @author William Collins <punkhornsw@gmail.com>
  * 
  */
-public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent {
+public class SapTransactionalRfcServerComponent extends SapRfcServerComponent {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcDestinationComponent.class);
-	
-	public SapSynchronousRfcDestinationComponent() {
-		super(SapSynchronousRfcDestinationEndpoint.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalRfcServerComponent.class);
+
+	public SapTransactionalRfcServerComponent() {
+		super(SapTransactionalRfcServerEndpoint.class);
 	}
 
 	@Override
 	protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
-		if (!uri.startsWith("sap-srfc-destination:")) { 
-			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-srfc-destination:'");			
+		if (!uri.startsWith("sap-trfc-server:")) {
+			throw new IllegalArgumentException("The URI '" + uri + "' has invalid scheme; should be 'sap-trfc-server:'");
 		}
 		// Parse URI
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length != 2) {
-			throw new IllegalArgumentException("URI must be of the form: sap-srfc-destination:<destinationName>:<rfcName>");
+			throw new IllegalArgumentException("URI must be of the form: sap-trfc-server:<serverName>:<rfcName>");
 		}
 
 		// Extract URI components
-		// Add component specific prefix to destination name to scope destination configurations to this component.
-		parameters.put("destinationName", uriComponents[0]); 
+		// Add component specific prefix to server name to scope server
+		// configurations to this component.
+		parameters.put("serverName", uriComponents[0]);
 		parameters.put("rfcName", uriComponents[1]);
-		Endpoint endpoint = new SapSynchronousRfcDestinationEndpoint(uri, this);
+		Endpoint endpoint = new SapTransactionalRfcServerEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);

@@ -19,25 +19,27 @@ package org.fusesource.camel.component.sap;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.sap.conn.jco.server.JCoServerContext;
 import com.sap.conn.jco.server.JCoServerFunctionHandler;
 import com.sap.conn.jco.server.JCoServerFunctionHandlerFactory;
 
 /**
- * Function Handler Factory which enables function handlers to be registered and unregistered.
+ * Function Handler Factory which enables function handlers to be registered and
+ * unregistered.
  * 
  * @author William Collins <punkhornsw@gmail.com>
- *
+ * 
  */
 public class FunctionHandlerFactory implements JCoServerFunctionHandlerFactory {
 
-	class SessionContext {
-		Map<String, Object> cachedSessionData = new HashMap<String, Object>(); 
-	}
-	
+	private static final Logger LOG = LoggerFactory.getLogger(FunctionHandlerFactory.class);
+
 	private Map<String, JCoServerFunctionHandler> callHandlers = new HashMap<String, JCoServerFunctionHandler>();
-	private Map<String, SessionContext> statefulSessions = new HashMap<String, SessionContext>();
-	
+	private Map<String, SapServerSessionContext> statefulSessionContexts = new HashMap<String, SapServerSessionContext>();
+
 	public void registerHandler(String functionName, JCoServerFunctionHandler handler) {
 		callHandlers.put(functionName, handler);
 	}
@@ -47,15 +49,35 @@ public class FunctionHandlerFactory implements JCoServerFunctionHandlerFactory {
 	}
 
 	@Override
-	public void sessionClosed(JCoServerContext serverContext, String arg1, boolean arg2) {
-		statefulSessions.remove(serverContext.getSessionID());
+	public void sessionClosed(JCoServerContext serverContext, String message, boolean error) {
+		statefulSessionContexts.remove(serverContext.getSessionID());
+		LOG.debug("Session " + serverContext.getSessionID() + " was closed " + (error ? message : "by SAP system"));
 	}
 
 	@Override
 	public JCoServerFunctionHandler getCallHandler(JCoServerContext serverContext, String functionName) {
 		JCoServerFunctionHandler handler = callHandlers.get(functionName);
+		if (handler instanceof SapConsumer) {
+			SapConsumer consumer = (SapConsumer) handler;
+			if (consumer.isStateful()) {
+				// Manage stateful session.
+				SapServerSessionContext sessionContext;
+				if (!serverContext.isStatefulSession()) {
+					// start new session with new session context
+					serverContext.setStateful(true);
+					sessionContext = new SapServerSessionContext();
+					statefulSessionContexts.put(serverContext.getSessionID(), sessionContext);
+				} else {
+					// retrieve session context of current session.
+					sessionContext = statefulSessionContexts.get(serverContext.getSessionID());
+					if (sessionContext == null) {
+						throw new RuntimeException("Failed to find session context for session '" + serverContext.getSessionID() + "'");
+					}
+				}
+				consumer.setSessionContext(sessionContext);
+			}
+		}
 		return handler;
 	}
-	
 
 }

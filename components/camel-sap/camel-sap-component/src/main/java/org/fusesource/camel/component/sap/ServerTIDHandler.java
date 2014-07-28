@@ -18,7 +18,6 @@ package org.fusesource.camel.component.sap;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
 import org.fusesource.camel.component.sap.model.rfc.TIDState;
@@ -33,116 +32,132 @@ import com.sap.conn.jco.server.JCoServerTIDHandler;
 /**
  * Handler for transactions received from an SAP system.
  * 
- * <ul><b>Successful transaction call sequence</b>
- * 	<li>checkTID - returns true</li>
- * 	<li>call handler- no exception</li>
- * 	<li>commit</li>
- * 	<li>confirmTID</li>
- * </ul> 
+ * <ul>
+ * <b>Successful transaction call sequence</b>
+ * <li>checkTID - returns true</li>
+ * <li>call handler- no exception</li>
+ * <li>commit</li>
+ * <li>confirmTID</li>
+ * </ul>
  * 
- * <ul><b>Unsuccessful transaction call sequence</b>
- * 	<li>checkTID - returns true</li>
- * 	<li>call handler- throws exception</li>
- * 	<li>rollback</li>
- * </ul> 
+ * <ul>
+ * <b>Unsuccessful transaction call sequence</b>
+ * <li>checkTID - returns true</li>
+ * <li>call handler- throws exception</li>
+ * <li>rollback</li>
+ * </ul>
  * 
- * <ul><b>Unsuccessfully committed transaction call sequence</b>
- * 	<li>checkTID - returns true</li>
- * 	<li>call handler- throws exception</li>
- * 	<li>commit - throws exception</li>
- * 	<li>rollback</li>
- * </ul> 
+ * <ul>
+ * <b>Unsuccessfully committed transaction call sequence</b>
+ * <li>checkTID - returns true</li>
+ * <li>call handler- throws exception</li>
+ * <li>commit - throws exception</li>
+ * <li>rollback</li>
+ * </ul>
  * 
- * <ul><b>Duplicate transaction call sequence</b>
- * 	<li>checkTID - returns false</li>
- * 	<li>call handler- throws exception</li>
- * 	<li>confirmTID</li>
- * </ul> 
+ * <ul>
+ * <b>Duplicate transaction call sequence</b>
+ * <li>checkTID - returns false</li>
+ * <li>call handler- throws exception</li>
+ * <li>confirmTID</li>
+ * </ul>
  * 
  * @author William Collins <punkhornsw@gmail.com>
- *
+ * 
  */
 public class ServerTIDHandler implements JCoServerTIDHandler {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcServerComponent.class);
-	
-    TIDStore availableTIDs = RfcFactory.eINSTANCE.createTIDStore();
-    
-    String serverName;
-    
-    public ServerTIDHandler(String serverName) {
-    	this.serverName = serverName;
-    	loadTIDs();
-    }
 
-    @Override
+	TIDStore availableTIDs = RfcFactory.eINSTANCE.createTIDStore();
+
+	File tidStoreFile;
+
+	public ServerTIDHandler(File tidStoreFile)  throws Exception {
+		this.tidStoreFile = tidStoreFile;
+		loadTIDs();
+	}
+
+	@Override
 	public boolean checkTID(JCoServerContext serverContext, String tid) {
 		TIDState state = TIDState.getByName(availableTIDs.getEntries().get(tid));
 		if (state == null) {
 			availableTIDs.getEntries().put(tid, TIDState.CREATED.getName());
-			saveTIDs();
-			LOG.debug("Checked TID '" + tid +"': true");
-			return true;
-		}
-		
-		if(state == TIDState.CREATED || state == TIDState.ROLLED_BACK) {
-			LOG.debug("Checked TID '" + tid +"': true");
+			try {
+				saveTIDs();
+			} catch (Exception e) {
+				throw new RuntimeException("Failed to save transaction IDs", e);
+			}
+			LOG.debug("Checked TID '" + tid + "': true");
 			return true;
 		}
 
-		LOG.debug("Checked TID '" + tid +"': false");
+		if (state == TIDState.CREATED || state == TIDState.ROLLED_BACK) {
+			LOG.debug("Checked TID '" + tid + "': true");
+			return true;
+		}
+
+		LOG.debug("Checked TID '" + tid + "': false");
 		return false;
 	}
 
 	@Override
 	public void commit(JCoServerContext serverContext, String tid) {
 		availableTIDs.getEntries().put(tid, TIDState.COMMITTED.getName());
-		saveTIDs();
-		LOG.debug("Committed TID '" + tid +"'");
+		try {
+			saveTIDs();
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to save transaction IDs", e);
+		}
+		LOG.debug("Committed TID '" + tid + "'");
 	}
 
 	@Override
 	public void rollback(JCoServerContext serverContext, String tid) {
 		availableTIDs.getEntries().put(tid, TIDState.ROLLED_BACK.getName());
-		saveTIDs();
-		LOG.debug("Rolledback TID '" + tid +"'");
+		try {
+			saveTIDs();
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to save transaction IDs", e);
+		}
+		LOG.debug("Rolledback TID '" + tid + "'");
 	}
-	
+
 	@Override
 	public void confirmTID(JCoServerContext serverContext, String tid) {
 		availableTIDs.getEntries().remove(tid);
-		saveTIDs();
-		LOG.debug("Confirmed TID '" + tid +"'");
+		try {
+			saveTIDs();
+		} catch (Exception e) {
+			LOG.warn("Failed to save transaction IDs", e);
+		}
+		LOG.debug("Confirmed TID '" + tid + "'");
 	}
-	
+
 	public void execute(JCoServerContext serverContext) {
 		String tid = serverContext.getTID();
 		if (tid != null) {
 			availableTIDs.getEntries().put(tid, TIDState.EXECUTED.getName());
-			saveTIDs();
+			try {
+				saveTIDs();
+			} catch (Exception e) {
+				throw new RuntimeException("Failed to save transaction IDs", e);
+			}
 			LOG.debug("Executed TID '" + tid + "'");
 		}
 	}
-	
-	private void saveTIDs() {
-		try {
-			File file = new File(serverName);
-			Util.save(file, availableTIDs);
-		} catch (IOException e) {
-			LOG.warn("Failed to save TID data store '" + serverName +"'", e);
-		}
+
+	private void saveTIDs() throws Exception {
+		Util.save(tidStoreFile, availableTIDs);
 	}
-	
-	private void loadTIDs() {
+
+	private void loadTIDs()  throws Exception {
 		try {
-			File file = new File(serverName);
-			TIDStore tidStore = (TIDStore) Util.load(file);
+			TIDStore tidStore = (TIDStore) Util.load(tidStoreFile);
 			availableTIDs.getEntries().clear();
 			availableTIDs.getEntries().addAll(tidStore.getEntries());
 		} catch (FileNotFoundException e) {
 			// No file saved yet: ignore.
-		} catch (IOException e) {
-			LOG.warn("Failed to load TID data store '" + serverName +"'", e);
 		}
 	}
 

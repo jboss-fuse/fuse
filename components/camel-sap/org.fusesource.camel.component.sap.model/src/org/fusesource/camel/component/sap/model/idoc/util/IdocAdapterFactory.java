@@ -82,6 +82,10 @@ public class IdocAdapterFactory extends AdapterFactoryImpl {
 	protected IdocSwitch<Adapter> modelSwitch =
 		new IdocSwitch<Adapter>() {
 			@Override
+			public Adapter caseDocumentList(DocumentList object) {
+				return createDocumentListAdapter();
+			}
+			@Override
 			public Adapter caseDocument(Document object) {
 				return createDocumentAdapter();
 			}
@@ -116,6 +120,20 @@ public class IdocAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.fusesource.camel.component.sap.model.idoc.DocumentList <em>Document List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.fusesource.camel.component.sap.model.idoc.DocumentList
+	 * @generated
+	 */
+	public Adapter createDocumentListAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.fusesource.camel.component.sap.model.idoc.Document <em>Document</em>}'.

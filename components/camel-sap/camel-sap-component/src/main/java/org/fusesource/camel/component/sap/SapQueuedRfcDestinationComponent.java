@@ -24,36 +24,37 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An SAP component that manages {@link SapSynchronousRfcDestinationEndpoint}.
+ * An SAP component that manages {@link SapQueuedRfcDestinationEndpoint}.
  * 
  * @author William Collins <punkhornsw@gmail.com>
  * 
  */
-public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent {
+public class SapQueuedRfcDestinationComponent extends UriEndpointComponent {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcDestinationComponent.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SapQueuedRfcDestinationComponent.class);
 	
-	public SapSynchronousRfcDestinationComponent() {
+	public SapQueuedRfcDestinationComponent() {
 		super(SapSynchronousRfcDestinationEndpoint.class);
 	}
 
 	@Override
 	protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
-		if (!uri.startsWith("sap-srfc-destination:")) { 
-			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-srfc-destination:'");			
+		if (!uri.startsWith("sap-qrfc-destination:")) { 
+			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-qrfc-destination:'");			
 		}
 		// Parse URI
 		String[] uriComponents = remaining.split(":");
 
-		if (uriComponents.length != 2) {
-			throw new IllegalArgumentException("URI must be of the form: sap-srfc-destination:<destinationName>:<rfcName>");
+		if (uriComponents.length != 3) {
+			throw new IllegalArgumentException("URI must be of the form: sap-qrfc-destination:<destinationName>:<rfcName>:<queueName>");
 		}
 
 		// Extract URI components
 		// Add component specific prefix to destination name to scope destination configurations to this component.
 		parameters.put("destinationName", uriComponents[0]); 
 		parameters.put("rfcName", uriComponents[1]);
-		Endpoint endpoint = new SapSynchronousRfcDestinationEndpoint(uri, this);
+		parameters.put("queueName", uriComponents[2]);
+		Endpoint endpoint = new SapQueuedRfcDestinationEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);

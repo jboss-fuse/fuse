@@ -16,45 +16,22 @@
  */
 package org.fusesource.camel.component.sap;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.camel.Endpoint;
-import org.apache.camel.impl.UriEndpointComponent;
-import org.fusesource.camel.component.sap.model.rfc.RepositoryData;
-import org.fusesource.camel.component.sap.model.rfc.RepositoryDataStore;
-import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
-import org.fusesource.camel.component.sap.util.RfcUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sap.conn.jco.JCoCustomRepository;
-import com.sap.conn.jco.JCoDestination;
-import com.sap.conn.jco.JCoDestinationManager;
-import com.sap.conn.jco.server.JCoServer;
-import com.sap.conn.jco.server.JCoServerFactory;
-
 /**
- * Represents the component that manages {@link SapSynchronousRfcServerEndpoint}
- * . Maintains a map of repository configurations that specifies the remote
- * functions calls (RFC) that are handled by the endpoints of this component.
+ * An SAP component that manages {@link SapSynchronousRfcServerEndpoint}
+ * .
  * 
  * @author William Collins <punkhornsw@gmail.com>
  * 
  */
-public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
+public class SapSynchronousRfcServerComponent extends SapRfcServerComponent {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcServerComponent.class);
-
-	protected final RepositoryDataStore repositoryDataStore = RfcFactory.eINSTANCE.createRepositoryDataStore();
-	
-	protected Map<String,JCoServer> activeServers = new HashMap<String,JCoServer>();
-	
-	protected Map<String,JCoCustomRepository> repositories = new HashMap<String,JCoCustomRepository>();
-	
-	protected ServerErrorAndExceptionListener serverErrorAndExceptionListener = new ServerErrorAndExceptionListener();
-	
-	protected ServerStateChangedListener serverStateChangedListener = new ServerStateChangedListener();
 
 	public SapSynchronousRfcServerComponent() {
 		super(SapSynchronousRfcServerEndpoint.class);
@@ -62,8 +39,8 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 
 	@Override
 	protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
-		if (!uri.startsWith("sap-srfc-server:")) { 
-			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-srfc-server:'");			
+		if (!uri.startsWith("sap-srfc-server:")) {
+			throw new IllegalArgumentException("The URI '" + uri + "' has invalid scheme; should be 'sap-srfc-server:'");
 		}
 		// Parse URI
 		String[] uriComponents = remaining.split(":");
@@ -71,9 +48,10 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 		if (uriComponents.length != 2) {
 			throw new IllegalArgumentException("URI must be of the form: sap-srfc-server:<serverName>:<rfcName>");
 		}
-		
+
 		// Extract URI components
-		// Add component specific prefix to server name to scope server configurations to this component.
+		// Add component specific prefix to server name to scope server
+		// configurations to this component.
 		parameters.put("serverName", uriComponents[0]);
 		parameters.put("rfcName", uriComponents[1]);
 		Endpoint endpoint = new SapSynchronousRfcServerEndpoint(uri, this);
@@ -84,87 +62,15 @@ public class SapSynchronousRfcServerComponent extends UriEndpointComponent {
 		return endpoint;
 	}
 
-    public Map<String, RepositoryData> getRepositoryDataStore() {
-		return repositoryDataStore.getEntries().map();
-	}
-
-	public void setRepositoryDataStore(Map<String, RepositoryData> repositoryDataEntries) {
-		this.repositoryDataStore.getEntries().clear();
-		this.repositoryDataStore.getEntries().putAll(repositoryDataEntries);
-	}
-	
-	protected FunctionHandlerFactory getServerHandlerFactory(String serverName) throws Exception {
-		JCoServer server = getServer(serverName);
-		if (server == null) {
-			return null;
-		}
-		return (FunctionHandlerFactory) server.getCallHandlerFactory();
-	}
-	synchronized protected JCoServer getServer(String serverName) throws Exception {
-		JCoServer server = activeServers.get(serverName);
-		if (server == null) {
-			server = JCoServerFactory.getServer(serverName);
-			
-			server.setCallHandlerFactory(new FunctionHandlerFactory());
-			server.setTIDHandler(new ServerTIDHandler(serverName));
-			
-			server.addServerExceptionListener(serverErrorAndExceptionListener);
-			server.addServerErrorListener(serverErrorAndExceptionListener);
-			server.addServerStateChangedListener(serverStateChangedListener);
-			
-			String repositoryDestinationName = server.getRepositoryDestination();
-			JCoDestination repositoryDestination = null;
-			try {
-				repositoryDestination = JCoDestinationManager.getDestination(repositoryDestinationName);
-			} catch (Exception e1) {
-				LOG.warn("Unable to get repository destination'" + repositoryDestinationName + "' for server '" + serverName + "'", e1);
-			}
-			
-			// Set up custom repository for inbound RFCs. 
-			JCoCustomRepository repository = getRepository(serverName);
-			if (repository != null) {
-				if (repositoryDestination != null) {
-					try {
-						repository.setDestination(repositoryDestination);
-					} catch (Exception e) {
-						LOG.warn("Unable to set destination on custom repository for server '" + serverName + "'", e);
-					}
-				}
-				server.setRepository(repository);
-			}
-						
-			activeServers.put(serverName, server);
-			
-			if (isStarted()) {
-				server.start();
-				LOG.debug("Started server " + server.getProgramID());
-			}
-		}
-		return server;
-	}
-	
-	synchronized protected JCoCustomRepository getRepository(String serverName) {
-		JCoCustomRepository repository = repositories.get(serverName);
-		if (repository == null) {
-			RepositoryData repositoryData = repositoryDataStore.getEntries().get(serverName);
-			if (repositoryData != null) {
-				repository = RfcUtil.createRepository(serverName, repositoryData);
-				repositories.put(serverName, repository);
-			}
-		}
-		return repository;
-	}
-
 	@Override
     protected void doStart() throws Exception {
     	super.doStart();
-    	for(JCoServer server: activeServers.values()) {
-    		server.start();
-    	}
+    	LOG.debug("STARTED");
     }
     
     @Override
     protected void doStop() throws Exception {
     	super.doStop();
+    	LOG.debug("STOPPED");
     }
 }

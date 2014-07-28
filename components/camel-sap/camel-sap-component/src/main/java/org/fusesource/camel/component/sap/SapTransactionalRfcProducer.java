@@ -24,23 +24,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An SAP producer performing a synchronous remote function call (sRFC) to an remote function module (RFM) in SAP. 
+ * An SAP producer performing a transactional remote function call (tRFC) to an
+ * remote function module (RFM) in SAP.
  * 
  * @author William Collins <punkhornsw@gmail.com>
- *
+ * 
  */
-public class SapSynchronousRfcProducer extends DefaultProducer {
+public class SapTransactionalRfcProducer extends DefaultProducer {
 
-	private static final transient Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcProducer.class);
+	private static final transient Logger LOG = LoggerFactory.getLogger(SapTransactionalRfcProducer.class);
 
-	public SapSynchronousRfcProducer(SapSynchronousRfcDestinationEndpoint endpoint) {
+	public SapTransactionalRfcProducer(SapTransactionalRfcDestinationEndpoint endpoint) {
 		super(endpoint);
 	}
 
 	@Override
 	public void process(Exchange exchange) throws Exception {
 		if (getEndpoint().isTransacted()) {
-			// Ensure that an SAP transaction for destination has begun and is handled by this exchange.
+			// Ensure that an SAP transaction for destination has begun and is
+			// handled by this exchange.
 			DestinationSapTransactionHandler.ensureSapTransactionHasBegunAndIsHandled(exchange, getEndpoint().getDestination());
 		}
 
@@ -53,17 +55,13 @@ public class SapSynchronousRfcProducer extends DefaultProducer {
 				LOG.warn("Failed to log request", e);
 			}
 		}
-		Structure response = RfcUtil.executeFunction(getEndpoint().getDestination(), getEndpoint().getRfcName(), request);
-		if (LOG.isDebugEnabled()) {
-			LOG.debug("Response: " + (response == null ? response : RfcUtil.marshal(response)));
-		}
-		exchange.setOut(exchange.getIn().copy());
-		exchange.getOut().setBody(response);
+		String tid = DestinationRfcTransactionHandler.getTID(exchange, getEndpoint().getDestination());
+		RfcUtil.executeFunction(getEndpoint().getDestination(), getEndpoint().getRfcName(), request, tid);
 	}
-	
+
 	@Override
-	public SapSynchronousRfcDestinationEndpoint getEndpoint() {
-		return (SapSynchronousRfcDestinationEndpoint) super.getEndpoint();
+	public SapTransactionalRfcDestinationEndpoint getEndpoint() {
+		return (SapTransactionalRfcDestinationEndpoint) super.getEndpoint();
 	}
 
 }

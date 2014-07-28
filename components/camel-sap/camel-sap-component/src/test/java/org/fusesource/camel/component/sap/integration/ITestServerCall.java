@@ -2,6 +2,8 @@ package org.fusesource.camel.component.sap.integration;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
+import org.fusesource.camel.component.sap.model.rfc.Request;
+import org.fusesource.camel.component.sap.util.Util;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,14 +17,17 @@ public class ITestServerCall extends CamelSpringTestSupport {
 
 	@Test
 	public void test() throws Exception {
-		Thread.sleep(60000);
+		while(true) {
+			Request request = (Request) consumer.receiveBody("direct:out");
+			Util.print(request);
+		}
 	}
 
 	@Override
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("sap-srfc-server:nplServer:PARAM_TEST").to("mock:result");
+                from("sap-trfc-server:nplServer:PARAM_TEST").to("bean:throwUp").to("direct:out");
             }
         };
     }

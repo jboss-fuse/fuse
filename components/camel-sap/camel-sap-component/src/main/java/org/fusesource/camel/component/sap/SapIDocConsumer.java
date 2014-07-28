@@ -21,18 +21,15 @@ import org.apache.camel.Exchange;
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
-import org.apache.camel.impl.DefaultConsumer;
-import org.fusesource.camel.component.sap.model.idoc.Document;
+import org.fusesource.camel.component.sap.model.idoc.DocumentList;
 import org.fusesource.camel.component.sap.util.IDocUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sap.conn.idoc.IDocDocument;
-import com.sap.conn.idoc.IDocDocumentIterator;
 import com.sap.conn.idoc.IDocDocumentList;
+import com.sap.conn.idoc.IDocRuntimeException;
 import com.sap.conn.idoc.jco.JCoIDocHandler;
 import com.sap.conn.jco.server.JCoServerContext;
-import com.sap.conn.jco.server.JCoServerTIDHandler;
 
 /**
  * Represents an SAP consumer receiving an IDoc (Intermediate Document) from in SAP. 
@@ -40,7 +37,7 @@ import com.sap.conn.jco.server.JCoServerTIDHandler;
  * @author William Collins <punkhornsw@gmail.com>
  * 
  */
-public class SapIDocConsumer extends DefaultConsumer implements JCoIDocHandler {
+public class SapIDocConsumer extends SapConsumer implements JCoIDocHandler {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapIDocConsumer.class);
 
@@ -55,39 +52,39 @@ public class SapIDocConsumer extends DefaultConsumer implements JCoIDocHandler {
 
 	@Override
 	public void handleRequest(JCoServerContext serverContext, IDocDocumentList idocDocumentList) {
+		
+		Exchange exchange = getEndpoint().createExchange(ExchangePattern.InOnly);
+		
+		try {
 
-		IDocDocumentIterator iter = idocDocumentList.iterator();
-		while (iter.hasNext()) {
-			try {
-				IDocDocument idocDocument = iter.next();
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Handling IDoc document {}", idocDocumentList.toString());
+			}
 
-				if (LOG.isDebugEnabled()) {
-					LOG.debug("Handling IDoc document {}", idocDocument.toString());
-				}
+			// Create and populate document list
+			DocumentList documentList = IDocUtil.createIDocList(getEndpoint().getServer().getIDocRepository(), idocDocumentList.getIDocType(), idocDocumentList.getIDocTypeExtension(), idocDocumentList.getSystemRelease(), idocDocumentList.getApplicationRelease());
+			IDocUtil.extractIDocDocumentListIntoDocumentList(idocDocumentList, documentList);
+			
+			// Populated exchange message
+			Message message = exchange.getIn();
+			if (isStateful()) {
+				exchange.setProperty(SAP_SESSION_CONTEXT_PROPERTY_NAME, sessionContext);
+			}
+			message.setBody(documentList);
 
-
-				Exchange exchange = getEndpoint().createExchange(ExchangePattern.InOnly);
-
-				// Create and populate document
-				Document document = IDocUtil.createIDoc(getEndpoint().getServer().getIDocRepository(), idocDocumentList.getIDocType(), idocDocumentList.getIDocTypeExtension(), idocDocumentList.getSystemRelease(), idocDocumentList.getApplicationRelease());
-				IDocUtil.extractIDocDocumentIntoDocument(idocDocument, document);
-				
-				// Populated exchange message
-				Message message = exchange.getIn();
-				message.setBody(document);
-
-				// Process exchange
-				getProcessor().process(exchange);
-				
-				JCoServerTIDHandler jcoServerTidHandler = serverContext.getServer().getTIDHandler();
-				if (jcoServerTidHandler instanceof ServerTIDHandler) {
-					((ServerTIDHandler)jcoServerTidHandler).execute(serverContext);
-				}
-				
-			} catch (Exception e) {
-				getExceptionHandler().handleException("Failed to process IDoc document", e);
+			// Process exchange
+			getProcessor().process(exchange);
+			
+		} catch (Exception e) {
+			if(getEndpoint().isPropagateExceptions()) {
+				throw new IDocRuntimeException(e.getMessage(), e);
+			} else {
+				getExceptionHandler().handleException("Failed to process document list", e);
 			}
 		}
-
+		
+		if (exchange.getException() != null && getEndpoint().isPropagateExceptions()) {
+			throw new IDocRuntimeException(exchange.getException().getMessage(), exchange.getException());
+		}
 	}
 }

@@ -18,17 +18,21 @@ import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.fusesource.camel.component.sap.model.idoc.Document;
+import org.fusesource.camel.component.sap.model.idoc.DocumentList;
 import org.fusesource.camel.component.sap.model.idoc.IdocFactory;
 import org.fusesource.camel.component.sap.model.idoc.IdocPackage;
 import org.fusesource.camel.component.sap.model.idoc.Segment;
 import org.fusesource.camel.component.sap.model.idoc.SegmentChildren;
 import org.fusesource.camel.component.sap.model.idoc.impl.DocumentImpl;
+import org.fusesource.camel.component.sap.model.idoc.impl.DocumentListImpl;
 import org.fusesource.camel.component.sap.model.idoc.impl.SegmentImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.sap.conn.idoc.IDocConversionException;
 import com.sap.conn.idoc.IDocDocument;
+import com.sap.conn.idoc.IDocDocumentIterator;
+import com.sap.conn.idoc.IDocDocumentList;
 import com.sap.conn.idoc.IDocFactory;
 import com.sap.conn.idoc.IDocMetaDataUnavailableException;
 import com.sap.conn.idoc.IDocRecordMetaData;
@@ -295,6 +299,28 @@ public class IDocUtil extends Util {
 	/**
 	 * Fill <code>idocDocument</code> with values from <code>document</code>.
 	 * 
+	 * @param documentList
+	 *            - the document containing the values.
+	 * @param idocDocumentList
+	 *            - the IDoc document to fill.
+	 */
+	public static void fillIDocDocumentListFromDocumentList(DocumentList documentList, IDocDocumentList idocDocumentList) throws Exception {
+		if (idocDocumentList == null || documentList == null) {
+			LOG.warn("IDoc document list '" + idocDocumentList + "' not filled from document list '" + documentList + "'");
+			return;
+		}
+
+		Iterator<Document> iter = documentList.iterator();
+		while(iter.hasNext()) {
+			Document document = iter.next();
+			IDocDocument idocDocument = idocDocumentList.addNew();
+			fillIDocDocumentFromDocument(document, idocDocument);
+		}
+	}	
+	
+	/**
+	 * Fill <code>idocDocument</code> with values from <code>document</code>.
+	 * 
 	 * @param document
 	 *            - the document containing the values.
 	 * @param idocDocument
@@ -302,7 +328,7 @@ public class IDocUtil extends Util {
 	 */
 	public static void fillIDocDocumentFromDocument(Document document, IDocDocument idocDocument) {
 		if (idocDocument == null || document == null) {
-			LOG.warn("IDoc Document'" + idocDocument + "' not filled from document'" + document + "'");
+			LOG.warn("IDoc Document '" + idocDocument + "' not filled from document '" + document + "'");
 			return;
 		}
 
@@ -526,6 +552,28 @@ public class IDocUtil extends Util {
 
 		}
 	}
+	
+	/**
+	 * Extracts the values from IDoc documents in <code>idocDocumentList</code> to documents added to <code>documentList</code> with docum.
+	 * 
+	 * @param idocDocumentList
+	 *            - the IDoc document list containing the IDoc documents
+	 * @param documentList
+	 *            - the document list containing newly filled documents.
+	 */
+	public static void extractIDocDocumentListIntoDocumentList(IDocDocumentList idocDocumentList, DocumentList documentList) {
+		if (documentList == null || idocDocumentList == null) {
+			LOG.warn("IDoc document list '" + idocDocumentList + "' not extracted to document list '" + documentList + "'");
+			return;
+		}
+		
+		IDocDocumentIterator iter = idocDocumentList.iterator();
+		while(iter.hasNext()) {
+			IDocDocument idocDocument = iter.next();
+			Document document = documentList.add();
+			extractIDocDocumentIntoDocument(idocDocument, document);
+		}
+	}	
 
 	/**
 	 * Extract values from <code>idocDocument</code> to <code>document</code>.
@@ -617,9 +665,110 @@ public class IDocUtil extends Util {
 
 		}
 	}
+	
+	/**
+	 * Creates Document List to contain Documents of given IDoc type.
+	 * 
+	 * @param repository
+	 *            - the repository containing IDoc's meta-data.
+	 * @param iDocType
+	 *            - the IDoc's type.
+	 * @param iDocTypeExtension
+	 *            - the IDoc's type extension.
+	 * @param systemRelease
+	 *            - the IDoc's system release.
+	 * @param applicationRelease
+	 *            - the IDoc's application release.
+	 * @return New document list.
+	 */
+	public static DocumentList createIDocList(IDocRepository repository, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
+
+		// Check that at least IDoc Type has been specified.
+		if (iDocType == null || iDocType.length() == 0) {
+			throw new IllegalArgumentException("IDoc Type must be specified");
+		}
+
+		// Convert nulls to empty strings if necessary.
+		iDocTypeExtension = iDocTypeExtension == null ? "" : iDocTypeExtension;
+		systemRelease = systemRelease == null ? "" : systemRelease;
+		applicationRelease = applicationRelease == null ? "" : applicationRelease;
+
+		// Get package for IDoc type
+		IDocID iDocID = new IDocID(repository.getName(), iDocType, iDocTypeExtension, systemRelease, applicationRelease);
+		EPackage ePackage = getEPackage(repository, iDocID.getPackageNamespaceURI());
+		if (ePackage == null) {
+			throw new RuntimeException("Can not create Document list: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
+		}
+		
+		// Get Root Segment Class
+		EClassifier classifier = ePackage.getEClassifier("ROOT");
+		if (classifier == null || !(classifier instanceof EClass)) {
+			throw new RuntimeException("Can not create Document list: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
+		}
+		EClass rootSegmentClass = (EClass) classifier;
+		if (!IdocPackage.eINSTANCE.getSegment().isSuperTypeOf(rootSegmentClass)) {
+			throw new RuntimeException("Can not create Document list: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
+		}
+		
+		DocumentListImpl documentList = (DocumentListImpl) IdocFactory.eINSTANCE.createDocumentList();
+		documentList.setRootSegmentClass(rootSegmentClass);
+		
+		return documentList;
+	}
 
 	/**
-	 * Creates instance of given IDoc type.
+	 * Creates Document List to contain Documents of given IDoc type.
+	 * 
+	 * <p>
+	 * NB: This is off-line version of method; package of IDoc type must already
+	 * be already loaded in global package registry.
+	 * 
+	 * @param repositoryName
+	 *            - the name of repository containing IDoc's meta-data.
+	 * @param iDocType
+	 *            - the IDoc's type.
+	 * @param iDocTypeExtension
+	 *            - the IDoc's type extension.
+	 * @param systemRelease
+	 *            - the IDoc's system release.
+	 * @param applicationRelease
+	 *            - the IDoc's application release.
+	 * @return New document list.
+	 */
+	public static DocumentList createIDocList(String repositoryName, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
+		// Check that at lease IDoc Type has been specified.
+		if (iDocType == null || iDocType.length() == 0) {
+			throw new IllegalArgumentException("IDoc Type must be specified");
+		}
+
+		// Convert nulls to empty strings if necessary.
+		iDocTypeExtension = iDocTypeExtension == null ? "" : iDocTypeExtension;
+		systemRelease = systemRelease == null ? "" : systemRelease;
+		applicationRelease = applicationRelease == null ? "" : applicationRelease;
+
+		// Get package for IDoc type
+		IDocID iDocID = new IDocID(repositoryName, iDocType, iDocTypeExtension, systemRelease, applicationRelease);
+		EPackage ePackage = registry.getEPackage(iDocID.getPackageNamespaceURI());
+		if (ePackage == null) {
+			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
+		}
+
+		EClassifier classifier = ePackage.getEClassifier("ROOT");
+		if (classifier == null || !(classifier instanceof EClass)) {
+			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
+		}
+		EClass rootSegmentClass = (EClass) classifier;
+		if (!IdocPackage.eINSTANCE.getSegment().isSuperTypeOf(rootSegmentClass)) {
+			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
+		}
+		
+		DocumentListImpl documentList = (DocumentListImpl) IdocFactory.eINSTANCE.createDocumentList();
+		documentList.setRootSegmentClass(rootSegmentClass);
+		
+		return documentList;
+	}
+	/**
+	 * Creates Document of given IDoc type.
 	 * 
 	 * @param repository
 	 *            - the repository containing IDoc's meta-data.
@@ -651,6 +800,7 @@ public class IDocUtil extends Util {
 			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
 		}
 
+		// Get Root Segment Class
 		EClassifier classifier = ePackage.getEClassifier("ROOT");
 		if (classifier == null || !(classifier instanceof EClass)) {
 			throw new RuntimeException("Can not create IDoc: meta-data for IDoc type '" + iDocID.getPackageName() + "' does not exist");
@@ -676,9 +826,33 @@ public class IDocUtil extends Util {
 
 		return iDoc;
 	}
+	
+	/**
+	 * Creates a Document containing root segment of given class type.
+	 * 
+	 * @param rootSegmentClass - the type of root segment
+	 * @return new document.
+	 */
+	public static Document createIDoc(EClass rootSegmentClass) {
+		Segment segment = (Segment) rootSegmentClass.getEPackage().getEFactoryInstance().create(rootSegmentClass);
+		DocumentImpl iDoc = (DocumentImpl) IdocFactory.eINSTANCE.createDocument();
+		iDoc.setRootSegment(segment);
+		((SegmentImpl) segment).setDocument(iDoc);
+		iDoc.setIDocType(segment.getIdocType());
+		iDoc.setIDocTypeExtension(segment.getIdocTypeExtension());
+		Date now = new Date();
+		iDoc.setCreationDate(now);
+		iDoc.setCreationTime(now);
+		String idocCompoundType = getAnnotation(segment.eClass(), eNS_URI, IDocNS_COMPOUND_TYPE_KEY);
+		if (idocCompoundType == null) {
+			iDoc.setIDocCompoundType(idocCompoundType);
+		}
+
+		return iDoc;
+	}
 
 	/**
-	 * Creates instance of given IDoc type.
+	 * Creates Document of given IDoc type.
 	 * 
 	 * <p>
 	 * NB: This is off-line version of method; package of IDoc type must already
