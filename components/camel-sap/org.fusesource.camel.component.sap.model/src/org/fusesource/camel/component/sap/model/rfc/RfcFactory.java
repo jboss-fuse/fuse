@@ -198,6 +198,15 @@ public interface RfcFactory extends EFactory {
 	RepositoryDataStore createRepositoryDataStore();
 
 	/**
+	 * Returns a new object of class '<em>TID Store</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>TID Store</em>'.
+	 * @generated
+	 */
+	TIDStore createTIDStore();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

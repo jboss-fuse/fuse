@@ -1853,6 +1853,81 @@ public interface RfcPackage extends EPackage {
 	int REPOSITORY_DATA_STORE_ENTRY_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.TIDStoreEntryImpl <em>TID Store Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.TIDStoreEntryImpl
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getTIDStoreEntry()
+	 * @generated
+	 */
+	int TID_STORE_ENTRY = 24;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TID_STORE_ENTRY__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TID_STORE_ENTRY__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>TID Store Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TID_STORE_ENTRY_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.TIDStoreImpl <em>TID Store</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.TIDStoreImpl
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getTIDStore()
+	 * @generated
+	 */
+	int TID_STORE = 25;
+
+	/**
+	 * The feature id for the '<em><b>Entries</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TID_STORE__ENTRIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>TID Store</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TID_STORE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.TIDState <em>TID State</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.fusesource.camel.component.sap.model.rfc.TIDState
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getTIDState()
+	 * @generated
+	 */
+	int TID_STATE = 26;
+
+	/**
 	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.DataType <em>Data Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1860,7 +1935,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 24;
+	int DATA_TYPE = 27;
 
 
 	/**
@@ -1871,7 +1946,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getParameterList()
 	 * @generated
 	 */
-	int PARAMETER_LIST = 25;
+	int PARAMETER_LIST = 28;
 
 	/**
 	 * The meta object id for the '<em>Field List</em>' data type.
@@ -1881,7 +1956,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFieldList()
 	 * @generated
 	 */
-	int FIELD_LIST = 26;
+	int FIELD_LIST = 29;
 
 	/**
 	 * The meta object id for the '<em>Abap Exception List</em>' data type.
@@ -1891,7 +1966,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getAbapExceptionList()
 	 * @generated
 	 */
-	int ABAP_EXCEPTION_LIST = 27;
+	int ABAP_EXCEPTION_LIST = 30;
 
 
 	/**
@@ -1902,7 +1977,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFunctionTemplateMap()
 	 * @generated
 	 */
-	int FUNCTION_TEMPLATE_MAP = 28;
+	int FUNCTION_TEMPLATE_MAP = 31;
 
 
 	/**
@@ -3665,6 +3740,71 @@ public interface RfcPackage extends EPackage {
 	EReference getRepositoryDataStoreEntry_Value();
 
 	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>TID Store Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TID Store Entry</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyDataType="org.eclipse.emf.ecore.EString" keyRequired="true"
+	 *        valueDataType="org.eclipse.emf.ecore.EString" valueRequired="true"
+	 * @generated
+	 */
+	EClass getTIDStoreEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getTIDStoreEntry()
+	 * @generated
+	 */
+	EAttribute getTIDStoreEntry_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getTIDStoreEntry()
+	 * @generated
+	 */
+	EAttribute getTIDStoreEntry_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.fusesource.camel.component.sap.model.rfc.TIDStore <em>TID Store</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TID Store</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.TIDStore
+	 * @generated
+	 */
+	EClass getTIDStore();
+
+	/**
+	 * Returns the meta object for the map '{@link org.fusesource.camel.component.sap.model.rfc.TIDStore#getEntries <em>Entries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Entries</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.TIDStore#getEntries()
+	 * @see #getTIDStore()
+	 * @generated
+	 */
+	EReference getTIDStore_Entries();
+
+	/**
+	 * Returns the meta object for enum '{@link org.fusesource.camel.component.sap.model.rfc.TIDState <em>TID State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>TID State</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.TIDState
+	 * @generated
+	 */
+	EEnum getTIDState();
+
+	/**
 	 * Returns the meta object for enum '{@link org.fusesource.camel.component.sap.model.rfc.DataType <em>Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5075,6 +5215,60 @@ public interface RfcPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPOSITORY_DATA_STORE_ENTRY__VALUE = eINSTANCE.getRepositoryDataStoreEntry_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.TIDStoreEntryImpl <em>TID Store Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.TIDStoreEntryImpl
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getTIDStoreEntry()
+		 * @generated
+		 */
+		EClass TID_STORE_ENTRY = eINSTANCE.getTIDStoreEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TID_STORE_ENTRY__KEY = eINSTANCE.getTIDStoreEntry_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TID_STORE_ENTRY__VALUE = eINSTANCE.getTIDStoreEntry_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.TIDStoreImpl <em>TID Store</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.TIDStoreImpl
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getTIDStore()
+		 * @generated
+		 */
+		EClass TID_STORE = eINSTANCE.getTIDStore();
+
+		/**
+		 * The meta object literal for the '<em><b>Entries</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TID_STORE__ENTRIES = eINSTANCE.getTIDStore_Entries();
+
+		/**
+		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.TIDState <em>TID State</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.fusesource.camel.component.sap.model.rfc.TIDState
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getTIDState()
+		 * @generated
+		 */
+		EEnum TID_STATE = eINSTANCE.getTIDState();
 
 		/**
 		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.DataType <em>Data Type</em>}' enum.

@@ -70,6 +70,7 @@ public class IdocFactoryImpl extends EFactoryImpl implements IdocFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case IdocPackage.DOCUMENT_LIST: return createDocumentList();
 			case IdocPackage.DOCUMENT: return createDocument();
 			case IdocPackage.SEGMENT: return createSegment();
 			case IdocPackage.SEGMENT_CHILDREN: return createSegmentChildren();
@@ -77,6 +78,16 @@ public class IdocFactoryImpl extends EFactoryImpl implements IdocFactory {
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DocumentList createDocumentList() {
+		DocumentListImpl documentList = new DocumentListImpl();
+		return documentList;
 	}
 
 	/**

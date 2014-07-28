@@ -54,12 +54,12 @@ public class ITestTransactionalCallConfig extends CamelSpringTestSupport {
         customerData.put("POBOX", "987");
         customerData.put("POSTCODE", "99999");
         customerData.put("CITY", "Bedrock");
-        customerData.put("CONTR", "US");
+        customerData.put("COUNTR", "US");
         customerData.put("REGION", "PA");
         customerData.put("PHONE", "18005551212");
         customerData.put("CUSTTYPE", "P");
         customerData.put("DISCOUNT", "005");
-        customerData.put("LANG_ISO", "en");
+        customerData.put("LANGU", "E");
         
         template.sendBody("direct:createFlcustList", request);
         
@@ -76,7 +76,7 @@ public class ITestTransactionalCallConfig extends CamelSpringTestSupport {
         return new RouteBuilder() {
             public void configure() {
                 from("direct:createFlcustList")
-                  .to("sap:destination:nplDest:BAPI_FLCUST_CREATEFROMDATA?transacted=true")
+                  .to("sap-srfc-destination:nplDest:BAPI_FLCUST_CREATEFROMDATA?transacted=true")
                   .to("mock:result");
             }
         };

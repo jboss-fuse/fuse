@@ -19,7 +19,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-	<bean id="sap" class="org.fusesource.camel.component.sap.SAPComponent">
+	<bean id="sap-configuration" class="org.fusesource.camel.component.sap.SapConfiguration">
 		<property name="destinationDataStore">
 			<map>
 				<entry key="nplDest" value-ref="nplDestinationData" />
@@ -27,9 +27,12 @@
 		</property>
 		<property name="serverDataStore">
 			<map>
-				<entry key="nplServer" value-ref="nplServerData" />
+				<entry key="nplServer" value-ref="nplServerData"/>
 			</map>
 		</property>
+	</bean>
+	
+	<bean id="sap" class="org.fusesource.camel.component.sap.SapSynchronousRfcServerComponent">
 		<property name="repositoryDataStore">
 			<map>
 				<entry key="nplServer" value-ref="nplRepositoryData"></entry>

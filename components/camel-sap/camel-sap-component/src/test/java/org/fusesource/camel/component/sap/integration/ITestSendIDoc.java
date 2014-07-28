@@ -19,7 +19,7 @@ package org.fusesource.camel.component.sap.integration;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
-import org.fusesource.camel.component.sap.IDocEndpoint;
+import org.fusesource.camel.component.sap.SapIDocDestinationEndpoint;
 import org.fusesource.camel.component.sap.model.idoc.Document;
 import org.fusesource.camel.component.sap.model.idoc.Segment;
 import org.junit.Test;
@@ -35,10 +35,10 @@ public class ITestSendIDoc extends CamelSpringTestSupport {
 	@Test
 	public void testSendIDoc() throws Exception {
 		
-        IDocEndpoint endpoint = (IDocEndpoint) context().getEndpoint("idoc:destination:nplDest:FLCUSTOMER_CREATEFROMDATA01");
+        SapIDocDestinationEndpoint endpoint = (SapIDocDestinationEndpoint) context().getEndpoint("sap-idoc-destination:nplDest:FLCUSTOMER_CREATEFROMDATA01");
         
         // Create document and initialize transmission parameters
-        Document document = endpoint.getDocument();
+        Document document = endpoint.createDocument();
 		document.setMessageType("FLCUSTOMER_CREATEFROMDATA");
 		document.setRecipientPartnerNumber("NPLCLNT002");
 		document.setRecipientPartnerType("LS");
@@ -73,7 +73,7 @@ public class ITestSendIDoc extends CamelSpringTestSupport {
         return new RouteBuilder() {
             public void configure() {
                 from("direct:out")
-                  .to("idoc:destination:nplDest:FLCUSTOMER_CREATEFROMDATA01");
+                  .to("sap-idoc-destination:nplDest:FLCUSTOMER_CREATEFROMDATA01");
             }
         };
     }

@@ -86,6 +86,29 @@ public class IdocItemProviderAdapterFactory extends IdocAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.fusesource.camel.component.sap.model.idoc.DocumentList} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocumentListItemProvider documentListItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.fusesource.camel.component.sap.model.idoc.DocumentList}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocumentListAdapter() {
+		if (documentListItemProvider == null) {
+			documentListItemProvider = new DocumentListItemProvider(this);
+		}
+
+		return documentListItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.fusesource.camel.component.sap.model.idoc.Document} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +299,7 @@ public class IdocItemProviderAdapterFactory extends IdocAdapterFactory implement
 	 * @generated
 	 */
 	public void dispose() {
+		if (documentListItemProvider != null) documentListItemProvider.dispose();
 		if (documentItemProvider != null) documentItemProvider.dispose();
 		if (segmentItemProvider != null) segmentItemProvider.dispose();
 		if (segmentChildrenItemProvider != null) segmentChildrenItemProvider.dispose();

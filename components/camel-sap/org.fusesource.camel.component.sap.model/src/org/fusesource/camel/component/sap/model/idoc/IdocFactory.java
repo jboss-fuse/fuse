@@ -36,6 +36,15 @@ public interface IdocFactory extends EFactory {
 	IdocFactory eINSTANCE = org.fusesource.camel.component.sap.model.idoc.impl.IdocFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Document List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Document List</em>'.
+	 * @generated
+	 */
+	DocumentList createDocumentList();
+
+	/**
 	 * Returns a new object of class '<em>Document</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

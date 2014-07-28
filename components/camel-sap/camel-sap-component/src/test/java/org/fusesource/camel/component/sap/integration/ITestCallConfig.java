@@ -22,7 +22,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
-import org.fusesource.camel.component.sap.SAPComponent;
+import org.fusesource.camel.component.sap.SapConfiguration;
 import org.fusesource.camel.component.sap.model.rfc.DestinationData;
 import org.fusesource.camel.component.sap.model.rfc.ServerData;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
@@ -63,8 +63,8 @@ public class ITestCallConfig extends CamelSpringTestSupport {
 	}
 
 	@Test
-	public void testComponentConfiguration() {
-		SAPComponent component = (SAPComponent) context.getComponent("sap");
+	public void testSapConfiguration() {
+		SapConfiguration component = (SapConfiguration) applicationContext.getBean("sap-configuration");
 		
 		// Validated Destination Data
 		DestinationData nplDestinationData = component.getDestinationDataStore().get("nplDest");
@@ -91,7 +91,7 @@ public class ITestCallConfig extends CamelSpringTestSupport {
         return new RouteBuilder() {
             public void configure() {
                 from("direct:getFlcustList")
-                  .to("sap:destination:nplDest:BAPI_FLCUST_GETLIST")
+                  .to("sap-srfc-destination:nplDest:BAPI_FLCUST_GETLIST")
                   .to("mock:result");
             }
         };

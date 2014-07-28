@@ -193,6 +193,14 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 				return createRepositoryDataStoreEntryAdapter();
 			}
 			@Override
+			public Adapter caseTIDStoreEntry(Map.Entry<String, String> object) {
+				return createTIDStoreEntryAdapter();
+			}
+			@Override
+			public Adapter caseTIDStore(TIDStore object) {
+				return createTIDStoreAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -545,6 +553,34 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRepositoryDataStoreEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>TID Store Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createTIDStoreEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.fusesource.camel.component.sap.model.rfc.TIDStore <em>TID Store</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.fusesource.camel.component.sap.model.rfc.TIDStore
+	 * @generated
+	 */
+	public Adapter createTIDStoreAdapter() {
 		return null;
 	}
 

@@ -40,7 +40,9 @@
             -->
             <id>sap</id>
             <modules>
+            	<!--  
                 <module>camel-example-sap</module>
+                -->
             </modules>
         </profile>
     </profiles>
