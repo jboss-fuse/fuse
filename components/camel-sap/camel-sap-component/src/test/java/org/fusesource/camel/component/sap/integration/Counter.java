@@ -16,7 +16,7 @@ public class Counter {
 			} else {
 				sessionContext.getSessionData().put(COUNTER_SESSION_DATA_KEY, count + 1);
 			}
-			
+			System.out.println("count = " + sessionContext.getSessionData().get(COUNTER_SESSION_DATA_KEY));
 		}
 	}
 }

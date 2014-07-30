@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<idoc:DocumentList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:FLCUSTOMER_CREATEFROMDATA01---="http://sap.fusesource.org/idoc/NPL/FLCUSTOMER_CREATEFROMDATA01///" xmlns:idoc="http://sap.fusesource.org/idoc">
+  <document creationDate="2014-07-29T11:39:47.761-0400" creationTime="2014-07-29T11:39:47.761-0400" iDocType="FLCUSTOMER_CREATEFROMDATA01" iDocTypeExtension="" messageType="FLCUSTOMER_CREATEFROMDATA" recipientPartnerNumber="NPLCLNT002" recipientPartnerType="LS" senderPartnerNumber="JCOCLIENT" senderPartnerType="LS">
+    <rootSegment xsi:type="FLCUSTOMER_CREATEFROMDATA01---:ROOT">
+      <segmentChildren parent="//@document.0/@rootSegment">
+        <E1SCU_CRE parent="//@document.0/@rootSegment">
+          <segmentChildren parent="//@document.0/@rootSegment/@segmentChildren/@E1SCU_CRE.0">
+            <E1BPSCUNEW parent="//@document.0/@rootSegment/@segmentChildren/@E1SCU_CRE.0" CUSTNAME="Fred Flintstone" FORM="Mr." STREET="123 Rubble Lane" POSTCODE="01234" CITY="Bedrock" COUNTR="US" PHONE="800-555-1212" EMAIL="fred@bedrock.com" CUSTTYPE="P" DISCOUNT="005" LANGU="E"/>
+          </segmentChildren>
+        </E1SCU_CRE>
+      </segmentChildren>
+    </rootSegment>
+  </document>
+  <document creationDate="2014-07-29T11:39:47.762-0400" creationTime="2014-07-29T11:39:47.762-0400" iDocType="FLCUSTOMER_CREATEFROMDATA01" iDocTypeExtension="" messageType="FLCUSTOMER_CREATEFROMDATA" recipientPartnerNumber="NPLCLNT002" recipientPartnerType="LS" senderPartnerNumber="JCOCLIENT" senderPartnerType="LS">
+    <rootSegment xsi:type="FLCUSTOMER_CREATEFROMDATA01---:ROOT">
+      <segmentChildren parent="//@document.1/@rootSegment">
+        <E1SCU_CRE parent="//@document.1/@rootSegment">
+          <segmentChildren parent="//@document.1/@rootSegment/@segmentChildren/@E1SCU_CRE.0">
+            <E1BPSCUNEW parent="//@document.1/@rootSegment/@segmentChildren/@E1SCU_CRE.0" CUSTNAME="Fred Flintstone" FORM="Mr." STREET="123 Rubble Lane" POSTCODE="01234" CITY="Bedrock" COUNTR="US" PHONE="800-555-1212" EMAIL="fred@bedrock.com" CUSTTYPE="P" DISCOUNT="005" LANGU="E"/>
+          </segmentChildren>
+        </E1SCU_CRE>
+      </segmentChildren>
+    </rootSegment>
+  </document>
+</idoc:DocumentList>

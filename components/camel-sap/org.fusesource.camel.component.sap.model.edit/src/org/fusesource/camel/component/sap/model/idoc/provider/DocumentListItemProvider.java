@@ -186,7 +186,7 @@ public class DocumentListItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(IdocPackage.Literals.DOCUMENT_LIST__DOCUMENTS);
+			childrenFeatures.add(IdocPackage.Literals.DOCUMENT_LIST__DOCUMENT);
 		}
 		return childrenFeatures;
 	}
@@ -247,7 +247,7 @@ public class DocumentListItemProvider
 			case IdocPackage.DOCUMENT_LIST__APPLICATION_RELEASE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case IdocPackage.DOCUMENT_LIST__DOCUMENTS:
+			case IdocPackage.DOCUMENT_LIST__DOCUMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -267,7 +267,7 @@ public class DocumentListItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(IdocPackage.Literals.DOCUMENT_LIST__DOCUMENTS,
+				(IdocPackage.Literals.DOCUMENT_LIST__DOCUMENT,
 				 IdocFactory.eINSTANCE.createDocument()));
 	}
 

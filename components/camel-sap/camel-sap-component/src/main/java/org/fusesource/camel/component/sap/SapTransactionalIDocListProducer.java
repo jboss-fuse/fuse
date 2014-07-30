@@ -18,47 +18,49 @@ package org.fusesource.camel.component.sap;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.impl.DefaultProducer;
-import org.fusesource.camel.component.sap.model.idoc.Document;
+import org.fusesource.camel.component.sap.model.idoc.DocumentList;
 import org.fusesource.camel.component.sap.util.IDocUtil;
 import org.fusesource.camel.component.sap.util.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Represents an SAP producer sending a IDoc (Intermediate Document) to an SAP system. 
+ * An SAP producer sending a IDoc (Intermediate Document) list to an SAP system using
+ * the transactional remote function call (tRFC) protocol.
  * 
  * @author William Collins <punkhornsw@gmail.com>
- *
+ * 
  */
-public class SapIDocProducer extends DefaultProducer {
+public class SapTransactionalIDocListProducer extends DefaultProducer {
 
-	private static final transient Logger LOG = LoggerFactory.getLogger(SapIDocProducer.class);
+	private static final transient Logger LOG = LoggerFactory.getLogger(SapTransactionalIDocListProducer.class);
 
-	public SapIDocProducer(SapIDocDestinationEndpoint endpoint) {
+	public SapTransactionalIDocListProducer(SapTransactionalIDocListDestinationEndpoint endpoint) {
 		super(endpoint);
 	}
 
 	@Override
 	public void process(Exchange exchange) throws Exception {
-		Document document = exchange.getIn().getBody(Document.class);
-		if (document == null) {
-			LOG.warn("Exchange input message body does not contain IDoc document");
+		DocumentList documentList = exchange.getIn().getBody(DocumentList.class);
+		if (documentList == null) {
+			LOG.warn("Exchange input message body does not contain IDoc document list");
 			return;
 		}
 		if (LOG.isDebugEnabled()) {
 			try {
-				LOG.debug("Sending IDoc document to ''{}''", getEndpoint().getEndpointUri());
-				LOG.debug("Document: " + (document == null ? document: Util.marshal(document)));
+				LOG.debug("Sending IDoc document list to ''{}''", getEndpoint().getEndpointUri());
+				LOG.debug("Document: " + (documentList == null ? documentList : Util.marshal(documentList)));
 			} catch (Exception e) {
 				LOG.warn("Failed to log request", e);
 			}
 		}
-		IDocUtil.sendIDoc(getEndpoint().getDestination(), document);
+		String tid = DestinationRfcTransactionHandler.getTID(exchange, getEndpoint().getDestination());
+		IDocUtil.sendDocumentList(getEndpoint().getDestination(), documentList, tid);
 	}
-	
+
 	@Override
-	public SapIDocDestinationEndpoint getEndpoint() {
-		return (SapIDocDestinationEndpoint) super.getEndpoint();
+	public SapTransactionalIDocListDestinationEndpoint getEndpoint() {
+		return (SapTransactionalIDocListDestinationEndpoint) super.getEndpoint();
 	}
 
 }

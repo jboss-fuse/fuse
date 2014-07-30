@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-public class ITestServerCall extends CamelSpringTestSupport {
+public class ITestTransactionalStatefulServerCall extends CamelSpringTestSupport {
 
 	@Test
 	public void test() throws Exception {
@@ -27,7 +27,7 @@ public class ITestServerCall extends CamelSpringTestSupport {
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("sap-trfc-server:nplServer:PARAM_TEST").to("bean:throwUp").to("direct:out");
+                from("sap-trfc-server:nplServer:PARAM_TEST?stateful=true").to("bean:counter").to("direct:out");
             }
         };
     }

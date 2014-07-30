@@ -35,6 +35,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import com.sap.conn.jco.JCoDestinationManager;
 import com.sap.conn.jco.ext.Environment;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
@@ -75,6 +77,59 @@ public class SapSynchronousRfcProducerTest extends SapRfcTestSupport {
 		
 		assertMockEndpointsSatisfied();
 		
+		// check access to jco fields
+
+		verify(mockParameterListCharField, times(1)).setValue((Object)CHAR_PARAM_IN_VAL);
+		verify(mockParameterListCharField, times(1)).getValue();
+		verify(mockParameterListNumField, times(1)).setValue((Object)NUM_PARAM_IN_VAL);
+		verify(mockParameterListNumField, times(1)).getValue();
+		verify(mockParameterListIntField, times(1)).setValue((Object)INT_PARAM_IN_VAL);
+		verify(mockParameterListIntField, times(1)).getValue();
+		verify(mockParameterListFloatField, times(1)).setValue((Object)FLOAT_PARAM_IN_VAL);
+		verify(mockParameterListFloatField, times(1)).getValue();
+		verify(mockParameterListBCDField, times(1)).setValue((Object)BCD_PARAM_IN_VAL);
+		verify(mockParameterListBCDField, times(1)).getValue();
+		verify(mockParameterListBinaryField, times(1)).setValue((Object)BINARY_PARAM_IN_VAL);
+		verify(mockParameterListBinaryField, times(1)).getValue();
+		verify(mockParameterListBinaryArrayField, times(1)).setValue((Object)BINARY_ARRAY_PARAM_IN_VAL);
+		verify(mockParameterListBinaryArrayField, times(1)).getValue();
+		verify(mockParameterListDateField, times(1)).setValue((Object)DATE_PARAM_IN_VAL);
+		verify(mockParameterListDateField, times(1)).getValue();
+		verify(mockParameterListTimeField, times(1)).setValue((Object)TIME_PARAM_IN_VAL);
+		verify(mockParameterListTimeField, times(1)).getValue();
+		verify(mockParameterListStringField, times(1)).setValue((Object)STRING_PARAM_IN_VAL);
+		verify(mockParameterListStringField, times(1)).getValue();
+		
+		verify(mockCharField, times(2)).setValue((Object)CHAR_PARAM_IN_VAL);
+		verify(mockCharField, times(2)).getValue();
+		verify(mockNumField, times(2)).setValue((Object)NUM_PARAM_IN_VAL);
+		verify(mockNumField, times(2)).getValue();
+		verify(mockIntField, times(2)).setValue((Object)INT_PARAM_IN_VAL);
+		verify(mockIntField, times(2)).getValue();
+		verify(mockFloatField, times(2)).setValue((Object)FLOAT_PARAM_IN_VAL);
+		verify(mockFloatField, times(2)).getValue();
+		verify(mockBCDField, times(2)).setValue((Object)BCD_PARAM_IN_VAL);
+		verify(mockBCDField, times(2)).getValue();
+		verify(mockBinaryField, times(2)).setValue((Object)BINARY_PARAM_IN_VAL);
+		verify(mockBinaryField, times(2)).getValue();
+		verify(mockBinaryArrayField, times(2)).setValue((Object)BINARY_ARRAY_PARAM_IN_VAL);
+		verify(mockBinaryArrayField, times(2)).getValue();
+		verify(mockDateField, times(2)).setValue((Object)DATE_PARAM_IN_VAL);
+		verify(mockDateField, times(2)).getValue();
+		verify(mockTimeField, times(2)).setValue((Object)TIME_PARAM_IN_VAL);
+		verify(mockTimeField, times(2)).getValue();
+		verify(mockStringField, times(2)).setValue((Object)STRING_PARAM_IN_VAL);
+		verify(mockStringField, times(2)).getValue();
+		
+		verify(mockChangingParameterList, times(2)).getFieldIterator();
+		
+		verify(mockStructure, times(2)).getFieldIterator();
+		
+		verify(mockTable, times(1)).appendRow();
+		verify(mockTable, times(2)).getFieldIterator();
+
+		verify(mockFunction, times(1)).execute(mockDestination);
+	
 		// check response
 		Exchange exchange = getMockEndpoint("mock:result").getExchanges().get(0);
 		Structure response = exchange.getIn().getBody(Structure.class);
@@ -120,6 +175,7 @@ public class SapSynchronousRfcProducerTest extends SapRfcTestSupport {
 		assertThat("tableRow.get(DATE_PARAM) returned '" +  tableRow.get(DATE_PARAM) + "' instead of expected value '" + DATE_PARAM_OUT_VAL + "'", (Date) tableRow.get(DATE_PARAM), is(DATE_PARAM_OUT_VAL));
 		assertThat("tableRow.get(TIME_PARAM) returned '" +  tableRow.get(TIME_PARAM) + "' instead of expected value '" + TIME_PARAM_OUT_VAL + "'", (Date) tableRow.get(TIME_PARAM), is(TIME_PARAM_OUT_VAL));
 		assertThat("tableRow.get(STRING_PARAM) returned '" +  tableRow.get(STRING_PARAM) + "' instead of expected value '" + STRING_PARAM_OUT_VAL + "'", (String) tableRow.get(STRING_PARAM), is(STRING_PARAM_OUT_VAL));
+
 	}
 
 	@Override

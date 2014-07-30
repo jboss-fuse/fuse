@@ -406,7 +406,7 @@ public class Util {
 	 */
 	public static void saveRegistry(File file) throws IOException {
 		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(".ecore", new EcoreResourceFactoryImpl());
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 
 		URI fileURI = URI.createFileURI(file.getAbsolutePath());
 		Resource resource = resourceSet.createResource(fileURI);
@@ -438,7 +438,7 @@ public class Util {
 	 */
 	public static void loadRegistry(File file) throws IOException {
 		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(".ecore", new EcoreResourceFactoryImpl());
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 		resourceSet.getPackageRegistry().put(eNS_URI, IdocPackage.eINSTANCE);
 
 		URI fileURI = URI.createFileURI(file.getAbsolutePath());

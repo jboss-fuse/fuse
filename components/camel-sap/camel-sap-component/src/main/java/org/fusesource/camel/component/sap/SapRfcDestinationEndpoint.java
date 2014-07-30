@@ -30,7 +30,7 @@ import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoDestinationManager;
 
 /**
- * An SAP endpoint providing outbound sRFC (Synchronous Remote Function Call) communication to SAP.
+ * Base class for SAP RFC (Remote Function Call) Endpoint types.
  * 
  * @author William Collins <punkhornsw@gmail.com>
  *
@@ -43,6 +43,8 @@ public abstract class SapRfcDestinationEndpoint extends DefaultEndpoint {
 	protected String rfcName;
 	@UriParam
 	protected boolean transacted;
+	@UriParam
+	protected boolean stateful;
 	protected JCoDestination destination;
 	
 
@@ -86,6 +88,14 @@ public abstract class SapRfcDestinationEndpoint extends DefaultEndpoint {
 
 	public void setTransacted(boolean transacted) {
 		this.transacted = transacted;
+	}
+
+	public boolean isStateful() {
+		return stateful;
+	}
+
+	public void setStateful(boolean stateful) {
+		this.stateful = stateful;
 	}
 
 	public Structure createRequest() throws Exception {

@@ -90,7 +90,7 @@ public class IDocUtilTest {
 	 * 
 	 * @throws Exception
 	 */
-	// @Test
+	//@Test
 	public void createTestRegistry() throws Exception {
 		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
 		IDocRepository repository = JCoIDoc.getIDocRepository(jcoDestination);
@@ -158,7 +158,7 @@ public class IDocUtilTest {
 		ePackage = EPackage.Registry.INSTANCE.getEPackage("http://sap.fusesource.org/idoc/NPL/HRMD_B01//31G/");
 		assertNotNull("Failed to load derived IDoc package", ePackage);
 
-		Document document = IDocUtil.createIDoc("NPL", "HRMD_B01", null, "31G", null);
+		Document document = IDocUtil.createDocument("NPL", "HRMD_B01", null, "31G", null);
 		assertNotNull("Failed to create IDoc document", document);
 		assertEquals("New IDoc document has incorrect IDoc type", "HRMD_B01", document.getIDocType());
 		assertEquals("New IDoc document has incorrect IDoc type extension", "", document.getIDocTypeExtension());
@@ -175,7 +175,7 @@ public class IDocUtilTest {
 		File file = new File("data/testRegistry.ecore");
 		IDocUtil.loadRegistry(file);
 
-		Document document = IDocUtil.createIDoc("NPL", "HRMD_B01", null, "31G", null);
+		Document document = IDocUtil.createDocument("NPL", "HRMD_B01", null, "31G", null);
 
 		Segment rootSegment = document.getRootSegment();
 		assertNotNull("Failed to retrieve ROOT segment", rootSegment);
@@ -260,7 +260,7 @@ public class IDocUtilTest {
 	public void testSendIDoc() throws Exception {
 		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
 		IDocRepository repository = JCoIDoc.getIDocRepository(jcoDestination);
-		Document document = IDocUtil.createIDoc(repository, "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
+		Document document = IDocUtil.createDocument(repository, "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
 
 		Segment rootSegment = document.getRootSegment();
 		Segment headerSegment = rootSegment.getChildren("E1SCU_CRE").add();
@@ -285,7 +285,9 @@ public class IDocUtilTest {
 		document.setSenderPartnerNumber("JCOCLIENT");
 		document.setSenderPartnerType("LS");
 
-		IDocUtil.sendIDoc(jcoDestination, document);
+		String tid = jcoDestination.createTID();
+		IDocUtil.sendDocument(jcoDestination, document, tid);
+		jcoDestination.confirmTID(tid);
 
 	}
 
@@ -312,7 +314,7 @@ public class IDocUtilTest {
 		IDocUtil.loadRegistry(file);
 
 		// Create IDoc document
-		Document document = IDocUtil.createIDoc("NPL", "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
+		Document document = IDocUtil.createDocument("NPL", "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
 
 		Segment rootSegment = document.getRootSegment();
 		Segment headerSegment = rootSegment.getChildren("E1SCU_CRE").add();
@@ -381,7 +383,7 @@ public class IDocUtilTest {
 
 		JCoDestination jcoDestination = JCoDestinationManager.getDestination("TestDestination");
 		IDocRepository repository = JCoIDoc.getIDocRepository(jcoDestination);
-		Document document = IDocUtil.createIDoc(repository, "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
+		Document document = IDocUtil.createDocument(repository, "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
 
 		Segment rootSegment = document.getRootSegment();
 		Segment headerSegment = rootSegment.getChildren("E1SCU_CRE").add();
@@ -568,7 +570,7 @@ public class IDocUtilTest {
 		@Override
 		public void handleRequest(JCoServerContext serverContext, IDocDocumentList idocList) {
 			for (IDocDocument iDocDocument : idocList.toArray()) {
-				Document document = IDocUtil.createIDoc(repository, "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
+				Document document = IDocUtil.createDocument(repository, "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
 				IDocUtil.extractIDocDocumentIntoDocument(iDocDocument, document);
 
 				try {
@@ -620,12 +622,12 @@ public class IDocUtilTest {
 		File file = new File("data/testLoadIDocRegistry.ecore");
 		IDocUtil.loadRegistry(file);
 		
-		DocumentList documents = IDocUtil.createIDocList("NPL", "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
+		DocumentList documents = IDocUtil.createDocumentList("NPL", "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
 
 		for (int i = 0; i < 2; i++) {
 
 			// Create IDoc document
-			Document document = IDocUtil.createIDoc("NPL", "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
+			Document document = IDocUtil.createDocument("NPL", "FLCUSTOMER_CREATEFROMDATA01", null, null, null);
 
 			Segment rootSegment = document.getRootSegment();
 			Segment headerSegment = rootSegment.getChildren("E1SCU_CRE").add();

@@ -30,15 +30,16 @@ import com.sap.conn.idoc.jco.JCoIDocServer;
 import com.sap.conn.jco.JCoException;
 
 /**
- * Represents an SAP endpoint receiving an IDoc (Intermediate Document) from an SAP system.
+ * An SAP endpoint receiving an IDoc (Intermediate Document) list from an SAP system
+ * using transactional remote function calls (tRFC).
  * 
  * @author William Collins <punkhornsw@gmail.com>
- *
+ * 
  */
-@UriEndpoint(scheme="sap-idoc-server")
-public class SapIDocServerEndpoint extends DefaultEndpoint {
-	
-	private static final Logger LOG = LoggerFactory.getLogger(SapIDocServerEndpoint.class);
+@UriEndpoint(scheme = "sap-idoclist-server", consumerClass = SapTransactionalIDocListConsumer.class)
+public class SapTransactionalIDocListServerEndpoint extends DefaultEndpoint {
+
+	private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalIDocListServerEndpoint.class);
 
 	protected String serverName;
 	protected String idocType;
@@ -52,10 +53,10 @@ public class SapIDocServerEndpoint extends DefaultEndpoint {
 
 	protected JCoIDocServer server;
 
-	public SapIDocServerEndpoint() {
+	public SapTransactionalIDocListServerEndpoint() {
 	}
 
-	public SapIDocServerEndpoint(String uri, SapIDocServerComponent component) {
+	public SapTransactionalIDocListServerEndpoint(String uri, SapTransactionalIDocListServerComponent component) {
 		super(uri, component);
 	}
 
@@ -66,7 +67,7 @@ public class SapIDocServerEndpoint extends DefaultEndpoint {
 	public void setServerName(String serverName) {
 		this.serverName = serverName;
 	}
-	
+
 	public String getIdocType() {
 		return idocType;
 	}
@@ -122,8 +123,7 @@ public class SapIDocServerEndpoint extends DefaultEndpoint {
 
 	@Override
 	public Producer createProducer() throws Exception {
-		throw new UnsupportedOperationException(
-				"Endpoint '"  + getEndpointUri() + "' does not support producers");
+		throw new UnsupportedOperationException("Endpoint '" + getEndpointUri() + "' does not support producers");
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class SapIDocServerEndpoint extends DefaultEndpoint {
 		if (handlerFactory == null) {
 			throw new IllegalStateException("IDoc Handler Factory for '" + serverName + "' missing.");
 		}
-		SapIDocConsumer consumer = new SapIDocConsumer(this, processor);
+		SapTransactionalIDocListConsumer consumer = new SapTransactionalIDocListConsumer(this, processor);
 		if (isStateful()) {
 			consumer.setStateful(true);
 		}
@@ -141,8 +141,8 @@ public class SapIDocServerEndpoint extends DefaultEndpoint {
 	}
 
 	@Override
-	public SapIDocServerComponent getComponent() {
-		return (SapIDocServerComponent) super.getComponent();
+	public SapTransactionalIDocListServerComponent getComponent() {
+		return (SapTransactionalIDocListServerComponent) super.getComponent();
 	}
 
 	protected JCoIDocServer getServer() {
@@ -150,7 +150,7 @@ public class SapIDocServerEndpoint extends DefaultEndpoint {
 			try {
 				server = JCoIDoc.getServer(serverName);
 			} catch (JCoException e) {
-				LOG.warn("Failed to get server object for endpoint '"+ getEndpointUri() + "'. This exception will be ignored.", e);
+				LOG.warn("Failed to get server object for endpoint '" + getEndpointUri() + "'. This exception will be ignored.", e);
 			}
 		}
 		return server;

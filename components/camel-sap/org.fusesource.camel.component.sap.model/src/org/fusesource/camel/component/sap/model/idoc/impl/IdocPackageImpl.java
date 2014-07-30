@@ -192,7 +192,7 @@ public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentList_Documents() {
+	public EReference getDocumentList_Document() {
 		return (EReference)documentListEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -751,7 +751,7 @@ public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
 		createEAttribute(documentListEClass, DOCUMENT_LIST__IDOC_TYPE_EXTENSION);
 		createEAttribute(documentListEClass, DOCUMENT_LIST__SYSTEM_RELEASE);
 		createEAttribute(documentListEClass, DOCUMENT_LIST__APPLICATION_RELEASE);
-		createEReference(documentListEClass, DOCUMENT_LIST__DOCUMENTS);
+		createEReference(documentListEClass, DOCUMENT_LIST__DOCUMENT);
 
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__ARCHIVE_KEY);
@@ -854,7 +854,7 @@ public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
 		initEAttribute(getDocumentList_IdocTypeExtension(), ecorePackage.getEString(), "idocTypeExtension", "", 0, 1, DocumentList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocumentList_SystemRelease(), ecorePackage.getEString(), "systemRelease", "", 0, 1, DocumentList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocumentList_ApplicationRelease(), ecorePackage.getEString(), "applicationRelease", "", 0, 1, DocumentList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentList_Documents(), this.getDocument(), null, "documents", null, 0, -1, DocumentList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentList_Document(), this.getDocument(), null, "document", null, 0, -1, DocumentList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(documentListEClass, this.getDocument(), "add", 0, 1, IS_UNIQUE, IS_ORDERED);
 
