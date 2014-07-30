@@ -50,7 +50,7 @@ import static org.fusesource.camel.component.sap.model.idoc.IdocPackage.eNS_URI;
  *   <li>{@link org.fusesource.camel.component.sap.model.idoc.impl.DocumentListImpl#getIdocTypeExtension <em>Idoc Type Extension</em>}</li>
  *   <li>{@link org.fusesource.camel.component.sap.model.idoc.impl.DocumentListImpl#getSystemRelease <em>System Release</em>}</li>
  *   <li>{@link org.fusesource.camel.component.sap.model.idoc.impl.DocumentListImpl#getApplicationRelease <em>Application Release</em>}</li>
- *   <li>{@link org.fusesource.camel.component.sap.model.idoc.impl.DocumentListImpl#getDocuments <em>Documents</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.idoc.impl.DocumentListImpl#getDocument <em>Document</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,14 +101,14 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	protected static final String APPLICATION_RELEASE_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getDocuments() <em>Documents</em>}' containment reference list.
+	 * The cached value of the '{@link #getDocument() <em>Document</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDocuments()
+	 * @see #getDocument()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Document> documents;
+	protected EList<Document> document;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,11 +226,11 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Document> getDocuments() {
-		if (documents == null) {
-			documents = new EObjectContainmentEList<Document>(Document.class, this, IdocPackage.DOCUMENT_LIST__DOCUMENTS);
+	public EList<Document> getDocument() {
+		if (document == null) {
+			document = new EObjectContainmentEList<Document>(Document.class, this, IdocPackage.DOCUMENT_LIST__DOCUMENT);
 		}
-		return documents;
+		return document;
 	}
 
 	public EClass getRootSegmentClass() {
@@ -258,9 +258,9 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	 * @generated
 	 */
 	public Document add(int index) {
-		Document document = createIDoc();
-		add(index, document);
-		return document;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -271,8 +271,8 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case IdocPackage.DOCUMENT_LIST__DOCUMENTS:
-				return ((InternalEList<?>)getDocuments()).basicRemove(otherEnd, msgs);
+			case IdocPackage.DOCUMENT_LIST__DOCUMENT:
+				return ((InternalEList<?>)getDocument()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -293,8 +293,8 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 				return getSystemRelease();
 			case IdocPackage.DOCUMENT_LIST__APPLICATION_RELEASE:
 				return getApplicationRelease();
-			case IdocPackage.DOCUMENT_LIST__DOCUMENTS:
-				return getDocuments();
+			case IdocPackage.DOCUMENT_LIST__DOCUMENT:
+				return getDocument();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -320,9 +320,9 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 			case IdocPackage.DOCUMENT_LIST__APPLICATION_RELEASE:
 				setApplicationRelease((String)newValue);
 				return;
-			case IdocPackage.DOCUMENT_LIST__DOCUMENTS:
-				getDocuments().clear();
-				getDocuments().addAll((Collection<? extends Document>)newValue);
+			case IdocPackage.DOCUMENT_LIST__DOCUMENT:
+				getDocument().clear();
+				getDocument().addAll((Collection<? extends Document>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -348,8 +348,8 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 			case IdocPackage.DOCUMENT_LIST__APPLICATION_RELEASE:
 				setApplicationRelease(APPLICATION_RELEASE_EDEFAULT);
 				return;
-			case IdocPackage.DOCUMENT_LIST__DOCUMENTS:
-				getDocuments().clear();
+			case IdocPackage.DOCUMENT_LIST__DOCUMENT:
+				getDocument().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -371,123 +371,123 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 				return SYSTEM_RELEASE_EDEFAULT == null ? getSystemRelease() != null : !SYSTEM_RELEASE_EDEFAULT.equals(getSystemRelease());
 			case IdocPackage.DOCUMENT_LIST__APPLICATION_RELEASE:
 				return APPLICATION_RELEASE_EDEFAULT == null ? getApplicationRelease() != null : !APPLICATION_RELEASE_EDEFAULT.equals(getApplicationRelease());
-			case IdocPackage.DOCUMENT_LIST__DOCUMENTS:
-				return documents != null && !documents.isEmpty();
+			case IdocPackage.DOCUMENT_LIST__DOCUMENT:
+				return document != null && !document.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	public void move(int newPosition, Document object) {
-		getDocuments().move(newPosition, object);
+		getDocument().move(newPosition, object);
 	}
 
 	public Document move(int newPosition, int oldPosition) {
-		return getDocuments().move(newPosition, oldPosition);
+		return getDocument().move(newPosition, oldPosition);
 	}
 
 	public int size() {
-		return getDocuments().size();
+		return getDocument().size();
 	}
 
 	public boolean isEmpty() {
-		return getDocuments().isEmpty();
+		return getDocument().isEmpty();
 	}
 
 	public boolean contains(Object o) {
-		return getDocuments().contains(o);
+		return getDocument().contains(o);
 	}
 
 	public Iterator<Document> iterator() {
-		return getDocuments().iterator();
+		return getDocument().iterator();
 	}
 
 	public Object[] toArray() {
-		return getDocuments().toArray();
+		return getDocument().toArray();
 	}
 
 	public <T> T[] toArray(T[] a) {
-		return getDocuments().toArray(a);
+		return getDocument().toArray(a);
 	}
 
 	public boolean add(Document e) {
 		checkDocument(e);
-		return getDocuments().add(e);
+		return getDocument().add(e);
 	}
 
 	public boolean remove(Object o) {
-		return getDocuments().remove(o);
+		return getDocument().remove(o);
 	}
 
 	public boolean containsAll(Collection<?> c) {
-		return getDocuments().containsAll(c);
+		return getDocument().containsAll(c);
 	}
 
 	public boolean addAll(Collection<? extends Document> c) {
 		checkDocuments(c);
-		return getDocuments().addAll(c);
+		return getDocument().addAll(c);
 	}
 
 	public boolean addAll(int index, Collection<? extends Document> c) {
 		checkDocuments(c);
-		return getDocuments().addAll(index, c);
+		return getDocument().addAll(index, c);
 	}
 
 	public boolean removeAll(Collection<?> c) {
-		return getDocuments().removeAll(c);
+		return getDocument().removeAll(c);
 	}
 
 	public boolean retainAll(Collection<?> c) {
-		return getDocuments().retainAll(c);
+		return getDocument().retainAll(c);
 	}
 
 	public void clear() {
-		getDocuments().clear();
+		getDocument().clear();
 	}
 
 	public boolean equals(Object o) {
-		return getDocuments().equals(o);
+		return getDocument().equals(o);
 	}
 
 	public int hashCode() {
-		return getDocuments().hashCode();
+		return getDocument().hashCode();
 	}
 
 	public Document get(int index) {
-		return getDocuments().get(index);
+		return getDocument().get(index);
 	}
 
 	public Document set(int index, Document element) {
 		checkDocument(element);
-		return getDocuments().set(index, element);
+		return getDocument().set(index, element);
 	}
 
 	public void add(int index, Document element) {
 		checkDocument(element);
-		getDocuments().add(index, element);
+		getDocument().add(index, element);
 	}
 
 	public Document remove(int index) {
-		return getDocuments().remove(index);
+		return getDocument().remove(index);
 	}
 
 	public int indexOf(Object o) {
-		return getDocuments().indexOf(o);
+		return getDocument().indexOf(o);
 	}
 
 	public int lastIndexOf(Object o) {
-		return getDocuments().lastIndexOf(o);
+		return getDocument().lastIndexOf(o);
 	}
 
 	public ListIterator<Document> listIterator() {
-		return getDocuments().listIterator();
+		return getDocument().listIterator();
 	}
 
 	public ListIterator<Document> listIterator(int index) {
-		return getDocuments().listIterator(index);
+		return getDocument().listIterator(index);
 	}
 
 	public List<Document> subList(int fromIndex, int toIndex) {
-		return getDocuments().subList(fromIndex, toIndex);
+		return getDocument().subList(fromIndex, toIndex);
 	}
 
 	private void checkDocuments(Collection<? extends Document> c) {

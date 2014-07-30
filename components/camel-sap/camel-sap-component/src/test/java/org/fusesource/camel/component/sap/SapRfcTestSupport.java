@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.NoSuchElementException;
 
+import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.model.rfc.Table;
 import org.fusesource.camel.component.sap.util.RfcUtil;
@@ -45,6 +46,7 @@ import com.sap.conn.jco.server.JCoServer;
 import com.sap.conn.jco.server.JCoServerContext;
 import com.sap.conn.jco.server.JCoServerFactory;
 import com.sap.conn.jco.server.JCoServerFunctionHandlerFactory;
+import com.sap.conn.jco.server.JCoServerTIDHandler;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -60,11 +62,14 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 	 * Test Destination, Repository, and Function Module
 	 *********************************************************************/
 
+	public static final String QUEUE_NAME = "TEST_QUEUE";
 	public static final String DESTINATION_NAME = "TEST_DEST";
 	public static final String SERVER_NAME = "TEST_SERVER";
 	public static final String REPOSITORY_NAME = "TEST_REPOSITORY";
 	public static final String FUNCTION_MODULE_NAME = "TEST_FUNCTION_MODULE";
 	public static final String SERVER_PROGRAM_ID = "TEST_PROGRAM_ID";
+	public static final String TEST_URL = RfcPackage.eNS_URI + "/" + REPOSITORY_NAME + "/" + FUNCTION_MODULE_NAME;
+	public static final String TEST_TID = "TEST_TID";
 	
 	
 	/*********************************************************************
@@ -184,8 +189,10 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 	protected JCoServer mockServer;
 	protected JCoServerFactory mockServerFactory;
 	protected JCoServerContext mockServerContext;
+	protected JCoServerTIDHandler mockServerTIDHandler;
 	protected JCoFieldIterator mockEmptyParameterListFieldIterator;
 	protected JCoServerFunctionHandlerFactory mockFunctionHandlerFactory;
+	protected JCoTable mockTable;
 	
 	public void doPreSetup() throws Exception {	
 		super.doPreSetup();
@@ -195,6 +202,7 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 		mockServer = mock(JCoServer.class);
 		mockServerFactory = mock(JCoServerFactory.class);
 		mockServerContext = mock(JCoServerContext.class);
+		mockServerTIDHandler = mock(JCoServerTIDHandler.class);
 		mockRepository = mock(JCoRepository.class);
 		mockFunction = mock(JCoFunction.class);
 		mockFunctionTemplate = mock(JCoFunctionTemplate.class);
@@ -245,8 +253,7 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 		mockTimeField = mock(JCoField.class, "TimeField");
 		mockStringField = mock(JCoField.class, "StringField");
 		
-		/* Create mock for table */
-		JCoTable mockTable = mock(JCoTable.class, "Table");
+		mockTable = mock(JCoTable.class, "Table");
 		
 		/* Create mocks for parameter list meta data */
 		mockImportParameterListMetaData = mock(JCoListMetaData.class, "ImportParameterListMetaData");
@@ -259,14 +266,17 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 		
 		/* Enhance destination mock */
 		when(mockDestination.getRepository()).thenReturn(mockRepository);
+		when(mockDestination.createTID()).thenReturn(TEST_TID);
 		
 		/* Enhance server mock */
 		when(mockServer.getRepositoryDestination()).thenReturn(DESTINATION_NAME);
 		when(mockServer.getProgramID()).thenReturn(SERVER_PROGRAM_ID);
 		when(mockServer.getCallHandlerFactory()).thenReturn(new FunctionHandlerFactory());
+		when(mockServer.getTIDHandler()).thenReturn(mockServerTIDHandler);
 		
 		/* Enhance server context mock */
 		when(mockServerContext.getRepository()).thenReturn(mockRepository);
+		when(mockServerContext.getServer()).thenReturn(mockServer);
 
 		/* Enhance repository mock */
 		when(mockRepository.getFunction(FUNCTION_MODULE_NAME)).thenReturn(mockFunction);

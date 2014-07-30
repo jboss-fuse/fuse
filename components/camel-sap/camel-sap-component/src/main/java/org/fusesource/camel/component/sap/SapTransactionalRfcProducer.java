@@ -44,6 +44,10 @@ public class SapTransactionalRfcProducer extends DefaultProducer {
 			// Ensure that an SAP transaction for destination has begun and is
 			// handled by this exchange.
 			DestinationSapTransactionHandler.ensureSapTransactionHasBegunAndIsHandled(exchange, getEndpoint().getDestination());
+		} else if (getEndpoint().isStateful()) {
+			// Ensure that an SAP stateful session for destination has begun and is
+			// handled by this exchange.
+			DestinationSapStatefulSessionHandler.ensureSapStatefulSessionHasBegunAndIsHandled(exchange, getEndpoint().getDestination());
 		}
 
 		Structure request = exchange.getIn().getBody(Structure.class);

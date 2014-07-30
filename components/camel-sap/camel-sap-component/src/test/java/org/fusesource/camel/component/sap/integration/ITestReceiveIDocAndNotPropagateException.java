@@ -2,24 +2,24 @@ package org.fusesource.camel.component.sap.integration;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
-import org.fusesource.camel.component.sap.model.rfc.Request;
-import org.fusesource.camel.component.sap.util.Util;
+import org.fusesource.camel.component.sap.model.idoc.DocumentList;
+import org.fusesource.camel.component.sap.util.IDocUtil;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Integration test cases for server RFC calls.
+ * Integration test cases for receiving IDoc doucments
  * 
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-public class ITestStatefulServerCall extends CamelSpringTestSupport {
+public class ITestReceiveIDocAndNotPropagateException extends CamelSpringTestSupport {
 
 	@Test
 	public void test() throws Exception {
 		while(true) {
-			Request request = (Request) consumer.receiveBody("direct:out");
-			Util.print(request);
+			DocumentList documentList = (DocumentList) consumer.receiveBody("direct:out");
+			IDocUtil.print(documentList);
 		}
 	}
 
@@ -27,7 +27,7 @@ public class ITestStatefulServerCall extends CamelSpringTestSupport {
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("sap-srfc-server:nplServer:PARAM_TEST?stateful=true").to("bean:counter").to("direct:out");
+                from("sap-idoclist-server:nplServer:FLCUSTOMER_CREATEFROMDATA01").to("bean:throwUp").to("direct:out");
             }
         };
     }
@@ -35,7 +35,7 @@ public class ITestStatefulServerCall extends CamelSpringTestSupport {
 	@Override
 	protected ClassPathXmlApplicationContext createApplicationContext() {
 		return new ClassPathXmlApplicationContext(
-				"org/fusesource/camel/component/sap/integration/ITestCallConfig.xml");
+				"org/fusesource/camel/component/sap/integration/ITestIDocConfig.xml");
 	}
 
 }

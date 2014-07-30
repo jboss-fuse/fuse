@@ -33,16 +33,14 @@ import com.sap.conn.jco.JCoDestinationManager;
 import com.sap.conn.jco.server.JCoServer;
 
 /**
- * Represents the component that manages {@link SapIDocServerEndpoint}. Maintains
- * map of server configurations that it registers and unregisters with the SAP
- * JCo runtime at component startup and shutdown. 
+ * An SAP component that manages {@link SapTransactionalIDocListServerEndpoint}.
  * 
  * @author William Collins <punkhornsw@gmail.com>
  * 
  */
-public class SapIDocServerComponent extends UriEndpointComponent {
+public class SapTransactionalIDocListServerComponent extends UriEndpointComponent {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SapIDocServerComponent.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalIDocListServerComponent.class);
 	
 	protected File tidStoresLocation = new File(".");
 
@@ -52,8 +50,8 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 	
 	protected ServerStateChangedListener serverStateChangedListener = new ServerStateChangedListener();
 
-	public SapIDocServerComponent() {
-		super(SapIDocServerEndpoint.class);
+	public SapTransactionalIDocListServerComponent() {
+		super(SapTransactionalIDocListServerEndpoint.class);
 	}
 
 	public String getTidStoresLocation() {
@@ -66,8 +64,8 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 
 	@Override
 	protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
-		if (!uri.startsWith("sap-idoc-server:")) { 
-			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-idoc-server:'");			
+		if (!uri.startsWith("sap-idoclist-server:")) { 
+			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-idoclist-server:'");			
 		}
 		// Parse URI
 		String[] uriComponents = remaining.split(":");
@@ -89,7 +87,7 @@ public class SapIDocServerComponent extends UriEndpointComponent {
 		if(uriComponents.length > 4) {
 			parameters.put("applicationRelease", uriComponents[4]);
 		}
-		Endpoint endpoint = new SapIDocServerEndpoint(uri, this);
+		Endpoint endpoint = new SapTransactionalIDocListServerEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);

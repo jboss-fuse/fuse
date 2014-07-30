@@ -4,9 +4,11 @@ import org.apache.camel.builder.RouteBuilder;
 import org.fusesource.camel.component.sap.model.idoc.Document;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import com.sap.conn.idoc.IDocFactory;
 import com.sap.conn.idoc.jco.JCoIDoc;
 import com.sap.conn.jco.JCoDestinationManager;
 import com.sap.conn.jco.ext.Environment;
@@ -25,6 +27,7 @@ public class SapIDocProducerTest extends SapIDocTestSupport {
 	public void doPreSetup() throws Exception {
 		super.doPreSetup();
 
+		PowerMockito.mockStatic(JCoDestinationManager.class, JCoIDoc.class);
 		when(JCoDestinationManager.getDestination(TEST_DEST)).thenReturn(mockDestination);
 		when(JCoIDoc.getIDocRepository(mockDestination)).thenReturn(mockIDocRepository);
 		when(JCoIDoc.getIDocFactory()).thenReturn(mockIDocFactory);
@@ -153,6 +156,9 @@ public class SapIDocProducerTest extends SapIDocTestSupport {
 		verify(mockLevel3Segment, times(1)).setValue(FIELD18, (Object) FIELD18_VALUE);
 		verify(mockLevel3Segment, times(1)).setValue(FIELD19, (Object) FIELD19_VALUE);
 		verify(mockLevel3Segment, times(1)).setValue(FIELD20, (Object) FIELD20_VALUE);
+		
+		PowerMockito.verifyStatic();
+		JCoIDoc.send(mockIDocDocument, IDocFactory.IDOC_VERSION_DEFAULT, mockDestination, TEST_TID);
 	}
 
 	@Override

@@ -20,52 +20,49 @@ import java.util.Map;
 
 import org.apache.camel.Endpoint;
 import org.apache.camel.impl.UriEndpointComponent;
-import org.apache.camel.spi.UriEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Represents the component that manages {@link SapIDocDestinationEndpoint}.
- * Maintains map of destination configurations that it registers and unregisters
- * with the SAP JCo runtime at component startup and shutdown.
+ * Represents the component that manages {@link SapTransactionalIDocDestinationEndpoint}.
  * 
  * @author William Collins <punkhornsw@gmail.com>
  * 
  */
-@UriEndpoint(scheme="sap-idoc-destination")
-public class SapIDocDestinationComponent extends UriEndpointComponent {
+public class SapQueuedIDocListDestinationComponent extends UriEndpointComponent {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SapIDocDestinationComponent.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SapQueuedIDocListDestinationComponent.class);
 
-	public SapIDocDestinationComponent() {
-		super(SapIDocDestinationEndpoint.class);
+	public SapQueuedIDocListDestinationComponent() {
+		super(SapQueuedIDocListDestinationEndpoint.class);
 	}
 
 	@Override
 	protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
-		if (!uri.startsWith("sap-idoc-destination:")) { 
-			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-idoc-destination:'");			
+		if (!uri.startsWith("sap-qidoclist-destination:")) { 
+			throw new IllegalArgumentException("The URI '" +  uri + "' has invalid scheme; should be 'sap-qidoclist-destination:'");			
 		}
 		// Parse URI
 		String[] uriComponents = remaining.split(":");
 
-		if (uriComponents.length < 2) {
-			throw new IllegalArgumentException("URI must be of the form: sap-idoc-destination:<destinationName>:<idocType>[<idocTypeExtension>[<systemRelease>[<applicationRelease>]]]");
+		if (uriComponents.length < 3) {
+			throw new IllegalArgumentException("URI must be of the form: sap-qidoclist-destination:<destinationName>:<queueName>:<idocType>[<idocTypeExtension>[<systemRelease>[<applicationRelease>]]]");
 		}
 
 		// Extract URI components
 		parameters.put("destinationName", uriComponents[0]);
-		parameters.put("idocType", uriComponents[1]);
-		if(uriComponents.length > 2) {
-			parameters.put("idocTypeExtension", uriComponents[2]);
-		}
+		parameters.put("queueName", uriComponents[1]);
+		parameters.put("idocType", uriComponents[2]);
 		if(uriComponents.length > 3) {
-			parameters.put("systemRelease", uriComponents[3]);
+			parameters.put("idocTypeExtension", uriComponents[3]);
 		}
 		if(uriComponents.length > 4) {
-			parameters.put("applicationRelease", uriComponents[4]);
+			parameters.put("systemRelease", uriComponents[4]);
 		}
-		Endpoint endpoint = new SapIDocDestinationEndpoint(uri, this);
+		if(uriComponents.length > 5) {
+			parameters.put("applicationRelease", uriComponents[5]);
+		}
+		Endpoint endpoint = new SapQueuedIDocListDestinationEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);

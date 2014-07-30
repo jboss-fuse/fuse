@@ -19,7 +19,7 @@ package org.fusesource.camel.component.sap.integration;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
-import org.fusesource.camel.component.sap.SapIDocDestinationEndpoint;
+import org.fusesource.camel.component.sap.SapTransactionalIDocDestinationEndpoint;
 import org.fusesource.camel.component.sap.model.idoc.Document;
 import org.fusesource.camel.component.sap.model.idoc.Segment;
 import org.junit.Test;
@@ -35,7 +35,7 @@ public class ITestSendIDoc extends CamelSpringTestSupport {
 	@Test
 	public void testSendIDoc() throws Exception {
 		
-        SapIDocDestinationEndpoint endpoint = (SapIDocDestinationEndpoint) context().getEndpoint("sap-idoc-destination:nplDest:FLCUSTOMER_CREATEFROMDATA01");
+        SapTransactionalIDocDestinationEndpoint endpoint = (SapTransactionalIDocDestinationEndpoint) context().getEndpoint("sap-idoc-destination:nplDest:FLCUSTOMER_CREATEFROMDATA01");
         
         // Create document and initialize transmission parameters
         Document document = endpoint.createDocument();

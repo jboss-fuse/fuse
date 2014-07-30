@@ -16,9 +16,9 @@
  */
 package org.fusesource.camel.component.sap;
 
+import org.apache.camel.Component;
 import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
-import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.fusesource.camel.component.sap.model.idoc.Document;
 import org.fusesource.camel.component.sap.util.IDocUtil;
@@ -31,12 +31,12 @@ import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoDestinationManager;
 
 /**
- * Represents an SAP endpoint sending a IDoc (Intermediary Document) to an SAP system.
+ * Base class for SAP for IDoc (Intermediary Document) Endpoint types.
  * 
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-public class SapIDocDestinationEndpoint extends DefaultEndpoint {
+public abstract class SapIDocDestinationEndpoint extends DefaultEndpoint {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapIDocDestinationEndpoint.class); 
 
@@ -50,14 +50,8 @@ public class SapIDocDestinationEndpoint extends DefaultEndpoint {
 	public SapIDocDestinationEndpoint() {
 	}
 
-	public SapIDocDestinationEndpoint(String endpointUri, SapIDocDestinationComponent component) {
+	public SapIDocDestinationEndpoint(String endpointUri, Component component) {
 		super(endpointUri, component);
-	}
-
-	@Override
-	public Producer createProducer() throws Exception {
-		LOG.debug("Created producer for endpoint '" + getEndpointUri() + "'");
-		return new SapIDocProducer(this);
 	}
 
 	@Override
@@ -113,7 +107,7 @@ public class SapIDocDestinationEndpoint extends DefaultEndpoint {
 
 	public Document createDocument() throws Exception {
 		try {
-			return IDocUtil.createIDoc(getIDocRepository(), getIdocType(), getIdocTypeExtension(), getSystemRelease(), getApplicationRelease());
+			return IDocUtil.createDocument(getIDocRepository(), getIdocType(), getIdocTypeExtension(), getSystemRelease(), getApplicationRelease());
 		} catch (Exception e) {
 			throw new Exception("Failed to get Document from endpoint", e);
 		}

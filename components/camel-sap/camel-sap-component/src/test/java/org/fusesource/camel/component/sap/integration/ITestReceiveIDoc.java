@@ -27,7 +27,7 @@ public class ITestReceiveIDoc extends CamelSpringTestSupport {
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("sap-idoc-server:nplServer:FLCUSTOMER_CREATEFROMDATA01").to("direct:out");
+                from("sap-idoclist-server:nplServer:FLCUSTOMER_CREATEFROMDATA01").to("direct:out");
             }
         };
     }

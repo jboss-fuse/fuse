@@ -35,7 +35,7 @@ import com.sap.conn.jco.JCoDestinationManager;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-public class ITestTransactionalCallConfig extends CamelSpringTestSupport {
+public class ITestSynchronousTransactedDestinationCall extends CamelSpringTestSupport {
 
 	@Test
 	public void testCall() throws Exception {

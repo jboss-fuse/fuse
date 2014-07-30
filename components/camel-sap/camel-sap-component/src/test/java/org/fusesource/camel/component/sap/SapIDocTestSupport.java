@@ -20,6 +20,8 @@ import java.util.Calendar;
 import java.util.NoSuchElementException;
 
 import org.fusesource.camel.component.sap.model.idoc.Document;
+import org.fusesource.camel.component.sap.model.idoc.DocumentList;
+import org.fusesource.camel.component.sap.model.idoc.IdocPackage;
 import org.fusesource.camel.component.sap.model.idoc.Segment;
 import org.fusesource.camel.component.sap.util.IDocUtil;
 import org.junit.BeforeClass;
@@ -47,6 +49,7 @@ public abstract class SapIDocTestSupport extends JCoTestSupport {
 	public static final String TEST_PROGRAM_ID = "TEST_PROGRAM_ID";
 	public static final String TEST_DEST = "TEST_DEST";
 	public static final String TEST_SERVER = "TEST_SERVER";
+	public static final String TEST_QUEUE = "TEST_QUEUE";
 	
 	public static final String FIELD0 = "FIELD0";
 	public static final String FIELD1 = "FIELD1";
@@ -111,6 +114,8 @@ public abstract class SapIDocTestSupport extends JCoTestSupport {
 	public static final String TEST_SYSTEM_RELEASE = "TEST_SYSTEM_RELEASE";
 	public static final String TEST_IDOC_TYPE_EXTENSION = "TEST_IDOC_TYPE_EXTENSION";
 	public static final String TEST_IDOC_TYPE = "TEST_IDOC_TYPE";
+	public static final String TEST_URL = IdocPackage.eNS_URI + "/" + TEST_REPOSITORY + "/" + TEST_IDOC_TYPE + "/" + TEST_IDOC_TYPE_EXTENSION + "/" + TEST_SYSTEM_RELEASE + "/" + TEST_APPLICATION_RELEASE;
+	
 	
 	public static final String ROOT_SEGMENT_KEY = TEST_IDOC_TYPE + BAR + TEST_IDOC_TYPE_EXTENSION  + BAR + TEST_SYSTEM_RELEASE + BAR + TEST_APPLICATION_RELEASE + BAR + ROOT;
 	public static final String LEVEL1_SEGMENT_KEY = TEST_IDOC_TYPE + BAR + TEST_IDOC_TYPE_EXTENSION  + BAR + TEST_SYSTEM_RELEASE + BAR + TEST_APPLICATION_RELEASE + BAR + LEVEL1;
@@ -1620,6 +1625,7 @@ public abstract class SapIDocTestSupport extends JCoTestSupport {
 		
 		/* Enhance IDoc Factory mock */
 		when(mockIDocFactory.createIDocDocument(mockIDocRepository, TEST_IDOC_TYPE, TEST_IDOC_TYPE_EXTENSION, TEST_SYSTEM_RELEASE, TEST_APPLICATION_RELEASE)).thenReturn(mockIDocDocument);
+		when(mockIDocFactory.createIDocDocumentList(mockIDocRepository, TEST_IDOC_TYPE, TEST_IDOC_TYPE_EXTENSION, TEST_SYSTEM_RELEASE, TEST_APPLICATION_RELEASE)).thenReturn(mockIDocDocumentList);
 		
 		/* Enhance IDoc Document List mock */
 		when(mockIDocDocumentList.iterator()).thenReturn(mockIDocDocumentListIterator);
@@ -1627,10 +1633,11 @@ public abstract class SapIDocTestSupport extends JCoTestSupport {
 		when(mockIDocDocumentList.getIDocTypeExtension()).thenReturn(TEST_IDOC_TYPE_EXTENSION);
 		when(mockIDocDocumentList.getSystemRelease()).thenReturn(TEST_SYSTEM_RELEASE);
 		when(mockIDocDocumentList.getApplicationRelease()).thenReturn(TEST_APPLICATION_RELEASE);
+		when(mockIDocDocumentList.addNew()).thenReturn(mockIDocDocument);
 		
 		/* Enhance IDoc Document List Iterator mock */
-		when(mockIDocDocumentListIterator.hasNext()).thenReturn(true).thenReturn(false);
-		when(mockIDocDocumentListIterator.next()).thenReturn(mockIDocDocument).thenThrow(new NoSuchElementException());
+		when(mockIDocDocumentListIterator.hasNext()).thenReturn(true).thenReturn(true).thenReturn(false);
+		when(mockIDocDocumentListIterator.next()).thenReturn(mockIDocDocument).thenReturn(mockIDocDocument).thenThrow(new NoSuchElementException());
 		
 		enhanceRootSegment();
 		enhanceLevel1Segment();
@@ -1640,7 +1647,7 @@ public abstract class SapIDocTestSupport extends JCoTestSupport {
 	}
 	
 	protected Document createAndPopulateDocument() throws Exception {
-		Document document = IDocUtil.createIDoc(mockIDocRepository, TEST_IDOC_TYPE, TEST_IDOC_TYPE_EXTENSION, TEST_SYSTEM_RELEASE, TEST_APPLICATION_RELEASE);
+		Document document = IDocUtil.createDocument(mockIDocRepository, TEST_IDOC_TYPE, TEST_IDOC_TYPE_EXTENSION, TEST_SYSTEM_RELEASE, TEST_APPLICATION_RELEASE);
 		
 		document.setArchiveKey(ARCHIVE_KEY_VALUE); 
 		document.setClient(CLIENT_VALUE);
@@ -1750,6 +1757,13 @@ public abstract class SapIDocTestSupport extends JCoTestSupport {
 		level3Segment.put(FIELD20, FIELD20_VALUE);
 		
 		return document;
+	}
+	
+	protected DocumentList createAndPopulateDocumentList() throws Exception {
+		DocumentList documentList = IDocUtil.createDocumentList(mockIDocRepository, TEST_IDOC_TYPE, TEST_IDOC_TYPE_EXTENSION, TEST_SYSTEM_RELEASE, TEST_APPLICATION_RELEASE);
+		Document document = createAndPopulateDocument();
+		documentList.add(document);
+		return documentList;
 	}
 
 	@Override

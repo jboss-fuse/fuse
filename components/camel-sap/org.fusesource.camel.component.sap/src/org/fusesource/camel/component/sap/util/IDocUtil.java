@@ -275,12 +275,13 @@ public class IDocUtil extends Util {
 	 *            - the destination to send to.
 	 * @param document
 	 *            - the document to send.
+	 * @param tid
+	 *            - the transaction ID to use.
 	 * @throws JCoException
 	 * @throws IDocMetaDataUnavailableException
 	 */
-	public static void sendIDoc(JCoDestination destination, Document document) throws JCoException, IDocMetaDataUnavailableException {
+	public static void sendDocument(JCoDestination destination, Document document, String tid) throws JCoException, IDocMetaDataUnavailableException {
 		IDocRepository iDocRepository = JCoIDoc.getIDocRepository(destination);
-		String tid = destination.createTID();
 		IDocFactory iDocFactory = JCoIDoc.getIDocFactory();
 
 		// Create IDoc
@@ -293,7 +294,90 @@ public class IDocUtil extends Util {
 
 		// Send IDoc
 		JCoIDoc.send(iDocDocument, IDocFactory.IDOC_VERSION_DEFAULT, destination, tid);
-		destination.confirmTID(tid);
+	}
+
+	/**
+	 * Send <code>document</code> to <code>destination</code>.
+	 * 
+	 * @param destination
+	 *            - the destination to send to.
+	 * @param document
+	 *            - the document to send.
+	 * @param tid
+	 *            - the transaction ID to use.
+	 * @param queueName
+	 *            - the namw of the queue document sent to.
+	 * @throws JCoException
+	 * @throws IDocMetaDataUnavailableException
+	 */
+	public static void sendDocument(JCoDestination destination, Document document, String tid, String queueName) throws JCoException, IDocMetaDataUnavailableException {
+		IDocRepository iDocRepository = JCoIDoc.getIDocRepository(destination);
+		IDocFactory iDocFactory = JCoIDoc.getIDocFactory();
+
+		// Create IDoc
+		Segment rootSegment = document.getRootSegment();
+		IDocDocument iDocDocument = iDocFactory.createIDocDocument(iDocRepository, rootSegment.getIdocType(), rootSegment.getIdocTypeExtension(),
+				rootSegment.getSystemRelease(), rootSegment.getApplicationRelease());
+
+		// Fill IDoc Document
+		fillIDocDocumentFromDocument(document, iDocDocument);
+
+		// Send IDoc
+		JCoIDoc.send(iDocDocument, IDocFactory.IDOC_VERSION_DEFAULT, destination, tid, queueName);
+	}
+
+	/**
+	 * Send <code>documentList</code> to <code>destination</code>.
+	 * 
+	 * @param destination
+	 *            - the destination to send to.
+	 * @param documentList
+	 *            - the document list to send.
+	 * @param tid
+	 *            - the transaction ID to use.
+	 * @throws Exception 
+	 */
+	public static void sendDocumentList(JCoDestination destination, DocumentList documentList, String tid) throws Exception {
+		IDocRepository iDocRepository = JCoIDoc.getIDocRepository(destination);
+		IDocFactory iDocFactory = JCoIDoc.getIDocFactory();
+
+		// Create IDoc
+		IDocDocumentList iDocDocumentList = iDocFactory.createIDocDocumentList(iDocRepository, documentList.getIdocType(), documentList.getIdocTypeExtension(),
+				documentList.getSystemRelease(), documentList.getApplicationRelease());
+
+		// Fill IDoc Document
+		fillIDocDocumentListFromDocumentList(documentList, iDocDocumentList);
+
+		// Send IDoc
+		JCoIDoc.send(iDocDocumentList, IDocFactory.IDOC_VERSION_DEFAULT, destination, tid);
+	}
+
+	/**
+	 * Send <code>documentList</code> to <code>destination</code>.
+	 * 
+	 * @param destination
+	 *            - the destination to send to.
+	 * @param documentList
+	 *            - the document list to send.
+	 * @param tid
+	 *            - the transaction ID to use.
+	 * @param queueName
+	 *            - the namw of the queue document list sent to.
+	 * @throws Exception 
+	 */
+	public static void sendDocumentList(JCoDestination destination, DocumentList documentList, String tid, String queueName) throws Exception {
+		IDocRepository iDocRepository = JCoIDoc.getIDocRepository(destination);
+		IDocFactory iDocFactory = JCoIDoc.getIDocFactory();
+
+		// Create IDoc
+		IDocDocumentList iDocDocumentList = iDocFactory.createIDocDocumentList(iDocRepository, documentList.getIdocType(), documentList.getIdocTypeExtension(),
+				documentList.getSystemRelease(), documentList.getApplicationRelease());
+
+		// Fill IDoc Document
+		fillIDocDocumentListFromDocumentList(documentList, iDocDocumentList);
+
+		// Send IDoc
+		JCoIDoc.send(iDocDocumentList, IDocFactory.IDOC_VERSION_DEFAULT, destination, tid, queueName);
 	}
 
 	/**
@@ -681,7 +765,7 @@ public class IDocUtil extends Util {
 	 *            - the IDoc's application release.
 	 * @return New document list.
 	 */
-	public static DocumentList createIDocList(IDocRepository repository, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
+	public static DocumentList createDocumentList(IDocRepository repository, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
 
 		// Check that at least IDoc Type has been specified.
 		if (iDocType == null || iDocType.length() == 0) {
@@ -735,7 +819,7 @@ public class IDocUtil extends Util {
 	 *            - the IDoc's application release.
 	 * @return New document list.
 	 */
-	public static DocumentList createIDocList(String repositoryName, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
+	public static DocumentList createDocumentList(String repositoryName, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
 		// Check that at lease IDoc Type has been specified.
 		if (iDocType == null || iDocType.length() == 0) {
 			throw new IllegalArgumentException("IDoc Type must be specified");
@@ -782,7 +866,7 @@ public class IDocUtil extends Util {
 	 *            - the IDoc's application release.
 	 * @return New document.
 	 */
-	public static Document createIDoc(IDocRepository repository, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
+	public static Document createDocument(IDocRepository repository, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
 		// Check that at least IDoc Type has been specified.
 		if (iDocType == null || iDocType.length() == 0) {
 			throw new IllegalArgumentException("IDoc Type must be specified");
@@ -833,7 +917,7 @@ public class IDocUtil extends Util {
 	 * @param rootSegmentClass - the type of root segment
 	 * @return new document.
 	 */
-	public static Document createIDoc(EClass rootSegmentClass) {
+	public static Document createDocument(EClass rootSegmentClass) {
 		Segment segment = (Segment) rootSegmentClass.getEPackage().getEFactoryInstance().create(rootSegmentClass);
 		DocumentImpl iDoc = (DocumentImpl) IdocFactory.eINSTANCE.createDocument();
 		iDoc.setRootSegment(segment);
@@ -870,7 +954,7 @@ public class IDocUtil extends Util {
 	 *            - the IDoc's application release.
 	 * @return New document.
 	 */
-	public static Document createIDoc(String repositoryName, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
+	public static Document createDocument(String repositoryName, String iDocType, String iDocTypeExtension, String systemRelease, String applicationRelease) {
 		// Check that at lease IDoc Type has been specified.
 		if (iDocType == null || iDocType.length() == 0) {
 			throw new IllegalArgumentException("IDoc Type must be specified");

@@ -32,22 +32,22 @@ import com.sap.conn.idoc.jco.JCoIDocHandler;
 import com.sap.conn.jco.server.JCoServerContext;
 
 /**
- * Represents an SAP consumer receiving an IDoc (Intermediate Document) from in SAP. 
+ * An SAP consumer receiving an IDoc (Intermediate Document) list from an SAP system. 
  * 
  * @author William Collins <punkhornsw@gmail.com>
  * 
  */
-public class SapIDocConsumer extends SapConsumer implements JCoIDocHandler {
+public class SapTransactionalIDocListConsumer extends SapConsumer implements JCoIDocHandler {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SapIDocConsumer.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalIDocListConsumer.class);
 
-	public SapIDocConsumer(Endpoint endpoint, Processor processor) {
+	public SapTransactionalIDocListConsumer(Endpoint endpoint, Processor processor) {
 		super(endpoint, processor);
 	}
 
 	@Override
-	public SapIDocServerEndpoint getEndpoint() {
-		return (SapIDocServerEndpoint) super.getEndpoint();
+	public SapTransactionalIDocListServerEndpoint getEndpoint() {
+		return (SapTransactionalIDocListServerEndpoint) super.getEndpoint();
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class SapIDocConsumer extends SapConsumer implements JCoIDocHandler {
 			}
 
 			// Create and populate document list
-			DocumentList documentList = IDocUtil.createIDocList(getEndpoint().getServer().getIDocRepository(), idocDocumentList.getIDocType(), idocDocumentList.getIDocTypeExtension(), idocDocumentList.getSystemRelease(), idocDocumentList.getApplicationRelease());
+			DocumentList documentList = IDocUtil.createDocumentList(getEndpoint().getServer().getIDocRepository(), idocDocumentList.getIDocType(), idocDocumentList.getIDocTypeExtension(), idocDocumentList.getSystemRelease(), idocDocumentList.getApplicationRelease());
 			IDocUtil.extractIDocDocumentListIntoDocumentList(idocDocumentList, documentList);
 			
 			// Populated exchange message

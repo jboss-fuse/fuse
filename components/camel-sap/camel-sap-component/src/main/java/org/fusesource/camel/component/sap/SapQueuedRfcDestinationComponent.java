@@ -46,14 +46,14 @@ public class SapQueuedRfcDestinationComponent extends UriEndpointComponent {
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length != 3) {
-			throw new IllegalArgumentException("URI must be of the form: sap-qrfc-destination:<destinationName>:<rfcName>:<queueName>");
+			throw new IllegalArgumentException("URI must be of the form: sap-qrfc-destination:<destinationName>:<queueName>:<rfcName>");
 		}
 
 		// Extract URI components
 		// Add component specific prefix to destination name to scope destination configurations to this component.
 		parameters.put("destinationName", uriComponents[0]); 
-		parameters.put("rfcName", uriComponents[1]);
-		parameters.put("queueName", uriComponents[2]);
+		parameters.put("queueName", uriComponents[1]);
+		parameters.put("rfcName", uriComponents[2]);
 		Endpoint endpoint = new SapQueuedRfcDestinationEndpoint(uri, this);
 
 		// Configure Endpoint

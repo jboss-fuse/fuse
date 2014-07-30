@@ -116,13 +116,13 @@ public interface IdocPackage extends EPackage {
 	int DOCUMENT_LIST__APPLICATION_RELEASE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Documents</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Document</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_LIST__DOCUMENTS = 4;
+	int DOCUMENT_LIST__DOCUMENT = 4;
 
 	/**
 	 * The number of structural features of the '<em>Document List</em>' class.
@@ -752,15 +752,15 @@ public interface IdocPackage extends EPackage {
 	EAttribute getDocumentList_ApplicationRelease();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.fusesource.camel.component.sap.model.idoc.DocumentList#getDocuments <em>Documents</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.fusesource.camel.component.sap.model.idoc.DocumentList#getDocument <em>Document</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Documents</em>'.
-	 * @see org.fusesource.camel.component.sap.model.idoc.DocumentList#getDocuments()
+	 * @return the meta object for the containment reference list '<em>Document</em>'.
+	 * @see org.fusesource.camel.component.sap.model.idoc.DocumentList#getDocument()
 	 * @see #getDocumentList()
 	 * @generated
 	 */
-	EReference getDocumentList_Documents();
+	EReference getDocumentList_Document();
 
 	/**
 	 * Returns the meta object for class '{@link org.fusesource.camel.component.sap.model.idoc.Document <em>Document</em>}'.
@@ -1461,12 +1461,12 @@ public interface IdocPackage extends EPackage {
 		EAttribute DOCUMENT_LIST__APPLICATION_RELEASE = eINSTANCE.getDocumentList_ApplicationRelease();
 
 		/**
-		 * The meta object literal for the '<em><b>Documents</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Document</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOCUMENT_LIST__DOCUMENTS = eINSTANCE.getDocumentList_Documents();
+		EReference DOCUMENT_LIST__DOCUMENT = eINSTANCE.getDocumentList_Document();
 
 		/**
 		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.idoc.impl.DocumentImpl <em>Document</em>}' class.
