@@ -22,8 +22,7 @@ import static org.junit.Assert.assertTrue;
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
 
-import io.fabric8.api.ServiceLocator;
-
+import io.fabric8.tooling.testing.pax.exam.karaf.ServiceLocator;
 import org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport;
 import org.junit.Test;
 import org.junit.runner.RunWith;
