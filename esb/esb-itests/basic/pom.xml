@@ -34,6 +34,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.fabric8.itests.paxexam</groupId>
+            <artifactId>fabric-itests-paxexam-common</artifactId>
+            <version>${fabric.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.jboss.fuse.itests</groupId>
             <artifactId>esb-itests-common</artifactId>
             <version>${project.version}</version>

@@ -18,21 +18,15 @@
 package org.fusesource.esb.itests.pax.exam.karaf;
 
 import java.io.File;
-import org.apache.karaf.tooling.exam.options.DoNotModifyLogOption;
-import org.apache.karaf.tooling.exam.options.LogLevelOption;
 import io.fabric8.tooling.testing.pax.exam.karaf.FabricKarafTestSupport;
 import org.ops4j.pax.exam.MavenUtils;
 import org.ops4j.pax.exam.Option;
-import org.ops4j.pax.exam.options.DefaultCompositeOption;
+import org.ops4j.pax.exam.karaf.options.LogLevelOption;
 
-import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.editConfigurationFilePut;
-import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.karafDistributionConfiguration;
-import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.keepRuntimeFolder;
-import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.logLevel;
-import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.useOwnExamBundlesStartLevel;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.ops4j.pax.exam.CoreOptions.maven;
+import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.*;
 
 public class EsbTestSupport extends FabricKarafTestSupport {
     static final String GROUP_ID = "org.jboss.fuse";

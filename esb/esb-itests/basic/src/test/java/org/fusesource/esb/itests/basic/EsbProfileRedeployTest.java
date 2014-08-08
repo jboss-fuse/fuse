@@ -18,7 +18,8 @@ package org.fusesource.esb.itests.basic;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.ops4j.pax.exam.CoreOptions.scanFeatures;
+import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.features;
+
 import io.fabric8.api.Container;
 import io.fabric8.api.FabricService;
 import io.fabric8.api.ServiceProxy;
@@ -138,7 +139,7 @@ public class EsbProfileRedeployTest extends FabricTestSupport {
    	public Option[] config() {
    		return new Option[]{
    				new DefaultCompositeOption(fabricDistributionConfiguration()),
-                scanFeatures("default", "mq-fabric").start()
+                features("default", "mq-fabric")
    		};
    	}
 
