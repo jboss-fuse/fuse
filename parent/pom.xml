@@ -21,12 +21,12 @@
     <parent>
         <groupId>org.jboss.fuse.bom</groupId>
         <artifactId>jboss-fuse-parent</artifactId>
-        <version>6.2.0.redhat-SNAPSHOT</version>
+        <version>6.2.0.redhat-008</version>
     </parent>
 
     <groupId>org.fusesource</groupId>
     <artifactId>fuse-project</artifactId>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.0.redhat-008</version>
     <packaging>pom</packaging>
 
     <name>JBoss Fuse :: Parent</name>
