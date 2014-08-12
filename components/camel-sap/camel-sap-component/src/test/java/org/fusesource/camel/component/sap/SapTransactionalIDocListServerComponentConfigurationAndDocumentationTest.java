@@ -47,12 +47,4 @@ public class SapTransactionalIDocListServerComponentConfigurationAndDocumentatio
         assertTrue(json.contains("\"propagateExceptions\": { \"type\": \"boolean\" }"));
     }
 
-    @Ignore("See ENTESB-1586")
-    @Test
-    public void testComponentDocumentation() throws Exception {
-        CamelContext context = new DefaultCamelContext();
-        String html = context.getComponentDocumentation("sap-idoclist-server");
-        assertNotNull("Should have found some auto-generated HTML if on Java 7", html);
-    }
-
 }

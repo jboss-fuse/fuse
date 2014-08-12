@@ -47,12 +47,4 @@ public class SapQueuedRfcDestinationComponentConfigurationAndDocumentationTest e
         assertTrue(json.contains("\"transacted\": { \"type\": \"boolean\" }"));
     }
 
-    @Ignore("See ENTESB-1586")
-    @Test
-    public void testComponentDocumentation() throws Exception {
-        CamelContext context = new DefaultCamelContext();
-        String html = context.getComponentDocumentation("sap-qrfc-destination");
-        assertNotNull("Should have found some auto-generated HTML if on Java 7", html);
-    }
-
 }

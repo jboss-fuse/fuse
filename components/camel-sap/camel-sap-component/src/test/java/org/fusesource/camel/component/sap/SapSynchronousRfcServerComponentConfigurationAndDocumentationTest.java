@@ -45,13 +45,4 @@ public class SapSynchronousRfcServerComponentConfigurationAndDocumentationTest e
         assertTrue(json.contains("\"stateful\": { \"type\": \"boolean\" }"));
     }
 
-    @Ignore("See ENTESB-1586")
-    @Test
-    public void testComponentDocumentation() throws Exception {
-        CamelContext context = new DefaultCamelContext();
-        String html = context.getComponentDocumentation("sap-srfc-server");
-        assertNotNull("Should have found some auto-generated HTML if on Java 7", html);
-        System.out.println(html);
-    }
-
 }
