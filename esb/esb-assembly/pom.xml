@@ -208,6 +208,9 @@
                                         <include>io/fabric8/fabric-core/**</include>
                                         <include>org/jledit/**</include>
                                         <include>org/bouncycastle/**</include>
+
+                                        <!-- for loading quickstart profiles -->
+                                        <include>io/fabric8/quickstarts/**</include>
                                     </includes>
                                 </resource>
                             </resources>
