@@ -78,7 +78,6 @@
                             <features>
                               <feature>karaf</feature>
                               <feature>scr</feature>
-                              <feature>war</feature>
                               <feature>karaf-framework</feature>
                               <feature>obr</feature>
                               <feature>config</feature>
@@ -98,7 +97,6 @@
                               <!-- FuseSource only : Fabric -->
                               <feature>esb-commands</feature>
                               <feature>fabric</feature>
-                              <feature>fabric-bundle</feature>
                               <feature>patch</feature>
                               <feature>fabric-agent</feature>
                               <feature>fabric-agent-commands</feature>
