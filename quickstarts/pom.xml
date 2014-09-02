@@ -20,12 +20,12 @@
     <parent>
       <groupId>org.fusesource</groupId>
       <artifactId>fuse-project</artifactId>
-      <version>6.2.0.redhat-SNAPSHOT</version>
+      <version>6.2.0.redhat-019</version>
       <relativePath>../parent</relativePath>
     </parent>
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>jboss-quickstarts-fuse-parent</artifactId>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.0.redhat-019</version>
     <packaging>pom</packaging>
     <name>JBoss Fuse Quickstarts Parent</name>
     <description>JBoss Fuse Quickstarts Parent</description>
