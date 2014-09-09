@@ -18,18 +18,17 @@
 package org.fusesource.esb.itests.smoke;
 
 import org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
-import org.ops4j.pax.exam.junit.Configuration;
-import org.ops4j.pax.exam.junit.ExamReactorStrategy;
-import org.ops4j.pax.exam.junit.JUnit4TestRunner;
+import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.options.DefaultCompositeOption;
-import org.ops4j.pax.exam.spi.reactors.AllConfinedStagedReactorFactory;
+import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
+import org.ops4j.pax.exam.spi.reactors.PerMethod;
 
-@RunWith(JUnit4TestRunner.class)
-@ExamReactorStrategy(AllConfinedStagedReactorFactory.class)
+@RunWith(PaxExam.class)
+@ExamReactorStrategy(PerMethod.class)
 public class EsbExampleFeaturesTest extends EsbTestSupport {
 
     @Test
@@ -71,13 +70,15 @@ public class EsbExampleFeaturesTest extends EsbTestSupport {
 
     @Test
     public void testSecureSoap() throws Exception {
+        installAndCheckFeature("cxf-ws-security");
         installQuickstartBundle("secure-soap");
     }
 
     @Configuration
     public Option[] config() {
-        return new Option[]{
+        return new Option[] {
                 new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-medium")),
+                mavenBundle("org.apache.geronimo.specs", "geronimo-ws-metadata_2.0_spec")
         };
     }
 

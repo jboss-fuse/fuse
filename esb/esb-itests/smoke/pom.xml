@@ -75,6 +75,12 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

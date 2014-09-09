@@ -70,7 +70,7 @@
 
         <!-- fabric8 deploy profile configuration -->
         <fabric8.profile>my-jms</fabric8.profile>
-        <fabric8.features>quickstart-jms camel-jms camel-blueprint fabric-camel mq-fabric-camel activemq-client</fabric8.features>
+        <fabric8.features>quickstart-jms camel-jms camel-blueprint fabric-camel camel-amq activemq-client</fabric8.features>
         <fabric8.featureRepos>mvn:org.apache.camel.karaf/apache-camel/${version:camel}/xml/features mvn:org.jboss.quickstarts.fuse/jms/${project.version}/xml/features mvn:org.apache.camel.karaf/apache-camel/${version:camel}/xml/features</fabric8.featureRepos>
     </properties>
 

@@ -26,12 +26,13 @@ import org.ops4j.pax.exam.karaf.options.LogLevelOption;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.ops4j.pax.exam.CoreOptions.maven;
+import static org.ops4j.pax.exam.CoreOptions.wrappedBundle;
 import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.*;
 
 public class EsbTestSupport extends FabricKarafTestSupport {
     static final String GROUP_ID = "org.jboss.fuse";
-    static final String ARTIFACT_ID = "jboss-fuse-minimal";
-    private String version = "6.2.0.redhat-SNAPSHOT";
+    static final String ARTIFACT_ID = "jboss-fuse-medium";
+    private String version = System.getProperty("project.version");
 
     protected void installQuickstartBundle(String bundle) throws Exception {
         String featureInstallOutput = executeCommand("osgi:install -s mvn:org.jboss.quickstarts.fuse/" + bundle + "/" + version);
@@ -76,17 +77,20 @@ public class EsbTestSupport extends FabricKarafTestSupport {
         if (distroArtifactId == null) {
             distroArtifactId = ARTIFACT_ID;
         }
-        return new Option[] {karafDistributionConfiguration().frameworkUrl(maven().groupId("org.jboss.fuse").artifactId(distroArtifactId).versionAsInProject().type("zip"))
-        .karafVersion(MavenUtils.getArtifactVersion("org.jboss.fuse", distroArtifactId)).name("JBoss Fuse").unpackDirectory(new File("target/exam")).useDeployFolder(false),
-        useOwnExamBundlesStartLevel(50),
-        editConfigurationFilePut("etc/config.properties", "karaf.startlevel.bundle", "50"),
-        editConfigurationFilePut("etc/config.properties", "karaf.startup.message", "Loading Fuse from: ${karaf.home}"),
-        editConfigurationFilePut("etc/users.properties", "admin", "admin,admin"),
-        mavenBundle("org.fusesource.tooling.testing", "pax-exam-karaf", MavenUtils.getArtifactVersion("org.fusesource.tooling.testing", "pax-exam-karaf")), 
-        mavenBundle("org.jboss.fuse.itests","esb-itests-common", MavenUtils.getArtifactVersion("org.jboss.fuse.itests", "esb-itests-common")),
-        mavenBundle("io.fabric8.itests", "fabric-itests-common", MavenUtils.getArtifactVersion("io.fabric8.itests", "fabric-itests-common")),
-        keepRuntimeFolder(),
-        logLevel(LogLevelOption.LogLevel.ERROR)};
+        return new Option[] {
+                karafDistributionConfiguration().frameworkUrl(maven().groupId("org.jboss.fuse").artifactId(distroArtifactId).versionAsInProject().type("zip"))
+                .karafVersion(MavenUtils.getArtifactVersion("org.jboss.fuse", distroArtifactId)).name("JBoss Fuse").unpackDirectory(new File("target/exam")).useDeployFolder(false),
+                useOwnExamBundlesStartLevel(50),
+                editConfigurationFilePut("etc/config.properties", "karaf.startlevel.bundle", "50"),
+                editConfigurationFilePut("etc/config.properties", "karaf.startup.message", "Loading Fuse from: ${karaf.home}"),
+                editConfigurationFilePut("etc/users.properties", "admin", "admin,admin"),
+                editConfigurationFilePut("etc/system.properties", "project.version", MavenUtils.getArtifactVersion(GROUP_ID, ARTIFACT_ID)),
+                mavenBundle("io.fabric8.tooling.testing", "pax-exam-karaf", MavenUtils.getArtifactVersion("io.fabric8.tooling.testing", "pax-exam-karaf")),
+                mavenBundle("org.jboss.fuse.itests", "esb-itests-common", MavenUtils.getArtifactVersion("org.jboss.fuse.itests", "esb-itests-common")),
+                wrappedBundle(mavenBundle("io.fabric8.itests", "fabric-itests-common", MavenUtils.getArtifactVersion("io.fabric8.itests", "fabric-itests-common"))),
+                keepRuntimeFolder(),
+                logLevel(LogLevelOption.LogLevel.ERROR)
+        };
     }
 
     protected String getEsbVersion() {

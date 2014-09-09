@@ -26,10 +26,10 @@
       <feature version="${camel-version-range}">camel-jms</feature>
       <feature version="${camel-version-range}">camel</feature>
       <feature version="${activemq-version}">activemq-camel</feature>
-      <feature version="${project.version}">mq-fabric</feature>
+      <feature version="${fabric.version}">mq-fabric</feature>
 
-      <bundle>mvn:org.jboss.amq/mq-fabric-camel/${project.version}</bundle>
-      <bundle>mvn:org.jboss.amq/mq-fabric/${project.version}</bundle>
+      <bundle>mvn:io.fabric8.mq/camel-amq/${fabric.version}</bundle>
+      <bundle>mvn:io.fabric8.mq/mq-fabric/${fabric.version}</bundle>
       <bundle>mvn:io.fabric8/common-util/${fabric.version}</bundle>
       <bundle>mvn:org.jboss.quickstarts.fuse/jms/${project.version}</bundle>
   </feature>
