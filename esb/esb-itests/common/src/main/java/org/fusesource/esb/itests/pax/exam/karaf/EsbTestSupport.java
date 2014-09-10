@@ -89,7 +89,7 @@ public class EsbTestSupport extends FabricKarafTestSupport {
                 mavenBundle("org.jboss.fuse.itests", "esb-itests-common", MavenUtils.getArtifactVersion("org.jboss.fuse.itests", "esb-itests-common")),
                 wrappedBundle(mavenBundle("io.fabric8.itests", "fabric-itests-common", MavenUtils.getArtifactVersion("io.fabric8.itests", "fabric-itests-common"))),
                 keepRuntimeFolder(),
-                logLevel(LogLevelOption.LogLevel.DEBUG)
+                logLevel(LogLevelOption.LogLevel.ERROR)
         };
     }
 
