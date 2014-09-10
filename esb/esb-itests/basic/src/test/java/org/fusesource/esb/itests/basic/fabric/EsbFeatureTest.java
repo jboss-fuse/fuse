@@ -17,14 +17,15 @@
 package org.fusesource.esb.itests.basic.fabric;
 
 import static org.ops4j.pax.exam.CoreOptions.maven;
+import static org.ops4j.pax.exam.CoreOptions.wrappedBundle;
 import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.*;
 
 import java.io.File;
 
 import io.fabric8.itests.paxexam.support.FabricFeaturesTest;
+import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.MavenUtils;
 import org.ops4j.pax.exam.Option;
-import org.ops4j.pax.exam.junit.Configuration;
 import org.ops4j.pax.exam.karaf.options.LogLevelOption;
 import org.ops4j.pax.exam.options.DefaultCompositeOption;
 
@@ -50,9 +51,10 @@ public class EsbFeatureTest extends FabricFeaturesTest {
                 editConfigurationFilePut("etc/config.properties", "karaf.startlevel.bundle", "50"),
                 editConfigurationFilePut("etc/config.properties", "karaf.startup.message", "Loading Fuse from: ${karaf.home}"),
                 editConfigurationFilePut("etc/users.properties", "admin", "admin,admin"),
-                mavenBundle("org.fusesource.tooling.testing", "pax-exam-karaf", MavenUtils.getArtifactVersion("org.fusesource.tooling.testing", "pax-exam-karaf")),
-                mavenBundle("org.jboss.fuse.itests","esb-itests-common", MavenUtils.getArtifactVersion("org.jboss.fuse.itests", "esb-itests-common")),
-                mavenBundle("io.fabric8.itests", "fabric-itests-common", MavenUtils.getArtifactVersion("io.fabric8.itests", "fabric-itests-common")),
+                mavenBundle("io.fabric8.itests.paxexam", "fabric-itests-paxexam-common", MavenUtils.getArtifactVersion("io.fabric8.itests.paxexam", "fabric-itests-paxexam-common")),
+                mavenBundle("io.fabric8.tooling.testing", "pax-exam-karaf", MavenUtils.getArtifactVersion("io.fabric8.tooling.testing", "pax-exam-karaf")),
+                mavenBundle("org.jboss.fuse.itests", "esb-itests-common", MavenUtils.getArtifactVersion("org.jboss.fuse.itests", "esb-itests-common")),
+                wrappedBundle(mavenBundle("io.fabric8.itests", "fabric-itests-common", MavenUtils.getArtifactVersion("io.fabric8.itests", "fabric-itests-common"))),
                 keepRuntimeFolder(),
                 logLevel(LogLevelOption.LogLevel.ERROR)};
     }

@@ -20,17 +20,17 @@ package org.fusesource.esb.itests.basic;
 import org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
-import org.ops4j.pax.exam.junit.Configuration;
-import org.ops4j.pax.exam.junit.ExamReactorStrategy;
-import org.ops4j.pax.exam.junit.JUnit4TestRunner;
+import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.options.DefaultCompositeOption;
-import org.ops4j.pax.exam.spi.reactors.AllConfinedStagedReactorFactory;
+import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
+import org.ops4j.pax.exam.spi.reactors.PerMethod;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(JUnit4TestRunner.class)
-@ExamReactorStrategy(AllConfinedStagedReactorFactory.class)
+@RunWith(PaxExam.class)
+@ExamReactorStrategy(PerMethod.class)
 public class EsbBootTest extends EsbTestSupport {
 
     @Test
@@ -46,4 +46,5 @@ public class EsbBootTest extends EsbTestSupport {
                 new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-minimal")),
         };
     }
+
 }

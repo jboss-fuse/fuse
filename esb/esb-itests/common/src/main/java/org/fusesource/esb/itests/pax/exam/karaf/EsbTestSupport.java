@@ -83,13 +83,13 @@ public class EsbTestSupport extends FabricKarafTestSupport {
                 useOwnExamBundlesStartLevel(50),
                 editConfigurationFilePut("etc/config.properties", "karaf.startlevel.bundle", "50"),
                 editConfigurationFilePut("etc/config.properties", "karaf.startup.message", "Loading Fuse from: ${karaf.home}"),
-                editConfigurationFilePut("etc/users.properties", "admin", "admin,admin"),
+                editConfigurationFilePut("etc/users.properties", "admin", "admin,admin,manager,viewer,Operator, Maintainer, Deployer, Auditor, Administrator, SuperUser"),
                 editConfigurationFilePut("etc/system.properties", "project.version", MavenUtils.getArtifactVersion(GROUP_ID, ARTIFACT_ID)),
                 mavenBundle("io.fabric8.tooling.testing", "pax-exam-karaf", MavenUtils.getArtifactVersion("io.fabric8.tooling.testing", "pax-exam-karaf")),
                 mavenBundle("org.jboss.fuse.itests", "esb-itests-common", MavenUtils.getArtifactVersion("org.jboss.fuse.itests", "esb-itests-common")),
                 wrappedBundle(mavenBundle("io.fabric8.itests", "fabric-itests-common", MavenUtils.getArtifactVersion("io.fabric8.itests", "fabric-itests-common"))),
                 keepRuntimeFolder(),
-                logLevel(LogLevelOption.LogLevel.ERROR)
+                logLevel(LogLevelOption.LogLevel.DEBUG)
         };
     }
 

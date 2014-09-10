@@ -43,7 +43,8 @@
               <exclude>etc/org.apache.karaf.command.acl.osgi.cfg</exclude>
               <exclude>etc/org.apache.karaf.command.acl.scope_bundle.cfg</exclude>
               <exclude>etc/org.apache.karaf.command.acl.shell.cfg</exclude>
-              <exclude>fabric/import/fabric/profiles/jboss/fuse/minimal.profile/io.fabric8.agent.properties</exclude>
+              <!--<exclude>fabric/import/fabric/profiles/jboss/fuse/minimal.profile/io.fabric8.agent.properties</exclude>-->
+              <exclude>fabric/import/fabric/profiles/jboss/.skipimport</exclude>
               <exclude>system/**</exclude>
               <exclude>fabric_notices.txt</exclude>
               <exclude>fabric_dependencies.txt</exclude>
