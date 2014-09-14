@@ -90,6 +90,15 @@ public interface RfcFactory extends EFactory {
 	Response createResponse();
 
 	/**
+	 * Returns a new object of class '<em>Sap Connection Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sap Connection Configuration</em>'.
+	 * @generated
+	 */
+	SapConnectionConfiguration createSapConnectionConfiguration();
+
+	/**
 	 * Returns a new object of class '<em>Destination Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -29,15 +29,19 @@
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
-      <plugin>
-      	<groupId>org.eclipse.tycho</groupId>
-      	<artifactId>tycho-maven-plugin</artifactId>
-      	<extensions>true</extensions>
-      </plugin>
-	<plugin>
-		<groupId>org.eclipse.tycho</groupId>
-		<artifactId>target-platform-configuration</artifactId>
-	</plugin>
+	    <plugin>
+	    	<groupId>org.eclipse.tycho</groupId>
+	    	<artifactId>tycho-maven-plugin</artifactId>
+	    	<extensions>true</extensions>
+	    </plugin>
+		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>tycho-source-plugin</artifactId>
+		</plugin>
+		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>target-platform-configuration</artifactId>
+		</plugin>
     </plugins>
   </build>
   <url>http://www.fusesource.org</url>

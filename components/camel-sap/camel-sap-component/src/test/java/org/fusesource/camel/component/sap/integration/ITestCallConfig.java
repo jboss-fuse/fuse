@@ -22,7 +22,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
-import org.fusesource.camel.component.sap.SapConfiguration;
+import org.fusesource.camel.component.sap.SapConnectionConfiguration;
 import org.fusesource.camel.component.sap.model.rfc.DestinationData;
 import org.fusesource.camel.component.sap.model.rfc.ServerData;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
@@ -64,7 +64,7 @@ public class ITestCallConfig extends CamelSpringTestSupport {
 
 	@Test
 	public void testSapConfiguration() {
-		SapConfiguration component = (SapConfiguration) applicationContext.getBean("sap-configuration");
+		SapConnectionConfiguration component = (SapConnectionConfiguration) applicationContext.getBean("sap-configuration");
 		
 		// Validated Destination Data
 		DestinationData nplDestinationData = component.getDestinationDataStore().get("nplDest");

@@ -18,3 +18,5 @@ Import-Package: com.sap.conn.idoc,
  com.sap.conn.jco.rt,
  com.sap.conn.jco.server,
  org.slf4j
+Export-Package: org.fusesource.camel.component.sap,
+ org.fusesource.camel.component.sap.util

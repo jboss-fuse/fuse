@@ -121,6 +121,10 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 				return createResponseAdapter();
 			}
 			@Override
+			public Adapter caseSapConnectionConfiguration(SapConnectionConfiguration object) {
+				return createSapConnectionConfigurationAdapter();
+			}
+			@Override
 			public Adapter caseDestinationDataEntry(Map.Entry<String, String> object) {
 				return createDestinationDataEntryAdapter();
 			}
@@ -301,6 +305,20 @@ public class RfcAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResponseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration <em>Sap Connection Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration
+	 * @generated
+	 */
+	public Adapter createSapConnectionConfigurationAdapter() {
 		return null;
 	}
 

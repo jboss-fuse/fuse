@@ -46,6 +46,7 @@ import org.fusesource.camel.component.sap.model.rfc.Request;
 import org.fusesource.camel.component.sap.model.rfc.Response;
 import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
+import org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration;
 import org.fusesource.camel.component.sap.model.rfc.Server;
 import org.fusesource.camel.component.sap.model.rfc.ServerData;
 import org.fusesource.camel.component.sap.model.rfc.ServerDataStore;
@@ -102,6 +103,13 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * @generated
 	 */
 	private EClass responseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sapConnectionConfigurationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -547,6 +555,33 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 */
 	public EClass getResponse() {
 		return responseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSapConnectionConfiguration() {
+		return sapConnectionConfigurationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSapConnectionConfiguration_DestinationDataStore() {
+		return (EReference)sapConnectionConfigurationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSapConnectionConfiguration_ServerDataStore() {
+		return (EReference)sapConnectionConfigurationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1067,6 +1102,15 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDestinationDataStore_DestinationData() {
+		return (EReference)destinationDataStoreEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getServer() {
 		return serverEClass;
 	}
@@ -1303,6 +1347,15 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 	 */
 	public EReference getServerDataStore_Entries() {
 		return (EReference)serverDataStoreEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getServerDataStore_ServerData() {
+		return (EReference)serverDataStoreEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1955,6 +2008,10 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 
 		responseEClass = createEClass(RESPONSE);
 
+		sapConnectionConfigurationEClass = createEClass(SAP_CONNECTION_CONFIGURATION);
+		createEReference(sapConnectionConfigurationEClass, SAP_CONNECTION_CONFIGURATION__DESTINATION_DATA_STORE);
+		createEReference(sapConnectionConfigurationEClass, SAP_CONNECTION_CONFIGURATION__SERVER_DATA_STORE);
+
 		destinationDataEntryEClass = createEClass(DESTINATION_DATA_ENTRY);
 		createEAttribute(destinationDataEntryEClass, DESTINATION_DATA_ENTRY__KEY);
 		createEAttribute(destinationDataEntryEClass, DESTINATION_DATA_ENTRY__VALUE);
@@ -2015,6 +2072,7 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 
 		destinationDataStoreEClass = createEClass(DESTINATION_DATA_STORE);
 		createEReference(destinationDataStoreEClass, DESTINATION_DATA_STORE__ENTRIES);
+		createEReference(destinationDataStoreEClass, DESTINATION_DATA_STORE__DESTINATION_DATA);
 
 		serverEClass = createEClass(SERVER);
 		createEAttribute(serverEClass, SERVER__NAME);
@@ -2047,6 +2105,7 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 
 		serverDataStoreEClass = createEClass(SERVER_DATA_STORE);
 		createEReference(serverDataStoreEClass, SERVER_DATA_STORE__ENTRIES);
+		createEReference(serverDataStoreEClass, SERVER_DATA_STORE__SERVER_DATA);
 
 		functionTemplateEClass = createEClass(FUNCTION_TEMPLATE);
 		createEReference(functionTemplateEClass, FUNCTION_TEMPLATE__IMPORTS);
@@ -2221,6 +2280,10 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 
 		initEClass(responseEClass, Response.class, "Response", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(sapConnectionConfigurationEClass, SapConnectionConfiguration.class, "SapConnectionConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSapConnectionConfiguration_DestinationDataStore(), this.getDestinationDataStore(), null, "destinationDataStore", null, 1, 1, SapConnectionConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSapConnectionConfiguration_ServerDataStore(), this.getServerDataStore(), null, "serverDataStore", null, 1, 1, SapConnectionConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(destinationDataEntryEClass, Map.Entry.class, "DestinationDataEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDestinationDataEntry_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDestinationDataEntry_Value(), ecorePackage.getEString(), "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2281,6 +2344,7 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 
 		initEClass(destinationDataStoreEClass, DestinationDataStore.class, "DestinationDataStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDestinationDataStore_Entries(), this.getDestinationDataStoreEntry(), null, "entries", null, 0, -1, DestinationDataStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDestinationDataStore_DestinationData(), this.getDestinationData(), null, "destinationData", null, 0, -1, DestinationDataStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serverEClass, Server.class, "Server", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Server.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2313,6 +2377,7 @@ public class RfcPackageImpl extends EPackageImpl implements RfcPackage {
 
 		initEClass(serverDataStoreEClass, ServerDataStore.class, "ServerDataStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getServerDataStore_Entries(), this.getServerDataStoreEntry(), null, "entries", null, 0, -1, ServerDataStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getServerDataStore_ServerData(), this.getServerData(), null, "serverData", null, 0, -1, ServerDataStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(functionTemplateEClass, FunctionTemplate.class, "FunctionTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFunctionTemplate_Imports(), this.getListFieldMetaData(), null, "imports", null, 0, -1, FunctionTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

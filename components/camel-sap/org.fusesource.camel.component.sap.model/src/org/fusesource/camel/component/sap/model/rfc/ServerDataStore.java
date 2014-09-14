@@ -16,6 +16,7 @@
  */
 package org.fusesource.camel.component.sap.model.rfc;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.fusesource.camel.component.sap.model.rfc.ServerDataStore#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.ServerDataStore#getServerData <em>Server Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,5 +54,21 @@ public interface ServerDataStore extends EObject {
 	 * @generated
 	 */
 	EMap<String, ServerData> getEntries();
+
+	/**
+	 * Returns the value of the '<em><b>Server Data</b></em>' containment reference list.
+	 * The list contents are of type {@link org.fusesource.camel.component.sap.model.rfc.ServerData}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Server Data</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Server Data</em>' containment reference list.
+	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getServerDataStore_ServerData()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ServerData> getServerData();
 
 } // ServerDataStore

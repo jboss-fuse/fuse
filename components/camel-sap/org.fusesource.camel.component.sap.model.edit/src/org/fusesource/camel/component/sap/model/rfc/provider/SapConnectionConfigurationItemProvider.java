@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Red Hat, Inc.
+ * Copyright 2014 Red Hat, Inc.
  * 
  * Red Hat licenses this file to you under the Apache License, version
  * 2.0 (the "License"); you may not use this file except in compliance
@@ -10,7 +10,7 @@
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- *  implied.  See the License for the specific language governing
+ * implied.  See the License for the specific language governing
  * permissions and limitations under the License.
  * 
  */
@@ -22,8 +22,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -32,18 +35,20 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.fusesource.camel.component.sap.model.SAPEditPlugin;
-import org.fusesource.camel.component.sap.model.rfc.DestinationDataStore;
+
 import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
+import org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration;
 
 /**
- * This is the item provider adapter for a {@link org.fusesource.camel.component.sap.model.rfc.DestinationDataStore} object.
+ * This is the item provider adapter for a {@link org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DestinationDataStoreItemProvider
+public class SapConnectionConfigurationItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -57,7 +62,7 @@ public class DestinationDataStoreItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DestinationDataStoreItemProvider(AdapterFactory adapterFactory) {
+	public SapConnectionConfigurationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -88,8 +93,8 @@ public class DestinationDataStoreItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RfcPackage.Literals.DESTINATION_DATA_STORE__ENTRIES);
-			childrenFeatures.add(RfcPackage.Literals.DESTINATION_DATA_STORE__DESTINATION_DATA);
+			childrenFeatures.add(RfcPackage.Literals.SAP_CONNECTION_CONFIGURATION__DESTINATION_DATA_STORE);
+			childrenFeatures.add(RfcPackage.Literals.SAP_CONNECTION_CONFIGURATION__SERVER_DATA_STORE);
 		}
 		return childrenFeatures;
 	}
@@ -108,14 +113,14 @@ public class DestinationDataStoreItemProvider
 	}
 
 	/**
-	 * This returns DestinationDataStore.gif.
+	 * This returns SapConnectionConfiguration.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DestinationDataStore"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SapConnectionConfiguration"));
 	}
 
 	/**
@@ -126,8 +131,9 @@ public class DestinationDataStoreItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DestinationDataStore_type");
+		return getString("_UI_SapConnectionConfiguration_type");
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -140,9 +146,9 @@ public class DestinationDataStoreItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DestinationDataStore.class)) {
-			case RfcPackage.DESTINATION_DATA_STORE__ENTRIES:
-			case RfcPackage.DESTINATION_DATA_STORE__DESTINATION_DATA:
+		switch (notification.getFeatureID(SapConnectionConfiguration.class)) {
+			case RfcPackage.SAP_CONNECTION_CONFIGURATION__DESTINATION_DATA_STORE:
+			case RfcPackage.SAP_CONNECTION_CONFIGURATION__SERVER_DATA_STORE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,13 +168,13 @@ public class DestinationDataStoreItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RfcPackage.Literals.DESTINATION_DATA_STORE__ENTRIES,
-				 RfcFactory.eINSTANCE.create(RfcPackage.Literals.DESTINATION_DATA_STORE_ENTRY)));
+				(RfcPackage.Literals.SAP_CONNECTION_CONFIGURATION__DESTINATION_DATA_STORE,
+				 RfcFactory.eINSTANCE.createDestinationDataStore()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RfcPackage.Literals.DESTINATION_DATA_STORE__DESTINATION_DATA,
-				 RfcFactory.eINSTANCE.createDestinationData()));
+				(RfcPackage.Literals.SAP_CONNECTION_CONFIGURATION__SERVER_DATA_STORE,
+				 RfcFactory.eINSTANCE.createServerDataStore()));
 	}
 
 	/**

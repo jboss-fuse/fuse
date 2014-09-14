@@ -16,12 +16,15 @@
  */
 package org.fusesource.camel.component.sap.model.rfc.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.fusesource.camel.component.sap.model.rfc.DestinationData;
@@ -36,6 +39,7 @@ import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataStoreImpl#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataStoreImpl#getDestinationData <em>Destination Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +55,16 @@ public class DestinationDataStoreImpl extends EObjectImpl implements Destination
 	 * @ordered
 	 */
 	protected EMap<String, DestinationData> entries;
+
+	/**
+	 * The cached value of the '{@link #getDestinationData() <em>Destination Data</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestinationData()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DestinationData> destinationData;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,11 +102,25 @@ public class DestinationDataStoreImpl extends EObjectImpl implements Destination
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<DestinationData> getDestinationData() {
+		if (destinationData == null) {
+			destinationData = new EObjectContainmentEList<DestinationData>(DestinationData.class, this, RfcPackage.DESTINATION_DATA_STORE__DESTINATION_DATA);
+		}
+		return destinationData;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RfcPackage.DESTINATION_DATA_STORE__ENTRIES:
 				return ((InternalEList<?>)getEntries()).basicRemove(otherEnd, msgs);
+			case RfcPackage.DESTINATION_DATA_STORE__DESTINATION_DATA:
+				return ((InternalEList<?>)getDestinationData()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -108,6 +136,8 @@ public class DestinationDataStoreImpl extends EObjectImpl implements Destination
 			case RfcPackage.DESTINATION_DATA_STORE__ENTRIES:
 				if (coreType) return getEntries();
 				else return getEntries().map();
+			case RfcPackage.DESTINATION_DATA_STORE__DESTINATION_DATA:
+				return getDestinationData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,11 +147,16 @@ public class DestinationDataStoreImpl extends EObjectImpl implements Destination
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RfcPackage.DESTINATION_DATA_STORE__ENTRIES:
 				((EStructuralFeature.Setting)getEntries()).set(newValue);
+				return;
+			case RfcPackage.DESTINATION_DATA_STORE__DESTINATION_DATA:
+				getDestinationData().clear();
+				getDestinationData().addAll((Collection<? extends DestinationData>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,6 +173,9 @@ public class DestinationDataStoreImpl extends EObjectImpl implements Destination
 			case RfcPackage.DESTINATION_DATA_STORE__ENTRIES:
 				getEntries().clear();
 				return;
+			case RfcPackage.DESTINATION_DATA_STORE__DESTINATION_DATA:
+				getDestinationData().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,6 +190,8 @@ public class DestinationDataStoreImpl extends EObjectImpl implements Destination
 		switch (featureID) {
 			case RfcPackage.DESTINATION_DATA_STORE__ENTRIES:
 				return entries != null && !entries.isEmpty();
+			case RfcPackage.DESTINATION_DATA_STORE__DESTINATION_DATA:
+				return destinationData != null && !destinationData.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

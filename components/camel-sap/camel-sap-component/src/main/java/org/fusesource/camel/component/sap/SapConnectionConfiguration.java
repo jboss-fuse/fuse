@@ -10,13 +10,13 @@ import org.fusesource.camel.component.sap.model.rfc.ServerDataStore;
 import org.fusesource.camel.component.sap.util.ComponentDestinationDataProvider;
 import org.fusesource.camel.component.sap.util.ComponentServerDataProvider;
 
-public class SapConfiguration {
+public class SapConnectionConfiguration {
 
 	protected final DestinationDataStore destinationDataStore = RfcFactory.eINSTANCE.createDestinationDataStore();
 
 	protected final ServerDataStore serverDataStore = RfcFactory.eINSTANCE.createServerDataStore();
 
-	public SapConfiguration() {
+	public SapConnectionConfiguration() {
 	   	ComponentDestinationDataProvider.INSTANCE.addDestinationDataStore(destinationDataStore);
     	ComponentServerDataProvider.INSTANCE.addServerDataStore(serverDataStore);
 	}

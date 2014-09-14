@@ -94,6 +94,7 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 			case RfcPackage.STRUCTURE: return createStructure();
 			case RfcPackage.REQUEST: return createRequest();
 			case RfcPackage.RESPONSE: return createResponse();
+			case RfcPackage.SAP_CONNECTION_CONFIGURATION: return createSapConnectionConfiguration();
 			case RfcPackage.DESTINATION_DATA_ENTRY: return (EObject)createDestinationDataEntry();
 			case RfcPackage.DESTINATION_DATA: return createDestinationData();
 			case RfcPackage.DESTINATION_DATA_STORE_ENTRY: return (EObject)createDestinationDataStoreEntry();
@@ -211,6 +212,16 @@ public class RfcFactoryImpl extends EFactoryImpl implements RfcFactory {
 	public Response createResponse() {
 		ResponseImpl response = new ResponseImpl();
 		return response;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SapConnectionConfiguration createSapConnectionConfiguration() {
+		SapConnectionConfigurationImpl sapConnectionConfiguration = new SapConnectionConfigurationImpl();
+		return sapConnectionConfiguration;
 	}
 
 	/**

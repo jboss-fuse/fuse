@@ -16,6 +16,7 @@
  */
 package org.fusesource.camel.component.sap.model.rfc;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.fusesource.camel.component.sap.model.rfc.DestinationDataStore#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.DestinationDataStore#getDestinationData <em>Destination Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,5 +54,21 @@ public interface DestinationDataStore extends EObject {
 	 * @generated
 	 */
 	EMap<String, DestinationData> getEntries();
+
+	/**
+	 * Returns the value of the '<em><b>Destination Data</b></em>' containment reference list.
+	 * The list contents are of type {@link org.fusesource.camel.component.sap.model.rfc.DestinationData}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Destination Data</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Destination Data</em>' containment reference list.
+	 * @see org.fusesource.camel.component.sap.model.rfc.RfcPackage#getDestinationDataStore_DestinationData()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DestinationData> getDestinationData();
 
 } // DestinationDataStore
