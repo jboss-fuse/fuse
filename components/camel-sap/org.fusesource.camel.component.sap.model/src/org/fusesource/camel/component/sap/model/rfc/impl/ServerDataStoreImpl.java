@@ -16,12 +16,15 @@
  */
 package org.fusesource.camel.component.sap.model.rfc.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.fusesource.camel.component.sap.model.rfc.RfcPackage;
@@ -36,6 +39,7 @@ import org.fusesource.camel.component.sap.model.rfc.ServerDataStore;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.ServerDataStoreImpl#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.fusesource.camel.component.sap.model.rfc.impl.ServerDataStoreImpl#getServerData <em>Server Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +55,16 @@ public class ServerDataStoreImpl extends EObjectImpl implements ServerDataStore 
 	 * @ordered
 	 */
 	protected EMap<String, ServerData> entries;
+
+	/**
+	 * The cached value of the '{@link #getServerData() <em>Server Data</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServerData()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ServerData> serverData;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,11 +102,25 @@ public class ServerDataStoreImpl extends EObjectImpl implements ServerDataStore 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ServerData> getServerData() {
+		if (serverData == null) {
+			serverData = new EObjectContainmentEList<ServerData>(ServerData.class, this, RfcPackage.SERVER_DATA_STORE__SERVER_DATA);
+		}
+		return serverData;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RfcPackage.SERVER_DATA_STORE__ENTRIES:
 				return ((InternalEList<?>)getEntries()).basicRemove(otherEnd, msgs);
+			case RfcPackage.SERVER_DATA_STORE__SERVER_DATA:
+				return ((InternalEList<?>)getServerData()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -108,6 +136,8 @@ public class ServerDataStoreImpl extends EObjectImpl implements ServerDataStore 
 			case RfcPackage.SERVER_DATA_STORE__ENTRIES:
 				if (coreType) return getEntries();
 				else return getEntries().map();
+			case RfcPackage.SERVER_DATA_STORE__SERVER_DATA:
+				return getServerData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,11 +147,16 @@ public class ServerDataStoreImpl extends EObjectImpl implements ServerDataStore 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RfcPackage.SERVER_DATA_STORE__ENTRIES:
 				((EStructuralFeature.Setting)getEntries()).set(newValue);
+				return;
+			case RfcPackage.SERVER_DATA_STORE__SERVER_DATA:
+				getServerData().clear();
+				getServerData().addAll((Collection<? extends ServerData>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,6 +173,9 @@ public class ServerDataStoreImpl extends EObjectImpl implements ServerDataStore 
 			case RfcPackage.SERVER_DATA_STORE__ENTRIES:
 				getEntries().clear();
 				return;
+			case RfcPackage.SERVER_DATA_STORE__SERVER_DATA:
+				getServerData().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,6 +190,8 @@ public class ServerDataStoreImpl extends EObjectImpl implements ServerDataStore 
 		switch (featureID) {
 			case RfcPackage.SERVER_DATA_STORE__ENTRIES:
 				return entries != null && !entries.isEmpty();
+			case RfcPackage.SERVER_DATA_STORE__SERVER_DATA:
+				return serverData != null && !serverData.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

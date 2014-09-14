@@ -89,6 +89,7 @@ public class ServerDataStoreItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RfcPackage.Literals.SERVER_DATA_STORE__ENTRIES);
+			childrenFeatures.add(RfcPackage.Literals.SERVER_DATA_STORE__SERVER_DATA);
 		}
 		return childrenFeatures;
 	}
@@ -141,6 +142,7 @@ public class ServerDataStoreItemProvider
 
 		switch (notification.getFeatureID(ServerDataStore.class)) {
 			case RfcPackage.SERVER_DATA_STORE__ENTRIES:
+			case RfcPackage.SERVER_DATA_STORE__SERVER_DATA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,6 +164,11 @@ public class ServerDataStoreItemProvider
 			(createChildParameter
 				(RfcPackage.Literals.SERVER_DATA_STORE__ENTRIES,
 				 RfcFactory.eINSTANCE.create(RfcPackage.Literals.SERVER_DATA_STORE_ENTRY)));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RfcPackage.Literals.SERVER_DATA_STORE__SERVER_DATA,
+				 RfcFactory.eINSTANCE.createServerData()));
 	}
 
 	/**

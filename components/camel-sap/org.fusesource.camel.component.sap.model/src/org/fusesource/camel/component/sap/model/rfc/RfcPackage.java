@@ -421,6 +421,43 @@ public interface RfcPackage extends EPackage {
 	int RESPONSE_FEATURE_COUNT = STRUCTURE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.SapConnectionConfigurationImpl <em>Sap Connection Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.SapConnectionConfigurationImpl
+	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getSapConnectionConfiguration()
+	 * @generated
+	 */
+	int SAP_CONNECTION_CONFIGURATION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Destination Data Store</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAP_CONNECTION_CONFIGURATION__DESTINATION_DATA_STORE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Server Data Store</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAP_CONNECTION_CONFIGURATION__SERVER_DATA_STORE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Sap Connection Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAP_CONNECTION_CONFIGURATION_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataEntryImpl <em>Destination Data Entry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -428,7 +465,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDestinationDataEntry()
 	 * @generated
 	 */
-	int DESTINATION_DATA_ENTRY = 6;
+	int DESTINATION_DATA_ENTRY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -465,7 +502,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDestinationData()
 	 * @generated
 	 */
-	int DESTINATION_DATA = 7;
+	int DESTINATION_DATA = 8;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -916,7 +953,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDestinationDataStoreEntry()
 	 * @generated
 	 */
-	int DESTINATION_DATA_STORE_ENTRY = 8;
+	int DESTINATION_DATA_STORE_ENTRY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -953,7 +990,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDestinationDataStore()
 	 * @generated
 	 */
-	int DESTINATION_DATA_STORE = 9;
+	int DESTINATION_DATA_STORE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -965,13 +1002,22 @@ public interface RfcPackage extends EPackage {
 	int DESTINATION_DATA_STORE__ENTRIES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Destination Data</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTINATION_DATA_STORE__DESTINATION_DATA = 1;
+
+	/**
 	 * The number of structural features of the '<em>Destination Data Store</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESTINATION_DATA_STORE_FEATURE_COUNT = 1;
+	int DESTINATION_DATA_STORE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.ServerImpl <em>Server</em>}' class.
@@ -981,7 +1027,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServer()
 	 * @generated
 	 */
-	int SERVER = 10;
+	int SERVER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1009,7 +1055,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServerDataEntry()
 	 * @generated
 	 */
-	int SERVER_DATA_ENTRY = 11;
+	int SERVER_DATA_ENTRY = 12;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1046,7 +1092,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServerData()
 	 * @generated
 	 */
-	int SERVER_DATA = 12;
+	int SERVER_DATA = 13;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -1209,7 +1255,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServerDataStoreEntry()
 	 * @generated
 	 */
-	int SERVER_DATA_STORE_ENTRY = 13;
+	int SERVER_DATA_STORE_ENTRY = 14;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1246,7 +1292,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getServerDataStore()
 	 * @generated
 	 */
-	int SERVER_DATA_STORE = 14;
+	int SERVER_DATA_STORE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -1258,13 +1304,22 @@ public interface RfcPackage extends EPackage {
 	int SERVER_DATA_STORE__ENTRIES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Server Data</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_DATA_STORE__SERVER_DATA = 1;
+
+	/**
 	 * The number of structural features of the '<em>Server Data Store</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_DATA_STORE_FEATURE_COUNT = 1;
+	int SERVER_DATA_STORE_FEATURE_COUNT = 2;
 
 
 	/**
@@ -1275,7 +1330,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFunctionTemplate()
 	 * @generated
 	 */
-	int FUNCTION_TEMPLATE = 15;
+	int FUNCTION_TEMPLATE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' reference list.
@@ -1384,7 +1439,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRecordMetaData()
 	 * @generated
 	 */
-	int RECORD_META_DATA = 16;
+	int RECORD_META_DATA = 17;
 
 	/**
 	 * The feature id for the '<em><b>Field Meta Data</b></em>' containment reference list.
@@ -1430,7 +1485,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFieldMetaData()
 	 * @generated
 	 */
-	int FIELD_META_DATA = 17;
+	int FIELD_META_DATA = 18;
 
 	/**
 	 * The feature id for the '<em><b>Field Meta Data</b></em>' containment reference list.
@@ -1539,7 +1594,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getListFieldMetaData()
 	 * @generated
 	 */
-	int LIST_FIELD_META_DATA = 18;
+	int LIST_FIELD_META_DATA = 19;
 
 	/**
 	 * The feature id for the '<em><b>Field Meta Data</b></em>' containment reference list.
@@ -1684,7 +1739,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getAbapException()
 	 * @generated
 	 */
-	int ABAP_EXCEPTION = 19;
+	int ABAP_EXCEPTION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1721,7 +1776,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryDataEntry()
 	 * @generated
 	 */
-	int REPOSITORY_DATA_ENTRY = 20;
+	int REPOSITORY_DATA_ENTRY = 21;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1758,7 +1813,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryData()
 	 * @generated
 	 */
-	int REPOSITORY_DATA = 21;
+	int REPOSITORY_DATA = 22;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -1795,7 +1850,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryDataStore()
 	 * @generated
 	 */
-	int REPOSITORY_DATA_STORE = 22;
+	int REPOSITORY_DATA_STORE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -1823,7 +1878,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getRepositoryDataStoreEntry()
 	 * @generated
 	 */
-	int REPOSITORY_DATA_STORE_ENTRY = 23;
+	int REPOSITORY_DATA_STORE_ENTRY = 24;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1860,7 +1915,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getTIDStoreEntry()
 	 * @generated
 	 */
-	int TID_STORE_ENTRY = 24;
+	int TID_STORE_ENTRY = 25;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1897,7 +1952,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getTIDStore()
 	 * @generated
 	 */
-	int TID_STORE = 25;
+	int TID_STORE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' map.
@@ -1925,7 +1980,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getTIDState()
 	 * @generated
 	 */
-	int TID_STATE = 26;
+	int TID_STATE = 27;
 
 	/**
 	 * The meta object id for the '{@link org.fusesource.camel.component.sap.model.rfc.DataType <em>Data Type</em>}' enum.
@@ -1935,7 +1990,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 27;
+	int DATA_TYPE = 28;
 
 
 	/**
@@ -1946,7 +2001,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getParameterList()
 	 * @generated
 	 */
-	int PARAMETER_LIST = 28;
+	int PARAMETER_LIST = 29;
 
 	/**
 	 * The meta object id for the '<em>Field List</em>' data type.
@@ -1956,7 +2011,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFieldList()
 	 * @generated
 	 */
-	int FIELD_LIST = 29;
+	int FIELD_LIST = 30;
 
 	/**
 	 * The meta object id for the '<em>Abap Exception List</em>' data type.
@@ -1966,7 +2021,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getAbapExceptionList()
 	 * @generated
 	 */
-	int ABAP_EXCEPTION_LIST = 30;
+	int ABAP_EXCEPTION_LIST = 31;
 
 
 	/**
@@ -1977,7 +2032,7 @@ public interface RfcPackage extends EPackage {
 	 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getFunctionTemplateMap()
 	 * @generated
 	 */
-	int FUNCTION_TEMPLATE_MAP = 31;
+	int FUNCTION_TEMPLATE_MAP = 32;
 
 
 	/**
@@ -2215,6 +2270,38 @@ public interface RfcPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getResponse();
+
+	/**
+	 * Returns the meta object for class '{@link org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration <em>Sap Connection Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sap Connection Configuration</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration
+	 * @generated
+	 */
+	EClass getSapConnectionConfiguration();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration#getDestinationDataStore <em>Destination Data Store</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Destination Data Store</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration#getDestinationDataStore()
+	 * @see #getSapConnectionConfiguration()
+	 * @generated
+	 */
+	EReference getSapConnectionConfiguration_DestinationDataStore();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration#getServerDataStore <em>Server Data Store</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Server Data Store</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration#getServerDataStore()
+	 * @see #getSapConnectionConfiguration()
+	 * @generated
+	 */
+	EReference getSapConnectionConfiguration_ServerDataStore();
 
 	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Destination Data Entry</em>}'.
@@ -2844,6 +2931,17 @@ public interface RfcPackage extends EPackage {
 	EReference getDestinationDataStore_Entries();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.fusesource.camel.component.sap.model.rfc.DestinationDataStore#getDestinationData <em>Destination Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Destination Data</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.DestinationDataStore#getDestinationData()
+	 * @see #getDestinationDataStore()
+	 * @generated
+	 */
+	EReference getDestinationDataStore_DestinationData();
+
+	/**
 	 * Returns the meta object for class '{@link org.fusesource.camel.component.sap.model.rfc.Server <em>Server</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3138,6 +3236,17 @@ public interface RfcPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getServerDataStore_Entries();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.fusesource.camel.component.sap.model.rfc.ServerDataStore#getServerData <em>Server Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Server Data</em>'.
+	 * @see org.fusesource.camel.component.sap.model.rfc.ServerDataStore#getServerData()
+	 * @see #getServerDataStore()
+	 * @generated
+	 */
+	EReference getServerDataStore_ServerData();
 
 	/**
 	 * Returns the meta object for class '{@link org.fusesource.camel.component.sap.model.rfc.FunctionTemplate <em>Function Template</em>}'.
@@ -4069,6 +4178,32 @@ public interface RfcPackage extends EPackage {
 		EClass RESPONSE = eINSTANCE.getResponse();
 
 		/**
+		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.SapConnectionConfigurationImpl <em>Sap Connection Configuration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.SapConnectionConfigurationImpl
+		 * @see org.fusesource.camel.component.sap.model.rfc.impl.RfcPackageImpl#getSapConnectionConfiguration()
+		 * @generated
+		 */
+		EClass SAP_CONNECTION_CONFIGURATION = eINSTANCE.getSapConnectionConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Destination Data Store</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SAP_CONNECTION_CONFIGURATION__DESTINATION_DATA_STORE = eINSTANCE.getSapConnectionConfiguration_DestinationDataStore();
+
+		/**
+		 * The meta object literal for the '<em><b>Server Data Store</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SAP_CONNECTION_CONFIGURATION__SERVER_DATA_STORE = eINSTANCE.getSapConnectionConfiguration_ServerDataStore();
+
+		/**
 		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataEntryImpl <em>Destination Data Entry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4533,6 +4668,14 @@ public interface RfcPackage extends EPackage {
 		EReference DESTINATION_DATA_STORE__ENTRIES = eINSTANCE.getDestinationDataStore_Entries();
 
 		/**
+		 * The meta object literal for the '<em><b>Destination Data</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DESTINATION_DATA_STORE__DESTINATION_DATA = eINSTANCE.getDestinationDataStore_DestinationData();
+
+		/**
 		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.ServerImpl <em>Server</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4757,6 +4900,14 @@ public interface RfcPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVER_DATA_STORE__ENTRIES = eINSTANCE.getServerDataStore_Entries();
+
+		/**
+		 * The meta object literal for the '<em><b>Server Data</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVER_DATA_STORE__SERVER_DATA = eINSTANCE.getServerDataStore_ServerData();
 
 		/**
 		 * The meta object literal for the '{@link org.fusesource.camel.component.sap.model.rfc.impl.FunctionTemplateImpl <em>Function Template</em>}' class.

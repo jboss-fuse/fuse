@@ -93,6 +93,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Request" eSuperTypes="#//Structure"/>
   <eClassifiers xsi:type="ecore:EClass" name="Response" eSuperTypes="#//Structure"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SapConnectionConfiguration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destinationDataStore" lowerBound="1"
+        eType="#//DestinationDataStore" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serverDataStore" lowerBound="1"
+        eType="#//ServerDataStore" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DestinationDataEntry" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -203,6 +209,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DestinationDataStore">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//DestinationDataStoreEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destinationData" upperBound="-1"
+        eType="#//DestinationData" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Server">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -253,6 +261,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ServerDataStore">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//ServerDataStoreEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serverData" upperBound="-1"
+        eType="#//ServerData" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionTemplate">
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"

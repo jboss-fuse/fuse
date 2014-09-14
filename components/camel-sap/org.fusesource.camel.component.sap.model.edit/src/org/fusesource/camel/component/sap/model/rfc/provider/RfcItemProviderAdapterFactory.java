@@ -222,6 +222,29 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SapConnectionConfigurationItemProvider sapConnectionConfigurationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.fusesource.camel.component.sap.model.rfc.SapConnectionConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSapConnectionConfigurationAdapter() {
+		if (sapConnectionConfigurationItemProvider == null) {
+			sapConnectionConfigurationItemProvider = new SapConnectionConfigurationItemProvider(this);
+		}
+
+		return sapConnectionConfigurationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -786,6 +809,7 @@ public class RfcItemProviderAdapterFactory extends RfcAdapterFactory implements 
 		if (structureItemProvider != null) structureItemProvider.dispose();
 		if (requestItemProvider != null) requestItemProvider.dispose();
 		if (responseItemProvider != null) responseItemProvider.dispose();
+		if (sapConnectionConfigurationItemProvider != null) sapConnectionConfigurationItemProvider.dispose();
 		if (destinationDataEntryItemProvider != null) destinationDataEntryItemProvider.dispose();
 		if (destinationDataItemProvider != null) destinationDataItemProvider.dispose();
 		if (destinationDataStoreEntryItemProvider != null) destinationDataStoreEntryItemProvider.dispose();

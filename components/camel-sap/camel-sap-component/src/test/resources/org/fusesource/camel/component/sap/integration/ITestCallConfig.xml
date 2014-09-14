@@ -22,7 +22,7 @@
 	<bean id="throwUp" class="org.fusesource.camel.component.sap.integration.MeThrowUp"/>
 	<bean id="counter" class="org.fusesource.camel.component.sap.integration.Counter"/>
 
-	<bean id="sap-configuration" class="org.fusesource.camel.component.sap.SapConfiguration">
+	<bean id="sap-configuration" class="org.fusesource.camel.component.sap.SapConnectionConfiguration">
 		<property name="destinationDataStore">
 			<map>
 				<entry key="nplDest" value-ref="nplDestinationData" />

@@ -988,13 +988,13 @@ public class IdocPackageImpl extends EPackageImpl implements IdocPackage {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";																							
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
 		addAnnotation
 		  (getSegmentChildren_Segments(), 
 		   source, 
 		   new String[] {
 			 "kind", "group"
-		   });	
+		   });
 	}
 
 } //IdocPackageImpl
