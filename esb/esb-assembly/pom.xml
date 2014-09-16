@@ -261,6 +261,23 @@
                             </target>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>hawtio-branding</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                        <target name="hawtio-branding">
+                            <echo message="Updating hawtio profile to add reference to RH branding" />
+                            <replaceregexp
+                                    match= "^\s*feature.*branding\s*$"
+                                    replace="feature.hawtio-redhat-fuse-branding=hawtio-redhat-fuse-branding${line.separator}feature.hawtio-redhat-amq-branding=hawtio-redhat-amq-branding${line.separator}"
+                                    file="target/dependencies/unix/fabric8-karaf-${fabric.version}/fabric/import/fabric/profiles/hawtio.profile/io.fabric8.agent.properties"
+                                    byline="true"/>
+                        </target>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>            
             <plugin>
