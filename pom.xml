@@ -729,6 +729,16 @@
                 <artifactId>fabric-runtime-container-karaf-registration</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric-kubernetes-api</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric-kubernetes-provider</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
 
             <!-- Utils -->
             <dependency>
