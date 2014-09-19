@@ -17,6 +17,9 @@
 
 package org.fusesource.esb.itests.basic;
 
+import java.util.HashSet;
+import java.util.Set;
+import org.apache.karaf.jaas.boot.principal.RolePrincipal;
 import org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +38,9 @@ public class EsbBootTest extends EsbTestSupport {
 
     @Test
     public void testBoot() throws Exception {
-        String exceptions = executeCommand("log:display-exception");
+        Set<RolePrincipal> set = new HashSet<RolePrincipal>();
+        set.add(new RolePrincipal("Administrator"));
+        String exceptions = executeCommand(set, "log:display-exception");
         System.out.println(exceptions);
         assertEquals("Expected log:display-exception to display no exceptions on startup","", exceptions);
     }
