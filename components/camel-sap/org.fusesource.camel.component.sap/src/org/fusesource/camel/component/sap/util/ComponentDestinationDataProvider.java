@@ -18,6 +18,7 @@ package org.fusesource.camel.component.sap.util;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -163,6 +164,9 @@ public class ComponentDestinationDataProvider implements
 		Environment.registerDestinationDataProvider(this);
 	}
 
+	/**
+	 * @param store
+	 */
 	public void addDestinationDataStore(DestinationDataStore store) {
 
 		// Remember store
@@ -170,6 +174,11 @@ public class ComponentDestinationDataProvider implements
 
 		// listen for any changes in added store.
 		store.eAdapters().add(destinationDataStoreListener);
+		
+		// listen for any changes in current destination data in store.
+		for (Map.Entry<String, DestinationData> entry : store.getEntries()) {
+			destinationDataStoreListener.addDestinationDataListener(entry.getKey(), entry.getValue());
+		}
 
 		if (destinationDataEventListener == null) {
 			return;

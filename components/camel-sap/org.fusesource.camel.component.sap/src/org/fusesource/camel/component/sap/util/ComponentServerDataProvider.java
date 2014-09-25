@@ -18,6 +18,7 @@ package org.fusesource.camel.component.sap.util;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -170,6 +171,11 @@ public class ComponentServerDataProvider implements
 
 		// listen for any changes in added store.
 		store.eAdapters().add(serverDataStoreListener);
+
+		// listen for any changes in current server data in store.
+		for (Map.Entry<String, ServerData> entry : store.getEntries()) {
+			serverDataStoreListener.addServerDataListener(entry.getKey(), entry.getValue());
+		}
 
 		if (serverDataEventListener == null) {
 			return;
