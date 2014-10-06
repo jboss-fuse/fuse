@@ -69,12 +69,6 @@
                    </exclusion>
                </exclusions>
            </dependency>
-            <dependency>
-                <groupId>io.fabric8.insight</groupId>
-                <artifactId>insight-influxdb-metrics</artifactId>
-                <version>${fabric.version}</version>
-            </dependency>
-
            <dependency>
                <groupId>org.jboss.amq</groupId>
                <artifactId>org.jboss.amq.karaf.branding</artifactId>
