@@ -1,0 +1,195 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>org.fusesource.camel.component.sap.updatesite</artifactId>
+	<name>JBoss Fuse :: SAP JCO :: SAP Data Layer :: Update Site</name>
+	<packaging>eclipse-repository</packaging>
+	<parent>
+		<groupId>org.fusesource</groupId>
+		<artifactId>camel-sap-repository</artifactId>
+		<version>6.2.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<url>http://http://www.jboss.org/products/fuse/overview/</url>
+	<description>Provides Update Site for the SAP Data Layer</description>
+	<organization>
+		<url>http://www.redhat.com</url>
+		<name>Red Hat, Inc.</name>
+	</organization>
+
+	<properties>
+		<BUILD_ALIAS>LOCAL</BUILD_ALIAS>
+		<BUILD_TYPE>integration</BUILD_TYPE>
+		<update.site.name>JBoss Fuse SAP Data Layer</update.site.name>
+		<update.site.description>Nightly Build</update.site.description>
+		<update.site.version>${project.version}.${BUILD_ALIAS}</update.site.version>
+		<target.eclipse.version>4.4 (Luna)</target.eclipse.version>
+		<siteTemplateFolder>siteTemplateFolder</siteTemplateFolder>
+	</properties>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.jboss.tools.tycho-plugins</groupId>
+				<artifactId>repository-utils</artifactId>
+				<version>0.21.0</version>
+				<executions>
+					<execution>
+						<id>generate-facade</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-repository-facade</goal>
+						</goals>
+						<configuration>
+							<associateSites>
+								<associateSite>http://download.jboss.org/jbosstools/updates/stable/luna/</associateSite>
+								<associateSite>http://download.jboss.org/jbosstools/targetplatforms/jbtistarget/luna/</associateSite>
+								<associateSite>http://download.jboss.org/jbosstools/updates/requirements/gemini/2.0.0.RELEASE/</associateSite>
+							</associateSites>
+
+							<siteTemplateFolder>${siteTemplateFolder}</siteTemplateFolder>
+
+							<symbols>
+								<update.site.name>${update.site.name}</update.site.name>
+								<update.site.description>${update.site.description}</update.site.description>
+								<update.site.version>${update.site.version}</update.site.version>
+								<target.eclipse.version>${target.eclipse.version}</target.eclipse.version>
+							</symbols>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.fusesource.mvnplugins</groupId>
+				<artifactId>maven-updatesite-plugin</artifactId>
+				<version>1.15</version>
+				<configuration>
+					<inputDirectory>${project.build.directory}/repository</inputDirectory>
+					<remoteServerId>fuse-sap.mw.lab.eng.bos.redhat.com</remoteServerId>
+					<remoteServerUrl>scp://fuse-sap.mw.lab.eng.bos.redhat.com/var/www/html/repositories/fuse-sap-data-layer/updatesite</remoteServerUrl>
+					<mvOptions></mvOptions>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy-on-install</id>
+						<phase>install</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.wagon</groupId>
+						<artifactId>wagon-ssh</artifactId>
+						<version>2.7</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<profiles>
+
+		<profile>
+			<id>sign</id>
+			<!-- To sign plug-ins and features: mvn -Psign -Dkeystore=<path> -Dstorepass=*** 
+				-Dalias=<keyalias> clean install -->
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jar-plugin</artifactId>
+							<version>2.3.1</version>
+							<executions>
+								<execution>
+									<goals>
+										<goal>sign</goal>
+									</goals>
+								</execution>
+							</executions>
+							<configuration>
+								<skip>true</skip>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+
+		<!-- integration build type profile -->
+		<profile>
+			<id>integration</id>
+			<activation>
+				<property>
+					<name>BUILD_TYPE</name>
+					<value>integration</value>
+				</property>
+			</activation>
+
+			<properties>
+				<update.site.description>Integration Build</update.site.description>
+			</properties>
+		</profile>
+
+		<!-- development build type profile -->
+		<profile>
+			<id>development</id>
+			<activation>
+				<property>
+					<name>BUILD_TYPE</name>
+					<value>development</value>
+				</property>
+			</activation>
+
+			<properties>
+				<update.site.description>Development Milestone</update.site.description>
+			</properties>
+		</profile>
+
+		<!-- stable build type profile -->
+		<profile>
+			<id>stable</id>
+			<activation>
+				<property>
+					<name>BUILD_TYPE</name>
+					<value>stable</value>
+				</property>
+			</activation>
+
+			<properties>
+				<update.site.description>Stable Release</update.site.description>
+			</properties>
+		</profile>
+	</profiles>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jboss-snapshots-repository</id>
+			<name>JBoss Snapshots Maven Repository</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>jboss-releases-repository</id>
+			<name>JBoss Releases Maven Repository</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>

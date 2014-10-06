@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.fusesource.camel.component.sap.feature_6.2.0.qualifier.jar" id="org.fusesource.camel.component.sap.feature" version="6.2.0.qualifier">
+      <category name="org.fusesource.camel.component.sap.FuseTooling"/>
+   </feature>
+   <category-def name="org.fusesource.camel.component.sap.FuseTooling" label="JBoss Fuse Tooling"/>
+</site>
