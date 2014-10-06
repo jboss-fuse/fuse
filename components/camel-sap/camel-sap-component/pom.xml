@@ -30,7 +30,7 @@
 	<packaging>bundle</packaging>
 
 	<name>JBoss Fuse :: Components :: SAP JCO :: Camel Component</name>
-	<url>http://fusesource.org</url>
+	<url>http://http://www.jboss.org/products/fuse/overview/</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -311,4 +311,5 @@
 		</pluginManagement>
 	</build>
 
+	<description>Provides SAP Camel Component Layer</description>
 </project>

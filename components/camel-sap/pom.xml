@@ -29,7 +29,7 @@
 	<packaging>pom</packaging>
 
     <name>JBoss Fuse :: Components :: SAP JCO</name>
-	<url>http://www.fusesource.org</url>
+	<url>http://http://www.jboss.org/products/fuse/overview/</url>
 
 	<properties>
 		<tycho-version>0.21.0</tycho-version>
@@ -419,10 +419,11 @@
 		<module>org.fusesource.camel.component.sap.model.edit</module>
 		<module>org.fusesource.camel.component.sap</module>
 		<module>camel-sap-component</module>
+		<module>camel-sap-repository</module>
 	</modules>
 	<repositories>
 		<repository>
-			<id>eclipse-juno</id>
+			<id>eclipse-luna</id>
 			<url>http://download.eclipse.org/releases/luna/</url>
 			<layout>p2</layout>
 			<snapshots>
@@ -433,5 +434,5 @@
 			</releases>
 		</repository>
 	</repositories>
-	<description>Builds Fuse SAP Camel Component</description>
+	<description>Provides SAP Camel Component</description>
 </project>

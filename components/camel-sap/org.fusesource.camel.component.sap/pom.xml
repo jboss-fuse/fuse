@@ -26,8 +26,8 @@
 	</parent>
 
 	<packaging>eclipse-plugin</packaging>
-	<name>Camel SAP Component Plugin</name>
-	<description>Builds Camel SAP Plugin</description>
+	<name>JBoss Fuse :: SAP JCO :: SAP Data Layer :: Runtime Plugin</name>
+	<description>Provides Runtime for the SAP Data Layer</description>
 
 	<organization>
 		<name>Red Hat, Inc.</name>
@@ -62,4 +62,5 @@
 			<version>3.0.10.redhat_1</version>
 		</dependency>
 	</dependencies>
+	<url>http://http://www.jboss.org/products/fuse/overview/</url>
 </project>

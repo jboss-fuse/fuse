@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: SAP
+Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.fusesource.camel.component.sap
 Bundle-Version: 6.2.0.qualifier
 Bundle-Activator: org.fusesource.camel.component.sap.Activator
-Bundle-Vendor: http://www.fusesource.org
+Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.fusesource.camel.component.sap.model.edit

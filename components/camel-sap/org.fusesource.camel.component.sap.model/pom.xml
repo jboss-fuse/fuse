@@ -43,9 +43,9 @@
   	<artifactId>camel-sap-parent</artifactId>
   	<version>6.2.0.redhat-SNAPSHOT</version>
   </parent>
-  <url>http://www.fusesource.org</url>
-  <name>Camel SAP Component Model Plugin</name>
-  <description>Builds Camel SAP Component Model</description>
+  <url>http://http://www.jboss.org/products/fuse/overview/</url>
+  <name>JBoss Fuse :: SAP JCO :: SAP Data Layer :: Model Plugin</name>
+  <description>Provides the Runtime Objects of the SAP Data Layer</description>
   <organization>
   	<name>Red Hat, Inc.</name>
   	<url>http://www.redhat.com</url>

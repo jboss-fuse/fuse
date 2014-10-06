@@ -6,7 +6,7 @@ Bundle-Version: 6.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.fusesource.camel.component.sap.model.SAPEditPlugin$Implementation
 Bundle-Vendor: %providerName
-Bundle-Localization: plugin
+Bundle-Localization: OSGI-INF/l10n/bundle
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.fusesource.camel.component.sap.model,
  org.fusesource.camel.component.sap.model.idoc.provider,

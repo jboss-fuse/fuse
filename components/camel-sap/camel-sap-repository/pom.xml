@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.fusesource</groupId>
+	<artifactId>camel-sap-repository</artifactId>
+	<version>6.2.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>JBoss Fuse :: SAP JCO :: SAP Data Layer :: Repository</name>
+	<url>http://http://www.jboss.org/products/fuse/overview/</url>
+	<description>Provides Repository for the SAP Data Layer</description>
+	<organization>
+		<name>Red Hat, Inc.</name>
+		<url>http://www.redhat.com</url>
+	</organization>
+
+	<modules>
+		<module>org.fusesource.camel.component.sap.feature</module>
+		<module>org.fusesource.camel.component.sap.updatesite</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>0.21.0</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>0.21.0</version>
+				<configuration>
+					<resolver>p2</resolver>
+					<pomDependencies>consider</pomDependencies>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.sap.conn.jco</groupId>
+			<artifactId>com.sap.conn.jco</artifactId>
+			<version>3.0.11.redhat_1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.conn.jco</groupId>
+			<artifactId>com.sap.conn.jco.linux.x86</artifactId>
+			<version>3.0.11.redhat_1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.conn.jco</groupId>
+			<artifactId>com.sap.conn.jco.linux.x86_64</artifactId>
+			<version>3.0.11.redhat_1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.conn.jco</groupId>
+			<artifactId>com.sap.conn.jco.osx.x86</artifactId>
+			<version>3.0.11.redhat_1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.conn.jco</groupId>
+			<artifactId>com.sap.conn.jco.osx.x86_64</artifactId>
+			<version>3.0.11.redhat_1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.conn.jco</groupId>
+			<artifactId>com.sap.conn.jco.win32.x86</artifactId>
+			<version>3.0.11.redhat_1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.conn.jco</groupId>
+			<artifactId>com.sap.conn.jco.win32.x86_64</artifactId>
+			<version>3.0.11.redhat_1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.conn.idoc</groupId>
+			<artifactId>com.sap.conn.idoc</artifactId>
+			<version>3.0.10.redhat_1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.fusesource</groupId>
+			<artifactId>org.fusesource.camel.component.sap</artifactId>
+			<version>6.2.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.fusesource</groupId>
+			<artifactId>org.fusesource.camel.component.sap.model</artifactId>
+			<version>6.2.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.fusesource</groupId>
+			<artifactId>org.fusesource.camel.component.sap.model.edit</artifactId>
+			<version>6.2.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	
+	<repositories>
+ 		<repository>
+			<id>eclipse-luna</id>
+			<url>http://download.eclipse.org/releases/luna/</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>fusesource-third-party-internal</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/fs-maven2-all/</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+</project>
