@@ -17,6 +17,8 @@ import org.fusesource.camel.component.sap.util.Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
+import org.powermock.api.mockito.mockpolicies.Slf4jMockPolicy;
+import org.powermock.core.classloader.annotations.MockPolicy;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -29,6 +31,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.Mockito.when;
 
 @RunWith(PowerMockRunner.class)
+@MockPolicy({Slf4jMockPolicy.class})
 @PrepareForTest({ JCoDestinationManager.class, Environment.class, JCoServerFactory.class })
 public class StructureConverterTest extends SapRfcTestSupport {
 
