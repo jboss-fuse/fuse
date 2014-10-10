@@ -17,6 +17,7 @@
 package org.fusesource.camel.component.sap;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.NoSuchElementException;
@@ -58,6 +59,9 @@ import static org.mockito.Mockito.when;
  *
  */
 public abstract class SapRfcTestSupport extends JCoTestSupport {
+
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+	
 	/*********************************************************************
 	 * Test Destination, Repository, and Function Module
 	 *********************************************************************/
@@ -121,7 +125,9 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 	public static final byte[] BINARY_ARRAY_PARAM_IN_VAL = new byte[] { (byte) 0xFF, (byte) 0x0F, (byte) 0x1E,
 			(byte) 0x2D, (byte) 0x3C, (byte) 0x4B, (byte) 0x5A, (byte) 0x60, (byte) 0x79, (byte) 0x88 };
 	public static final Date DATE_PARAM_IN_VAL = new GregorianCalendar(1861, 03, 12).getTime();
+	public static final String DATE_PARAM_IN_VAL_STR = dateFormat.format(DATE_PARAM_IN_VAL);
 	public static final Date TIME_PARAM_IN_VAL = new GregorianCalendar(1970, 0, 1, 12, 15, 30).getTime();
+	public static final String TIME_PARAM_IN_VAL_STR = dateFormat.format(TIME_PARAM_IN_VAL);
 	public static final String STRING_PARAM_IN_VAL = "Four score and seven years ago ...";
 
 	/*********************************************************************
@@ -137,7 +143,9 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 	public static final byte[] BINARY_ARRAY_PARAM_OUT_VAL = new byte[] { (byte) 0x88, (byte) 0x79, (byte) 0x60,
 			(byte) 0x5A, (byte) 0x4B, (byte) 0x3C, (byte) 0x2D, (byte) 0x1E, (byte) 0x0F, (byte) 0xFF };
 	public static final Date DATE_PARAM_OUT_VAL = new GregorianCalendar(1865, 03, 9).getTime();
+	public static final String DATE_PARAM_OUT_VAL_STR = dateFormat.format(DATE_PARAM_OUT_VAL);
 	public static final Date TIME_PARAM_OUT_VAL = new GregorianCalendar(1970, 0, 1, 23, 45, 15).getTime();
+	public static final String TIME_PARAM_OUT_VAL_STR = dateFormat.format(TIME_PARAM_OUT_VAL);
 	public static final String STRING_PARAM_OUT_VAL = "... shall not perish from this earth.";
 	
 	/****************************************************************************
