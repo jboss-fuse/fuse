@@ -15,6 +15,8 @@
 		<name>Red Hat, Inc.</name>
 		<url>http://www.redhat.com</url>
 	</organization>
+	<properties>
+	</properties>
 
 	<modules>
 		<module>org.fusesource.camel.component.sap.feature</module>
@@ -30,6 +32,46 @@
 				<extensions>true</extensions>
 			</plugin>
 			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>0.21.0</version>
+				<configuration>
+					<excludes>
+						<plugin id="com.sap.conn.jco"/>
+						<plugin id="com.sap.conn.jco.linux.x86"/>
+						<plugin id="com.sap.conn.jco.linux.x86_64"/>
+						<plugin id="com.sap.conn.jco.osx.x86"/>
+						<plugin id="com.sap.conn.jco.osx.x86_64"/>
+						<plugin id="com.sap.conn.jco.win32.x86"/>
+						<plugin id="com.sap.conn.jco.win32.x86_64"/>
+						<plugin id="com.sap.conn.idoc"/>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>0.21.0</version>
+				<executions>
+					<execution>
+						<id>attach-p2-metadata</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		    <plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
 				<version>0.21.0</version>
