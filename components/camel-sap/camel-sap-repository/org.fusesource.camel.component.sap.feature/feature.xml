@@ -32,6 +32,11 @@ permissions and limitations under the License.
 
    <requires>
       <import plugin="com.sap.conn.jco" version="3.0.11.redhat_1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.slf4j.api"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.edit"/>
    </requires>
 
    <plugin
