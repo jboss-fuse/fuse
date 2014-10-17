@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+  JBoss, Home of Professional Open Source
+   Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+   contributors by the @authors tag. See the copyright.txt in the
+   distribution for a full listing of individual contributors.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+   http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+  -->
+
+<!--
+   This is the OSGi Blueprint XML file defining the Camel context and routes.  Because the file is in the
+   OSGI-INF/blueprint directory inside our JAR, it will be automatically activated as soon as the bundle is installed.
+
+   The root element for any OSGi Blueprint file is 'blueprint' - you also see the namespace definitions for both the Blueprint
+   and the Camel namespaces.
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+    xsi:schemaLocation="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0 http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.0.0.xsd
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <!-- OSGi blueprint property placeholder -->
+    <cm:property-placeholder id="placeholder" persistent-id="org.jboss.quickstarts.fuse.linkedin">
+        <cm:default-properties>
+            <cm:property name="redirectUri" value="https://localhost"/>
+        </cm:default-properties>
+    </cm:property-placeholder>
+
+    <!-- LinkedIn component -->
+    <bean id="linkedin" class="org.apache.camel.component.linkedin.LinkedInComponent">
+        <property name="configuration">
+            <bean class="org.apache.camel.component.linkedin.LinkedInConfiguration">
+                <property name="userName" value="${userName}"/>
+                <property name="userPassword" value="${userPassword}"/>
+                <property name="clientId" value="${clientId}"/>
+                <property name="clientSecret" value="${clientSecret}"/>
+                <property name="redirectUri" value="${redirectUri}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!--
+      The namespace for the camelContext element in Blueprint is 'http://camel.apache.org/schema/blueprint'. Additionally,
+      we can also define namespace prefixes we want to use them in the XPath expressions in our CBR.
+
+      While it is not required to assign id's to the <camelContext/> and <route/> elements, it is a good idea
+      to set those for runtime management purposes (logging, JMX MBeans, ...)
+    -->
+    <camelContext xmlns="http://camel.apache.org/schema/blueprint" id="linkedin-example-context">
+
+        <!--
+          When this route is started, it will automatically create the work/linkedin/output directory,
+          where it will generate files with names of user's connections every 15 minutes.
+
+          The <log/> elements are used to add human-friendly business logging statements. They make it easier to see what the
+          route is doing.
+
+          The <from/> element is the LinkedIn consumer endpoint, and the <to/> element is the file producer endpoint.
+        -->
+        <route id="linkedin-route">
+
+            <from uri="linkedin://people/connections?consumer.timeUnit=MINUTES&amp;consumer.delay=15" />
+            <log message="Poll received ${body.count} user connections" />
+
+            <!-- Count of number of messages to aggregate later -->
+            <setHeader headerName="completionSize">
+                <simple>${body.personList.size}</simple>
+            </setHeader>
+
+            <!-- Split personList to get individual connections as Person objects -->
+            <split>
+                <simple>${body.personList}</simple>
+                <!-- send to aggregator route to write to file -->
+                <to uri="direct:connectionsFile" />
+            </split>
+
+        </route>
+
+        <route id="linkedin-file-route">
+
+            <from uri="direct:connectionsFile" />
+
+            <!-- Get Connection's first name, last name and head line -->
+            <setBody>
+                <simple>${body.firstName} ${body.lastName}, ${body.headline}\n</simple>
+            </setBody>
+
+            <!-- Aggregate connection lines and write to connections.txt -->
+            <aggregate strategyRef="aggregatorStrategy">
+                <correlationExpression>
+                    <constant>true</constant>
+                </correlationExpression>
+                <completionSize>
+                    <simple>header.completionSize</simple>
+                </completionSize>
+                <log message="Writing connections to connections.txt" />
+                <to uri="file:work/linkedin/output?fileName=connections.txt" />
+                <log message="Done downloading user connections" />
+            </aggregate>
+
+        </route>
+    </camelContext>
+
+    <bean id="aggregatorStrategy" class="org.apache.camel.processor.BodyInAggregatingStrategy"/>
+
+</blueprint>

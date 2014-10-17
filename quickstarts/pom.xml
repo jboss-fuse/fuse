@@ -79,10 +79,13 @@
         </repository>
     </repositories>
     <modules>
+        <module>box</module>
         <module>cbr</module>
         <module>eip</module>
         <module>jms</module>
         <module>errors</module>
+        <module>linkedin</module>
+        <module>odata</module>
         <module>rest</module>
         <module>secure-rest</module>
         <module>soap</module>
