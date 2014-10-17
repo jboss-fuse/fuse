@@ -63,7 +63,6 @@ original.distribution.artifact=mvn:org.jboss.fuse/jboss-fuse-minimal/${fuse.vers
 #				karaf-framework
 #				config
 #				fabric-boot-commands
-#				fabric-bundle
 #				patch
 # 
 # features.names=
