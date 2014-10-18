@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+  JBoss, Home of Professional Open Source
+   Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+   contributors by the @authors tag. See the copyright.txt in the
+   distribution for a full listing of individual contributors.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+   http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+  -->
+
+<!--
+   This is the OSGi Blueprint XML file defining the Camel context and routes.  Because the file is in the
+   OSGI-INF/blueprint directory inside our JAR, it will be automatically activated as soon as the bundle is installed.
+
+   The root element for any OSGi Blueprint file is 'blueprint' - you also see the namespace definitions for both the Blueprint
+   and the Camel namespaces.
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+           xsi:schemaLocation="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0 http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.0.0.xsd
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+  <!-- OSGi blueprint property placeholder -->
+  <cm:property-placeholder id="placeholder" persistent-id="org.jboss.quickstarts.fuse.salesforce" />
+
+  <bean id="salesforce" class="org.apache.camel.component.salesforce.SalesforceComponent">
+    <property name="loginConfig">
+      <bean class="org.apache.camel.component.salesforce.SalesforceConfiguration">
+        <property name="clientId" value="${clientId}"/>
+        <property name="clientSecret" value="${clientSecret}"/>
+        <property name="userName" value="${userName}"/>
+        <property name="password" value="${password}"/>
+      </bean>
+    </property>
+  </bean>
+
+  <!--
+    The namespace for the camelContext element in Blueprint is 'http://camel.apache.org/schema/blueprint'. Additionally,
+    we can also define namespace prefixes we want to use them in the XPath expressions in our CBR.
+
+    While it is not required to assign id's to the <camelContext/> and <route/> elements, it is a good idea
+    to set those for runtime management purposes (logging, JMX MBeans, ...)
+  -->
+  <camelContext xmlns="http://camel.apache.org/schema/blueprint" id="salesforce-example-context">
+
+    <dataFormats>
+      <!-- Here we define a Json data format with the id jack and use a Map as the unmarshal type -->
+      <json id="cheeseJson" library="Jackson" unmarshalTypeName="org.apache.camel.salesforce.dto.Cheese__c" />
+    </dataFormats>
+
+    <!--
+      When this route is started, it will automatically create the work/salesforce/input directory where you can drop the
+      file that need to be processed.
+
+      The <log/> elements are used to add human-friendly business logging statements. They make it easier to see what the
+      route is doing.
+
+      The <to/> element contains the JBoss Data Virtualization destination endpoint.
+    -->
+    <route id="salesforce-route">
+
+      <from uri="file:work/salesforce/input" />
+
+      <log message="Receiving file ${file:name}" />
+      <log message="Sending file ${file:name} to Salesforce" />
+
+      <unmarshal ref="cheeseJson" />
+      <setHeader headerName="SalesforceEndpointConfig.SOBJECT_EXT_ID_VALUE">
+        <simple>${body.name}</simple>
+      </setHeader>
+
+      <log message="Creating cheese with name ${body.name}..." />
+      <to uri="salesforce:upsertSObject?sObjectName=Cheese__c&amp;sObjectIdName=Name" />
+
+      <log message="Done creating cheese with success=${body.success} and errors=${body.errors}" />
+    </route>
+
+    <!--
+      This route uses Salesforce streaming API to receive notifications for updates to Cheese SObject
+    -->
+    <route id="salesforce-streaming-route">
+      <from uri="salesforce:JBossFuseQuickStartTopic?notifyForFields=ALL&amp;notifyForOperations=ALL&amp;sObjectName=Cheese__c&amp;updateTopic=true&amp;sObjectQuery=SELECT Name, Milk, Country FROM Cheese__c" />
+      <log message="Received update notification for ${body.name}" />
+      <marshal>
+        <json library="Jackson" />
+      </marshal>
+      <to uri="file:work/salesforce/output?fileName=${body.name}.json" />
+      <log message="Done writing notification to file ${body.name}.json" />
+    </route>
+
+  </camelContext>
+
+</blueprint>

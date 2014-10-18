@@ -2938,6 +2938,18 @@
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                  <groupId>org.apache.camel.maven</groupId>
+                  <artifactId>camel-salesforce-maven-plugin</artifactId>
+                  <version>${camel-version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
     <modules>
         <module>parent</module>
         <module>components</module>

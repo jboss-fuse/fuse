@@ -87,6 +87,7 @@
         <module>linkedin</module>
         <module>odata</module>
         <module>rest</module>
+        <module>salesforce</module>
         <module>secure-rest</module>
         <module>soap</module>
         <module>secure-soap</module>
