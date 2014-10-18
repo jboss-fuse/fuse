@@ -28,18 +28,18 @@
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
-    <artifactId>odata</artifactId>
+    <artifactId>salesforce</artifactId>
     <version>6.2.0.redhat-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse :: Examples :: Camel Olingo2 OData Component</name>
     <description>Camel Olingo2 OData Example</description>
 
-    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/odata</url>
+    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/salesforce</url>
 
     <scm>
       <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
       <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
-      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/odata</url>
+      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/salesforce</url>
     </scm>
 
     <developers>
@@ -67,9 +67,11 @@
         <fabric.version>1.0.0-SNAPSHOT</fabric.version>
 
         <!-- fabric8 deploy profile configuration -->
-        <fabric8.profile>my-odata</fabric8.profile>
-        <fabric8.features>camel-blueprint camel-olingo2 fabric-camel</fabric8.features>
+        <fabric8.profile>my-salesforce</fabric8.profile>
+        <fabric8.features>camel-blueprint camel-salesforce fabric-camel</fabric8.features>
         <fabric8.featureRepos>mvn:org.apache.camel.karaf/apache-camel/${version:camel}/xml/features</fabric8.featureRepos>
+        <!-- TODO remove camel version override -->
+        <camel-version>2.14.0</camel-version>
     </properties>
 
     <licenses>
@@ -101,6 +103,14 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-blueprint</artifactId>
+        </dependency>
+
+        <!--
+          Salesforce component dependency for compiling SObject POJOs
+        -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-salesforce</artifactId>
         </dependency>
     </dependencies>
 
@@ -187,4 +197,54 @@
                 -->
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>generate-pojos</id>
+            <build>
+                <plugins>
+                    <!-- Read Salesforce login properties -->
+                    <plugin>
+                      <groupId>org.codehaus.mojo</groupId>
+                      <artifactId>properties-maven-plugin</artifactId>
+                      <version>1.0-alpha-2</version>
+                      <executions>
+                        <execution>
+                          <phase>initialize</phase>
+                          <goals>
+                            <goal>read-project-properties</goal>
+                          </goals>
+                          <configuration>
+                            <files>
+                              <file>${project.basedir}/org.jboss.quickstarts.fuse.salesforce.cfg</file>
+                            </files>
+                          </configuration>
+                        </execution>
+                      </executions>
+                    </plugin>
+                    <!-- Generate POJOs for Salesforce SObjects -->
+                    <plugin>
+                      <groupId>org.apache.camel.maven</groupId>
+                      <artifactId>camel-salesforce-maven-plugin</artifactId>
+                      <executions>
+                        <execution>
+                          <goals>
+                            <goal>generate</goal>
+                          </goals>
+                          <configuration>
+                            <clientId>${clientId}</clientId>
+                            <clientSecret>${clientSecret}</clientSecret>
+                            <userName>${userName}</userName>
+                            <password>${password}</password>
+                            <includes>
+                              <include>Cheese__c</include>
+                            </includes>
+                          </configuration>
+                        </execution>
+                      </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

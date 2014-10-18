@@ -21,7 +21,7 @@ In studying this quick start you will learn:
 * how to define a Camel route using the Blueprint XML syntax
 * how to build and deploy an OSGi bundle in JBoss Fuse
 * how to use OSGi config admin in JBoss Fuse
-* how to use the Camel Box component
+* how to use the Camel LinkedIn component
 
 For more information see:
 

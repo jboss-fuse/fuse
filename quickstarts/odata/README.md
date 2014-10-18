@@ -22,7 +22,7 @@ In studying this quick start you will learn:
 * how to build and deploy an OSGi bundle in JBoss Fuse
 * how to use JSON data format in JBoss Fuse
 * how to use OSGi config admin in JBoss Fuse
-* how to use the Camel Box component
+* how to use the Camel Olingo2 component for OData
 
 For more information see:
 
