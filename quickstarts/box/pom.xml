@@ -24,11 +24,11 @@
     <parent>
       <groupId>org.jboss.quickstarts.fuse</groupId>
       <artifactId>jboss-quickstarts-fuse-parent</artifactId>
-      <version>6.2.0.redhat-SNAPSHOT</version>
+      <version>6.2.0.redhat-034</version>
     </parent>
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>box</artifactId>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.0.redhat-034</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse :: Examples :: Camel Box Component</name>
     <description>Camel Box.com Example</description>
@@ -62,8 +62,8 @@
         <maven.compiler.source>1.6</maven.compiler.source>
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
-        <jboss.fuse.bom.version>6.2.0.redhat-SNAPSHOT</jboss.fuse.bom.version>
-        <fabric.version>1.0.0-SNAPSHOT</fabric.version>
+        <jboss.fuse.bom.version>6.2.0.redhat-034</jboss.fuse.bom.version>
+        <fabric.version>1.2.0.redhat-034</fabric.version>
 
         <!-- fabric8 deploy profile configuration -->
         <fabric8.profile>my-box</fabric8.profile>
