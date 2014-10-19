@@ -30,7 +30,7 @@ import io.fabric8.itests.paxexam.support.ContainerBuilder;
 import io.fabric8.itests.paxexam.support.ContainerProxy;
 import io.fabric8.itests.paxexam.support.FabricTestSupport;
 import io.fabric8.itests.paxexam.support.Provision;
-import io.fabric8.mq.fabric.FabricDiscoveryAgent;
+import io.fabric8.mq.fabric.discovery.FabricDiscoveryAgent;
 
 import java.util.Arrays;
 import java.util.Set;
