@@ -214,6 +214,8 @@
                             </descriptors>
                             <includeMvnBasedDescriptors>true</includeMvnBasedDescriptors>
                             <repository>target/features-repo</repository>
+                            <!-- workaround for errors in CXF 3.0.1 features file, cfr. CXF-5972 -->
+                            <failOnArtifactResolutionError>false</failOnArtifactResolutionError>
                         </configuration>
                     </execution>
                 </executions>
