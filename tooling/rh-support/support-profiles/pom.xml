@@ -23,10 +23,10 @@
     <parent>
         <groupId>io.fabric8.support</groupId>
         <artifactId>support-project</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>6.2.0.redhat-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-
+    <version>${fabric.version}</version>
     <artifactId>support-profiles</artifactId>
     <packaging>jar</packaging>
     

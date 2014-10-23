@@ -23,28 +23,20 @@
         <groupId>org.fusesource</groupId>
         <artifactId>fuse-project</artifactId>
         <version>6.2.0.redhat-SNAPSHOT</version>
-        <relativePath>../../parent</relativePath>
+        <relativePath>../parent</relativePath>
     </parent>
     <groupId>io.fabric8.support</groupId>
-    <artifactId>support-project</artifactId>
+    <artifactId>tooling-project</artifactId>
     <packaging>pom</packaging>
-    
-    <name>JBoss Fuse :: Support</name>
+
+    <name>JBoss Fuse :: Tooling</name>
     <description>Tooling for support</description>
 
     <dependencies>
     </dependencies>
 
     <modules>
-        <module>support-core</module>
-        <module>support-commands</module>
-        <module>support-karaf</module>
-        <module>hawtio-plugin-redhat-access</module>
-        <module>support-features</module>
-        <!--temporary, until the jar will be published on some maven repo-->
-        <module>redhat-support-lib-java</module>
-        <module>support-webapp</module>
-        <module>support-profiles</module>
+        <module>rh-support</module>
     </modules>
 
 </project>
