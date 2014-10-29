@@ -92,4 +92,15 @@
         <module>soap</module>
         <module>secure-soap</module>
     </modules>
+
+	<profiles>
+		<profile>
+			<!-- Define the SAP example in a separate profile Requires access to the 
+				proprietary SAP JCO and IDoc libraries at build-time -->
+			<id>sap</id>
+			<modules>
+				<module>sap</module>
+			</modules>
+		</profile>
+	</profiles>
 </project>

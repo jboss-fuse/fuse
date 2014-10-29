@@ -307,8 +307,8 @@
     <modules>
         <module>jboss-fuse-minimal</module>
         <module>jboss-fuse-medium</module>
-        <module>jboss-fuse-full</module>
-    </modules>
+<!--         <module>jboss-fuse-full</module>
+ -->    </modules>
     
     <profiles>
         <profile>
