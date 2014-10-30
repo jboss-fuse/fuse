@@ -74,6 +74,11 @@
                <artifactId>org.jboss.amq.karaf.branding</artifactId>
                 <version>${project.version}</version>
            </dependency>
+           <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>${bouncycastle-version}</version>
+           </dependency>
 
            <!-- Scala support -->
            <dependency>
@@ -322,6 +327,10 @@
                                    <echo message="Updating etc/system.properties in unix assembly" />
                                    <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/system.properties" append="true" eol="unix">
                                        <fileset file="src/main/resources/etc/system-mq.properties" />
+                                   </concat>
+                                   <echo message="Updating etc/config.properties in unix assembly" />
+                                   <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties" append="true" eol="unix">
+                                       <fileset file="src/main/resources/etc/config.properties" />
                                    </concat>
                                    <echo message="Updating etc/system.properties in windows assembly" />
                                    <echo message="Updating etc/config.properties in unix assembly" />

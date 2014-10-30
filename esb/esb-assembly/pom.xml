@@ -65,6 +65,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>${bouncycastle-version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.servicemix.specs</groupId>
             <artifactId>org.apache.servicemix.specs.activator</artifactId>
             <version>${servicemix-specs-version}</version>
@@ -250,6 +256,11 @@
                                 <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/system.properties"
                                         append="true" eol="unix">
                                     <fileset file="target/shared/system-smx.properties" />
+                                </concat>
+                                <echo message="Updating etc/config.properties in unix assembly" />
+                                <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties"
+                                        append="true" eol="unix">
+                                    <fileset file="target/shared/etc/config.properties" />
                                 </concat>
                                 <echo file="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/system.properties" append="true">profiles=${project.artifactId}</echo>
                                 <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties" token="Fuse Fabric" value="JBoss Fuse"/>

@@ -44,5 +44,14 @@
         </includes>
         <useTransitiveDependencies>false</useTransitiveDependencies>
     </dependencySet>
+    <dependencySet>
+        <outputDirectory>/lib/ext</outputDirectory>
+        <outputFileNameMapping>bcprov-jdk15on.jar</outputFileNameMapping>
+        <fileMode>0644</fileMode>
+        <includes>
+          <include>org.bouncycastle:bcprov-jdk15on</include>
+        </includes>
+        <useTransitiveDependencies>false</useTransitiveDependencies>
+    </dependencySet>
   </dependencySets>
 </component>
