@@ -79,18 +79,10 @@
         </repository>
     </repositories>
     <modules>
-        <module>box</module>
-        <module>cbr</module>
-        <module>eip</module>
-        <module>jms</module>
-        <module>errors</module>
-        <module>linkedin</module>
-        <module>odata</module>
-        <module>rest</module>
-        <module>salesforce</module>
-        <module>secure-rest</module>
-        <module>soap</module>
-        <module>secure-soap</module>
+        <module>camel-box</module>
+        <module>camel-linkedin</module>
+        <module>camel-odata</module>
+        <module>camel-salesforce</module>
     </modules>
 
 	<profiles>
@@ -99,7 +91,7 @@
 				proprietary SAP JCO and IDoc libraries at build-time -->
 			<id>sap</id>
 			<modules>
-				<module>sap</module>
+				<module>camel-sap</module>
 			</modules>
 		</profile>
 	</profiles>
