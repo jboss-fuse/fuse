@@ -27,6 +27,7 @@
 	</parent>
 
 	<artifactId>sap</artifactId>
+        <version>6.2.0.redhat-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<name>JBoss Fuse :: Examples :: Camel SAP Component</name>
