@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs connected" ng-controller="RHAccess.NavBarController">
+    <li ng-repeat="link in breadcrumbs" ng-show="isValid(link)" ng-class='{active : isActive(link.href)}'>
+        <a ng-click="updateIframe(link._href)" ng-href="/hawtio/rhaccess_plugin{{hash}}" ng-bind-html-unsafe="link.content"></a>
+    </li>
+</ul>
+<div class="row-fluid">
+    <div ng-view></div>
+</div>

@@ -64,6 +64,13 @@
             <version>${fabric.version}</version>
         </dependency>
 
+        <!-- rh-support-fabric-profiles -->
+        <dependency>
+            <groupId>io.fabric8.support</groupId>
+            <artifactId>support-profiles</artifactId>
+            <version>${fabric.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15on</artifactId>
@@ -161,6 +168,24 @@
                                     <version>${fabric.version}</version>
                                     <type>zip</type>
                                     <outputDirectory>target/dependencies/unix</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>unpack-support-profiles</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>io.fabric8.support</groupId>
+                                    <artifactId>support-profiles</artifactId>
+                                    <version>${fabric.version}</version>
+                                    <type>jar</type>
+                                    <outputDirectory>target/shared</outputDirectory>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
