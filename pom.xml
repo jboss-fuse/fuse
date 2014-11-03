@@ -51,15 +51,15 @@
     </prerequisites>
 
     <properties>
-        <perfectus-build>379</perfectus-build>
+        <perfectus-build>034</perfectus-build>
         <perfectus.version>${perfectus-build}</perfectus.version>
-        <full-perfectus-build>610${perfectus-build}</full-perfectus-build>
+        <full-perfectus-build>620${perfectus-build}</full-perfectus-build>
 
         <!-- we inherit from the fabric8 BOM so most versions we need are defined there-->
-        <fabric.version>1.2.0.redhat-034</fabric.version>
+        <fabric.version>1.2.0.redhat-${perfectus-build}</fabric.version>
                  
         <fuse-cdc-version>1.1.0</fuse-cdc-version>                
-        <cxf-java2wadl-plugin-version>2.7.0.redhat-${full-perfectus-build}</cxf-java2wadl-plugin-version>
+        <cxf-java2wadl-plugin-version>${cxf-version}</cxf-java2wadl-plugin-version>
 
         <activemqcpp.version>3.8.2</activemqcpp.version>
         <activemqnms.version>1.6.2</activemqnms.version>
