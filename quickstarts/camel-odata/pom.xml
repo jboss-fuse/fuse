@@ -28,18 +28,18 @@
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
-    <artifactId>odata</artifactId>
+    <artifactId>camel-odata</artifactId>
     <version>6.2.0.redhat-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse :: Examples :: Camel Olingo2 OData Component</name>
     <description>Camel Olingo2 OData Example</description>
 
-    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/odata</url>
+    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-odata</url>
 
     <scm>
       <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
       <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
-      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/odata</url>
+      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-odata</url>
     </scm>
 
     <developers>

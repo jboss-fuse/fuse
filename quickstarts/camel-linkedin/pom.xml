@@ -28,18 +28,18 @@
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
-    <artifactId>linkedin</artifactId>
+    <artifactId>camel-linkedin</artifactId>
     <version>6.2.0.redhat-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse :: Examples :: Camel LinkedIn Component</name>
     <description>Camel LinkedIn Example</description>
 
-    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/linkedin</url>
+    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-linkedin</url>
 
     <scm>
       <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
       <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
-      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/linkedin</url>
+      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-linkedin</url>
     </scm>
 
     <developers>

@@ -1,4 +1,4 @@
-salesforce: Demonstrates how to use the camel-salesforce component in Camel to integrate with Salesforce
+camel-salesforce: Demonstrates how to use the camel-salesforce component in Camel to integrate with Salesforce
 ======================================================
 Author: Fuse Team  
 Level: Beginner
@@ -54,8 +54,8 @@ Build and Deploy the Quickstart
     Description     Long Text Area(1024)
     Milk            PickList with values Cow, Ewe, Goat
 
-* Change your working directory to `salesforce` directory.
-* Edit the org.jboss.quickstarts.fuse.salesforce.cfg file in 'salesforce' directory with a text editor and add the following contents:
+* Change your working directory to `camel-salesforce` directory.
+* Edit the org.jboss.quickstarts.fuse.camel-salesforce.cfg file in 'camel-salesforce' directory with a text editor and add the following contents:
 
   clientId=Salesforce app consumer key
   clientSecret=Salesforce app consumer secret
@@ -64,13 +64,13 @@ Build and Deploy the Quickstart
 
 * Run `mvn -Pgenerate-pojos clean install` to build the quickstart.
 * Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
-* Copy the configuration file org.jboss.quickstarts.fuse.salesforce.cfg to the etc/ directory of your Red Hat JBoss Fuse installation:
+* Copy the configuration file org.jboss.quickstarts.fuse.camel-salesforce.cfg to the etc/ directory of your Red Hat JBoss Fuse installation:
 
-  InstallDir/etc/org.jboss.quickstarts.fuse.salesforce.cfg
+  InstallDir/etc/org.jboss.quickstarts.fuse.camel-salesforce.cfg
 
 * In the JBoss Fuse console, enter the following command:
 
-        osgi:install -s mvn:org.jboss.quickstarts.fuse/salesforce/${project.version}
+        osgi:install -s mvn:org.jboss.quickstarts.fuse/camel-salesforce/${project.version}
 
 * Fuse should give you an id when the bundle is deployed
 
@@ -85,14 +85,14 @@ Use the bundle
 
 To use the application be sure to have deployed the quickstart in Fuse as described above. 
 
-1. As soon as the Camel route has been started, you will see a directory `work/salesforce/input` in your JBoss Fuse installation.
-2. Copy the files you find in this quick start's `src/main/resources/data` directory to the newly created `work/salesforce/input` directory.
+1. As soon as the Camel route has been started, you will see a directory `work/camel-salesforce/input` in your JBoss Fuse installation.
+2. Copy the files you find in this quick start's `src/main/resources/data` directory to the newly created `work/camel-salesforce/input` directory.
 3. Use `log:display` to check out the business logging.
         Receiving file cheese1.json
         Sending file cheese1.json to Salesforce
         Creating cheese with name Asiago...
         Done creating cheese with success=true and errors=null
-4. In a few moments Salesforce should send streaming notifications, which are written to the directory 'work/salesforce/output' in your JBoss Fuse installation.
+4. In a few moments Salesforce should send streaming notifications, which are written to the directory 'work/camel-salesforce/output' in your JBoss Fuse installation.
 5. Use `log:display` to check out the business logging for these notifications.
         Received update notification for Asiago
         Done writing notification to file Asiago.json

@@ -1,4 +1,4 @@
-linkedin: Demonstrates how to use the camel-linkedin component in Camel to poll LinkedIn user connections
+camel-linkedin: Demonstrates how to use the camel-linkedin component in Camel to poll LinkedIn user connections
 ======================================================
 Author: Fuse Team  
 Level: Beginner
@@ -40,13 +40,13 @@ Before building and running this quick start you need:
 Build and Deploy the Quickstart
 -------------------------
 
-1. Change your working directory to `linkedin` directory.
+1. Change your working directory to `camel-linkedin` directory.
 * Run `mvn clean install` to build the quickstart.
 * Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
 * Create the following configuration file in the etc/ directory of your Red Hat JBoss Fuse installation:
 
-  InstallDir/etc/org.jboss.quickstarts.fuse.linkedin.cfg
-  Edit the org.jboss.quickstarts.fuse.linkedin.cfg file with a text editor and add the following contents:
+  InstallDir/etc/org.jboss.quickstarts.fuse.camel-linkedin.cfg
+  Edit the org.jboss.quickstarts.fuse.camel-linkedin.cfg file with a text editor and add the following contents:
 
   userName=<LinkedIn account user name>
   userPassword=<LinkedIn account password>
@@ -55,7 +55,7 @@ Build and Deploy the Quickstart
 
 * In the JBoss Fuse console, enter the following command:
 
-        osgi:install -s mvn:org.jboss.quickstarts.fuse/linkedin/${project.version}
+        osgi:install -s mvn:org.jboss.quickstarts.fuse/camel-linkedin/${project.version}
 
 * Fuse should give you an id when the bundle is deployed
 
@@ -70,7 +70,7 @@ Use the bundle
 
 To use the application be sure to have deployed the quickstart in Fuse as described above. 
 
-1. As soon as the Camel route has been started, you will see a directory `work/linkedin/output` in your JBoss Fuse installation.
+1. As soon as the Camel route has been started, you will see a directory `work/camel-linkedin/output` in your JBoss Fuse installation.
 2. Wait a few moments and you will see the LinkedIn user's connections downloaded to your the connections.txt file.
 The route will continue polling LinkedIn every 15 minutes and overwrite the output file.
 3. Use `log:display` to check out the business logging.

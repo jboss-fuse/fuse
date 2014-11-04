@@ -1,4 +1,4 @@
-box: Demonstrates how to use the camel-box component in Camel to upload files to Box.com
+camel-box: Demonstrates how to use the camel-box component in Camel to upload files to Box.com
 ======================================================
 Author: Fuse Team  
 Level: Beginner
@@ -40,13 +40,13 @@ Before building and running this quick start you need:
 Build and Deploy the Quickstart
 -------------------------
 
-1. Change your working directory to `box` directory.
+1. Change your working directory to `camel-box` directory.
 * Run `mvn clean install` to build the quickstart.
 * Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
 * Create the following configuration file in the etc/ directory of your Red Hat JBoss Fuse installation:
 
-  InstallDir/etc/org.jboss.quickstarts.fuse.box.cfg
-  Edit the org.jboss.quickstarts.fuse.box.cfg file with a text editor and add the following contents:
+  InstallDir/etc/org.jboss.quickstarts.fuse.camel-box.cfg
+  Edit the org.jboss.quickstarts.fuse.camel-box.cfg file with a text editor and add the following contents:
 
   userName=<Box.com account user name>
   userPassword=<Box.com account password>
@@ -55,7 +55,7 @@ Build and Deploy the Quickstart
 
 * In the JBoss Fuse console, enter the following command:
 
-        osgi:install -s mvn:org.jboss.quickstarts.fuse/box/${project.version}
+        osgi:install -s mvn:org.jboss.quickstarts.fuse/camel-box/${project.version}
 
 * Fuse should give you an id when the bundle is deployed
 
@@ -70,8 +70,8 @@ Use the bundle
 
 To use the application be sure to have deployed the quickstart in Fuse as described above. 
 
-1. As soon as the Camel route has been started, you will see a directory `work/box/input` in your JBoss Fuse installation.
-2. Copy the files you find in this quick start's `src/main/resources/data` directory to the newly created `work/box/input`
+1. As soon as the Camel route has been started, you will see a directory `work/camel-box/input` in your JBoss Fuse installation.
+2. Copy the files you find in this quick start's `src/main/resources/data` directory to the newly created `work/camel-box/input`
 directory.
 3. Wait a few moments and you will find the same files uploaded to your Box.com root folder
 4. Use `log:display` to check out the business logging.

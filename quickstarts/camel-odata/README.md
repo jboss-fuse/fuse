@@ -1,4 +1,4 @@
-odata: Demonstrates how to use the camel-olingo2 component in Camel to integrate with JBoss Data Virtualization (JDV) using OData 2.0
+camel-odata: Demonstrates how to use the camel-olingo2 component in Camel to integrate with JBoss Data Virtualization (JDV) using OData 2.0
 ======================================================
 Author: Fuse Team  
 Level: Beginner
@@ -43,21 +43,21 @@ Build and Deploy the Quickstart
 
 * Create BOOKS OData service in JDV server by following the instructions at https://developer.jboss.org/wiki/ProducingAndConsumingODataInTeiidAndTeiidDesigner
   Note that if you are not using MySQL, change the <to/> uri in src/main/resources/OSGI-INF/blueprint/odata.xml to point to the correct OData service.
-* Change your working directory to `odata` directory.
+* Change your working directory to `camel-odata` directory.
 * Run `mvn clean install` to build the quickstart.
 * Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
 * Create the following configuration file in the etc/ directory of your Red Hat JBoss Fuse installation:
 
-  InstallDir/etc/org.jboss.quickstarts.fuse.odata.cfg
-  Edit the org.jboss.quickstarts.fuse.odata.cfg file with a text editor and add the following contents:
+  InstallDir/etc/org.jboss.quickstarts.fuse.camel-odata.cfg
+  Edit the org.jboss.quickstarts.fuse.camel-odata.cfg file with a text editor and add the following contents:
 
   userPassword=Basic <base64 encoded JBoss Data Virtualization password>
-  serviceUri=http://localhost:8080/odata/BooksRest
+  serviceUri=http://localhost:8080/camel-odata/BooksRest
   contentType=application/atom+xml;charset=utf-8
 
 * In the JBoss Fuse console, enter the following command:
 
-        osgi:install -s mvn:org.jboss.quickstarts.fuse/odata/${project.version}
+        osgi:install -s mvn:org.jboss.quickstarts.fuse/camel-odata/${project.version}
 
 * Fuse should give you an id when the bundle is deployed
 
@@ -72,8 +72,8 @@ Use the bundle
 
 To use the application be sure to have deployed the quickstart in Fuse as described above. 
 
-1. As soon as the Camel route has been started, you will see a directory `work/odata/input` in your JBoss Fuse installation.
-2. Copy the files you find in this quick start's `src/main/resources/data` directory to the newly created `work/odata/input`
+1. As soon as the Camel route has been started, you will see a directory `work/camel-odata/input` in your JBoss Fuse installation.
+2. Copy the files you find in this quick start's `src/main/resources/data` directory to the newly created `work/camel-odata/input`
 directory.
 3. Use `log:display` to check out the business logging.
         Receiving file book1.json

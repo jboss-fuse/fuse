@@ -28,18 +28,18 @@
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
-    <artifactId>salesforce</artifactId>
+    <artifactId>camel-salesforce</artifactId>
     <version>6.2.0.redhat-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse :: Examples :: Camel Olingo2 OData Component</name>
     <description>Camel Olingo2 OData Example</description>
 
-    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/salesforce</url>
+    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-salesforce</url>
 
     <scm>
       <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
       <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
-      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/salesforce</url>
+      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-salesforce</url>
     </scm>
 
     <developers>

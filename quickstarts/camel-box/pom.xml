@@ -27,18 +27,18 @@
       <version>6.2.0.redhat-SNAPSHOT</version>
     </parent>
     <groupId>org.jboss.quickstarts.fuse</groupId>
-    <artifactId>box</artifactId>
+    <artifactId>camel-box</artifactId>
     <version>6.2.0.redhat-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse :: Examples :: Camel Box Component</name>
     <description>Camel Box.com Example</description>
 
-    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/box</url>
+    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-box</url>
 
     <scm>
       <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
       <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
-      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/box</url>
+      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-box</url>
     </scm>
 
     <developers>
