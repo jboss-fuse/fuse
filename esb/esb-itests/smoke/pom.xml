@@ -28,7 +28,7 @@
             <groupId>io.fabric8.tooling.testing</groupId>
             <artifactId>pax-exam-karaf</artifactId>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>org.jboss.quickstarts.fuse</groupId>
             <artifactId>cbr</artifactId>
             <version>${project.version}</version>
@@ -67,7 +67,7 @@
             <groupId>org.jboss.quickstarts.fuse</groupId>
             <artifactId>secure-soap</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency-->
 
         <dependency>
             <groupId>org.jboss.fuse</groupId>

@@ -19,6 +19,7 @@ package org.fusesource.esb.itests.smoke;
 
 import org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
@@ -31,21 +32,25 @@ import org.ops4j.pax.exam.spi.reactors.PerMethod;
 @ExamReactorStrategy(PerMethod.class)
 public class EsbExampleFeaturesTest extends EsbTestSupport {
 
+    @Ignore("See ENTESB-2124")
     @Test
     public void testCbr() throws Exception {
         installQuickstartBundle("cbr");
     }
 
+    @Ignore("See ENTESB-2124")
     @Test
     public void testEip() throws Exception {
         installQuickstartBundle("eip");
     }
 
+    @Ignore("See ENTESB-2124")
     @Test
     public void testErrors() throws Exception {
         installQuickstartBundle("errors");
     }
 
+    @Ignore("See ENTESB-2124")
     @Test
     public void testJms() throws Exception {
         executeCommand("shell:exec cp quickstarts/jms/src/main/resources/etc/org.fusesource.mq.fabric.cf-default.cfg etc/");
@@ -53,21 +58,25 @@ public class EsbExampleFeaturesTest extends EsbTestSupport {
         installUninstallCommand("quickstart-jms");
     }
 
+    @Ignore("See ENTESB-2124")
     @Test
     public void testRest() throws Exception {
         installQuickstartBundle("rest");
     }
 
+    @Ignore("See ENTESB-2124")
     @Test
     public void testSecureRest() throws Exception {
         installQuickstartBundle("secure-rest");
     }
 
+    @Ignore("See ENTESB-2124")
     @Test
     public void testSoap() throws Exception {
         installQuickstartBundle("soap");
     }
 
+    @Ignore("See ENTESB-2124")
     @Test
     public void testSecureSoap() throws Exception {
         installAndCheckFeature("cxf-ws-security");
