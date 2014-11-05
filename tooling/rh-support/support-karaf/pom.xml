@@ -22,7 +22,7 @@
     <parent>
         <groupId>io.fabric8.support</groupId>
         <artifactId>support-project</artifactId>
-        <version>6.2.0.redhat-SNAPSHOT</version>
+        <version>6.2.0.redhat-042</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <version>${fabric.version}</version>
