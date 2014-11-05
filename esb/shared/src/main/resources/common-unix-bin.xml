@@ -45,7 +45,7 @@
               <exclude>etc/org.apache.karaf.command.acl.shell.cfg</exclude>
               <!--<exclude>fabric/import/fabric/profiles/jboss/fuse/minimal.profile/io.fabric8.agent.properties</exclude>-->
               <exclude>fabric/import/fabric/profiles/karaf.profile/org.ops4j.pax.logging.properties</exclude>
-              <exclude>fabric/import/fabric/profiles/default.profile/jmx.acl.whitelist.properties</ecclude>
+              <exclude>fabric/import/fabric/profiles/default.profile/jmx.acl.whitelist.properties</exclude>
               <exclude>fabric/import/fabric/profiles/jboss/.skipimport</exclude>
               <exclude>system/**</exclude>
               <exclude>fabric_notices.txt</exclude>
