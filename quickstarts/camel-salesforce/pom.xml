@@ -24,12 +24,12 @@
     <parent>
       <groupId>org.jboss.quickstarts.fuse</groupId>
       <artifactId>jboss-quickstarts-fuse-parent</artifactId>
-      <version>6.2.0.redhat-SNAPSHOT</version>
+      <version>6.2.0.redhat-046</version>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>camel-salesforce</artifactId>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.0.redhat-046</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse :: Examples :: Camel Olingo2 OData Component</name>
     <description>Camel Olingo2 OData Example</description>
@@ -63,15 +63,15 @@
         <maven.compiler.source>1.6</maven.compiler.source>
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
-        <jboss.fuse.bom.version>6.2.0.redhat-SNAPSHOT</jboss.fuse.bom.version>
-        <fabric.version>1.0.0-SNAPSHOT</fabric.version>
+        <jboss.fuse.bom.version>6.2.0.redhat-046</jboss.fuse.bom.version>
+        <fabric.version>1.2.0.redhat-046</fabric.version>
 
         <!-- fabric8 deploy profile configuration -->
         <fabric8.profile>my-salesforce</fabric8.profile>
         <fabric8.features>camel-blueprint camel-salesforce fabric-camel</fabric8.features>
         <fabric8.featureRepos>mvn:org.apache.camel.karaf/apache-camel/${version:camel}/xml/features</fabric8.featureRepos>
         <!-- TODO remove camel version override -->
-        <camel-version>2.14.0</camel-version>
+        <camel-version>2.14.0.redhat-620046</camel-version>
     </properties>
 
     <licenses>
