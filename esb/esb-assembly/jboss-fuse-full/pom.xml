@@ -275,6 +275,7 @@
                 </plugins>
             </build>
         </profile>
+<!--
         <profile>
             <id>release</id>
             <build>
@@ -316,6 +317,7 @@
                 </plugins>
             </build>
         </profile>
+-->
     </profiles>
 </project>
 
