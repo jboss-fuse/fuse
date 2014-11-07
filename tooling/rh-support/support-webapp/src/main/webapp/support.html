@@ -3,19 +3,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
         <title>Red Hat Access: Support</title>
-        <link rel="stylesheet" href="/coregui/css/patternfly.min.css"/>
         <link rel="stylesheet" href="css/bootstrap.css"/>
         <link rel="stylesheet" href="css/custom_support.css"/>
         <link rel="stylesheet" href="css/redhat_access_angular_ui-embedded-images.css"/>
+        <link rel="stylesheet" href="css/redhat_access_angular_ui-deps-embedded-images.css"/>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/redhat_access_angular_ui-deps.js"></script>
+        <script src="js/redhat_access_angular_ui.js"></script>
+        <script src="js/custom-cases.js"></script>
     </head>
     <body ng-app="RedhatAccess.FUSE">
         <div ng-controller="customCase" data-ng-init="init()" ng-view="">
             <div id="rha-content" ui-view autoscroll="false"></div>
         </div>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/angular.min.js"></script>
-        <script src="js/redhat_access_angular_ui.js"></script>
-        <script src="js/custom-cases.js"></script>
         <script>
             // retrieve our version (something like redhat-access-plugin-jon-X.X.X)
             $(document).ready(
