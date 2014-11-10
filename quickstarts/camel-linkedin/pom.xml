@@ -24,12 +24,12 @@
     <parent>
       <groupId>org.jboss.quickstarts.fuse</groupId>
       <artifactId>jboss-quickstarts-fuse-parent</artifactId>
-      <version>6.2.0.redhat-SNAPSHOT</version>
+      <version>6.2.0.redhat-047</version>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>camel-linkedin</artifactId>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.0.redhat-047</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse :: Examples :: Camel LinkedIn Component</name>
     <description>Camel LinkedIn Example</description>
@@ -63,8 +63,8 @@
         <maven.compiler.source>1.6</maven.compiler.source>
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
-        <jboss.fuse.bom.version>6.2.0.redhat-SNAPSHOT</jboss.fuse.bom.version>
-        <fabric.version>1.0.0-SNAPSHOT</fabric.version>
+        <jboss.fuse.bom.version>6.2.0.redhat-047</jboss.fuse.bom.version>
+        <fabric.version>1.2.0.redhat-047</fabric.version>
 
         <!-- fabric8 deploy profile configuration -->
         <fabric8.profile>my-linkedin</fabric8.profile>

@@ -23,11 +23,11 @@
 	<parent>
 		<artifactId>jboss-quickstarts-fuse-parent</artifactId>
 		<groupId>org.jboss.quickstarts.fuse</groupId>
-		<version>6.2.0.redhat-SNAPSHOT</version>
+		<version>6.2.0.redhat-047</version>
 	</parent>
 
 	<artifactId>sap</artifactId>
-        <version>6.2.0.redhat-SNAPSHOT</version>
+        <version>6.2.0.redhat-047</version>
 	<packaging>bundle</packaging>
 
 	<name>JBoss Fuse :: Examples :: Camel SAP Component</name>
@@ -36,7 +36,7 @@
 
 	<properties>
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
-        <jboss.fuse.bom.version>6.2.0.redhat-SNAPSHOT</jboss.fuse.bom.version>
+        <jboss.fuse.bom.version>6.2.0.redhat-047</jboss.fuse.bom.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<fuse.osgi.import>*</fuse.osgi.import>
