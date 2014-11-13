@@ -257,14 +257,14 @@
                                         <descriptor>mvn:org.apache.camel.karaf/apache-camel/${camel-version}/xml/features</descriptor>
                                         <descriptor>mvn:org.apache.cxf.karaf/apache-cxf/${cxf-version}/xml/features</descriptor>
                                         <descriptor>mvn:org.jboss.fuse/jboss-fuse/${project.version}/xml/features</descriptor>
-                                        <descriptor>mvn:org.fusesource.patch/patch-features/${fabric.version}/xml/features</descriptor>
+                                        <descriptor>mvn:io.fabric8.patch/patch-features/${fabric.version}/xml/features</descriptor>
                                         <descriptor>mvn:io.hawt/hawtio-karaf/${hawtio-version}/xml/features</descriptor>
                                         <!--descriptor>mvn:org.drools/drools-karaf-features/${drools-version}/xml/features</descriptor-->
                                         <!-- FuseSource only : Fabric -->
                                         <descriptor>mvn:io.fabric8/fabric8-karaf/${fabric.version}/xml/features</descriptor>
                                         <!-- Add the sap component and its example -->
-                                        <descriptor>mvn:org.fusesource/camel-sap/${fabric.version}/xml/features</descriptor>
-                                        <descriptor>mvn:org.fusesource.sap.example/camel-example-sap/${fabric.version}/xml/features</descriptor>
+                                        <descriptor>mvn:org.fusesource/camel-sap/${project.version}/xml/features</descriptor>
+                                        <descriptor>mvn:org.jboss.quickstarts.fuse/sap/${project.version}/xml/features</descriptor>
                                     </descriptors>
                                     <includeMvnBasedDescriptors>true</includeMvnBasedDescriptors>
                                     <repository>target/features-repo</repository>
