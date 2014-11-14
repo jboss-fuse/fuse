@@ -22,13 +22,13 @@ There is one top-level route containing four sub-routes in this example:
 
 ### Building and Deploying this Quick Start
 
-1. Change your working directory to `quickstarts/sap` directory.
+1. Change your working directory to `quickstarts/camel-sap` directory.
 1. Run `mvn clean install` to build thie quick start.
 
 After building from the source code, you can upload the changes to the fabric container: 
 
 1. It is assumed that you have already create a fabric and logged into a container called `root`.
-1. Change your working directory to `quickstarts/sap` directory.
+1. Change your working directory to `quickstarts/camel-sap` directory.
 1. Run `mvn fabric8:deploy` to upload the quick start to the fabric container.
 
 If you run the `fabric:deploy` command for the first then, it will ask you for the username and password to login the fabric container.

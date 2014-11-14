@@ -26,13 +26,13 @@
 		<version>6.2.0.redhat-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>sap</artifactId>
+	<artifactId>camel-sap</artifactId>
         <version>6.2.0.redhat-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<name>JBoss Fuse :: Examples :: Camel SAP Component</name>
 	<description>Camel routes using SAP Camel Components</description>
-	<url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/sap</url>
+	<url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-sap</url>
 
 	<properties>
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
@@ -41,15 +41,15 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<fuse.osgi.import>*</fuse.osgi.import>
 		<fuse.osgi.export>
-			org.jboss.quickstarts.fuse.sap;version=${project.version},
-			org.jboss.quickstarts.fuse.sap.bean;version=${project.version},
-			org.jboss.quickstarts.fuse.sap.jaxb;version=${project.version},
-			org.jboss.quickstarts.fuse.sap.processor;version=${project.version}
+			org.jboss.quickstarts.fuse.camel-sap;version=${project.version},
+			org.jboss.quickstarts.fuse.camel-sap.bean;version=${project.version},
+			org.jboss.quickstarts.fuse.camel-sap.jaxb;version=${project.version},
+			org.jboss.quickstarts.fuse.camel-sap.processor;version=${project.version}
 		</fuse.osgi.export>
 		<sap.camel.component.version></sap.camel.component.version>
 		
 		<!-- fabric8 deploy profile configuration -->
-		<fabric8.profile>quickstart-camel-sap</fabric8.profile>
+		<fabric8.profile>quickstart-sap</fabric8.profile>
         <fabric8.features>camel-blueprint fabric-camel camel-core</fabric8.features>
         <fabric8.featureRepos>mvn:org.apache.camel.karaf/apache-camel/${camel-version}/xml/features</fabric8.featureRepos>
 	</properties>
