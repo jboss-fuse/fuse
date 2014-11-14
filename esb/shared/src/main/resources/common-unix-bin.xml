@@ -31,6 +31,7 @@
               <exclude>etc/custom.properties</exclude>
               <exclude>etc/users.properties</exclude>
               <exclude>etc/system.properties</exclude>
+              <exclude>etc/org.ops4j.pax.web.cfg</exclude>
               <exclude>etc/jmx.acl.cfg</exclude>
               <exclude>etc/jmx.acl.whitelist.cfg</exclude>
               <exclude>etc/jmx.acl.java.lang.Memory.cfg</exclude>
