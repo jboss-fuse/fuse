@@ -51,8 +51,8 @@
       <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts</url>
     </scm>
     <properties>
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
     </properties>
     <repositories>
         <repository>
