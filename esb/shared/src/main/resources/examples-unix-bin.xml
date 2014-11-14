@@ -24,12 +24,27 @@
             <excludes>
                 <exclude>**/target/</exclude>
                 <exclude>**/target/*</exclude>
+                <exclude>README.md</exclude>
                 <exclude>**/README.md</exclude>
+                <exclude>pom.xml</exclude>
             </excludes>
+            <lineEnding>unix</lineEnding>
+            <filtered>false</filtered>
+        </fileSet>
+
+        <!-- Replace the top-level pom.xml and README files -->
+        <fileSet>
+            <directory>target/shared</directory>           <!-- -->
+            <outputDirectory>/quickstarts</outputDirectory>
+            <includes>
+                <include>README.md</include>
+                <include>pom.xml</include>
+            </includes>
             <lineEnding>unix</lineEnding>
             <filtered>true</filtered>
         </fileSet>
-        <!-- ... but use filtering on the README.md files to replace the ${project.version} -->
+
+        <!-- ... Filter the README.md files to replace the ${project.version} -->
         <fileSet>
             <directory>../../../quickstarts</directory>
             <outputDirectory>/quickstarts</outputDirectory>
