@@ -37,6 +37,7 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 
 import org.apache.curator.framework.CuratorFramework;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;
@@ -52,6 +53,7 @@ public class EsbProfileRedeployTest extends FabricTestSupport {
 
     private long timeout = 300 * 1000L;
 
+    @Ignore("ENTESB-1792")
     @Test
     public void testProfileRedeploy() throws Exception {
         executeCommand("fabric:create -n");
