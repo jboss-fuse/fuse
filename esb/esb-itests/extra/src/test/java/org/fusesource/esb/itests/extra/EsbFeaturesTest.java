@@ -32,6 +32,7 @@ import org.ops4j.pax.exam.spi.reactors.AllConfinedStagedReactorFactory;
 @ExamReactorStrategy(AllConfinedStagedReactorFactory.class)
 public class EsbFeaturesTest extends EsbTestSupport {
 
+    @Ignore("ENTESB-1792")
     @Test
     public void testConnector() throws Exception {
         installUninstallCommand("connector", false);
