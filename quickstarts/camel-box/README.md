@@ -1,11 +1,11 @@
 camel-box: Demonstrates how to use the camel-box component in Camel to upload files to Box.com
 ======================================================
 Author: Fuse Team  
-Level: Beginner
-Technologies: Camel, Blueprint
-Summary: Demonstrates how to use the Camel Box.com component
+Level: Beginner  
+Technologies: Camel, Blueprint  
+Summary: Demonstrates how to use the Camel Box.com component  
 Target Product: Fuse  
-Source: <https://github.com/jboss-fuse/quickstarts>
+Source: <https://github.com/jboss-fuse/quickstarts>  
 
 
 
