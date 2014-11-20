@@ -1,11 +1,11 @@
 camel-odata: Demonstrates how to use the camel-olingo2 component in Camel to integrate with JBoss Data Virtualization (JDV) using OData 2.0
 ======================================================
 Author: Fuse Team  
-Level: Beginner
-Technologies: Camel, Blueprint, JBoss Data Virtualization
-Summary: Demonstrates how to use the Camel Olingo2 OData component
+Level: Beginner  
+Technologies: Camel, Blueprint, JBoss Data Virtualization  
+Summary: Demonstrates how to use the Camel Olingo2 OData component  
 Target Product: Fuse  
-Source: <https://github.com/jboss-fuse/quickstarts>
+Source: <https://github.com/jboss-fuse/quickstarts>  
 
 
 
