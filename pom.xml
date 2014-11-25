@@ -105,7 +105,7 @@
         <osworkflow.bundle.version>2.7.0_4</osworkflow.bundle.version>
         <asm2.bundle.version>2.2.3_4</asm2.bundle.version>
         <jaxb.api.version>2.2</jaxb.api.version>
-        <jasypt-spring.bundle.version>1.9.1_1</jasypt-spring.bundle.version>
+        <jasypt-spring.bundle.version>1.9.2_1</jasypt-spring.bundle.version>
     </properties>
 
     <repositories>
