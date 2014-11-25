@@ -235,6 +235,13 @@
     <profiles>
         <profile>
             <id>sap</id>
+              <dependencies>
+               <dependency>
+                <groupId>org.jboss.quickstarts.fuse</groupId>
+                <artifactId>camel-sap</artifactId>
+                <version>${project.version}</version>
+               </dependency>
+              </dependencies>
             <build>
                 <plugins>
                     <plugin>
