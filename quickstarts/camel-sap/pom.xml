@@ -21,8 +21,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>jboss-quickstarts-fuse-parent</artifactId>
-		<groupId>org.jboss.quickstarts.fuse</groupId>
+                <groupId>org.jboss.quickstarts.fuse</groupId>
+                <artifactId>quickstart-parent</artifactId>
 		<version>6.2.0.redhat-SNAPSHOT</version>
 	</parent>
 
