@@ -51,7 +51,7 @@
     </prerequisites>
 
     <properties>
-        <perfectus-build>047</perfectus-build>
+        <perfectus-build>046</perfectus-build>
         <perfectus.version>${perfectus-build}</perfectus.version>
         <full-perfectus-build>620${perfectus-build}</full-perfectus-build>
 
