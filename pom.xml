@@ -21,7 +21,7 @@
     <parent>
         <groupId>io.fabric8.bom</groupId>
         <artifactId>fabric8-bom</artifactId>
-        <version>1.2.0.redhat-048</version>
+        <version>1.2.0.redhat-049</version>
     </parent>
 
     <groupId>org.jboss.fuse.bom</groupId>
@@ -51,7 +51,7 @@
     </prerequisites>
 
     <properties>
-        <perfectus-build>048</perfectus-build>
+        <perfectus-build>049</perfectus-build>
         <perfectus.version>${perfectus-build}</perfectus.version>
         <full-perfectus-build>620${perfectus-build}</full-perfectus-build>
 
