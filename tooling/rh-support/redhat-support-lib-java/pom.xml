@@ -6,7 +6,25 @@
 	<groupId>com.redhat.gss</groupId>
 	<artifactId>redhat-support-lib-java</artifactId>
 	<name>redhat-support-lib-java</name>
+	<description>A library for accessing Red Hat Access.</description>
 	<url>http://maven.apache.org</url>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<id>sshumake</id>
+			<email>sshumake@redhat.com</email>
+			<name>Spenser Shumaker</name>
+		</developer>
+	</developers>
+	<scm>
+		<url>https://github.com/jboss-fuse/fuse.git</url>
+	</scm>
 	<repositories>
 		<!--These are needed for Jersey -->
 		<repository>
@@ -146,6 +164,18 @@
 								</requirePluginVersions>
 							</rules>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>

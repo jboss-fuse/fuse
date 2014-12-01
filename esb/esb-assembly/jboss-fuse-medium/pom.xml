@@ -202,7 +202,7 @@
                                 <feature>fabric-web</feature>
                                 <feature>fabric-zeroconf</feature>
                                 <feature>mq-fabric</feature>
-                                <feature>insight-log-storage</feature>
+                                <feature>insight-elasticsearch-log-storage</feature>
                                 <feature>process-manager</feature>
                                 <feature>jolokia</feature>
                                 <feature>fabric-redirect</feature>
