@@ -17,7 +17,7 @@
   -->
 <features name="quickstart-camel-sap-${project.version}">
     <repository>mvn:org.fusesource/camel-sap/${project.version}/xml/features</repository>
-    <repository>mvn:io.fabric8/fabric-camel/${fabric.version}/xml/features</repository>
+    <repository>mvn:org.apache.camel.karaf/apache-camel/${camel-version}/xml/features</repository>
 
     <feature name="quickstart-camel-sap" version="${project.version}" resolver="(obr)">
         <feature>camel</feature>
