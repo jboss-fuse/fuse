@@ -200,7 +200,6 @@
                                 <feature>fabric-dosgi</feature>
                                 <feature>fabric-jaas</feature>
                                 <feature>fabric-web</feature>
-                                <feature>fabric-zeroconf</feature>
                                 <feature>mq-fabric</feature>
                                 <feature>insight-elasticsearch-log-storage</feature>
                                 <feature>jolokia</feature>
