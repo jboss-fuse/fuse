@@ -166,7 +166,6 @@
                                    <feature>fabric-camel</feature>
                                    <feature>fabric-dosgi</feature>
                                    <feature>fabric-openshift</feature>
-                                   <feature>fabric-zeroconf</feature>
                                    <feature>jasypt-encryption</feature>
                                    <feature>mq-fabric</feature>
                                    <feature>mq-fabric-http-discovery</feature>
