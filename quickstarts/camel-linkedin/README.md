@@ -1,9 +1,9 @@
-camel-linkedin: Demonstrates how to use the camel-linkedin component in Camel to poll LinkedIn user connections
+camel-linkedin: Demonstrates the camel-linkedin component
 ======================================================
 Author: Fuse Team  
 Level: Beginner  
 Technologies: Camel, Blueprint  
-Summary: Demonstrates how to use the Camel Box.com component  
+Summary: This quickstart demonstrates how to use the camel-linkedin component in Camel to poll LinkedIn user connections  
 Target Product: Fuse  
 Source: <https://github.com/jboss-fuse/quickstarts>  
 
