@@ -1,9 +1,9 @@
-camel-salesforce: Demonstrates how to use the camel-salesforce component in Camel to integrate with Salesforce
+camel-salesforce: Demonstrates the camel-salesforce component
 ======================================================
 Author: Fuse Team  
 Level: Beginner  
 Technologies: Camel, Blueprint, JBoss Data Virtualization  
-Summary: Demonstrates how to use the Camel Olingo2 OData component  
+Summary: This quickstart demonstrates how to use the camel-salesforce component in Camel to integrate with Salesforce  
 Target Product: Fuse  
 Source: <https://github.com/jboss-fuse/quickstarts>  
 

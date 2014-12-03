@@ -1,18 +1,18 @@
-/**
- * Copyright 2013 Red Hat, Inc.
- * 
- * Red Hat licenses this file to you under the Apache License, version
- * 2.0 (the "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- * 
- *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+/*
+ * JBoss, Home of Professional Open Source
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * contributors by the @authors tag. See the copyright.txt in the
+ * distribution for a full listing of individual contributors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.  See the License for the specific language governing
- * permissions and limitations under the License.
- * 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jboss.quickstarts.fuse.sap.bean;
 
@@ -25,185 +25,184 @@ import java.util.Date;
  *
  */
 public class FlightHop {
-	
-	private String hopNumber;
-	
-	private String airlineCode;
-	
-	private String airlineName;
-	
-	private String flightConnectionNumber;
-	
-	private Date depatureDate;
-	
-	private Date depatureTime;
-	
-	private String depatureAirport;
-	
-	private String depatureCity;
-	
-	private String departureCountry;
-	
-	private String departureCountryIso;
 
-	private Date arrivalDate;
+    private String hopNumber;
 
-	private Date arrivalTime;
-	
-	private String arrivalAirport;
-	
-	private String arrivalCity;
-	
-	private String arrivalCountry;
-	
-	private String arrivalCountryIso;
-	
-	private String aircraftType;
+    private String airlineCode;
 
-	public String getHopNumber() {
-		return hopNumber;
-	}
+    private String airlineName;
 
-	public void setHopNumber(String hopNumber) {
-		this.hopNumber = hopNumber;
-	}
+    private String flightConnectionNumber;
 
-	public String getAirlineCode() {
-		return airlineCode;
-	}
+    private Date depatureDate;
 
-	public void setAirlineCode(String airlineCode) {
-		this.airlineCode = airlineCode;
-	}
+    private Date depatureTime;
 
-	public String getAirlineName() {
-		return airlineName;
-	}
+    private String depatureAirport;
 
-	public void setAirlineName(String airlineName) {
-		this.airlineName = airlineName;
-	}
+    private String depatureCity;
 
-	public String getFlightConnectionNumber() {
-		return flightConnectionNumber;
-	}
+    private String departureCountry;
 
-	public void setFlightConnectionNumber(String flightConnectionNumber) {
-		this.flightConnectionNumber = flightConnectionNumber;
-	}
+    private String departureCountryIso;
 
-	public Date getDepatureDate() {
-		return depatureDate;
-	}
+    private Date arrivalDate;
 
-	public void setDepatureDate(Date depatureDate) {
-		this.depatureDate = depatureDate;
-	}
+    private Date arrivalTime;
 
-	public Date getDepatureTime() {
-		return depatureTime;
-	}
+    private String arrivalAirport;
 
-	public void setDepatureTime(Date depatureTime) {
-		this.depatureTime = depatureTime;
-	}
+    private String arrivalCity;
 
-	public String getDepatureAirport() {
-		return depatureAirport;
-	}
+    private String arrivalCountry;
 
-	public void setDepatureAirport(String depatureAirport) {
-		this.depatureAirport = depatureAirport;
-	}
+    private String arrivalCountryIso;
 
-	public String getDepatureCity() {
-		return depatureCity;
-	}
+    private String aircraftType;
 
-	public void setDepatureCity(String depatureCity) {
-		this.depatureCity = depatureCity;
-	}
+    public String getHopNumber() {
+        return hopNumber;
+    }
 
-	public String getDepartureCountry() {
-		return departureCountry;
-	}
+    public void setHopNumber(String hopNumber) {
+        this.hopNumber = hopNumber;
+    }
 
-	public void setDepartureCountry(String departureCountry) {
-		this.departureCountry = departureCountry;
-	}
+    public String getAirlineCode() {
+        return airlineCode;
+    }
 
-	public String getDepartureCountryIso() {
-		return departureCountryIso;
-	}
+    public void setAirlineCode(String airlineCode) {
+        this.airlineCode = airlineCode;
+    }
 
-	public void setDepartureCountryIso(String departureCountryIso) {
-		this.departureCountryIso = departureCountryIso;
-	}
+    public String getAirlineName() {
+        return airlineName;
+    }
 
-	public Date getArrivalDate() {
-		return arrivalDate;
-	}
+    public void setAirlineName(String airlineName) {
+        this.airlineName = airlineName;
+    }
 
-	public void setArrivalDate(Date arrivalDate) {
-		this.arrivalDate = arrivalDate;
-	}
+    public String getFlightConnectionNumber() {
+        return flightConnectionNumber;
+    }
 
-	public Date getArrivalTime() {
-		return arrivalTime;
-	}
+    public void setFlightConnectionNumber(String flightConnectionNumber) {
+        this.flightConnectionNumber = flightConnectionNumber;
+    }
 
-	public void setArrivalTime(Date arrivalTime) {
-		this.arrivalTime = arrivalTime;
-	}
+    public Date getDepatureDate() {
+        return depatureDate;
+    }
 
-	public String getArrivalAirport() {
-		return arrivalAirport;
-	}
+    public void setDepatureDate(Date depatureDate) {
+        this.depatureDate = depatureDate;
+    }
 
-	public void setArrivalAirport(String arrivalAirport) {
-		this.arrivalAirport = arrivalAirport;
-	}
+    public Date getDepatureTime() {
+        return depatureTime;
+    }
 
-	public String getArrivalCity() {
-		return arrivalCity;
-	}
+    public void setDepatureTime(Date depatureTime) {
+        this.depatureTime = depatureTime;
+    }
 
-	public void setArrivalCity(String arrivalCity) {
-		this.arrivalCity = arrivalCity;
-	}
+    public String getDepatureAirport() {
+        return depatureAirport;
+    }
 
-	public String getArrivalCountry() {
-		return arrivalCountry;
-	}
+    public void setDepatureAirport(String depatureAirport) {
+        this.depatureAirport = depatureAirport;
+    }
 
-	public void setArrivalCountry(String arrivalCountry) {
-		this.arrivalCountry = arrivalCountry;
-	}
+    public String getDepatureCity() {
+        return depatureCity;
+    }
 
-	public String getArrivalCountryIso() {
-		return arrivalCountryIso;
-	}
+    public void setDepatureCity(String depatureCity) {
+        this.depatureCity = depatureCity;
+    }
 
-	public void setArrivalCountryIso(String arrivalCountryIso) {
-		this.arrivalCountryIso = arrivalCountryIso;
-	}
+    public String getDepartureCountry() {
+        return departureCountry;
+    }
 
-	public String getAircraftType() {
-		return aircraftType;
-	}
+    public void setDepartureCountry(String departureCountry) {
+        this.departureCountry = departureCountry;
+    }
 
-	public void setAircraftType(String aircraftType) {
-		this.aircraftType = aircraftType;
-	}
+    public String getDepartureCountryIso() {
+        return departureCountryIso;
+    }
 
-	@Override
-	public String toString() {
-		return "FlightHop [number=" + hopNumber + ", airlineCode=" + airlineCode + ", airlineName=" + airlineName + ", flightConnectionNumber="
-				+ flightConnectionNumber + ", depatureDate=" + depatureDate + ", depatureTime=" + depatureTime + ", depatureAirport=" + depatureAirport
-				+ ", depatureCity=" + depatureCity + ", departureCountry=" + departureCountry + ", departureContryIso=" + departureCountryIso + ", arrivalDate="
-				+ arrivalDate + ", arrivalTime=" + arrivalTime + ", arrivalAirport=" + arrivalAirport + ", arrivalCity=" + arrivalCity + ", arrivalCountry="
-				+ arrivalCountry + ", arrivalContryIso=" + arrivalCountryIso + ", aircraftType=" + aircraftType + "]";
-	}
-	
-	
+    public void setDepartureCountryIso(String departureCountryIso) {
+        this.departureCountryIso = departureCountryIso;
+    }
+
+    public Date getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public Date getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(Date arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public String getArrivalAirport() {
+        return arrivalAirport;
+    }
+
+    public void setArrivalAirport(String arrivalAirport) {
+        this.arrivalAirport = arrivalAirport;
+    }
+
+    public String getArrivalCity() {
+        return arrivalCity;
+    }
+
+    public void setArrivalCity(String arrivalCity) {
+        this.arrivalCity = arrivalCity;
+    }
+
+    public String getArrivalCountry() {
+        return arrivalCountry;
+    }
+
+    public void setArrivalCountry(String arrivalCountry) {
+        this.arrivalCountry = arrivalCountry;
+    }
+
+    public String getArrivalCountryIso() {
+        return arrivalCountryIso;
+    }
+
+    public void setArrivalCountryIso(String arrivalCountryIso) {
+        this.arrivalCountryIso = arrivalCountryIso;
+    }
+
+    public String getAircraftType() {
+        return aircraftType;
+    }
+
+    public void setAircraftType(String aircraftType) {
+        this.aircraftType = aircraftType;
+    }
+
+    @Override
+    public String toString() {
+        return "FlightHop [number=" + hopNumber + ", airlineCode=" + airlineCode + ", airlineName=" + airlineName + ", flightConnectionNumber="
+            + flightConnectionNumber + ", depatureDate=" + depatureDate + ", depatureTime=" + depatureTime + ", depatureAirport=" + depatureAirport
+            + ", depatureCity=" + depatureCity + ", departureCountry=" + departureCountry + ", departureContryIso=" + departureCountryIso + ", arrivalDate="
+            + arrivalDate + ", arrivalTime=" + arrivalTime + ", arrivalAirport=" + arrivalAirport + ", arrivalCity=" + arrivalCity + ", arrivalCountry="
+            + arrivalCountry + ", arrivalContryIso=" + arrivalCountryIso + ", aircraftType=" + aircraftType + "]";
+    }
+
 }
