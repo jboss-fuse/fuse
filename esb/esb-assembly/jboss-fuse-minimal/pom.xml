@@ -114,6 +114,7 @@
                               <feature>fabric-jaas</feature>
                               <feature>fabric-web</feature>
                               <feature>fabric-zeroconf</feature>
+                              <feature>process-manager</feature>
                               <feature>jolokia</feature>
                               <feature>fabric-redirect</feature>
                               <feature>fabric-hawtio-swagger</feature>

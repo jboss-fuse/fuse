@@ -554,6 +554,31 @@
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>process-fabric</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>process-spring-boot-container</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>process-spring-boot-starter-activemq</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>process-spring-boot-starter-camel</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric-docker-provider</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.fabric8.fab</groupId>
                 <artifactId>fab-osgi</artifactId>
                 <version>${fabric.version}</version>
@@ -575,7 +600,17 @@
             </dependency>
             <dependency>
                 <groupId>io.fabric8</groupId>
+                <artifactId>fabric-docker-api</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
                 <artifactId>fabric-partition</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric-process-container</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
@@ -596,6 +631,16 @@
             <dependency>
                 <groupId>io.fabric8</groupId>
                 <artifactId>fabric-agent-commands</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>process-manager</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>process-test</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
@@ -722,6 +767,16 @@
             <dependency>
                 <groupId>io.fabric8.runtime</groupId>
                 <artifactId>fabric-runtime-container-karaf-registration</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric-kubernetes-api</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric-kubernetes-provider</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
 
