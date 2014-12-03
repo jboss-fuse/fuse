@@ -1,18 +1,18 @@
-/**
- * Copyright 2013 Red Hat, Inc.
- * 
- * Red Hat licenses this file to you under the Apache License, version
- * 2.0 (the "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- * 
- *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+/*
+ * JBoss, Home of Professional Open Source
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * contributors by the @authors tag. See the copyright.txt in the
+ * distribution for a full listing of individual contributors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.  See the License for the specific language governing
- * permissions and limitations under the License.
- * 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jboss.quickstarts.fuse.sap.bean;
 
@@ -23,132 +23,132 @@ package org.jboss.quickstarts.fuse.sap.bean;
  *
  */
 public class FlightCustomerInfo {
-	
-	private String customerNumber;
 
-	private String formOfAddress;
-	
-	private String name;
-	
-	private String street;  
-	
-	private String poBox;
-	
-	private String city;
-	
-	private String region;
-	
-	private String postalCode;
-	
-	private String country;
-	
-	private String countryIso;
-	
-	private String phone;
-	
-	private String email;
+    private String customerNumber;
 
-	public String getCustomerNumber() {
-		return customerNumber;
-	}
+    private String formOfAddress;
 
-	public void setCustomerNumber(String customerNumber) {
-		this.customerNumber = customerNumber;
-	}
+    private String name;
 
-	public String getFormOfAddress() {
-		return formOfAddress;
-	}
+    private String street;
 
-	public void setFormOfAddress(String formOfAddress) {
-		this.formOfAddress = formOfAddress;
-	}
+    private String poBox;
 
-	public String getName() {
-		return name;
-	}
+    private String city;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String region;
 
-	public String getStreet() {
-		return street;
-	}
+    private String postalCode;
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
+    private String country;
 
-	public String getPoBox() {
-		return poBox;
-	}
+    private String countryIso;
 
-	public void setPoBox(String poBox) {
-		this.poBox = poBox;
-	}
+    private String phone;
 
-	public String getCity() {
-		return city;
-	}
+    private String email;
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getCustomerNumber() {
+        return customerNumber;
+    }
 
-	public String getRegion() {
-		return region;
-	}
+    public void setCustomerNumber(String customerNumber) {
+        this.customerNumber = customerNumber;
+    }
 
-	public void setRegion(String region) {
-		this.region = region;
-	}
+    public String getFormOfAddress() {
+        return formOfAddress;
+    }
 
-	public String getPostalCode() {
-		return postalCode;
-	}
+    public void setFormOfAddress(String formOfAddress) {
+        this.formOfAddress = formOfAddress;
+    }
 
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getCountry() {
-		return country;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
+    public String getStreet() {
+        return street;
+    }
 
-	public String getCountryIso() {
-		return countryIso;
-	}
+    public void setStreet(String street) {
+        this.street = street;
+    }
 
-	public void setCountryIso(String countryIso) {
-		this.countryIso = countryIso;
-	}
+    public String getPoBox() {
+        return poBox;
+    }
 
-	public String getPhone() {
-		return phone;
-	}
+    public void setPoBox(String poBox) {
+        this.poBox = poBox;
+    }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	@Override
-	public String toString() {
-		return "FlightCustomerInfo [customerNumber=" + customerNumber + ", formOfAddress=" + formOfAddress + ", name=" + name + ", street=" + street
-				+ ", poBox=" + poBox + ", city=" + city + ", region=" + region + ", postalCode=" + postalCode + ", country=" + country + ", countryIso="
-				+ countryIso + ", phone=" + phone + ", email=" + email + "]";
-	}
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCountryIso() {
+        return countryIso;
+    }
+
+    public void setCountryIso(String countryIso) {
+        this.countryIso = countryIso;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "FlightCustomerInfo [customerNumber=" + customerNumber + ", formOfAddress=" + formOfAddress + ", name=" + name + ", street=" + street
+            + ", poBox=" + poBox + ", city=" + city + ", region=" + region + ", postalCode=" + postalCode + ", country=" + country + ", countryIso="
+            + countryIso + ", phone=" + phone + ", email=" + email + "]";
+    }
 
 }

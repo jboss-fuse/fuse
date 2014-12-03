@@ -1,18 +1,18 @@
-/**
- * Copyright 2013 Red Hat, Inc.
- * 
- * Red Hat licenses this file to you under the Apache License, version
- * 2.0 (the "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- * 
- *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+/*
+ * JBoss, Home of Professional Open Source
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * contributors by the @authors tag. See the copyright.txt in the
+ * distribution for a full listing of individual contributors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.  See the License for the specific language governing
- * permissions and limitations under the License.
- * 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jboss.quickstarts.fuse.sap.processor;
 
@@ -35,75 +35,76 @@ import org.slf4j.LoggerFactory;
  */
 public class CreateFlightConnectionGetListRequest {
 
-	private static final Logger LOG = LoggerFactory.getLogger(CreateFlightConnectionGetListRequest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CreateFlightConnectionGetListRequest.class);
 
-	/**
-	 * Builds SAP Request Object for BAPI_FLCONN_GETLIST call using data from
-	 * the BOOK_FLIGHT request.
-	 * 
-	 * @param exchange
-	 * @throws Exception
-	 */
-	public void create(Exchange exchange) throws Exception {
+    /**
+     * Builds SAP Request Object for BAPI_FLCONN_GETLIST call using data from
+     * the BOOK_FLIGHT request.
+     * 
+     * @param exchange
+     * @throws Exception
+     */
+    public void create(Exchange exchange) throws Exception {
 
-		// Get BOOK_FLIGHT Request JAXB Bean object.
-		BookFlightRequest bookFlightRequest = exchange.getIn().getBody(BookFlightRequest.class);
+        // Get BOOK_FLIGHT Request JAXB Bean object.
+        BookFlightRequest bookFlightRequest = exchange.getIn().getBody(BookFlightRequest.class);
 
-		// Create SAP Request object from target endpoint.
-		SapSynchronousRfcDestinationEndpoint endpoint = exchange.getContext().getEndpoint("sap-srfc-destination:nplDest:BAPI_FLCONN_GETLIST", SapSynchronousRfcDestinationEndpoint.class);
-		Structure request = endpoint.createRequest();
+        // Create SAP Request object from target endpoint.
+        SapSynchronousRfcDestinationEndpoint endpoint =
+            exchange.getContext().getEndpoint("sap-srfc-destination:nplDest:BAPI_FLCONN_GETLIST", SapSynchronousRfcDestinationEndpoint.class);
+        Structure request = endpoint.createRequest();
 
-		// Add Travel Agency Number to request if set
-		if (bookFlightRequest.getTravelAgencyNumber() != null && bookFlightRequest.getTravelAgencyNumber().length() > 0) {
-			request.put("TRAVELAGENCY", bookFlightRequest.getTravelAgencyNumber());
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added TRAVELAGENCY = '{}' to request", bookFlightRequest.getTravelAgencyNumber());
-			}
-		} else {
-			throw new Exception("No Travel Agency Number");
-		}
+        // Add Travel Agency Number to request if set
+        if (bookFlightRequest.getTravelAgencyNumber() != null && bookFlightRequest.getTravelAgencyNumber().length() > 0) {
+            request.put("TRAVELAGENCY", bookFlightRequest.getTravelAgencyNumber());
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added TRAVELAGENCY = '{}' to request", bookFlightRequest.getTravelAgencyNumber());
+            }
+        } else {
+            throw new Exception("No Travel Agency Number");
+        }
 
-		// Add Flight Date to request if set
-		if (bookFlightRequest.getFlightDate() != null) {
-			@SuppressWarnings("unchecked")
-			Table<Structure> table = request.get("DATE_RANGE", Table.class);
-			Structure date_range = table.add();
-			date_range.put("SIGN", "I");
-			date_range.put("OPTION", "EQ");
-			Date date = bookFlightRequest.getFlightDate();
-			date_range.put("LOW", date);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added DATE_RANGE = '{}' to request", RfcUtil.marshal(table));
-			}
-		} else {
-			throw new Exception("No Flight Date");
-		}
+        // Add Flight Date to request if set
+        if (bookFlightRequest.getFlightDate() != null) {
+            @SuppressWarnings("unchecked")
+            Table<Structure> table = request.get("DATE_RANGE", Table.class);
+            Structure date_range = table.add();
+            date_range.put("SIGN", "I");
+            date_range.put("OPTION", "EQ");
+            Date date = bookFlightRequest.getFlightDate();
+            date_range.put("LOW", date);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added DATE_RANGE = '{}' to request", RfcUtil.marshal(table));
+            }
+        } else {
+            throw new Exception("No Flight Date");
+        }
 
-		// Add Start Destination if set
-		if (bookFlightRequest.getStartAirportCode() != null && bookFlightRequest.getStartAirportCode().length() > 0) {
-			Structure destination_from = request.get("DESTINATION_FROM", Structure.class);
-			destination_from.put("AIRPORTID", bookFlightRequest.getStartAirportCode());
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added DESTINATION_FROM = '{}' to request", RfcUtil.marshal(destination_from));
-			}
-		} else {
-			throw new Exception("No Start Destination");
-		}
+        // Add Start Destination if set
+        if (bookFlightRequest.getStartAirportCode() != null && bookFlightRequest.getStartAirportCode().length() > 0) {
+            Structure destination_from = request.get("DESTINATION_FROM", Structure.class);
+            destination_from.put("AIRPORTID", bookFlightRequest.getStartAirportCode());
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added DESTINATION_FROM = '{}' to request", RfcUtil.marshal(destination_from));
+            }
+        } else {
+            throw new Exception("No Start Destination");
+        }
 
-		// Add End Destination if set
-		if (bookFlightRequest.getEndAirportCode() != null && bookFlightRequest.getEndAirportCode().length() > 0) {
-			Structure destination_to = request.get("DESTINATION_TO", Structure.class);
-			destination_to.put("AIRPORTID", bookFlightRequest.getEndAirportCode());
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added DESTINATION_TO = '{}' to request", RfcUtil.marshal(destination_to));
-			}
-		} else {
-			throw new Exception("No End Destination");
-		}
+        // Add End Destination if set
+        if (bookFlightRequest.getEndAirportCode() != null && bookFlightRequest.getEndAirportCode().length() > 0) {
+            Structure destination_to = request.get("DESTINATION_TO", Structure.class);
+            destination_to.put("AIRPORTID", bookFlightRequest.getEndAirportCode());
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added DESTINATION_TO = '{}' to request", RfcUtil.marshal(destination_to));
+            }
+        } else {
+            throw new Exception("No End Destination");
+        }
 
-		// Put request object into body of exchange message.
-		exchange.getIn().setBody(request);
+        // Put request object into body of exchange message.
+        exchange.getIn().setBody(request);
 
-	}
+    }
 
 }

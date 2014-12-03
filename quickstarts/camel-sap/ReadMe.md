@@ -1,4 +1,11 @@
-# Camel SAP QuickStart
+camel-sap: Demonstrates using the camel-sap component
+======================================================
+Author: Fuse Team  
+Level: Beginner  
+Technologies: Camel, SAP  
+Summary: This quickstart demonstrates how to use the camel-sap component in Camel in order to integrate with SAP  
+Target Product: Fuse  
+Source: <https://github.com/jboss-fuse/quickstarts>  
 
 This quick start shows how to use the SAP Camel Component and demonstrates:
 

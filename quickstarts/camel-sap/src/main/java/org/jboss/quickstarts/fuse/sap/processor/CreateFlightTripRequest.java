@@ -1,18 +1,18 @@
-/**
- * Copyright 2013 Red Hat, Inc.
- * 
- * Red Hat licenses this file to you under the Apache License, version
- * 2.0 (the "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- * 
- *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+/*
+ * JBoss, Home of Professional Open Source
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * contributors by the @authors tag. See the copyright.txt in the
+ * distribution for a full listing of individual contributors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.  See the License for the specific language governing
- * permissions and limitations under the License.
- * 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jboss.quickstarts.fuse.sap.processor;
 
@@ -36,127 +36,127 @@ import org.slf4j.LoggerFactory;
  */
 public class CreateFlightTripRequest {
 
-	private static final Logger LOG = LoggerFactory.getLogger(CreateFlightTripRequest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CreateFlightTripRequest.class);
 
-	/**
-	 * Builds SAP Request Object for BAPI_FLTRIP_CREATE call using data from the
-	 * flight connection info, flight customer info and passenger info bean
-	 * objects contained in exchange message header.
-	 * 
-	 * @param exchange
-	 * @throws Exception
-	 */
-	public void create(Exchange exchange) throws Exception {
-		
-		// Get flight connection info, flight customer info and passenger info bean objects from input message header.
-		FlightConnectionInfo flightConnectionInfo = exchange.getIn().getHeader("flightConnectionInfo", FlightConnectionInfo.class);
-		FlightCustomerInfo flightCustomerInfo = exchange.getIn().getHeader("flightCustomerInfo", FlightCustomerInfo.class);
-		PassengerInfo passengerInfo = (PassengerInfo) exchange.getIn().getHeader("passengerInfo");
-		
-		// Create SAP Request object from target endpoint.
-		SapSynchronousRfcDestinationEndpoint endpoint = exchange.getContext().getEndpoint("sap-srfc-destination:nplDest:BAPI_FLTRIP_CREATE", SapSynchronousRfcDestinationEndpoint.class);
-		Structure request = endpoint.createRequest();
-		
-		//
-		// Add Flight Trip Data to request object.
-		//
-		
-		Structure flightTripData = request.get("FLIGHT_TRIP_DATA", Structure.class);
-		
-		// Add Travel Agency Number to request if set
-		String travelAgencyNumber = flightConnectionInfo.getTravelAgencyNumber();
-		if (travelAgencyNumber != null && travelAgencyNumber.length() != 0) {
-			flightTripData.put("AGENCYNUM", travelAgencyNumber);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added AGENCYNUM = '{}' to FLIGHT_TRIP_DATA", travelAgencyNumber);
-			}
-			
-		}
-		
-		// Add Customer ID to request if set
-		String flightCustomerNumber = flightCustomerInfo.getCustomerNumber();
-		if (flightCustomerNumber != null && flightCustomerNumber.length() != 0) {
-			flightTripData.put("CUSTOMERID", flightCustomerNumber);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added CUSTOMERID = '{}' to FLIGHT_TRIP_DATA", flightCustomerNumber);
-			}
-			
-		}
-		
-		// Add Flight Connection Number to request if set
-		String flightConnectionNumber = flightConnectionInfo.getFlightConnectionNumber();
-		if (flightConnectionNumber != null && flightConnectionNumber.length() != 0) {
-			flightTripData.put("FLCONN1", flightConnectionNumber);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added FLCONN1 = '{}' to FLIGHT_TRIP_DATA", flightConnectionNumber);
-			}
-			
-		}
-		
-		// Add Departure Date to request if set
-		Date flightConnectionDepartureData = flightConnectionInfo.getDepartureDate();
-		if (flightConnectionDepartureData != null) {
-			flightTripData.put("FLDATE1", flightConnectionDepartureData);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added FLDATE1 = '{}' to FLIGHT_TRIP_DATA", flightConnectionDepartureData);
-			}
-			
-		}
-		
-		// Add Flight Connection Class to  request.
-		// C : Business Class
-		// Y : Economy Class
-		// F : First Class
-		String flightConnectionClass = "Y";
-		if (flightConnectionClass != null && flightConnectionClass.length() != 0) {
-			flightTripData.put("CLASS", flightConnectionClass);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added CLASS = '{}' to FLIGHT_TRIP_DATA", flightConnectionClass);
-			}
-			
-		}
-		
-		
-		//
-		// Add Passenger List Data to request object.
-		//
-		@SuppressWarnings("unchecked")
-		Table<Structure> passengerList = request.get("PASSENGER_LIST", Table.class);
-		Structure passengerListEntry = passengerList.add();
-		
-		// Add Passenger Form of Address to request if set
-		String passengerFormOfAddress = passengerInfo.getFormOfAddress();
-		if (passengerFormOfAddress != null && passengerFormOfAddress.length() != 0) {
-			passengerListEntry.put("PASSFORM", passengerFormOfAddress);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added PASSFORM = '{}' to PASSENGER_LIST", passengerFormOfAddress);
-			}
-			
-		}
-		
-		// Add Passenger Name to request if set
-		String passengerName = passengerInfo.getName();
-		if (passengerName != null && passengerName.length() != 0) {
-			passengerListEntry.put("PASSNAME", passengerName);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added PASSNAME = '{}' to PASSENGER_LIST", passengerName);
-			}
-			
-		}
-		
-		// Add Passenger Data of Birth to request if set
-		Date passengerDateOfBirth = passengerInfo.getDateOfBirth();
-		if (passengerDateOfBirth != null) {
-			passengerListEntry.put("PASSBIRTH", passengerDateOfBirth);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("Added PASSBIRTH = '{}' to PASSENGER_LIST", passengerDateOfBirth);
-			}
-			
-		}
+    /**
+     * Builds SAP Request Object for BAPI_FLTRIP_CREATE call using data from the
+     * flight connection info, flight customer info and passenger info bean
+     * objects contained in exchange message header.
+     * 
+     * @param exchange
+     * @throws Exception
+     */
+    public void create(Exchange exchange) throws Exception {
 
-		// Put request object into body of exchange message.
-		exchange.getIn().setBody(request);
-		
-	}
+        // Get flight connection info, flight customer info and passenger info bean objects from input message header.
+        FlightConnectionInfo flightConnectionInfo = exchange.getIn().getHeader("flightConnectionInfo", FlightConnectionInfo.class);
+        FlightCustomerInfo flightCustomerInfo = exchange.getIn().getHeader("flightCustomerInfo", FlightCustomerInfo.class);
+        PassengerInfo passengerInfo = (PassengerInfo) exchange.getIn().getHeader("passengerInfo");
+
+        // Create SAP Request object from target endpoint.
+        SapSynchronousRfcDestinationEndpoint endpoint =
+            exchange.getContext().getEndpoint("sap-srfc-destination:nplDest:BAPI_FLTRIP_CREATE", SapSynchronousRfcDestinationEndpoint.class);
+        Structure request = endpoint.createRequest();
+
+        //
+        // Add Flight Trip Data to request object.
+        //
+
+        Structure flightTripData = request.get("FLIGHT_TRIP_DATA", Structure.class);
+
+        // Add Travel Agency Number to request if set
+        String travelAgencyNumber = flightConnectionInfo.getTravelAgencyNumber();
+        if (travelAgencyNumber != null && travelAgencyNumber.length() != 0) {
+            flightTripData.put("AGENCYNUM", travelAgencyNumber);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added AGENCYNUM = '{}' to FLIGHT_TRIP_DATA", travelAgencyNumber);
+            }
+
+        }
+
+        // Add Customer ID to request if set
+        String flightCustomerNumber = flightCustomerInfo.getCustomerNumber();
+        if (flightCustomerNumber != null && flightCustomerNumber.length() != 0) {
+            flightTripData.put("CUSTOMERID", flightCustomerNumber);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added CUSTOMERID = '{}' to FLIGHT_TRIP_DATA", flightCustomerNumber);
+            }
+
+        }
+
+        // Add Flight Connection Number to request if set
+        String flightConnectionNumber = flightConnectionInfo.getFlightConnectionNumber();
+        if (flightConnectionNumber != null && flightConnectionNumber.length() != 0) {
+            flightTripData.put("FLCONN1", flightConnectionNumber);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added FLCONN1 = '{}' to FLIGHT_TRIP_DATA", flightConnectionNumber);
+            }
+
+        }
+
+        // Add Departure Date to request if set
+        Date flightConnectionDepartureData = flightConnectionInfo.getDepartureDate();
+        if (flightConnectionDepartureData != null) {
+            flightTripData.put("FLDATE1", flightConnectionDepartureData);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added FLDATE1 = '{}' to FLIGHT_TRIP_DATA", flightConnectionDepartureData);
+            }
+
+        }
+
+        // Add Flight Connection Class to  request.
+        // C : Business Class
+        // Y : Economy Class
+        // F : First Class
+        String flightConnectionClass = "Y";
+        if (flightConnectionClass != null && flightConnectionClass.length() != 0) {
+            flightTripData.put("CLASS", flightConnectionClass);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added CLASS = '{}' to FLIGHT_TRIP_DATA", flightConnectionClass);
+            }
+
+        }
+
+        //
+        // Add Passenger List Data to request object.
+        //
+        @SuppressWarnings("unchecked")
+        Table<Structure> passengerList = request.get("PASSENGER_LIST", Table.class);
+        Structure passengerListEntry = passengerList.add();
+
+        // Add Passenger Form of Address to request if set
+        String passengerFormOfAddress = passengerInfo.getFormOfAddress();
+        if (passengerFormOfAddress != null && passengerFormOfAddress.length() != 0) {
+            passengerListEntry.put("PASSFORM", passengerFormOfAddress);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added PASSFORM = '{}' to PASSENGER_LIST", passengerFormOfAddress);
+            }
+
+        }
+
+        // Add Passenger Name to request if set
+        String passengerName = passengerInfo.getName();
+        if (passengerName != null && passengerName.length() != 0) {
+            passengerListEntry.put("PASSNAME", passengerName);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added PASSNAME = '{}' to PASSENGER_LIST", passengerName);
+            }
+
+        }
+
+        // Add Passenger Data of Birth to request if set
+        Date passengerDateOfBirth = passengerInfo.getDateOfBirth();
+        if (passengerDateOfBirth != null) {
+            passengerListEntry.put("PASSBIRTH", passengerDateOfBirth);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Added PASSBIRTH = '{}' to PASSENGER_LIST", passengerDateOfBirth);
+            }
+
+        }
+
+        // Put request object into body of exchange message.
+        exchange.getIn().setBody(request);
+
+    }
 
 }
