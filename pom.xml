@@ -121,7 +121,7 @@
         <repository>
             <id>fusesource.ea</id>
             <name>JBoss Community Early Access Release Repository</name>
-            <url>https://repository.jboss.org/nexus/content/groups/ea/</url>
+            <url>https://origin-repository.jboss.org/nexus/content/groups/ea/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -133,7 +133,7 @@
         <repository>
             <id>fusesource.m2</id>
             <name>JBoss FS Public Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/fs-public/</url>
+            <url>https://origin-repository.jboss.org/nexus/content/groups/fs-public/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -146,7 +146,7 @@
         <repository>
             <id>jboss-thirdparty-uploads</id>
             <name>JBoss Thirdparty Uploads</name>
-            <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-uploads</url>
+            <url>https://origin-repository.jboss.org/nexus/content/repositories/thirdparty-uploads</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -160,7 +160,7 @@
         <repository>
             <id>fusesource.m2-snapshot</id>
             <name>FuseSource Community Snapshot Repository</name>
-            <url>https://repository.jboss.org/nexus/content/groups/fs-public-snapshots/</url>
+            <url>https://origin-repository.jboss.org/nexus/content/groups/fs-public-snapshots/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -193,7 +193,7 @@
         <repository>
             <id>jboss-public-repository-group</id>
             <name>JBoss Public Repository Group</name>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+            <url>https://origin-repository.jboss.org/nexus/content/groups/public/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -262,7 +262,7 @@
         <pluginRepository>
             <id>fusesource.m2</id>
             <name>FuseSource Community Release Repository</name>
-            <url>https://repository.jboss.org/nexus/content/groups/fs-public/</url>
+            <url>https://origin-repository.jboss.org/nexus/content/groups/fs-public/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -274,7 +274,7 @@
         <pluginRepository>
             <id>fusesource.ea</id>
             <name>FuseSource Community Early Access Release Repository</name>
-            <url>https://repository.jboss.org/nexus/content/groups/ea/</url>
+            <url>https://origin-repository.jboss.org/nexus/content/groups/ea/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
