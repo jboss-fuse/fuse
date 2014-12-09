@@ -2,7 +2,7 @@
 <feature
       id="org.fusesource.camel.component.sap.feature"
       label="JBoss Fuse SAP Data Layer"
-      version="6.2.0.redhat-052"
+      version="6.2.0.qualifier"
       provider-name="JBoss by Red Hat">
 
    <description>

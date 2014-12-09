@@ -61,6 +61,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- 
 			<plugin>
 				<groupId>org.fusesource.mvnplugins</groupId>
 				<artifactId>maven-updatesite-plugin</artifactId>
@@ -88,7 +89,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-
+			-->
 		</plugins>
 	</build>
 
