@@ -16,10 +16,6 @@
  */
 package org.fusesource.esb.itests.basic;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.features;
-
 import io.fabric8.api.Container;
 import io.fabric8.api.FabricService;
 import io.fabric8.api.ServiceProxy;
@@ -31,24 +27,27 @@ import io.fabric8.itests.paxexam.support.ContainerProxy;
 import io.fabric8.itests.paxexam.support.FabricTestSupport;
 import io.fabric8.itests.paxexam.support.Provision;
 import io.fabric8.mq.fabric.discovery.FabricDiscoveryAgent;
+import org.apache.curator.framework.CuratorFramework;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.ops4j.pax.exam.Configuration;
+import org.ops4j.pax.exam.Option;
+import org.ops4j.pax.exam.junit.PaxExam;
+import org.ops4j.pax.exam.options.DefaultCompositeOption;
+import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
+import org.ops4j.pax.exam.spi.reactors.PerMethod;
 
 import java.util.Arrays;
 import java.util.Set;
 import java.util.concurrent.Callable;
 
-import org.apache.curator.framework.CuratorFramework;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.ops4j.pax.exam.Option;
-import org.ops4j.pax.exam.junit.Configuration;
-import org.ops4j.pax.exam.junit.ExamReactorStrategy;
-import org.ops4j.pax.exam.junit.JUnit4TestRunner;
-import org.ops4j.pax.exam.options.DefaultCompositeOption;
-import org.ops4j.pax.exam.spi.reactors.AllConfinedStagedReactorFactory;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.features;
 
-@RunWith(JUnit4TestRunner.class)
-@ExamReactorStrategy(AllConfinedStagedReactorFactory.class)
+@RunWith(PaxExam.class)
+@ExamReactorStrategy(PerMethod.class)
 public class EsbProfileRedeployTest extends FabricTestSupport {
 
     private long timeout = 300 * 1000L;
