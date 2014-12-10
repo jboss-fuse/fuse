@@ -57,29 +57,12 @@
               <exclude>README</exclude>
               <exclude>RELEASE-NOTES</exclude>
               <exclude>karaf-manual*</exclude>
-              <exclude>quickstarts/target/**</exclude>
-              <exclude>quickstarts/mule/**</exclude>
-              <exclude>quickstarts/war/**</exclude>
-              <exclude>quickstarts/java/**</exclude>
-              <exclude>quickstarts/spring-boot/**</exclude>
-              <exclude>quickstarts/karaf/**</exclude>
               <exclude>quickstarts/pom.xml</exclude>
               <exclude>quickstarts/README.md</exclude>
             </excludes>
             <fileMode>0644</fileMode>
         </fileSet>
 
-        <fileSet>
-          <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}/quickstarts/karaf</directory>
-          <outputDirectory>/quickstarts/</outputDirectory>
-          <excludes>
-            <exclude>target/**</exclude>
-            <exclude>pom.xml</exclude>
-            <exclude>README.md</exclude>
-            <exclude>camel-dozer-wiki/**</exclude>
-            <exclude>camel-drools/**</exclude>
-          </excludes>
-        </fileSet>
 
 
         <!-- Copy over bin/* scripts separately to get the correct file mode -->
