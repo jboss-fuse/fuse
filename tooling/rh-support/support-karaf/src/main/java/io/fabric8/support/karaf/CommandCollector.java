@@ -23,6 +23,7 @@ import io.fabric8.support.api.Resource;
 import org.apache.felix.scr.ScrService;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
+import org.apache.felix.scr.annotations.ReferenceCardinality;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.felix.service.command.CommandProcessor;
 import org.apache.felix.service.command.CommandSession;
@@ -53,7 +54,7 @@ public class CommandCollector implements Collector {
     @Reference(referenceInterface = ScrService.class)
     private ScrService scrService;
 
-    @Reference(referenceInterface = FabricService.class)
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY, referenceInterface = FabricService.class)
     private FabricService fabricService;
 
     @Override
