@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>components</artifactId>
+        <groupId>org.fusesource</groupId>
+        <version>6.2.0.redhat-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>camel-paypal</artifactId>
+    <packaging>bundle</packaging>
+    <name>Camel :: Paypal</name>
+    <description>Camel Component for Paypal</description>
+
+    <properties>
+        <schemeName>paypal</schemeName>
+        <componentName>Paypal</componentName>
+        <componentPackage>org.apache.camel.component.paypal</componentPackage>
+        <outPackage>org.apache.camel.component.paypal.internal</outPackage>
+
+        <camel.osgi.export.pkg>${componentPackage}</camel.osgi.export.pkg>
+        <camel.osgi.private.pkg>${outPackage}</camel.osgi.private.pkg>
+        <camel.osgi.export.service>org.apache.camel.spi.ComponentResolver;component=paypal</camel.osgi.export.service>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+
+        <!-- logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Camel annotations in provided scope to avoid compile errors in IDEs -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>spi-annotations</artifactId>
+            <scope>provided</scope>
+            <version>${camel-version}</version>
+        </dependency>
+
+        <!-- testing -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.paypal.sdk</groupId>
+            <artifactId>rest-api-sdk</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.paypal.sdk</groupId>
+            <artifactId>rest-api-sdk</artifactId>
+            <version>0.9.1</version>
+            <classifier>javadoc</classifier>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+
+        <plugins>
+
+            <!-- generate Component source and test source -->
+            <plugin>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-api-component-maven-plugin</artifactId>
+                <version>${camel-version}</version>
+
+                <executions>
+                    <execution>
+                        <id>generate-test-component-classes</id>
+                        <goals>
+                            <goal>fromApis</goal>
+                        </goals>
+                        <configuration>
+                            <apis>
+                                <api>
+                                    <apiName>authorization</apiName>
+                                    <proxyClass>com.paypal.api.payments.Authorization</proxyClass>
+                                    <fromJavadoc/>
+                                    <extraOptions>
+                                        <extraOption>
+                                            <type>com.paypal.api.payments.Authorization</type>
+                                            <name>authorization</name>
+                                        </extraOption>
+                                    </extraOptions>
+                                </api>
+                                <api>
+                                    <apiName>capture</apiName>
+                                    <proxyClass>com.paypal.api.payments.Capture</proxyClass>
+                                    <fromJavadoc/>
+                                    <extraOptions>
+                                        <extraOption>
+                                            <type>com.paypal.api.payments.Capture</type>
+                                            <name>capture</name>
+                                        </extraOption>
+                                    </extraOptions>
+                                </api>
+                                <api>
+                                    <apiName>creditcard</apiName>
+                                    <proxyClass>com.paypal.api.payments.CreditCard</proxyClass>
+                                    <fromJavadoc/>
+                                    <extraOptions>
+                                        <extraOption>
+                                            <type>com.paypal.api.payments.CreditCard</type>
+                                            <name>creditCard</name>
+                                        </extraOption>
+                                    </extraOptions>
+                                </api>
+                                <api>
+                                    <apiName>invoice</apiName>
+                                    <proxyClass>com.paypal.api.payments.Invoice</proxyClass>
+                                    <fromJavadoc/>
+                                    <extraOptions>
+                                        <extraOption>
+                                            <type>com.paypal.api.payments.Invoice</type>
+                                            <name>invoice</name>
+                                        </extraOption>
+                                    </extraOptions>
+
+                                </api>
+
+                                <api>
+                                    <apiName>payment</apiName>
+                                    <proxyClass>com.paypal.api.payments.Payment</proxyClass>
+                                    <fromJavadoc/>
+                                    <extraOptions>
+                                        <extraOption>
+                                            <type>com.paypal.api.payments.Payment</type>
+                                            <name>payment</name>
+                                        </extraOption>
+                                    </extraOptions>
+
+                                </api>
+                                <api>
+                                    <apiName>refund</apiName>
+                                    <proxyClass>com.paypal.api.payments.Refund</proxyClass>
+                                    <fromJavadoc/>
+                                    <extraOptions>
+                                        <extraOption>
+                                            <type>com.paypal.api.payments.Refund</type>
+                                            <name>refund</name>
+                                        </extraOption>
+                                    </extraOptions>
+                                </api>
+                                <api>
+                                    <apiName>sale</apiName>
+                                    <proxyClass>com.paypal.api.payments.Sale</proxyClass>
+                                    <fromJavadoc/>
+                                    <extraOptions>
+                                        <extraOption>
+                                            <type>com.paypal.api.payments.Sale</type>
+                                            <name>sale</name>
+                                        </extraOption>
+                                    </extraOptions>
+                                </api>
+                            </apis>
+
+                            <excludeConfigNames>apiContext</excludeConfigNames>
+                            <fromJavadoc>
+                                <includeMethods>APIContext</includeMethods>
+                                <includeStaticMethods>true</includeStaticMethods>
+                            </fromJavadoc>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- add generated source and test source to build -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>add-generated-sources</id>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/camel-component</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>add-generated-test-sources</id>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-test-sources/camel-component</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <!--unit tests are skipped since we only have integration tests, activated with the profile "paypal-itest"-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.camel</groupId>
+                    <artifactId>camel-api-component-maven-plugin</artifactId>
+                    <version>${camel-version}</version>
+                    <configuration>
+                        <scheme>${schemeName}</scheme>
+                        <componentName>${componentName}</componentName>
+                        <componentPackage>${componentPackage}</componentPackage>
+                        <outPackage>${outPackage}</outPackage>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-api-component-maven-plugin</artifactId>
+                <version>${camel-version}</version>
+                <configuration>
+                    <scheme>${schemeName}</scheme>
+                    <componentName>${componentName}</componentName>
+                    <componentPackage>${componentPackage}</componentPackage>
+                    <outPackage>${outPackage}</outPackage>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+
+
+    <profiles>
+        <profile>
+            <id>paypal-itest</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <childDelegation>false</childDelegation>
+                            <useFile>true</useFile>
+                            <forkMode>once</forkMode>
+                            <forkedProcessTimeoutInSeconds>300</forkedProcessTimeoutInSeconds>
+                            <includes>
+                                <include>**/*Test.java</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/*XXXTest.java</exclude>
+                            </excludes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

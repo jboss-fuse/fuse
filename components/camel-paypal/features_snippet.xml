@@ -1,0 +1,25 @@
+<!--
+install instructions:
+
+manually edit
+
+file:///home/pantinor/.m2/repository/org/apache/camel/karaf/apache-camel/2.14-SNAPSHOT/apache-camel-2.14-SNAPSHOT-features.xml default 1.0
+
+and remove  the 2 <repository> entries at the beginning of the file
+then
+
+version-create
+profile-edit --repositories mvn:org.apache.camel.karaf/apache-camel/2.14-SNAPSHOT/xml/features default 1.1
+profile-edit --features camel-paypal default 1.1
+container-upgrade 1.1 root
+        -->
+
+    <feature name='camel-paypal' version='${project.version}' resolver='(obr)' start-level='50'>
+        <feature version='${project.version}'>camel-core</feature>
+        <feature version='${servicemix-specs-version}'>xml-specs-api</feature>
+        <bundle>mvn:org.apache.camel/camel-paypal/${project.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/${commons-lang3-version}</bundle>
+        <bundle dependency='true'>wrap:mvn:com.paypal.sdk/rest-api-sdk/0.9.1</bundle>
+        <bundle dependency='true'>wrap:mvn:com.paypal.sdk/paypal-core/1.6.1</bundle>
+        <bundle dependency='true'>mvn:com.google.code.gson/gson/${gson-version}</bundle>
+    </feature>

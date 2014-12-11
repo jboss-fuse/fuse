@@ -71,4 +71,8 @@
       </repositories>
     </profile>
   </profiles>
+
+    <modules>
+        <module>camel-paypal</module>
+    </modules>
 </project>
