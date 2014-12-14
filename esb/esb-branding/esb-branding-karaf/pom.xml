@@ -22,19 +22,14 @@
          
     <parent>
         <groupId>org.jboss.fuse</groupId>
-        <artifactId>esb-project</artifactId>
+        <artifactId>esb-branding</artifactId>
         <version>6.2.0.redhat-SNAPSHOT</version>
     </parent>
 
-    <artifactId>esb-branding</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>org.jboss.fuse.branding.karaf</artifactId>
+    <packaging>bundle</packaging>
     
-    <name>JBoss Fuse :: ESB :: Branding Support</name>
-
-    <modules>
-        <module>esb-branding-fabric8</module>
-        <module>esb-branding-karaf</module>
-    </modules>
+    <name>JBoss Fuse :: ESB :: Branding Support :: Karaf</name>
 
     <build>
         <resources>

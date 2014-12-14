@@ -53,7 +53,12 @@
         <!-- branding -->
         <dependency>
             <groupId>org.jboss.fuse</groupId>
-            <artifactId>org.jboss.fuse.karaf.branding</artifactId>
+            <artifactId>org.jboss.fuse.branding.karaf</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.fuse</groupId>
+            <artifactId>org.jboss.fuse.branding.fabric8</artifactId>
             <version>${project.version}</version>
         </dependency>
 
@@ -344,6 +349,7 @@
         <module>jboss-fuse-minimal</module>
         <module>jboss-fuse-medium</module>
         <module>jboss-fuse-full</module>
+        <module>jboss-fuse-karaf-full</module>
     </modules>
     
     <profiles>

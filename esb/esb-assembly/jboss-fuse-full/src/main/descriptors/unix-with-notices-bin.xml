@@ -26,46 +26,10 @@
 
     <componentDescriptors>
         <componentDescriptor>target/shared/common-bin.xml</componentDescriptor>
-        <componentDescriptor>target/shared/common-unix-bin.xml</componentDescriptor>
+        <componentDescriptor>target/shared/common-fabric8-bin.xml</componentDescriptor>
+        <componentDescriptor>target/shared/common-extras-bin.xml</componentDescriptor>
         <componentDescriptor>target/shared/notices-unix-bin.xml</componentDescriptor>
         <componentDescriptor>target/shared/examples-unix-bin.xml</componentDescriptor>
     </componentDescriptors>
-
-    <files>
-        <file>
-            <source>${basedir}/target/dependencies/unix/apache-camel-${camel-version}.zip</source>
-            <outputDirectory>extras</outputDirectory>
-            <fileMode>0644</fileMode>
-        </file>
-        <file>
-            <source>${basedir}/target/dependencies/unix/apache-cxf-${cxf-version}.zip</source>
-            <outputDirectory>extras</outputDirectory>
-            <fileMode>0644</fileMode>
-        </file>
-    </files>
-
-    <fileSets>
-        <fileSet>
-            <outputDirectory>extras/fusecdc</outputDirectory>
-            <directory>src/main/filtered-resources/extras/fusecdc</directory>
-            <includes>
-                <include>*.profile</include>
-                <include>README.md</include>
-            </includes>
-            <fileMode>0644</fileMode>
-            <filtered>true</filtered>
-        </fileSet>
-    </fileSets>
-
-    <dependencySets>
-        <dependencySet>
-            <outputDirectory>extras/fusecdc</outputDirectory>
-            <includes>
-                <include>com.fusesource.tooling:fuse-cdc-assembly:zip:win-bin</include>
-                <include>com.fusesource.tooling:fuse-cdc-assembly:tar.gz:unix-bin</include>
-            </includes>
-            <outputFileNameMapping>${artifact.artifactId}-${artifact.version}.${artifact.extension}</outputFileNameMapping>
-        </dependencySet>
-    </dependencySets>
 
 </assembly>
