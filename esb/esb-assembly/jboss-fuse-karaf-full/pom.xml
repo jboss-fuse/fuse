@@ -22,6 +22,7 @@
         <groupId>org.jboss.fuse</groupId>
         <artifactId>jboss-fuse-full</artifactId>
         <version>6.2.0.redhat-SNAPSHOT</version>
+        <relativePath>../jboss-fuse-full/pom.xml</relativePath>
     </parent>
 
     <artifactId>jboss-fuse-karaf-full</artifactId>
