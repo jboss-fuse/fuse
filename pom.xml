@@ -21,7 +21,7 @@
     <parent>
         <groupId>io.fabric8.bom</groupId>
         <artifactId>fabric8-bom</artifactId>
-        <version>1.2.0.redhat-053</version>
+        <version>1.2.0.redhat-055</version>
     </parent>
 
     <groupId>org.jboss.fuse.bom</groupId>
@@ -52,11 +52,11 @@
 
     <properties>
         <perfectus-build>053</perfectus-build>
-        <perfectus.version>${perfectus-build}</perfectus.version>
+        <perfectus.version>054</perfectus.version>
         <full-perfectus-build>620${perfectus-build}</full-perfectus-build>
 
         <!-- we inherit from the fabric8 BOM so most versions we need are defined there-->
-        <fabric.version>1.2.0.redhat-${perfectus-build}</fabric.version>
+        <fabric.version>1.2.0.redhat-055</fabric.version>
                  
         <fuse-cdc-version>1.1.0</fuse-cdc-version>                
         <cxf-java2wadl-plugin-version>${cxf-version}</cxf-java2wadl-plugin-version>
