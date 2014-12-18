@@ -27,12 +27,12 @@
     <bean id="sap-configuration" class="org.fusesource.camel.component.sap.SapConnectionConfiguration">
         <property name="destinationDataStore">
             <map>
-                <entry key="nplDest" value-ref="nplDestinationData" />
+                <entry key="quickstartDest" value-ref="quickstartDestinationData" />
             </map>
         </property>
         <property name="serverDataStore">
             <map>
-                <entry key="nplServer" value-ref="nplServerData" />
+                <entry key="quickstartServer" value-ref="quickstartServerData" />
             </map>
         </property>
     </bean>
@@ -42,35 +42,38 @@
         class="org.fusesource.camel.component.sap.SapSynchronousRfcServerComponent">
         <property name="repositoryDataStore">
             <map>
-                <entry key="nplServer" value-ref="nplRepositoryData"></entry>
+                <entry key="quickstartServer" value-ref="quickstartRepositoryData"></entry>
             </map>
         </property>
     </bean>
 
-    <!-- Configures an Inbound SAP Connection -->
-    <bean id="nplDestinationData"
+    <!-- Configures an Outbound SAP Connection -->
+    <!-- *** Please enter the connection property values for your environment *** -->
+    <bean id="quickstartDestinationData"
         class="org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataImpl">
-        <property name="ashost" value="nplhost" />
-        <property name="sysnr" value="42" />
-        <property name="client" value="001" />
-        <property name="user" value="developer" />
-        <property name="passwd" value="ch4ngeme" />
+        <property name="ashost" value="example.com" />
+        <property name="sysnr" value="00" />
+        <property name="client" value="000" />
+        <property name="user" value="username" />
+        <property name="passwd" value="password" />
         <property name="lang" value="en" />
     </bean>
 
-    <!-- Configures an Outbound SAP Configuration -->
-    <bean id="nplServerData"
+    <!-- Configures an Inbound SAP Configuration -->
+    <!-- *** Please enter the connection property values for your environment *** -->
+    <bean id="quickstartServerData"
         class="org.fusesource.camel.component.sap.model.rfc.impl.ServerDataImpl">
-        <property name="gwhost" value="nplhost" />
-        <property name="gwserv" value="3342" />
+        <property name="gwhost" value="example.com" />
+        <property name="gwserv" value="3300" />
         <property name="progid" value="JCO_SERVER" />
-        <property name="repositoryDestination" value="nplDest" />
+        <!-- This property value should not be changed -->
+        <property name="repositoryDestination" value="quickstartDest" />
         <property name="connectionCount" value="2" />
         <property name="trace" value="1"/>
     </bean>
     
     <!-- Configures a Repository of Function Templates each of which specify the interface of a Function Module-->
-    <bean id="nplRepositoryData"
+    <bean id="quickstartRepositoryData"
         class="org.fusesource.camel.component.sap.model.rfc.impl.RepositoryDataImpl">
         <property name="functionTemplates">
             <map>
@@ -400,34 +403,34 @@
         class="org.fusesource.sap.example.processor.ReturnFlightConnectionInfo" />
 
     <!-- Specifies Camel Routes of the Quickstart -->
-    <camelContext id="camel" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+    <camelContext trace="false" id="camel" xmlns="http://camel.apache.org/schema/blueprint">
     <route id="book-flight">
-        <from uri="sap-srfc-server:nplServer:BOOK_FLIGHT"/>
+        <from uri="sap-srfc-server:quickstartServer:BOOK_FLIGHT"/>
         <unmarshal>
-            <jaxb prettyPrint="true" contextPath="org.fusesource.sap.example.jaxb"/>
+            <jaxb contextPath="org.fusesource.sap.example.jaxb" prettyPrint="true"/>
         </unmarshal>
-        <multicast stopOnException="true" strategyRef="aggregateFlightBookingStrategy">
+        <multicast strategyRef="aggregateFlightBookingStrategy" stopOnException="true">
             <to uri="direct:getFlightConnectionInfo"/>
             <to uri="direct:getFlightCustomerInfo"/>
             <to uri="direct:getPassengerInfo"/>
         </multicast>
         <to uri="direct:createFlightTrip"/>
         <marshal>
-            <jaxb prettyPrint="true" contextPath="org.fusesource.sap.example.jaxb"/>
+            <jaxb contextPath="org.fusesource.sap.example.jaxb" prettyPrint="true"/>
         </marshal>
     </route>
     <route id="find-connection">
         <from uri="direct:getFlightConnectionInfo"/>
         <to uri="bean:createFlightConnectionGetListRequest"/>
-        <to uri="sap-srfc-destination:nplDest:BAPI_FLCONN_GETLIST"/>
+        <to uri="sap-srfc-destination:quickstartDest:BAPI_FLCONN_GETLIST"/>
         <to uri="bean:createFlightConnectionGetDetailRequest"/>
-        <to uri="sap-srfc-destination:nplDest:BAPI_FLCONN_GETDETAIL"/>
+        <to uri="sap-srfc-destination:quickstartDest:BAPI_FLCONN_GETDETAIL"/>
         <to uri="bean:returnFlightConnectionInfo"/>
     </route>
     <route id="find-customer-info">
         <from uri="direct:getFlightCustomerInfo"/>
         <to uri="bean:createFlightCustomerGetListRequest"/>
-        <to uri="sap-srfc-destination:nplDest:BAPI_FLCUST_GETLIST"/>
+        <to uri="sap-srfc-destination:quickstartDest:BAPI_FLCUST_GETLIST"/>
         <to uri="bean:returnFlightCustomerInfo"/>
     </route>
     <route id="find-passenger-info">
@@ -437,7 +440,7 @@
     <route id="create-flight-trip">
         <from uri="direct:createFlightTrip"/>
         <to uri="bean:createFlightTripRequest"/>
-        <to uri="sap-srfc-destination:nplDest:BAPI_FLTRIP_CREATE?transacted=true"/>
+        <to uri="sap-srfc-destination:quickstartDest:BAPI_FLTRIP_CREATE?transacted=true"/>
         <to uri="bean:returnFlightTripResponse"/>
     </route>
 </camelContext>

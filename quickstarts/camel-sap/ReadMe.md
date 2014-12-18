@@ -1,11 +1,11 @@
 camel-sap: Demonstrates using the camel-sap component
 ======================================================
-Author: Fuse Team  
-Level: Beginner  
+Author: William Collins - JBoss Fuse Team  
+Level: Advanced  
 Technologies: Camel, SAP  
-Summary: This quickstart demonstrates how to use the camel-sap component in Camel in order to integrate with SAP  
+Summary: This quickstart demonstrates how to use the JBoss Fuse SAP camel components in Camel in order to integrate with SAP  
 Target Product: Fuse  
-Source: <https://github.com/jboss-fuse/quickstarts>  
+Source: <https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-sap>  
 
 This quick start shows how to use the SAP Camel Component and demonstrates:
 
@@ -21,11 +21,11 @@ This quick start performs a Flight Booking in SAP from Camel using the SAP Camel
 
 There is one top-level route containing four sub-routes in this example:
 
-* The top-level route, `route0`, implments the Function Module `BOOK_FLIGHT` which peforms a Flight Booking in SAP. This route receives, through the `SAP Server Endpoint` at the start of the route, sRFC requests from SAP and returns sRFC responses to SAP. It invokes the four sub-routes to perform the flight booking.
-* The sub-route `route1` makes a series of calls into SAP, using `SAP Destination Endpoints`, to find a Flight Connection matching the Request for the Flight Booking
-* The sub-route `route2` makes a call into SAP, using an `SAP Destination Endpoint`, to get detailed infomation about the Flight Customer (Travel Agent) requesting the Flight Booking
-* The sub-route `route3` gathers information about the Passenger for the Flight Booking.
-* Finally the sub-route `route4` makes a call into SAP, using an `SAP Destination Endpoint` in an `SAP Transaction Context`, to create the Flight Booking in SAP. 
+* The top-level route, `book-flight`, implements the Function Module `BOOK_FLIGHT` which performs a Flight Booking in SAP. This route receives, through an `SAP Server Endpoint` at the start of the route, a sRFC request from SAP and returns a sRFC response to SAP. It invokes the four sub-routes to perform a flight booking.
+* The sub-route `find-connection` makes a series of calls into SAP, using `SAP Destination Endpoints`, to find a Flight Connection matching the criteria in the request for the Flight Booking
+* The sub-route `find-customer-info` makes a call into SAP, using an `SAP Destination Endpoint`, to get detailed information about the Flight Customer (Travel Agent) requesting the Flight Booking
+* The sub-route `find-passenger-info` gathers information about the Passenger for the Flight Booking.
+* Finally the sub-route `create-flight-trip` makes a call into SAP, using an `SAP Destination Endpoint` in an `SAP Transaction Context`, to create the Flight Booking in SAP. 
 
 ### Building and Deploying this Quick Start
 
@@ -41,11 +41,11 @@ After building from the source code, you can upload the changes to the fabric co
 If you run the `fabric:deploy` command for the first then, it will ask you for the username and password to login the fabric container.
 And then store this information in the local Maven settings file. You can find more details about this on the fabric8 website about the [Maven Plugin](http://fabric8.io/gitbook/mavenPlugin.html).
 
-### [Prerequisites](id:requirements)
+### [Prerequisites to run this example](id:requirements)
 
 To run this quick start you will need an SAP instance available with the following installed:
 
-1. Ensure the [Flight Data Application](http://help.sap.com/saphelp_erp60_sp/helpdata/en/db/7c623cf568896be10000000a11405a/content.htm) of the `ABAP Workbench` has been setup. 
+1. Ensure that the [Flight Data Application](http://help.sap.com/saphelp_erp60_sp/helpdata/en/db/7c623cf568896be10000000a11405a/content.htm) of the `ABAP Workbench` has been setup. 
 1. Ensure that an RFC Destination has been [setup for registration of the SAP Camel Component](http://help.sap.com/saphelp_nw73ehp1/helpdata/en/48/c7b790da5e31ebe10000000a42189b/content.htm?frameset=/en/48/a98f837e28674be10000000a421937/frameset.htm) with the instance's [SAP Gateway](http://help.sap.com/saphelp_nw70ehp3/helpdata/en/31/42f34a7cab4cb586177f85a0cf6780/frameset.htm). The destination should have a Connection Type `T` and the following `Technical Settings`:
 	1. **Activation Type** : `Registered Server Program`
 	1. **Program ID** : `JCO_SERVER`
@@ -170,175 +170,145 @@ To run this quick start you will need an SAP instance available with the followi
 
 ## How to run this example
 
-The following information is divded into three sections, whether you are using the command line shell in fabric, or using the web console, or run the example from the source code.
+The following information is divided into two sections, whether you are using the command line shell in fabric, or using the web console.
 
 ### Using the command line shell
 
-You can deploy and run this example at the console command line, as follows:
+You can run this example at the console command line, as follows:
 
 1. It is assumed that you have already created a fabric and are logged into a container called `root`.
 1. It is also assumed that you have an SAP instance available with the previously mentioned [requirements](#requirements) satisfied. 
-1. Edit the `example-camel-sap` profile 
+1. Edit the `org.jboss.quickstarts.fuse-camel-sap` profile 
 
-		fabric:profile-edit example-camel-sap
-		
-	1. And add the SAP Java Connector libraries to the profile.
+		fabric:profile-edit org.jboss.quickstarts.fuse-camel-sap		
+And add the network locations of your SAP Java Connector libraries to the profile.
 
-			lib.sapjco3.jar=http://host/path/to/libraries/sapjco3.jar
-			lib.sapjco3.jnilib=http://host/path/to/libraries/<native-lib>
-		
-	1. Ensure that the connection properties of the `destinationData` and `serverData` beans in the profile's `camel.xml` file match those of your SAP instance:
-	
-			<bean id="destinationData"
-				class="org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataImpl">
-				<property name="ashost" value="myhost" />
-				<property name="sysnr" value="42" />
-				<property name="client" value="001" />
-				<property name="user" value="developer" />
-				<property name="passwd" value="ch4ngeme" />
-				<property name="lang" value="en" />
-			</bean>
+		lib.sapjco3.jar=http://host/path/to/library/sapjco3.jar
+		lib.sapidoc3.jar=http://host/path/to/library/sapidoc3.jar
+		lib.sapjco3.nativelib=http://host/path/to/library/<native-lib>
 
-			<bean id="serverData"
-				class="org.fusesource.camel.component.sap.model.rfc.impl.ServerDataImpl">
-				<property name="gwhost" value="myhost" />
-				<property name="gwserv" value="3342" />
-				<property name="progid" value="JCO_SERVER" />
-				<property name="repositoryDestination" value="nplDest" />
-				<property name="connectionCount" value="2" />
-				<property name="trace" value="1"/>
-			</bean>
+1. Edit the camel context file:
 
-1. Enable DEBUG logging in the SAP Producer and Consumer to monitor message traffic:
+		fabric:profile-edit --resource camel.xml org.jboss.quickstarts.fuse-camel-sap		
+And ensure that the connection properties of the `quickstartDestinationData` and `quickstartServerData` beans in the file matches those of your SAP instance:
 
-		config:edit org.ops4j.pax.logging
-		config:propappend log4j.logger.org.fusesource.camel.component.sap.SapSynchronousRfcProducer debug
-		config:propappend log4j.logger.org.fusesource.camel.component.sap.SapSynchronousRfcConsumer debug
-		config:update	
+		<bean id="quickstartDestinationData"
+			class="org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataImpl">
+			<property name="ashost" value="example.com" />
+			<property name="sysnr" value="00" />
+			<property name="client" value="000" />
+			<property name="user" value="username" />
+			<property name="passwd" value="password" />
+			<property name="lang" value="en" />
+		</bean>
+
+		<bean id="quickstartServerData"
+			class="org.fusesource.camel.component.sap.model.rfc.impl.ServerDataImpl">
+			<property name="gwhost" value="example.com" />
+			<property name="gwserv" value="3300" />
+			<property name="progid" value="JCO_SERVER" />
+			<!-- This property value should not be changed -->
+			<property name="repositoryDestination" value="quickstartDest" />
+			<property name="connectionCount" value="2" />
+			<property name="trace" value="1"/>
+		</bean>
 
 1. Create a new child container and deploy the `quickstart-camel-sap` profile in a single step, by entering the
  following command at the console:
 
-        fabric:container-create-child --profile quickstart-camel-sap root mychild
+        fabric:container-create-child --profile org.jboss.quickstarts.fuse-camel-sap root mychild
 
 1. Wait for the new child container, `mychild`, to start up. Use the `fabric:container-list` command to check the status of the `mychild` container and wait until the `[provision status]` is shown as `success`.
+
+### Using the web console
+
+You can run this example from the web console as follows:
+
+1. It is assumed that you have already created a fabric and are logged into a container called `root`.
+1. It is also assumed that you have an SAP instance available with the previously mentioned [requirements](#requirements) satisfied.
+1. Login to the web console.
+1. Click the *Wiki* button in the navigation bar.
+1. Select `org.jboss.quickstarts.fuse` --> `camel` --> `sap` .
+1. Edit the `io.fabric8.agent.properties` file and add the network location on your SAP Java Connector libraries to this file.
+
+		lib.sapjco3.jar=http://host/path/to/libraries/sapjco3.jar
+		lib.sapidoc3.jar=http://host/path/to/libraries/sapidoc3.jar
+		lib.sapjco3.nativelib=http://host/path/to/libraries/<native-lib>
+
+1. Edit the `camel.xml` file and ensure that the connection properties of the `quickstartDestinationData` and `quickstartServerData` beans in the file matches those of your SAP instance:
+
+		<bean id="quickstartDestinationData"
+			class="org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataImpl">
+			<property name="ashost" value="example.com" />
+			<property name="sysnr" value="00" />
+			<property name="client" value="000" />
+			<property name="user" value="username" />
+			<property name="passwd" value="password" />
+			<property name="lang" value="en" />
+		</bean>
+
+		<bean id="quickstartServerData"
+			class="org.fusesource.camel.component.sap.model.rfc.impl.ServerDataImpl">
+			<property name="gwhost" value="example.com" />
+			<property name="gwserv" value="3300" />
+			<property name="progid" value="JCO_SERVER" />
+			<!-- This property value should not be changed -->
+			<property name="repositoryDestination" value="quickstartDest" />
+			<property name="connectionCount" value="2" />
+			<property name="trace" value="1"/>
+		</bean>
+
+1. Click the `New` button in the top right corner.
+1. In the `Create New Container` page, in the **Container Name** field enter `mychild` and click the *Create and start container* button
+
+
+## How to try this example
+
+The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console.
+
+### Using the command line shell
+
+To use the application be sure to have deployed the quickstart in fabric8 as described above. Successful deployment will create and start a Camel route in fabric8.
 
 1. Log into the `mychild` container using the `fabric:container-connect` command, as follows:
 
 		fabric:container-connect mychild
 				
 1. Invoke the camel route from SAP by running the [ZBOOK_FILE](#zbook_flight) program.
+1. Enter into the input screen of the program, the flight booking parameters. **Note** that valid agency codes, travel agent names, and flight dates will depend on the data installed in your Flight Data Application. 
+1. Notice the flight booking information returned on the programs output screen.
 
 
-1. View the container log using the `log:tail` command as follows:
+### Using the web console
 
-		log:tail
-		
-	You should see output like the following in the log:
+1. Login the web console
+1. Click the Runtime button in the navigation bar
+1. Select the `mychild` container in the containers list, and click the *open* button right next to the container name.
+1. A new window opens and connects to the container. Click the *Camel* button in the navigation bar.
+1. Invoke the camel route from SAP by running the [ZBOOK_FILE](#zbook_flight) program.
+1. Enter into the input screen of the program, the flight booking parameters. **Note** that valid agency codes, travel agent names, and flight dates will depend on the data installed in your Flight Data Application. 
+1. In the Camel tree, expand the `Routes` node, and select the `book-flight` node. And click the *Diagram* button to see a visual representation of the route.
+1. Notice the numbers in the diagram, which illustrate that a message has been processed. 
+1. Notice the flight booking information returned on the programs output screen.
 
-		2013-11-05 10:45:00,478 | INFO  | cherWorkerThread | SAPComponent                     | onent$ServerStateChangedListener  111 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | >>> Server state changed from STARTED to ALIVE on JCO_SERVER
-		2013-11-05 11:09:50,643 | DEBUG | CoServerThread-1 | SAPConsumer                      | .camel.component.sap.SAPConsumer   67 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Handling request for RFC 'BOOK_FLIGHT'
-		2013-11-05 11:09:50,687 | DEBUG | CoServerThread-1 | SAPConsumer                      | .camel.component.sap.SAPConsumer   78 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Request: <?xml version="1.0" encoding="ASCII"?>
-		<BOOK_FLIGHT:Request xmlns:BOOK_FLIGHT="http://sap.fusesource.org/rfc/nplServer/BOOK_FLIGHT" CUSTNAME="James Legrand" PASSFORM="Mr" PASSNAME="Travelin Joe" PASSBIRTH="1990-03-17T00:00:00.000-0500" FLIGHTDATE="2014-03-19T00:00:00.000-0400" TRAVELAGENCYNUMBER="00000110" DESTINATION_FROM="SFO" DESTINATION_TO="FRA"/>
 
-		2013-11-05 11:09:54,838 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   49 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Calling 'BAPI_FLCONN_GETLIST' RFC
-		2013-11-05 11:09:54,839 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   50 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Request: <?xml version="1.0" encoding="ASCII"?>
-		<BAPI_FLCONN_GETLIST:Request xmlns:BAPI_FLCONN_GETLIST="http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETLIST" TRAVELAGENCY="00000110">
-  			<DESTINATION_FROM AIRPORTID="SFO"/>
-  			<DESTINATION_TO AIRPORTID="FRA"/>
-  			<DATE_RANGE>
-    			<row SIGN="I" OPTION="EQ" LOW="2014-03-19T00:00:00.000-0400"/>
-  			</DATE_RANGE>
-		</BAPI_FLCONN_GETLIST:Request>
+## Undeploy this example
 
-		2013-11-05 11:09:55,383 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   58 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Response: <?xml version="1.0" encoding="ASCII"?>
-		<BAPI_FLCONN_GETLIST:Response xmlns:BAPI_FLCONN_GETLIST="http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETLIST">
-  			<DATE_RANGE>
-    			<row SIGN="I" OPTION="EQ" LOW="2014-03-19T00:00:00.000-0400"/>
-  			</DATE_RANGE>
-  			<EXTENSION_IN/>
-  			<EXTENSION_OUT/>
-  			<FLIGHT_CONNECTION_LIST>
-    			<row AGENCYNUM="00000110" FLIGHTCONN="0002" FLIGHTDATE="2014-03-19T00:00:00.000-0400" AIRPORTFR="SFO" CITYFROM="SAN FRANCISCO" AIRPORTTO="FRA" CITYTO="FRANKFURT" NUMHOPS="2" DEPTIME="1970-01-01T16:00:00.000-0500" ARRTIME="1970-01-01T05:35:00.000-0500" ARRDATE="2014-03-22T00:00:00.000-0400" FLIGHTTIME="3155"/>
-  			</FLIGHT_CONNECTION_LIST>
-  			<RETURN>
-    			<row TYPE="S" ID="BC_IBF" NUMBER="000" MESSAGE="Method was executed successfully" LOG_NO="" LOG_MSG_NO="000000" MESSAGE_V1="" MESSAGE_V2="" MESSAGE_V3="" MESSAGE_V4="" PARAMETER="" FIELD="" SYSTEM="NPLCLNT001"/>
-  			</RETURN>
-		</BAPI_FLCONN_GETLIST:Response>
+The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console.
 
-		2013-11-05 11:09:55,661 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   49 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Calling 'BAPI_FLCONN_GETDETAIL' RFC
-		2013-11-05 11:09:55,661 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   50 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Request: <?xml version="1.0" encoding="ASCII"?>
-		<BAPI_FLCONN_GETDETAIL:Request xmlns:BAPI_FLCONN_GETDETAIL="http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL" CONNECTIONNUMBER="0002" FLIGHTDATE="2014-03-19T00:00:00.000-0400" NO_AVAILIBILITY="" TRAVELAGENCYNUMBER="00000110"/>
+### Using the command line shell
 
-		2013-11-05 11:09:55,938 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   58 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Response: <?xml version="1.0" encoding="ASCII"?>
-		<BAPI_FLCONN_GETDETAIL:Response xmlns:BAPI_FLCONN_GETDETAIL="http://sap.fusesource.org/rfc/NPL/BAPI_FLCONN_GETDETAIL">
-  			<CONNECTION_DATA AGENCYNUM="00000110" FLIGHTCONN="0002" FLIGHTDATE="2014-03-19T00:00:00.000-0400" AIRPORTFR="SFO" CITYFROM="SAN FRANCISCO" AIRPORTTO="FRA" CITYTO="FRANKFURT" NUMHOPS="2" DEPTIME="1970-01-01T16:00:00.000-0500" ARRTIME="1970-01-01T05:35:00.000-0500" ARRDATE="2014-03-22T00:00:00.000-0400" FLIGHTTIME="3155"/>
-  			<PRICE_INFO PRICE_ECO1="1878.5700" PRICE_ECO2="1408.9300" PRICE_ECO3="375.7100" PRICE_BUS1="3757.1400" PRICE_BUS2="2817.8600" PRICE_BUS3="751.4200" PRICE_FST1="5635.7100" PRICE_FST2="4226.7900" PRICE_FST3="1127.1500" TAX="93.9300" CURR="EUR" CURR_ISO="EUR"/>
-  			<AVAILIBILITY>
-    			<row HOP="1" ECONOMAX="380" ECONOFREE="270" BUSINMAX="41" BUSINFREE="38" FIRSTMAX="18" FIRSTFREE="17"/>
-    			<row HOP="2" ECONOMAX="280" ECONOFREE="177" BUSINMAX="22" BUSINFREE="21" FIRSTMAX="10" FIRSTFREE="9"/>
-  			</AVAILIBILITY>
-  			<EXTENSION_IN/>
-  			<EXTENSION_OUT/>
-  			<FLIGHT_HOP_LIST>
-    			<row HOP="1" AIRLINEID="SQ" AIRLINE="Singapore Airlines" CONNECTID="0015" AIRPORTFR="SFO" CITYFROM="SAN FRANCISCO" CTRYFR="US" CTRYFR_ISO="US" AIRPORTTO="SIN" CITYTO="SINGAPORE" CTRYTO="SG" CTRYTO_ISO="SG" DEPDATE="2014-03-19T00:00:00.000-0400" DEPTIME="1970-01-01T16:00:00.000-0500" ARRDATE="2014-03-21T00:00:00.000-0400" ARRTIME="1970-01-01T02:45:00.000-0500" PLANETYPE="DC-10-10"/>
-    			<row HOP="2" AIRLINEID="QF" AIRLINE="Qantas Airways" CONNECTID="0005" AIRPORTFR="SIN" CITYFROM="SINGAPORE" CTRYFR="SG" CTRYFR_ISO="SG" AIRPORTTO="FRA" CITYTO="FRANKFURT" CTRYTO="DE" CTRYTO_ISO="DE" DEPDATE="2014-03-21T00:00:00.000-0400" DEPTIME="1970-01-01T22:50:00.000-0500" ARRDATE="2014-03-22T00:00:00.000-0400" ARRTIME="1970-01-01T05:35:00.000-0500" PLANETYPE="A310-300"/>
-  			</FLIGHT_HOP_LIST>
-  			<RETURN>
-    			<row TYPE="S" ID="BC_IBF" NUMBER="000" MESSAGE="Method was executed successfully" LOG_NO="" LOG_MSG_NO="000000" MESSAGE_V1="" MESSAGE_V2="" MESSAGE_V3="" MESSAGE_V4="" PARAMETER="" FIELD="" SYSTEM="NPLCLNT001"/>
-  			</RETURN>
-		</BAPI_FLCONN_GETDETAIL:Response>
-
-		2013-11-05 11:09:56,423 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   49 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Calling 'BAPI_FLCUST_GETLIST' RFC
-		2013-11-05 11:09:56,423 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   50 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Request: <?xml version="1.0" encoding="ASCII"?>
-		<BAPI_FLCUST_GETLIST:Request xmlns:BAPI_FLCUST_GETLIST="http://sap.fusesource.org/rfc/NPL/BAPI_FLCUST_GETLIST" CUSTOMER_NAME="James Legrand"/>
-
-		2013-11-05 11:09:56,561 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   58 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Response: <?xml version="1.0" encoding="ASCII"?>
-		<BAPI_FLCUST_GETLIST:Response xmlns:BAPI_FLCUST_GETLIST="http://sap.fusesource.org/rfc/NPL/BAPI_FLCUST_GETLIST">
-  			<CUSTOMER_LIST>
-    			<row CUSTOMERID="00001523" CUSTNAME="James Legrand" FORM="Herr" STREET="53 Golden Gate Drive" POBOX="" POSTCODE="22334" CITY="San Francisco" COUNTR="US" COUNTR_ISO="US" REGION="" PHONE="+1 240 27589 29874" EMAIL="James_Legrand@SanFrancisco.net"/>
-  			</CUSTOMER_LIST>
-  			<CUSTOMER_RANGE/>
-  			<EXTENSION_IN/>
-  			<EXTENSION_OUT/>
-  			<RETURN>
-    			<row TYPE="S" ID="BC_IBF" NUMBER="000" MESSAGE="Method was executed successfully" LOG_NO="" LOG_MSG_NO="000000" MESSAGE_V1="" MESSAGE_V2="" MESSAGE_V3="" MESSAGE_V4="" PARAMETER="" FIELD="" SYSTEM="NPLCLNT001"/>
-  			</RETURN>
-		</BAPI_FLCUST_GETLIST:Response>
-
-		2013-11-05 11:09:56,824 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   49 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Calling 'BAPI_FLTRIP_CREATE' RFC
-		2013-11-05 11:09:56,825 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   50 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Request: <?xml version="1.0" encoding="ASCII"?>
-		<BAPI_FLTRIP_CREATE:Request xmlns:BAPI_FLTRIP_CREATE="http://sap.fusesource.org/rfc/NPL/BAPI_FLTRIP_CREATE">
-  			<FLIGHT_TRIP_DATA AGENCYNUM="00000110" CUSTOMERID="00001523" FLCONN1="0002" FLDATE1="2014-03-19T00:00:00.000-0400" CLASS="Y"/>
-  			<PASSENGER_LIST>
-    			<row PASSNAME="Travelin Joe" PASSFORM="Mr" PASSBIRTH="1990-03-17T00:00:00.000-0500"/>
-  			</PASSENGER_LIST>
-		</BAPI_FLTRIP_CREATE:Request>
-
-		2013-11-05 11:09:57,061 | DEBUG | CoServerThread-1 | SAPProducer                      | .camel.component.sap.SAPProducer   58 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Response: <?xml version="1.0" encoding="ASCII"?>
-		<BAPI_FLTRIP_CREATE:Response xmlns:BAPI_FLTRIP_CREATE="http://sap.fusesource.org/rfc/NPL/BAPI_FLTRIP_CREATE" TRAVELAGENCYNUMBER="00000110" TRIPNUMBER="00000148">
-  			<TICKET_PRICE TRIPPRICE="1878.5700" TRIPTAX="93.9200" CURR="EUR" CURR_ISO="EUR"/>
-  			<EXTENSION_IN/>
-  			<PASSENGER_LIST>
-    			<row PASSNAME="Travelin Joe" PASSFORM="Mr" PASSBIRTH="1990-03-17T00:00:00.000-0500"/>
-  			</PASSENGER_LIST>
-  			<RETURN>
-    			<row TYPE="S" ID="BAPI" NUMBER="000" MESSAGE="FlightTrip 0000011000000148 has been created. External reference: 0000011000022014031900001523" LOG_NO="" LOG_MSG_NO="000000" MESSAGE_V1="FlightTrip" MESSAGE_V2="0000011000000148" MESSAGE_V3="" MESSAGE_V4="0000011000022014031900001523" PARAMETER="" FIELD="" SYSTEM="NPLCLNT001"/>
-  			</RETURN>
-		</BAPI_FLTRIP_CREATE:Response>
-
-		2013-11-05 11:09:57,766 | DEBUG | CoServerThread-1 | SAPConsumer                      | .camel.component.sap.SAPConsumer  106 | 88 - org.fusesource.camel-sap - 7.3.0.redhat-SNAPSHOT | Response: <?xml version="1.0" encoding="ASCII"?>
-		<BOOK_FLIGHT:Response xmlns:BOOK_FLIGHT="http://sap.fusesource.org/rfc/nplServer/BOOK_FLIGHT" TRIPNUMBER="00000148" TICKET_PRICE="1878.5700" TICKET_TAX="93.9200" CURRENCY="EUR" PASSFORM="Mr" PASSNAME="Travelin Joe" PASSBIRTH="1990-03-17T00:00:00.000-0500">
-  			<FLTINFO FLIGHTTIME="3155" CITYFROM="SAN FRANCISCO" DEPDATE="2014-03-19T00:00:00.000-0400" DEPTIME="1970-01-01T16:00:00.000-0500" CITYTO="FRANKFURT" ARRDATE="2014-03-22T00:00:00.000-0400" ARRTIME="1970-01-01T05:35:00.000-0500"/>
-  			<CONNINFO>
-    			<row CONNID="1" AIRLINE="Singapore Airlines" PLANETYPE="DC-10-10" CITYFROM="SAN FRANCISCO" DEPDATE="2014-03-19T00:00:00.000-0400" DEPTIME="1970-01-01T16:00:00.000-0500" CITYTO="SINGAPORE" ARRDATE="2014-03-21T00:00:00.000-0400" ARRTIME="1970-01-01T02:45:00.000-0500"/>
-    			<row CONNID="2" AIRLINE="Qantas Airways" PLANETYPE="A310-300" CITYFROM="SINGAPORE" DEPDATE="2014-03-21T00:00:00.000-0400" DEPTIME="1970-01-01T22:50:00.000-0500" CITYTO="FRANKFURT" ARRDATE="2014-03-22T00:00:00.000-0400" ARRTIME="1970-01-01T05:35:00.000-0500"/>
-  			</CONNINFO>
-		</BOOK_FLIGHT:Response>
-
-1. To escape the log view, type Ctrl-C.
+To stop and undeploy the example in fabric8:
 	
 1. Disconnect from the child container by typing Ctrl-D at the console prompt.
-1. Delete the child container by entering the following command at the console:
+1. Stop and delete the child container by entering the following command at the console:
 
+		fabric:container-stop mychild
 		fabric:container-delete mychild
+
+### Using the web console
+
+To stop and undeploy the example in fabric8:
+
+1. In the web console, click the *Containers* button in the navigation bar.
+1. Select the `mychild`containers in the *Containers* list and click the *Stop* button in the top right corner.
