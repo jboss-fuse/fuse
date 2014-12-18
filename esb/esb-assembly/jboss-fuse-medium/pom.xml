@@ -202,7 +202,6 @@
                                 <feature>fabric-web</feature>
                                 <feature>mq-fabric</feature>
                                 <feature>insight-elasticsearch-log-storage</feature>
-                                <feature>process-manager</feature>
                                 <feature>jolokia</feature>
                                 <feature>fabric-redirect</feature>
                                 <feature>fabric-hawtio-swagger</feature>
