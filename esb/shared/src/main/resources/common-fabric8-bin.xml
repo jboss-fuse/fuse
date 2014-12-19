@@ -57,13 +57,11 @@
               <exclude>README</exclude>
               <exclude>RELEASE-NOTES</exclude>
               <exclude>karaf-manual*</exclude>
-              <exclude>quickstarts/pom.xml</exclude>
-              <exclude>quickstarts/README.md</exclude>
+	      <exclude>quickstarts/**/README.md</exclude>
+	      <exclude>quickstarts/**/pom.xml</exclude>
             </excludes>
             <fileMode>0644</fileMode>
         </fileSet>
-
-
 
         <!-- Copy over bin/* scripts separately to get the correct file mode -->
         <fileSet>

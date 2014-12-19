@@ -16,22 +16,20 @@
     limitations under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+
+  <modelVersion>4.0.0</modelVersion>
 
     <parent>
-      <groupId>org.fusesource</groupId>
-      <artifactId>fuse-project</artifactId>
-      <version>6.2.0.redhat-SNAPSHOT</version>
-      <relativePath>../parent</relativePath>
-    </parent>
-
     <groupId>org.jboss.quickstarts.fuse</groupId>
-    <artifactId>quickstarts-parent</artifactId>
+    <artifactId>quickstart-parent</artifactId>
+    <version>6.2.0.redhat-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.jboss.quickstarts.fuse</groupId>
+    <artifactId>cxf</artifactId>
     <version>6.2.0.redhat-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>JBoss  Quickstart: quickstarts</name>
-    <description>JBoss Fuse Quickstarts Parent</description>
-    <url>http://www.jboss.org/products/fuse</url>
+    <name>JBoss Fuse Quickstart: cxf</name>
 
     <licenses>
         <license>
@@ -40,15 +38,6 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
         </license>
     </licenses>
-
-    <developers>
-      <developer>
-        <id>fuseteam</id>
-        <name>JBoss Fuse Development Team</name>
-        <organization>JBoss</organization>
-        <organizationUrl>http://jboss.org/</organizationUrl>
-      </developer>
-    </developers>
 
     <repositories>
         <repository>
@@ -60,15 +49,25 @@
             </snapshots>
             <releases>
                 <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
             </releases>
         </repository>
     </repositories>
 
-    <scm>
-      <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
-      <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
-      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts</url>
-    </scm>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>fuse-public-repository</id>
+            <name>FuseSource Community Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
     <properties>
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -76,20 +75,13 @@
     </properties>
 
     <modules>
-        <module>camel-box</module>
-        <module>camel-linkedin</module>
-        <module>camel-odata</module>
-        <module>camel-salesforce</module>
+        <module>camel-cxf-code-first</module>
+        <module>camel-cxf-contract-first</module>
+        <module>rest</module>
+        <module>secure-rest</module>
+        <module>secure-soap</module>
+        <module>soap</module>
     </modules>
 
-    <profiles>
-        <profile>
-            <!-- Define the SAP example in a separate profile Requires access to the 
-                proprietary SAP JCO and IDoc libraries at build-time -->
-            <id>sap</id>
-            <modules>
-                <module>camel-sap</module>
-            </modules>
-        </profile>
-    </profiles>
+
 </project>

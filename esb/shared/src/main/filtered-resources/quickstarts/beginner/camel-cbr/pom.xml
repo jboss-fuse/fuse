@@ -17,20 +17,19 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+<!-- Fuse version -->
     <parent>
-      <groupId>org.jboss.quickstarts.fuse</groupId>
-      <artifactId>quickstarts-parent</artifactId>
-      <version>6.2.0.redhat-SNAPSHOT</version>
+        <groupId>org.jboss.quickstarts.fuse</groupId>
+        <artifactId>quickstarts-beginner-parent</artifactId>
+        <version>6.2.0.redhat-SNAPSHOT</version>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
-    <artifactId>camel-odata</artifactId>
+    <artifactId>beginner-camel-cbr</artifactId>
     <version>6.2.0.redhat-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>JBoss Fuse Quickstart: camel-odata</name>
-    <description>Camel Olingo2 OData Example</description>
-    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-odata</url>
+    <name>JBoss Fuse Quickstart: camel-cbr</name>
+    <description>Camel Content-Based Router Example</description>
 
     <licenses>
         <license>
@@ -39,15 +38,6 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
         </license>
     </licenses>
-
-    <developers>
-      <developer>
-        <id>fuseteam</id>
-        <name>JBoss Fuse Development Team</name>
-        <organization>JBoss</organization>
-        <organizationUrl>http://jboss.org/</organizationUrl>
-      </developer>
-    </developers>
 
     <repositories>
         <repository>
@@ -79,25 +69,23 @@
         </pluginRepository>
     </pluginRepositories>
 
-    <scm>
-      <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
-      <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
-      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-odata</url>
-    </scm>
-
     <properties>
-        <!-- Explicitly declaring the source encoding eliminates the following message: -->
-        <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent! -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
 
-        <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <maven.compiler.source>1.7</maven.compiler.source>
+    <!-- the version of the BOM, defining all the dependency versions -->
+    <fabric.version>1.2.0-SNAPSHOT</fabric.version>
+
+    <!-- fabric8 deploy profile configuration -->
+    <fabric8.profile>quickstarts-beginner-camel.cbr</fabric8.profile>
+    <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
+    <fabric8.features></fabric8.features>
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
         <jboss.fuse.bom.version>6.2.0.redhat-SNAPSHOT</jboss.fuse.bom.version>
-    </properties>
+  </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -112,35 +100,33 @@
     </dependencyManagement>
 
     <dependencies>
-         <!--
-          For this example, we will be using the OSGi Blueprint XML syntax for Apache Camel.
-          The camel-blueprint bundle is installed in JBoss Fuse by default,
-          so we are setting the dependency's scope to 'provided'.
-        -->
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-blueprint</artifactId>
-        </dependency>
-    </dependencies>
+    <!--
+     For this example, we will be using the OSGi Blueprint XML syntax for Apache Camel.
+   -->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-blueprint</artifactId>
+    </dependency>
+  </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>${version.maven-bundle-plugin}</version>
-                <extensions>true</extensions>
-            </plugin>
-                <!--
-                  this plugin will use the fabric.* properties to configure its behaviour
-                  see the Properties section here: http://fabric8.io/#/site/book/doc/index.md?chapter=mavenPlugin_md
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>fabric8-maven-plugin</artifactId>
-                <version>${fabric.version}</version>
-            </plugin>
-                -->
-        </plugins>
-    </build>
+    <finalName>shared</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>${version.maven-bundle-plugin}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <!--
+          this plugin will use the fabric.* properties to configure its behaviour
+          see the Properties section here: http://fabric8.io/gitbook/mavenPlugin.html
+        -->
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-maven-plugin</artifactId>
+        <version>${fabric.version}</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
