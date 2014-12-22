@@ -1,5 +1,11 @@
-Quickstarts
-===========
+quickstarts: Various quickstarts to demonstrate Fuse  
+======================================================
+Author: Fuse Team  
+Level: Beginner  
+Technologies: Camel, CXF, REST, SOAP  
+Summary: These quickstarts demonstrate a variety of ways to get started with Fuse and many of it's technologies  
+Target Product: Fuse  
+Source: <https://github.com/jboss-fuse/quickstarts>  
 
 Various quickstart projects for getting you started with JBoss Fuse
 

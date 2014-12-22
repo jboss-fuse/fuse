@@ -20,9 +20,10 @@
 
     <parent>
       <groupId>org.jboss.quickstarts.fuse</groupId>
-      <artifactId>quickstart-parent</artifactId>
+      <artifactId>quickstarts-parent</artifactId>
       <version>6.2.0.redhat-SNAPSHOT</version>
     </parent>
+
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>camel-box</artifactId>
     <version>6.2.0.redhat-SNAPSHOT</version>
@@ -88,11 +89,11 @@
         <!-- Explicitly declaring the source encoding eliminates the following message: -->
         <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent! -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.maven-bundle-plugin>2.3.4</version.maven-bundle-plugin>
+        <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
 
         <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
         <jboss.fuse.bom.version>6.2.0.redhat-SNAPSHOT</jboss.fuse.bom.version>

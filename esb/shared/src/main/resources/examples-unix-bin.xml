@@ -25,8 +25,9 @@
                 <exclude>**/target/</exclude>
                 <exclude>**/target/*</exclude>
                 <exclude>README.md</exclude>
-                <exclude>**/README.md</exclude>
+                <!--exclude>**/README.md</exclude-->
                 <exclude>pom.xml</exclude>
+		<!--exclude>**/pom.xml</exclude-->
             </excludes>
             <lineEnding>unix</lineEnding>
             <filtered>false</filtered>
@@ -34,11 +35,13 @@
 
         <!-- Replace the top-level pom.xml and README files -->
         <fileSet>
-            <directory>target/shared</directory>           <!-- -->
+            <directory>target/shared/quickstarts</directory>   
             <outputDirectory>/quickstarts</outputDirectory>
             <includes>
-                <include>README.md</include>
-                <include>pom.xml</include>
+                <include>**/README.md</include>
+                <include>**/pom.xml</include>
+		<include>karaf/**/README.md</include>
+		<include>karaf/**/pom.xml</include>
             </includes>
             <lineEnding>unix</lineEnding>
             <filtered>true</filtered>
