@@ -127,6 +127,11 @@
         <fileSet>
             <directory>target/shared/etc</directory>
             <outputDirectory>/etc/</outputDirectory>
+            <excludes>
+                <!-- Exclude config files that are specific to a Fabric8-based runtime -->
+                <exclude>broker.xml</exclude>
+                <exclude>io.fabric8.*</exclude>
+            </excludes>
             <lineEnding>unix</lineEnding>
             <fileMode>0644</fileMode>
         </fileSet>
@@ -134,14 +139,6 @@
         <fileSet>
             <directory>target/shared/licenses</directory>
             <outputDirectory>/licenses/</outputDirectory>
-            <lineEnding>unix</lineEnding>
-            <fileMode>0644</fileMode>
-            <directoryMode>0755</directoryMode>
-        </fileSet>
-
-        <fileSet>
-            <directory>target/shared/fabric</directory>
-            <outputDirectory>/fabric/</outputDirectory>
             <lineEnding>unix</lineEnding>
             <fileMode>0644</fileMode>
             <directoryMode>0755</directoryMode>
