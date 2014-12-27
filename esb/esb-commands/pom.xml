@@ -39,6 +39,7 @@
         <fuse.osgi.private.pkg>
             io.fabric8.utils,
             io.fabric8.utils.shell,
+            io.fabric8.common.util,
             org.apache.felix.utils.properties
         </fuse.osgi.private.pkg>
     </properties>
