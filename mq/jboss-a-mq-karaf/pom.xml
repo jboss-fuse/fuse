@@ -25,9 +25,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jboss.amq</groupId>
-    <artifactId>jboss-a-mq</artifactId>
+    <artifactId>jboss-a-mq-karaf</artifactId>
 
-    <name>JBoss A-MQ :: Fabric8-based Distribution</name>
+    <name>JBoss A-MQ :: Karaf-based Distribution</name>
 
        <prerequisites>
            <maven>3.0.2</maven>
@@ -58,16 +58,16 @@
                <version>${fabric.version}</version>
            </dependency>
            <dependency>
-               <groupId>io.fabric8</groupId>
-               <artifactId>fabric8-karaf</artifactId>
-               <version>${fabric.version}</version>
+               <groupId>org.apache.karaf</groupId>
+               <artifactId>apache-karaf</artifactId>
+               <version>${karaf-version}</version>
+               <type>tar.gz</type>
+           </dependency>
+           <dependency>
+               <groupId>org.apache.karaf</groupId>
+               <artifactId>apache-karaf</artifactId>
+               <version>${karaf-version}</version>
                <type>zip</type>
-               <exclusions>
-                   <exclusion>
-                       <groupId>io.fabric8.quickstarts</groupId>
-                       <artifactId>fabric8-quickstarts-parent</artifactId>
-                   </exclusion>
-               </exclusions>
            </dependency>
            <dependency>
                <groupId>org.jboss.amq</groupId>
@@ -156,23 +156,14 @@
                                    <descriptor>mvn:org.apache.activemq/activemq-karaf/${activemq-version}/xml/features</descriptor>
                                    <descriptor>mvn:io.hawt/hawtio-karaf/${hawtio-version}/xml/features</descriptor>
                                    <descriptor>mvn:io.fabric8.patch/patch-features/${fabric.version}/xml/features</descriptor>
-                                   <descriptor>mvn:io.fabric8/fabric8-karaf/${fabric.version}/xml/features</descriptor>
                                </descriptors>
                                <features>
                                    <feature>obr</feature>
                                    <feature>config</feature>
-                                   <feature>fabric-agent</feature>
-                                   <feature>fabric-commands</feature>
-                                   <feature>fabric-camel</feature>
-                                   <feature>fabric-dosgi</feature>
-                                   <feature>fabric-openshift</feature>
-                                   <feature>jasypt-encryption</feature>
-                                   <feature>mq-fabric</feature>
-                                   <feature>mq-fabric-http-discovery</feature>
-                                   <feature>activemq-broker</feature>
+                                   <feature>scr</feature>
+                                   <feature>activemq</feature>
                                    <feature>activemq-camel</feature>
                                    <feature>war</feature>
-                                   <feature>fabric-redirect</feature>
                                    <feature>hawtio</feature>
                                    <feature>patch</feature>
                                </features>
@@ -203,7 +194,7 @@
                                <outputDirectory>target/features-repo</outputDirectory>
                                <resources>
                                    <resource>
-                                       <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}/system</directory>
+                                       <directory>target/dependencies/unix/apache-karaf-${karaf-version}/system</directory>
                                    </resource>
                                </resources>
                            </configuration>
@@ -223,10 +214,16 @@
                            <configuration>
                                <artifactItems>
                                    <artifactItem>
-                                       <groupId>io.fabric8</groupId>
-                                       <artifactId>fabric8-karaf</artifactId>
-                                       <type>zip</type>
+                                       <groupId>org.apache.karaf</groupId>
+                                       <artifactId>apache-karaf</artifactId>
+                                       <type>tar.gz</type>
                                        <outputDirectory>target/dependencies/unix</outputDirectory>
+                                   </artifactItem>
+                                   <artifactItem>
+                                       <groupId>org.apache.karaf</groupId>
+                                       <artifactId>apache-karaf</artifactId>
+                                       <type>zip</type>
+                                       <outputDirectory>target/dependencies/win</outputDirectory>
                                    </artifactItem>
                                </artifactItems>
                            </configuration>
@@ -277,7 +274,7 @@
                              <listDependencies>true</listDependencies>
                              <extraDependencies>org.apache.xerces:xercesImpl:${xerces.version},xalan:xalan:${xalan.version},xalan:serializer:${xalan.version},org.apache.servicemix.specs:org.apache.servicemix.specs.activator:${servicemix-specs-version},org.apache.servicemix.specs:org.apache.servicemix.specs.jaxp-api-1.4:${servicemix-specs-version},org.apache.servicemix.specs:org.apache.servicemix.specs.jaxws-api-2.2:${servicemix-specs-version}</extraDependencies>
                              <noticeSupplements>classes/notice-supplements.xml</noticeSupplements>
-                             <repositories>${project.basedir}/target/features-repo,${project.basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/system</repositories>
+                             <repositories>${project.basedir}/target/features-repo,${project.basedir}/target/dependencies/unix/apache-karaf-${karaf-version}/system</repositories>
                              <defaultParent>org.jboss.amq:mq-project:${project.version}:../..</defaultParent>
                         </configuration>
                      </execution>
@@ -320,22 +317,21 @@
                            <configuration>
                                <target name="update-properties">
                                    <echo message="Fixing start/stop scripts in windows assembly" />
-                                   <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/start.bat" token="fabric8.bat" value="amq.bat"/>
-                                   <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/stop.bat" token="fabric8.bat" value="amq.bat"/>
+                                   <replace file="target/dependencies/win/apache-karaf-${karaf-version}/bin/start.bat" token="fabric8.bat" value="amq.bat"/>
+                                   <replace file="target/dependencies/win/apache-karaf-${karaf-version}/bin/stop.bat" token="fabric8.bat" value="amq.bat"/>
                                    <echo message="Fixing start/stop scripts in unix assembly" />
-                                   <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/start" token="bin/fabric8" value="bin/amq"/>
-                                   <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/stop" token="bin/fabric8" value="bin/amq"/>
+                                   <replace file="target/dependencies/unix/apache-karaf-${karaf-version}/bin/start" token="bin/fabric8" value="bin/amq"/>
+                                   <replace file="target/dependencies/unix/apache-karaf-${karaf-version}/bin/stop" token="bin/fabric8" value="bin/amq"/>
                                    <echo message="Updating etc/system.properties in unix assembly" />
-                                   <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/system.properties" append="true" eol="unix">
+                                   <concat destfile="target/dependencies/unix/apache-karaf-${karaf-version}/etc/system.properties" append="true" eol="unix">
                                        <fileset file="src/main/resources/etc/system-mq.properties" />
                                    </concat>
                                    <echo message="Updating etc/config.properties in unix assembly" />
-                                   <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties" append="true" eol="unix">
+                                   <concat destfile="target/dependencies/unix/apache-karaf-${karaf-version}/etc/config.properties" append="true" eol="unix">
                                        <fileset file="src/main/resources/etc/config.properties" />
                                    </concat>
-                                   <echo message="Updating etc/system.properties in windows assembly" />
                                    <echo message="Updating etc/config.properties in unix assembly" />
-                                   <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties" append="true" eol="unix">
+                                   <concat destfile="target/dependencies/unix/apache-karaf-${karaf-version}/etc/config.properties" append="true" eol="unix">
                                        <fileset file="src/main/resources/etc/config-mq.properties" />
                                    </concat>
                                </target>
