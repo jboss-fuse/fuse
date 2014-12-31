@@ -299,9 +299,6 @@
                                </descriptors>
                                <finalName>${project.artifactId}-${project.version}</finalName>
                                <appendAssemblyId>false</appendAssemblyId>
-                               <filters>
-                                   <filter>${project.basedir}/src/main/descriptors/unix.properties</filter>
-                               </filters>
                            </configuration>
                        </execution>
                    </executions>

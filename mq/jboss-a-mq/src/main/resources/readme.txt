@@ -6,7 +6,7 @@ Configuration
 The default broker is defined in: 
  ./etc/org.fusesource.mq.fabric.server-default.cfg
 The xml configuration is:
- ./etc/activemq.xml
+ ./etc/broker.xml
 
 Security Prerequisites
 ----------------------
