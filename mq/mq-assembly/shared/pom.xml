@@ -20,16 +20,16 @@
     <modelVersion>4.0.0</modelVersion>
          
     <parent>
-        <groupId>org.jboss.fuse</groupId>
-        <artifactId>esb-project</artifactId>
+        <groupId>org.jboss.amq</groupId>
+        <artifactId>mq-assembly</artifactId>
         <version>6.2.0.redhat-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.jboss.fuse</groupId>
+    <groupId>org.jboss.amq</groupId>
     <artifactId>shared</artifactId>
     <packaging>jar</packaging>
     
-    <name>JBoss Fuse :: ESB :: Assembly :: Shared</name>
+    <name>JBoss A-MQ :: Assembly :: Shared</name>
 
     <build>
         <resources>
@@ -38,6 +38,7 @@
                 <directory>src/main/resources</directory>
             </resource>
             <resource>
+                <!-- include shared maven-assembly-plugin component descriptors -->
                 <directory>src/main/descriptors</directory>
             </resource>
             <resource>
