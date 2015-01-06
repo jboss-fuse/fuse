@@ -24,6 +24,8 @@ import io.fabric8.utils.shell.ShellUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 @Command(name = "create-admin-user", scope = "esb", description = "Creates a new admin user if one doesn't exist")
 public class CreateAdminUser extends OsgiCommandSupport {
@@ -32,8 +34,8 @@ public class CreateAdminUser extends OsgiCommandSupport {
     private String newUser;
     @Option(name = "--new-user-password", multiValued = false, description = "The password of the new user. The option refers to karaf user (ssh, http, jmx).")
     private String newUserPassword;
-    @Option(name = "--new-user-role", multiValued = false, description = "The role of the new user. The option refers to karaf user (ssh, http, jmx).")
-    private String newUserRole = "admin";
+    @Option(name = "--new-user-role", multiValued = true, description = "The role of the new user. The option refers to karaf user (ssh, http, jmx).")
+    private List<String> newUserRoles;
     
     @Override
     protected Object doExecute() throws Exception {
@@ -54,9 +56,13 @@ public class CreateAdminUser extends OsgiCommandSupport {
             if (session != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("jaas:manage --realm karaf --index 1;")
-                    .append("jaas:useradd ").append(newUser).append(" ").append(newUserPassword).append(";")
-                    .append("jaas:roleadd ").append(newUser).append(" ").append(newUserRole).append(";")
-                    .append("jaas:update");
+                    .append("jaas:useradd ").append(newUser).append(" ").append(newUserPassword).append(";");
+
+                for (String newUserRole : getNewUserRoles()) {
+                    sb.append("jaas:roleadd ").append(newUser).append(" ").append(newUserRole).append(";");
+                }
+
+                sb.append("jaas:update");
                 session.execute(sb.toString());
              }
         } 
@@ -122,6 +128,22 @@ public class CreateAdminUser extends OsgiCommandSupport {
 
     public void setNewUserPassword(String newUserPassword) {
         this.newUserPassword = newUserPassword;
+    }
+
+    protected List<String> getNewUserRoles() {
+        if (newUserRoles == null || newUserRoles.isEmpty()) {
+            List<String> defaultRoles = new LinkedList<>();
+            defaultRoles.add("manager");
+            defaultRoles.add("viewer");
+            defaultRoles.add("Operator");
+            defaultRoles.add("Maintainer");
+            defaultRoles.add("Deployer");
+            defaultRoles.add("Auditor");
+            defaultRoles.add("Administrator");
+            defaultRoles.add("SuperUser");
+            return defaultRoles;
+        }
+        return newUserRoles;
     }
 
 }
