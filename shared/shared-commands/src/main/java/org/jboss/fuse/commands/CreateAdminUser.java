@@ -28,7 +28,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Command(name = "create-admin-user", scope = "esb", description = "Creates a new admin user if one doesn't exist")
-public class CreateAdminUser extends OsgiCommandSupport {
+public abstract class CreateAdminUser extends OsgiCommandSupport {
 
     @Option(name = "--new-user", multiValued = false, description = "The username of a new user. The option refers to karaf user (ssh, http, jmx).")
     private String newUser;

@@ -163,8 +163,10 @@
                                    <descriptor>mvn:io.hawt/hawtio-karaf/${hawtio-version}/xml/features</descriptor>
                                    <descriptor>mvn:io.fabric8.patch/patch-features/${fabric.version}/xml/features</descriptor>
                                    <descriptor>mvn:io.fabric8/fabric8-karaf/${fabric.version}/xml/features</descriptor>
+                                   <descriptor>file:${project.build.directory}/classes/features.xml</descriptor>
                                </descriptors>
                                <features>
+                                   <feature>amq-commands</feature>
                                    <feature>obr</feature>
                                    <feature>config</feature>
                                    <feature>fabric-agent</feature>
@@ -339,6 +341,15 @@
                            </goals>
                            <configuration>
                                <target name="update-properties">
+                                   <echo message="Updating etc/startup.properties in unix assembly"/>
+                                   <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/startup.properties"
+                                           append="true" eol="unix">
+                                       <fileset file="target/shared/snippets/startup-amq-commands.properties" />
+                                   </concat>
+                                   <echo message="Updating etc/shell.init.script in unix assembly" />
+                                   <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/shell.init.script" append="true" eol="unix">
+                                       <fileset file="target/shared/snippets/shell.init.script" />
+                                   </concat>
                                    <echo message="Fixing start/stop scripts in windows assembly" />
                                    <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/start.bat" token="fabric8.bat" value="amq.bat"/>
                                    <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/stop.bat" token="fabric8.bat" value="amq.bat"/>
@@ -419,6 +430,29 @@
                 </execution>
               </executions>
             </plugin>
+               <plugin>
+                   <groupId>org.codehaus.mojo</groupId>
+                   <artifactId>build-helper-maven-plugin</artifactId>
+                   <executions>
+                       <execution>
+                           <id>attach-artifacts</id>
+                           <phase>package</phase>
+                           <inherited>false</inherited>
+                           <goals>
+                               <goal>attach-artifact</goal>
+                           </goals>
+                           <configuration>
+                               <artifacts>
+                                   <artifact>
+                                       <file>target/classes/features.xml</file>
+                                       <type>xml</type>
+                                       <classifier>features</classifier>
+                                   </artifact>
+                               </artifacts>
+                           </configuration>
+                       </execution>
+                   </executions>
+               </plugin>
            </plugins>
            <pluginManagement>
                <plugins>

@@ -23,14 +23,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.jboss.fuse</groupId>
-        <artifactId>esb-project</artifactId>
+        <artifactId>shared-project</artifactId>
         <version>6.2.0.redhat-SNAPSHOT</version>
     </parent>
 
-    <artifactId>esb-commands</artifactId>
+    <artifactId>shared-commands</artifactId>
     <packaging>bundle</packaging>
 
-    <name>JBoss Fuse :: ESB :: Commands</name>
+    <name>JBoss A-MQ and Fuse :: Shared :: Commands</name>
 
     <properties>
         <fuse.osgi.export>

@@ -162,8 +162,10 @@
                                    <descriptor>mvn:org.apache.activemq/activemq-karaf/${activemq-version}/xml/features</descriptor>
                                    <descriptor>mvn:io.hawt/hawtio-karaf/${hawtio-version}/xml/features</descriptor>
                                    <descriptor>mvn:io.fabric8.patch/patch-features/${fabric.version}/xml/features</descriptor>
+                                   <descriptor>mvn:org.jboss.amq/jboss-a-mq/${project.version}/xml/features</descriptor>
                                </descriptors>
                                <features>
+                                   <feature>amq-commands</feature>
                                    <feature>obr</feature>
                                    <feature>config</feature>
                                    <feature>scr</feature>
@@ -336,6 +338,15 @@
                            </goals>
                            <configuration>
                                <target name="update-properties">
+                                   <echo message="Updating etc/startup.properties in unix assembly"/>
+                                   <concat destfile="target/dependencies/unix/apache-karaf-${karaf-version}/etc/startup.properties"
+                                           append="true" eol="unix">
+                                       <fileset file="target/shared/snippets/startup-amq-commands.properties" />
+                                   </concat>
+                                   <echo message="Updating etc/shell.init.script in unix assembly" />
+                                   <concat destfile="target/dependencies/unix/apache-karaf-${karaf-version}/etc/shell.init.script" append="true" eol="unix">
+                                       <fileset file="target/shared/snippets/shell.init.script" />
+                                   </concat>
                                    <echo message="Fixing start/stop scripts in windows assembly" />
                                    <replace file="target/dependencies/win/apache-karaf-${karaf-version}/bin/start.bat" token="fabric8.bat" value="amq.bat"/>
                                    <replace file="target/dependencies/win/apache-karaf-${karaf-version}/bin/stop.bat" token="fabric8.bat" value="amq.bat"/>
