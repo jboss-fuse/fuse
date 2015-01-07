@@ -16,26 +16,13 @@
  */
 package org.jboss.fuse.commands;
 
-import java.io.File;
-
 import org.apache.felix.gogo.commands.Command;
-import org.apache.felix.utils.properties.Properties;
-import org.apache.karaf.shell.console.OsgiCommandSupport;
 
 @Command(name = "check-for-user", scope = "esb", description = "Checks if any users are defined.")
-public class CheckAdminUser extends OsgiCommandSupport {
-    
-    @Override
-    protected Object doExecute() throws Exception {
-        Properties userProps = new Properties(new File(System.getProperty("karaf.home") + "/etc/users.properties"));
+public class EsbCheckAdminUser extends CheckAdminUser {
 
-        if (userProps.isEmpty()) {
-            System.out.println("No user found in etc/users.properties. Please use the 'esb:create-admin-user'");
-            System.out.println("command to create one.");
-            System.out.println();
-        } 
-
-        return null;
+    protected String getCreateAdminUserCommand() {
+        return "esb:create-admin-user";
     }
 
 }
