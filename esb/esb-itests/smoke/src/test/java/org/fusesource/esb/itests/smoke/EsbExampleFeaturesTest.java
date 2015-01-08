@@ -32,22 +32,19 @@ import org.ops4j.pax.exam.spi.reactors.PerMethod;
 @ExamReactorStrategy(PerMethod.class)
 public class EsbExampleFeaturesTest extends EsbTestSupport {
 
-    @Ignore("See ENTESB-2124")
     @Test
     public void testCbr() throws Exception {
-        installQuickstartBundle("cbr");
+        installQuickstartBundle("beginner-camel-cbr");
     }
 
-    @Ignore("See ENTESB-2124")
     @Test
     public void testEip() throws Exception {
-        installQuickstartBundle("eip");
+        installQuickstartBundle("beginner-camel-eips");
     }
 
-    @Ignore("See ENTESB-2124")
     @Test
     public void testErrors() throws Exception {
-        installQuickstartBundle("errors");
+        installQuickstartBundle("beginner-camel-errorhandler");
     }
 
     @Ignore("See ENTESB-2124")
@@ -58,29 +55,26 @@ public class EsbExampleFeaturesTest extends EsbTestSupport {
         installUninstallCommand("quickstart-jms");
     }
 
-    @Ignore("See ENTESB-2124")
     @Test
     public void testRest() throws Exception {
-        installQuickstartBundle("rest");
+        installQuickstartBundle("cxf-rest");
     }
 
-    @Ignore("See ENTESB-2124")
     @Test
     public void testSecureRest() throws Exception {
-        installQuickstartBundle("secure-rest");
+        installQuickstartBundle("cxf-secure-rest");
     }
 
-    @Ignore("See ENTESB-2124")
     @Test
     public void testSoap() throws Exception {
-        installQuickstartBundle("soap");
+        installQuickstartBundle("cxf-soap");
     }
 
-    @Ignore("See ENTESB-2124")
+    @Ignore("ENTESB-1831")
     @Test
     public void testSecureSoap() throws Exception {
         installAndCheckFeature("cxf-ws-security");
-        installQuickstartBundle("secure-soap");
+        installQuickstartBundle("cxf-secure-soap");
     }
 
     @Configuration
