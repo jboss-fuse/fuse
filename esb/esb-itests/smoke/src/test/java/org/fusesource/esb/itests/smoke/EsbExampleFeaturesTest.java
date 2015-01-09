@@ -60,6 +60,7 @@ public class EsbExampleFeaturesTest extends EsbTestSupport {
 	installQuickstartBundle("camel-salesforce");
     }
 
+    @Ignore("ENTESB-2124")
     @Test
     public void testCamelSap() throws Exception {
         installQuickstartBundle("camel-sap");
