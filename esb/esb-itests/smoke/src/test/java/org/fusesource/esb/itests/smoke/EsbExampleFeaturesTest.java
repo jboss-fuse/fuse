@@ -24,57 +24,45 @@ import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.PaxExam;
+import org.ops4j.pax.exam.karaf.options.KarafDistributionOption;
 import org.ops4j.pax.exam.options.DefaultCompositeOption;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerMethod;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerMethod.class)
 public class EsbExampleFeaturesTest extends EsbTestSupport {
+    protected static final Logger LOG = LoggerFactory.getLogger(EsbExampleFeaturesTest.class);
 
+    @Ignore("ENTESB-2429")
     @Test
-    public void testCbr() throws Exception {
-        installQuickstartBundle("beginner-camel-cbr");
+    public void testCamelBox() throws Exception {
+        installQuickstartBundle("camel-box");
+    }
+
+    @Ignore("ENTESB-2429")
+    @Test
+    public void testCamelLinkedIn() throws Exception {
+        installQuickstartBundle("camel-linkedin");
+    }
+
+    @Ignore("ENTESB-2429")
+    @Test
+    public void testCamelOdata() throws Exception {
+	installQuickstartBundle("camel-odata");
+    }
+
+    @Ignore("ENTESB-2429")
+    @Test
+    public void testCamelSalesForce() throws Exception {
+	installQuickstartBundle("camel-salesforce");
     }
 
     @Test
-    public void testEip() throws Exception {
-        installQuickstartBundle("beginner-camel-eips");
-    }
-
-    @Test
-    public void testErrors() throws Exception {
-        installQuickstartBundle("beginner-camel-errorhandler");
-    }
-
-    @Ignore("See ENTESB-2124")
-    @Test
-    public void testJms() throws Exception {
-        executeCommand("shell:exec cp quickstarts/jms/src/main/resources/etc/org.fusesource.mq.fabric.cf-default.cfg etc/");
-        executeCommand("features:addurl mvn:org.jboss.quickstarts.fuse/jms/" + getEsbVersion() + "/xml/features");
-        installUninstallCommand("quickstart-jms");
-    }
-
-    @Test
-    public void testRest() throws Exception {
-        installQuickstartBundle("cxf-rest");
-    }
-
-    @Test
-    public void testSecureRest() throws Exception {
-        installQuickstartBundle("cxf-secure-rest");
-    }
-
-    @Test
-    public void testSoap() throws Exception {
-        installQuickstartBundle("cxf-soap");
-    }
-
-    @Ignore("ENTESB-1831")
-    @Test
-    public void testSecureSoap() throws Exception {
-        installAndCheckFeature("cxf-ws-security");
-        installQuickstartBundle("cxf-secure-soap");
+    public void testCamelSap() throws Exception {
+        installQuickstartBundle("camel-sap");
     }
 
     @Configuration
