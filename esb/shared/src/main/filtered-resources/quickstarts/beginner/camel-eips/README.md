@@ -1,101 +1,89 @@
 camel-eips: Demonstrates how to combine multiple EIPS in Camel
-======================================================
+===================================
 Author: Fuse Team  
 Level: Beginner  
-Technologies: Camel  
-Summary: This quickstart demonstrates how to combine multiple EIPs in Camel in order to solve integration problems.  
+Technologies: Camel,Blueprint  
+Summary: This quickstart demonstrates how to combine multiple EIPs in Camel in order to solve integration problems.
 Target Product: Fuse  
-Source: <https://github.com/jboss-fuse/quickstarts>  
+Source: <https://github.com/jboss-fuse/quickstarts>
 
-In this example, an orders file containing several orders for zoos around the world is sent to us. We first want to make sure we retain a copy of the original file. This is done using the Wiretap EIP. After saving the original, we want to split the file up into the individual orders. This is done using the Splitter EIP. Then we want to store the orders in separate directories by geographical region. This is done using a Recipient List EIP. Finally, we want to filter out the orders that contain more than 100 animals and generate a message for the strategic account team. This is done using a Filter EIP.
+What is it?
+-----------
 
-The example is implemented using the following four Camel routes
+This quickstart demonstrates how to combine multiple EIPs to solve integration problems.
 
-* mainRoute
-* wireTapRoute
-* splitterRoute
-* filterRoute
+In this example, an orders file containing several orders for zoos around the world is sent to us.
 
-The routes is illustrated in the following diagram
+We first want to make sure we retain a copy of the original file. This is done using the Wiretap EIP.
 
-![Camel EIPs diagram](https://raw.githubusercontent.com/fabric8io/fabric8/master/docs/images/camel-eips-diagram.jpg)
+After saving the original, we want to split the file up into the individual orders. This is done using the Splitter EIP.
 
+Then we want to store the orders in separate directories by geographical region. This is done using a Recipient List EIP.
 
-### Building this example
+Finally, we want to filter out the orders that contain more than 100 animals and generate a message for the strategic account team. This is done using a Filter EIP.
 
-The example comes as source code and pre-built binaries with the fabric8 distribution. 
+In studying this example you will learn:
 
-To try the example you do not need to build from source first. Although building from source allows you to modify the source code, and re-deploy the changes to fabric. See more details on the fabric8 website about the [developer workflow](http://fabric8.io/gitbook/developer.html).
-
-To build from the source code:
-
-1. Change your working directory to `quickstarts/beginner/camel-eips` directory.
-1. Run `mvn clean install` to build the quickstart.
-
-After building from the source code, you can upload the changes to the fabric container:
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Change your working directory to `quickstarts/beginner/camel-eips` directory.
-1. Run `mvn fabric8:deploy` to upload the quickstart to the fabric container.
-
-If you run the `fabric:deploy` command for the first then, it will ask you for the username and password to login the fabric container.
-And then store this information in the local Maven settings file. You can find more details about this on the fabric8 website about the [Maven Plugin](http://fabric8.io/gitbook/mavenPlugin.html).
-
-## How to run this example
-
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
-
-### Using the command line shell
-
-You can deploy and run this example at the console command line, as follows:
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Create a new child container and deploy the `quickstarts-beginner
-quickstarts/beginner/-camel.eips` profile in a single step, by entering the
- following command at the console:
-
-        fabric:container-create-child --profile quickstarts-beginner
-quickstarts/beginner/-camel.eips root mychild
-
-1. Wait for the new child container, `mychild`, to start up. Use the `fabric:container-list` command to check the status of the `mychild` container and wait until the `[provision status]` is shown as `success`.
-1. Log into the `mychild` container using the `fabric:container-connect` command, as follows:
-
-        fabric:container-connect mychild
-
-1. View the container log using the `log:tail` command as follows:
-
-        log:tail
-
-To exit the tail logger, press Ctrl-D. And to logout from the `mychild` container, then use the `exit` command, which returns back to the `root` container.
-
-### Using the web console
-
-You can deploy and run this example from the web console, as follows:
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Login the web console
-1. Click the Wiki button in the navigation bar
-1. Select `quickstarts` --> `beginner` --> `camel.eips`
-1. Click the `New` button in the top right corner
-1. In the Create New Container page, enter `mychild` in the Container Name field, and click the *Create and start container* button
+* how to define a Camel route using the Blueprint XML syntax
+* how to build and deploy an OSGi bundle in JBoss Fuse
+* how to combine multiple Enterprise Integration Patterns to create an integration solution
+* how to use the Wiretap EIP to copy messages as they pass through a route
+* how to use the Splitter EIP to split large messages into smaller ones
+* how to use a Recipient List EIP to dynamically determine how a message passes through a route
+* how to use the Filter EIP to filter messages and execute logic for the ones that match the filter
+* how to define and use a bean to process a message
+* how to use a `direct:` endpoint to link multiple smaller routes together
 
 
-## How to try this example from shell
+For more information see:
 
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
+* http://www.enterpriseintegrationpatterns.com/RecipientList.html
+* http://www.enterpriseintegrationpatterns.com/WireTap.html
+* http://www.enterpriseintegrationpatterns.com/Filter.html
+* http://www.enterpriseintegrationpatterns.com/Sequencer.html
+* https://access.redhat.com/site/documentation/JBoss_Fuse/
 
-### Using the command line shell
 
-To use the application be sure to have deployed the quickstart in fabric8 as described above. Successful deployment will create and start a Camel route in fabric8.
+System requirements
+-------------------
 
-1. As soon as the Camel route has been started, you will see a directory `instances/mychild/work/eip/input` in your fabric8 installation.
-1. Copy the file you find in this example's `src/main/fabric8/data` directory to the newly created `instances/mychild/work/eip/input`
+Before building and running this example you need:
+
+* Maven 3.0.4 or higher
+* JDK 1.6 or 1.7
+* JBoss Fuse 6
+
+
+Build and Deploy the Quickstart
+-------------------------------
+
+1. Change your working directory to `camel-eips` directory.
+*. Run `mvn clean install` to build the quickstart.
+*. Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
+*. In the JBoss Fuse console, enter the following command:
+
+        osgi:install -s mvn:org.jboss.quickstarts.fuse/beginner-camel-eips/${project.version}
+
+*. Fuse should give you an id when the bundle is deployed
+*. You can check that everything is ok by issuing  the command:
+
+        osgi:list
+   your bundle should be present at the end of the list
+
+
+Use the bundle
+--------------
+
+To use the application be sure to have deployed the quickstart in Fuse as described above. Successful deployment will create and start a Camel route in Fuse.
+
+1. As soon as the Camel route has been started, you will see a directory `work/eip/input` in your JBoss Fuse installation.
+2. Copy the file you find in this example's `src/main/resources/data` directory to the newly created `work/eip/input`
 directory.
-1. Wait a few moments and you will find multiple files organized by geographical region under `instances/mychild/work/eip/output`:
-** `2012_0003.xml` and `2012_0005.xml` in `instances/mychild/work/eip/output/AMER`
-** `2012_0020.xml` in `instances/mychild/work/eip/output/APAC`
-** `2012_0001.xml`, `2012_0002.xml` and `2012_0004.xml` in `instances/mychild/work/eip/output/EMEA`
-1. Use `log:display` on the shell to check out the business logging.
+3. Wait a few moments and you will find multiple files organized by geographical region under `work/eip/output':
+** `2012_0003.xml` and `2012_0005.xml` in `work/eip/output/AMER`
+** `2012_0020.xml` in `work/eip/output/APAC`
+** `2012_0001.xml`, `2012_0002.xml` and `2012_0004.xml` in `work/eip/output/EMEA`
+4. Use `log:display` on the ESB shell to check out the business logging.
         [main]    Processing orders.xml
         [wiretap]  Archiving orders.xml
         [splitter] Shipping order 2012_0001 to region EMEA
@@ -103,40 +91,14 @@ directory.
         [filter]   Order 2012_0002 is an order for more than 100 animals
         ...
 
-### Using the web console
+Undeploy the Bundle
+-------------------
 
-This example comes with sample data which you can use to try this example
+To stop and undeploy the bundle in Fuse:
 
-1. Login the web console
-1. Click the Runtime button in the navigation bar
-1. Select the `mychild` container in the containers list, and click the *open* button right next to the container name.
-1. A new window opens and connects to the container. Click the *Camel* button in the navigation bar.
-1. In the Camel tree, expand the `Endpoints` tree, and select the last node, which is `file://work/eip/input`, and click the *Send* button in the sub navigation bar.
-1. Click the *Choose* button and mark [x] for the `data/orders.xml` file.
-1. Click the *Send the file* button in the top right corner
-1. In the Camel tree, click the `Routes` node which then lists metrics for all the routes. The `mainRoute`, `splitterRouter`, and `wireTap` route should all complete 1 message, and the `filterRoute` completes 6 messages.
-1. In the Camel tree, you can click each individual route, and click the `Diagram` button in the sub navigation bar, to see a visual representation of the given route.
-1. You can click the *Log* button the navigation bar to see the business logging.
+1. Enter `osgi:list` command to retrieve your bundle id
+2. To stop and uninstall the bundle enter
 
-
-## Undeploy this example
-
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
-
-### Using the command line shell
-
-To stop and undeploy the example in fabric8:
-
-1. Disconnect from the child container by typing Ctrl-D at the console prompt.
-1. Stop and delete the child container by entering the following command at the console:
-
-        fabric:container-stop mychild
-        fabric:container-delete mychild
-
-### Using the web console
-
-To stop and undeploy the example in fabric8:
-
-1. In the web console, click the *Runtime* button in the navigation bar.
-1. Select the `mychild` container in the *Containers* list, and click the *Stop* button in the top right corner
+        osgi:uninstall <id>
+ 
 
