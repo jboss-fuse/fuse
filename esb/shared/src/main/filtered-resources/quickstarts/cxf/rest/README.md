@@ -1,139 +1,149 @@
 rest: Demonstrates how to create a REST Web service
-======================================================
+===============================================
 Author: Fuse Team  
 Level: Beginner  
-Technologies: Camel, CXF, REST  
-Summary: This quickstart demonstrates how to create a RESTful (JAX-RS) web service using CXF and expose it through the OSGi HTTP Service.  
+Technologies: Fuse, OSGi, CXF  
+Summary: This quickstart demonstrates how to create a RESTful (JAX-RS) web service using CXF and expose it through the OSGi HTTP Service.
 Target Product: Fuse  
-Source: <https://github.com/jboss-fuse/quickstarts>  
+Source: <https://github.com/jboss-fuse/quickstarts>
 
-### Building this example
+What is it?
+-----------
+This quick start demonstrates how to create a RESTful (JAX-RS) web service using CXF and expose it with the OSGi HTTP Service.
 
-The example comes as source code and pre-built binaries with the fabric8 distribution. 
+In studying this quick start you will learn:
 
-To try the example you do not need to build from source first. Although building from source allows you to modify the source code, and re-deploy the changes to fabric. See more details on the fabric8 website about the [developer workflow](http://fabric8.io/gitbook/developer.html).
+* how to configure the JAX-RS web services by using the blueprint configuration file.
+* how to use JAX-RS annotations to map methods and classes to URIs
+* how to use JAXB annotations to define beans and output XML responses
+* how to use the JAX-RS API to create HTTP responses
 
-To build from the source code:
+For more information see:
 
-1. Change your working directory to `quickstarts/cxf/rest` directory.
-1. Run `mvn clean install` to build the quickstart.
+* <https://access.redhat.com/site/documentation/JBoss_Fuse/> for more information about using JBoss Fuse
 
-After building from the source code, you can upload the changes to the fabric container:
+System requirements
+-------------------
+Before building and running this quick start you need:
 
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Change your working directory to `quickstarts/cxf/rest` directory.
-1. Run `mvn fabric8:deploy` to upload the quickstart to the fabric container.
+* Maven 3.0.4 or higher
+* JDK 1.6 or 1.7
+* JBoss Fuse 6
 
-If you run the `fabric:deploy` command for the first then, it will ask you for the username and password to login the fabric container.
-And then store this information in the local Maven settings file. You can find more details about this on the fabric8 website about the [Maven Plugin](http://fabric8.io/gitbook/mavenPlugin.html).
+Build and Deploy the Quickstart
+-------------------------------
 
+1. Change your working directory to `rest` directory.
+* Run `mvn clean install` to build the quickstart.
+* Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
+* In the JBoss Fuse console, enter the following command:
 
-## How to run this example
+        osgi:install -s mvn:org.jboss.quickstarts.fuse/cxf-rest/${project.version}
 
-The following information is divided into two sections, whether you are using the command line shell in fabric, or using the web console
+* Fuse should give you an id when the bundle is deployed
+* You can check that everything is ok by issuing  the command:
 
-### Using the command line shell
-
-You can deploy and run this example at the console command line, as follows:
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Create a new child container and deploy the `quickstarts-cxf-rest` profile in a single step, by entering the
- following command at the console:
-
-        fabric:container-create-child --profile quickstarts-cxf-rest root mychild
-
-1. Wait for the new child container, `mychild`, to start up. Use the `fabric:container-list` command to check the status of the `mychild` container and wait until the `[provision status]` is shown as `success`.
-1. Log into the `mychild` container using the `fabric:container-connect` command, as follows:
-
-        fabric:container-connect mychild
-
-1. View the container log using the `log:tail` command as follows:
-
-        log:tail
-
-To exit the tail logger, press Ctrl-D. And to logout from the `mychild` container, then use the `exit` command, which returns back to the `root` container.
-
-### Using the web console
-
-You can deploy and run this example from the web console, as follows
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Login the web console
-1. Click the Wiki button in the navigation bar
-1. Select `quickstarts` --> `cxf` --> `rest`
-1. Click the `New` button in the top right corner
-1. In the Create New Container page, enter `mychild` in the Container Name field, and click the *Create and start container* button
+        osgi:list
+   your bundle should be present at the end of the list
 
 
-### How to try this example
+Use the bundle
+--------------
 
-Login to the web console and click the APIs button on the Runtime plugin, to show the REST services in the fabric
+### Browsing Web service metadata
 
-You can try the REST service by clicking either the swagger or WADL in the APIs column. This takes you to a web page that lists the REST operations you can try.
+A full listing of all CXF web services is available at
 
-For example click on GET customers/{id} and in the form enter `123` in the id field, and click the `Try it out!` button. You should get a XML response with custome details.
+    http://localhost:8181/cxf
 
+After you deployed this quick start, you will see the following endpoint address appear in the 'Available RESTful services' section:
 
-## Access services using a web browser
+    http://localhost:8181/cxf/crm
+**Note:**: Don't try to access this endpoint address from browser, as it's inaccessible by design
+
+Just below it, you'll find a link to the WADL describing all the root resources:
+
+    http://localhost:8181/cxf/crm?_wadl
+
+You can also look at the more specific WADL, the only that only lists information about 'customerservice' itself:
+
+	http://localhost:8181/cxf/crm/customerservice?_wadl&_type=xml
+
+### Access services using a web browser
 
 You can use any browser to perform a HTTP GET.  This allows you to very easily test a few of the RESTful services we defined:
 
-Notice: As fabric8 assigns a free dynamic port to Karaf, the port number may vary on your system.
-
 Use this URL to display the XML representation for customer 123:
 
-    http://localhost:8182/rest/cxf/customerservice/customers/123
+    http://localhost:8181/cxf/crm/customerservice/customers/123
 
 You can also access the XML representation for order 223 ...
 
-    http://localhost:8182/rest/cxf/customerservice/orders/223
+    http://localhost:8181/cxf/crm/customerservice/orders/223
+
+... or the XML representation of product 323 in order 223 with
+
+    http://localhost:8181/cxf/crm/customerservice/orders/223/products/323
 
 **Note:** if you use Safari, you will only see the text elements but not the XML tags - you can view the entire document with 'View Source'
+
+### To run the tests:
+
+In this quick start project, we also provide integration tests which perform a few HTTP requests to test our Web services. We
+created a Maven `test` profile to allow us to run tests code with a simple Maven command after having deployed the bundle to Fuse:
+
+1. Change to the `rest` directory.
+2. Run the following command:
+
+        mvn -Ptest
+        
+The tests in `src/test/java/org.jboss.quickstarts.fuse.rest/CrmTest`  make a sequence of RESTful invocations and displays the results.
 
 ### To run a command-line utility:
 
 You can use a command-line utility, such as cURL or wget, to perform the HTTP requests.  We have provided a few files with sample XML representations in `src/test/resources`, so we will use those for testing our services.
 
-Notice: As fabric8 assigns a free dynamic port to Karaf, the port number may vary on your system.
-
 1. Open a command prompt and change directory to `rest`.
 2. Run the following curl commands (curl commands may not be available on all platforms):
-
+    
     * Create a customer
-
-            curl -X POST -T src/test/resources/add_customer.xml -H "Content-Type: text/xml" http://localhost:8182/rest/cxf/customerservice/customers
-
+ 
+            curl -X POST -T src/test/resources/add_customer.xml -H "Content-Type: text/xml" http://localhost:8181/cxf/crm/customerservice/customers
+  
     * Retrieve the customer instance with id 123
-
-            curl http://localhost:8182/rest/cxf/customerservice/customers/123
+    
+            curl http://localhost:8181/cxf/crm/customerservice/customers/123
 
     * Update the customer instance with id 123
-
-            curl -X PUT -T src/test/resources/update_customer.xml -H "Content-Type: text/xml" http://localhost:8182/rest/cxf/customerservice/customers
+  
+            curl -X PUT -T src/test/resources/update_customer.xml -H "Content-Type: text/xml" http://localhost:8181/cxf/crm/customerservice/customers
 
     * Delete the customer instance with id 123
+  
+             curl -X DELETE http://localhost:8181/cxf/crm/customerservice/customers/123
 
-             curl -X DELETE http://localhost:8182/rest/cxf/customerservice/customers/123
 
+### Changing /cxf servlet alias
 
-## Undeploy this example
+By default CXF Servlet is assigned a '/cxf' alias. You can change it in a couple of ways
 
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
+1. Add `org.apache.cxf.osgi.cfg` to the `/etc` directory and set the `org.apache.cxf.servlet.context` property, for example:
 
-### Using the command line shell
+        org.apache.cxf.servlet.context=/custom
 
-To stop and undeploy the example in fabric8:
+2. Use shell config commands, for example:
 
-1. Disconnect from the child container by typing Ctrl-D at the console prompt.
-1. Stop and delete the child container by entering the following command at the console:
+        config:edit org.apache.cxf.osgi
+        config:propset org.apache.cxf.servlet.context /custom
+        config:update
 
-        fabric:container-stop mychild
-        fabric:container-delete mychild
+Undeploy the Bundle
+-------------------
 
-### Using the web console
+To stop and undeploy the bundle in Fuse:
 
-To stop and undeploy the example in fabric8:
+1. Enter `osgi:list` command to retrieve your bundle id
+2. To stop and uninstall the bundle enter
 
-1. In the web console, click the *Runtime* button in the navigation bar.
-1. Select the `mychild` container in the *Containers* list, and click the *Stop* button in the top right corner
+        osgi:uninstall <id>
 

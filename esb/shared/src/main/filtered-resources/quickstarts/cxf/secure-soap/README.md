@@ -1,106 +1,142 @@
 secure-soap: Demonstrates a SOAP Web service with CXF
-======================================================
+==========================
 Author: Fuse Team  
 Level: Beginner  
-Technologies: Camel, CXF, SOAP  
-Summary: This quickstart demonstrates how to create a SOAP Web service with Apache CXF and expose it through the OSGi HTTP Service.  
+Technologies: Fuse, OSGi, CXF, WS-Security  
+Summary: This quickstart demonstrates how to create a SOAP Web service with Apache CXF and expose it through the OSGi HTTP Service.
 Target Product: Fuse  
-Source: <https://github.com/jboss-fuse/quickstarts>  
+Source: <https://github.com/jboss-fuse/quickstarts>
 
-### Building this example
+What is it?
+-----------
+This quick start demonstrates how to create a Web service with Apache CXF using WS-Security and Blueprint configuration,
+and expose it through the OSGi HTTP Service.
 
-The example comes as source code and pre-built binaries with the fabric8 distribution. 
+In studying this quick start you will learn:
 
-To try the example you do not need to build from source first. Although building from source allows you to modify the source code, and re-deploy the changes to fabric. See more details on the fabric8 website about the [developer workflow](http://fabric8.io/gitbook/developer.html).
+* how to configure JAX-WS Web services by using the blueprint configuration file.
+* how to configure WS-Security on a CXF JAX-WS Web service in Blueprint
+* how to use standard Java Web Service annotations to define a Web service interface
+* how to use standard Java Web Service annotations when implementing a Web service in Java
+* how to use use an HTTP URL to invoke a remote Web service
 
-To build from the source code:
+For more information see:
 
-1. Change your working directory to `quickstarts/cxf/soap` directory.
-1. Run `mvn clean install` to build the quickstart.
+* https://access.redhat.com/site/documentation/JBoss_Fuse/ for more information about using JBoss Fuse
 
-After building from the source code, you can upload the changes to the fabric container:
+System requirements
+-------------------
+Before building and running this quick start you need:
 
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Change your working directory to `quickstarts/cxf/soap` directory.
-1. Run `mvn fabric8:deploy` to upload the quickstart to the fabric container.
-
-If you run the `fabric:deploy` command for the first then, it will ask you for the username and password to login the fabric container.
-And then store this information in the local Maven settings file. You can find more details about this on the fabric8 website about the [Maven Plugin](http://fabric8.io/gitbook/mavenPlugin.html).
-
-
-
-## How to run this example
-
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
-
-### Using the command line shell
-
-You can deploy and run this example at the console command line, as follows:
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Create a new child container and deploy the `quickstarts-cxf-soap` profile in a single step, by entering the
- following command at the console:
-
-        fabric:container-create-child --profile quickstarts-cxf-soap root mychild
-
-1. Wait for the new child container, `mychild`, to start up. Use the `fabric:container-list` command to check the status of the `mychild` container and wait until the `[provision status]` is shown as `success`.
-1. Log into the `mychild` container using the `fabric:container-connect` command, as follows:
-
-        fabric:container-connect mychild
-
-1. View the container log using the `log:tail` command as follows:
-
-        log:tail
-
-To exit the tail logger, press Ctrl-D. And to logout from the `mychild` container, then use the `exit` command, which returns back to the `root` container.
-
-### Using the web console
-
-You can deploy and run this example from the web console, as follows
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Login the web console
-1. Click the Wiki button in the navigation bar
-1. Select `quickstarts` --> `cxf` --> `soap`
-1. Click the `New` button in the top right corner
-1. In the Create New Container page, enter `mychild` in the Container Name field, and click the *Create and start container* button
+* Maven 3.0.4 or higher
+* JDK 1.6 or 1.7
+* JBoss Fuse 6
 
 
-## How to try this example
+Build and Deploy the Quickstart
+-------------------------------
+To build the quick start:
 
-Login to the web console and click the APIs button on the Runtime plugin, to show the SOAP services in the fabric
+1. Change your working directory to `secure-soap` directory.
+* Run `mvn clean install` to build the quick start.
+* Start JBoss Fuse 6 by running `bin/fuse` (on Linux) or `bin\fuse.bat` (on Windows).
+* Verify etc/users.properties from the JBoss Fuse installation contains the following 'admin' user configured:
+   admin=admin,admin
+* In the JBoss Fuse console, enter the following command:
 
-You can see details of the SOAP service by clicking the WSDL under the APIs column. 
-The WSDL for the SOAP service is the `Location` url and append `?wsdl`
+        features:install cxf-ws-security
+        osgi:install -s mvn:org.jboss.quickstarts.fuse/secure-soap/${project.version}
+
+* Fuse should give you an id when the bundle is deployed
+* You can check that everything is ok by issuing  the command:
+
+        osgi:list
+   your bundle should be present at the end of the list
+
+Use the bundle
+--------------
+There are several ways you can interact with the running Web services:
+* browse the Web service metadata
+* access the service in a Web browser
+* use a Java client
+
+### Browsing Web service metadata
+
+A full listing of all CXF Web services is available at
+
+    http://localhost:8181/cxf
+
+After you deployed this quick start, you will see the `HelloWorldSecurity` service appear in the `Available SOAP Services` section, together with a list of operations for the endpoint and some additional information like the endpoint's address and a link to the WSDL file for the Web service:
+
+    http://localhost:8181/cxf/HelloWorldSecurity?wsdl
+
+
+### To run the test:
+
+In this cxf-jaxws quistart, we also provide an integration test which can perform a few HTTP requests to test our web services. We
+created a Maven `test` profile to allow us to run tests code with a simple Maven command after having deployed the bundle to Fuse:
+
+1. Change to the `secure-soap` directory.
+2. Run the following command:
+
+        mvn -Ptest
+
+The test uses a client proxy for the Web service to invoke the remote method - in reality,
+a SOAP message will be sent to the server and the response SOAP message will be received and handled.  You will see this output from the remote method:
+
+        Apr 4, 2013 7:48:13 AM org.apache.cxf.service.factory.ReflectionServiceFactoryBean buildServiceFromClass
+        INFO: Creating Service {http://secure.soap.fuse.quickstarts.jboss.org}HelloWorldService from class org.jboss.fuse.examples.cxf.jaxws.security.HelloWorld
+        Hello World
 
 
 ### To run a Web client:
 
-You can use an external tool such as SoapUI to test web services.
+You can use an external tool such as SoapUI to test web services. 
+
+When using SoapUI with WS Security, then configure the request properties as follows:
+
+* Username = admin
+* Password = admin
+* Authentication Type = Global HTTP Settings
+* WSS-Password Type = PasswordText
 
 
-## Undeploy this example
+### Managing the user credentials
 
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
+You can define additional users in the JAAS realm in two ways:
 
-### Using the command line shell
+1. By editing the `etc/users.properties` file, adding a line for every user your want to add (syntax: `user = password, roles`).
 
-To stop and undeploy the example in fabric8:
+            myuser = mysecretpassword
 
-1. Disconnect from the child container by typing Ctrl-D at the console prompt.
-1. Stop and delete the child container by entering the following command at the console:
+2. Using the jaas: commands in the JBoss Fuse console:
 
-        fabric:container-stop mychild
-        fabric:container-delete mychild
-
-### Using the web console
-
-To stop and undeploy the example in fabric8:
-
-1. In the web console, click the *Runtime* button in the navigation bar.
-1. Select the `mychild` container in the *Containers* list, and click the *Stop* button in the top right corner
+            jaas:manage --realm karaf --index 1
+            jaas:useradd myuser mysecretpassword
+            jaas:update
 
 
-### NOTES:
-If run this quickstart in standalone mode(no fabric8 server), need install cxf-ws-security feature first
-        features:install cxf-ws-security
+### Changing /cxf servlet alias
+
+By default CXF Servlet is assigned a `/cxf` alias. You can change it in a couple of ways:
+
+1. Add `org.apache.cxf.osgi.cfg` to the `/etc` directory and set the `org.apache.cxf.servlet.context` property, for example:
+
+        org.apache.cxf.servlet.context=/custom
+
+2. Use shell config commands, for example:
+
+        config:edit org.apache.cxf.osgi
+        config:propset org.apache.cxf.servlet.context /custom
+        config:update
+
+Undeploy the Bundle
+-------------------
+
+To stop and undeploy the bundle in Fuse:
+
+1. Enter `osgi:list` command to retrieve your bundle id
+2. To stop and uninstall the bundle enter
+
+        osgi:uninstall <id>
+

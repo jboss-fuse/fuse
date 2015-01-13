@@ -1,131 +1,88 @@
 camel-cbr: Demonstrates the Camel CBR Pattern
 ======================================================
-Author: Awesome Fuse Team FIXME  
+Author: Fuse Team  
 Level: Beginner  
-Technologies: Camel  
-Summary: This quickstart demonstrates how to use Apache Camel to route messages using the Content Based Router (cbr) pattern.  
+Technologies: Camel, Blueprint, ActiveMQ  
+Summary: This quickstart demonstrates how to use Apache Camel to route messages using the Content Based Router (cbr) pattern.
 Target Product: Fuse  
-Source: <https://github.com/jboss-fuse/quickstarts>  
-
-This example is implemented using solely the XML DSL (there is no Java code). The source code is provided in the following XML file `src/main/resources/OSGI-INF/blueprint/cbr.xml`, which can be viewed from [github](https://github.com/fabric8io/fabric8/blob/master/quickstarts/beginner/camel-cbr/src/main/resources/OSGI-INF/blueprint/cbr.xml).
-
-This example pickup incoming XML files, and depending on the content of the XML files, they are routed to different endpoints, as shown in figure below.
-
-![Camel CBR diagram](https://raw.githubusercontent.com/fabric8io/fabric8/master/docs/images/camel-cbr-diagram.jpg)
-
-The example comes with sample data, making it easy to try the example yourself.
-
-### Building this example
-
-The example comes as source code and pre-built binaries with the fabric8 distribution. 
-
-To try the example you do not need to build from source first. Although building from source allows you to modify the source code, and re-deploy the changes to fabric. See more details on the fabric8 website about the [developer workflow](http://fabric8.io/gitbook/developer.html).
-
-To build from the source code:
-
-1. Change your working directory to `quickstarts/beginner/camel-cbr` directory.
-1. Run `mvn clean install` to build the quickstart.
-
-After building from the source code, you can upload the changes to the fabric container:
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Change your working directory to `quickstarts/beginner/camel-cbr` directory.
-1. Run `mvn fabric8:deploy` to upload the quickstart to the fabric container.
-
-If you run the `fabric:deploy` command for the first then, it will ask you for the username and password to login the fabric container.
-And then store this information in the local Maven settings file. You can find more details about this on the fabric8 website about the [Maven Plugin](http://fabric8.io/gitbook/mavenPlugin.html).
-
-## How to run this example
-
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
-
-### Using the command line shell
-
-You can deploy and run this example at the console command line, as follows:
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Create a new child container and deploy the `quickstarts-beginner-camel.cbr` profile in a single step, by entering the
- following command at the console:
-
-        fabric:container-create-child --profile quickstarts-beginner-camel.cbr root mychild
-
-1. Wait for the new child container, `mychild`, to start up. Use the `fabric:container-list` command to check the status of the `mychild` container and wait until the `[provision status]` is shown as `success`.
-1. Log into the `mychild` container using the `fabric:container-connect` command, as follows:
-
-        fabric:container-connect mychild
-
-1. View the container log using the `log:tail` command as follows:
-
-        log:tail
-
-To exit the tail logger, press Ctrl-D. And to logout from the `mychild` container, then use the `exit` command, which returns back to the `root` container.
-
-### Using the web console
-
-You can deploy and run this example from the web console, as follows
-
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
-1. Login the web console
-1. Click the Wiki button in the navigation bar
-1. Select `quickstarts` --> `beginner` --> `camel.cbr`
-1. Click the `New` button in the top right corner
-1. In the Create New Container page, enter `mychild` in the Container Name field, and click the *Create and start container* button
+Source: <https://github.com/jboss-fuse/quickstarts>
 
 
-## How to try this example
 
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
+What is it?
+-----------
 
-### Using the command line shell
+This quick start shows how to use Apache Camel, and its OSGi integration to dynamically route messages to new or updated OSGi bundles. This allows you to route to newly deployed services at runtime without impacting running services.
 
-To use the application be sure to have deployed the quickstart in fabric8 as described above. 
+This quick start combines use of the Camel Recipient List, which allows you to at runtime specify the Camel Endpoint to route to, and use of the Camel VM Component, which provides a SEDA queue that can be accessed from different OSGi bundles running in the same Java virtual machine.
 
-1. As soon as the Camel route has been started, you will see a directory `instances/mychild/work/cbr/input` in your Fabric8 installation.
-1. Copy the files you find in this quick start's `src/main/fabric8/data` directory to the newly created `instances/mychild/work/cbr/input`
+In studying this quick start you will learn:
+
+* how to define a Camel route using the Blueprint XML syntax
+* how to build and deploy an OSGi bundle in JBoss Fuse
+* how to use the CBR enterprise integration pattern
+
+For more information see:
+
+* http://www.enterpriseintegrationpatterns.com/ContentBasedRouter.html for more information about the CBR EIP
+* https://access.redhat.com/site/documentation/JBoss_Fuse/ for more information about using JBoss Fuse
+
+Note: Extra steps, like use of Camel VM Component, need to be taken when accessing Camel Routes in different Camel Contexts, and in different OSGi bundles, as you are dealing with classes in different ClassLoaders.
+
+
+System requirements
+-------------------
+
+Before building and running this quick start you need:
+
+* Maven 3.0.4 or higher
+* JDK 1.6 or 1.7
+* JBoss Fuse 6
+
+
+Build and Deploy the Quickstart
+-------------------------
+
+1. Change your working directory to `camel-cbr` directory.
+* Run `mvn clean install` to build the quickstart.
+* Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
+* In the JBoss Fuse console, enter the following command:
+
+        osgi:install -s mvn:org.jboss.quickstarts.fuse/beginner-camel-cbr/${project.version}
+
+* Fuse should give you an id when the bundle is deployed
+
+* You can check that everything is ok by issuing  the command:
+
+        osgi:list
+   your bundle should be present at the end of the list
+
+
+Use the bundle
+---------------------
+
+To use the application be sure to have deployed the quickstart in Fuse as described above. 
+
+1. As soon as the Camel route has been started, you will see a directory `work/cbr/input` in your JBoss Fuse installation.
+2. Copy the files you find in this quick start's `src/main/resources/data` directory to the newly created `work/cbr/input`
 directory.
-1. Wait a few moments and you will find the same files organized by country under the `instances/mychild/work/cbr/output` directory.
-  * `order1.xml` in `instances/mychild/work/cbr/output/others`
-  * `order2.xml` and `order4.xml` in `instances/mychild/work/cbr/output/uk`
-  * `order3.xml` and `order5.xml` in `instances/mychild/work/cbr/output/us`
-1. Use `log:display` to check out the business logging.
+3. Wait a few moments and you will find the same files organized by country under the `work/cbr/output` directory.
+  * `order1.xml` in `work/cbr/output/others`
+  * `order2.xml` and `order4.xml` in `work/cbr/output/uk`
+  * `order3.xml` and `order5.xml` in `work/cbr/output/us`
+4. Use `log:display` to check out the business logging.
         Receiving order order1.xml
         Sending order order1.xml to another country
         Done processing order1.xml
 
-### Using the web console
 
-This example comes with sample data which you can use to try this example
+Undeploy the Archive
+--------------------
 
-1. Login the web console
-1. Click the Runtime button in the navigation bar
-1. Select the `mychild` container in the containers list, and click the *open* button right next to the container name.
-1. A new window opens and connects to the container. Click the *Camel* button in the navigation bar.
-1. In the Camel tree, expand the `Endpoints` tree, and select the first node, which is `file://work/cbr/input`, and click the *Send* button in the sub navigation bar.
-1. Click the *Choose* button and mark [x] for the five `data/order1.xml` ... `data/order5.xml` files.
-1. Click the *Send 5 files* button in the top right corner
-1. In the Camel tree, expand the `Routes` node, and select the first node, which is the `cbr-route` route. And click the *Diagram* button to see a visual representation of the route.
-1. Notice the numbers in the diagram, which illustrate that 5 messages has been processed, of which 2 were from UK, 2 from US, and 1 others. 
-1. You can click the *Log* button the navigation bar to see the business logging.
+To stop and undeploy the bundle in Fuse:
 
+1. Enter `osgi:list` command to retrieve your bundle id
+2. To stop and uninstall the bundle enter
 
-## Undeploy this example
-
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
-
-### Using the command line shell
-
-To stop and undeploy the example in fabric8:
-
-1. Disconnect from the child container by typing Ctrl-D at the console prompt.
-1. Stop and delete the child container by entering the following command at the console:
-
-        fabric:container-stop mychild
-        fabric:container-delete mychild
-
-### Using the web console
-
-To stop and undeploy the example in fabric8:
-
-1. In the web console, click the *Runtime* button in the navigation bar.
-1. Select the `mychild` container in the *Containers* list, and click the *Stop* button in the top right corner
-
+        osgi:uninstall <id>
+ 
