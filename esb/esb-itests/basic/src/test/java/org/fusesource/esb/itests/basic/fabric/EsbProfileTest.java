@@ -20,17 +20,16 @@ import io.fabric8.api.FabricService;
 import io.fabric8.api.ServiceProxy;
 import io.fabric8.itests.paxexam.support.ContainerBuilder;
 import io.fabric8.itests.paxexam.support.ContainerProxy;
-import io.fabric8.itests.paxexam.support.FabricTestSupport;
 
 import java.util.Set;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.ops4j.pax.exam.Configuration;
-import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerMethod;
+
+import static org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport.executeCommandAsAdmin;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerMethod.class)
@@ -38,7 +37,7 @@ public class EsbProfileTest extends EsbFeatureTest {
 
     @Test
     public void testLocalChildCreation() throws Exception {
-        System.err.println(executeCommand("fabric:create -n"));
+        System.err.println(executeCommandAsAdmin("fabric:create -n"));
         ServiceProxy<FabricService> fabricProxy = ServiceProxy.createServiceProxy(bundleContext, FabricService.class);
         try {
             Set<ContainerProxy> containers = ContainerBuilder.create(fabricProxy).withName("esb").withProfiles("jboss-fuse-minimal").assertProvisioningResult().build();

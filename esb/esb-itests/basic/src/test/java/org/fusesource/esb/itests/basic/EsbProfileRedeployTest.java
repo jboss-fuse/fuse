@@ -42,6 +42,7 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.concurrent.Callable;
 
+import static org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport.executeCommandAsAdmin;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.features;
@@ -55,7 +56,7 @@ public class EsbProfileRedeployTest extends FabricTestSupport {
     @Ignore("ENTESB-1792")
     @Test
     public void testProfileRedeploy() throws Exception {
-        executeCommand("fabric:create -n");
+        executeCommandAsAdmin("fabric:create -n");
         ServiceProxy<FabricService> fabricProxy = ServiceProxy.createServiceProxy(bundleContext, FabricService.class);
         try {
             FabricService fabricService = fabricProxy.getService();
@@ -93,7 +94,7 @@ public class EsbProfileRedeployTest extends FabricTestSupport {
 
                     Thread.sleep(5000);
 
-                    executeCommand("container-remove-profile node1 jboss-fuse-full");
+                    executeCommandAsAdmin("container-remove-profile node1 jboss-fuse-full");
                     Provision.provisioningSuccess(Arrays.asList(fabricService.getContainers()), PROVISION_TIMEOUT);
 
                     Provision.waitForCondition(new Callable<Boolean>() {
@@ -110,7 +111,7 @@ public class EsbProfileRedeployTest extends FabricTestSupport {
 
                     Thread.sleep(5000);
 
-                    executeCommand("container-add-profile node1 jboss-fuse-full");
+                    executeCommandAsAdmin("container-add-profile node1 jboss-fuse-full");
                     Provision.provisioningSuccess(Arrays.asList(fabricService.getContainers()), PROVISION_TIMEOUT);
 
                     Provision.waitForCondition(new Callable<Boolean>() {

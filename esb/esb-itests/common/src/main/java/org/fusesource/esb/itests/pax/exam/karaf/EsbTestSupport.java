@@ -18,7 +18,11 @@
 package org.fusesource.esb.itests.pax.exam.karaf;
 
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+
 import io.fabric8.tooling.testing.pax.exam.karaf.FabricKarafTestSupport;
+import org.apache.karaf.jaas.boot.principal.RolePrincipal;
 import org.ops4j.pax.exam.MavenUtils;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.karaf.options.LogLevelOption;
@@ -32,13 +36,27 @@ import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.*;
 public class EsbTestSupport extends FabricKarafTestSupport {
     static final String GROUP_ID = "org.jboss.fuse";
     static final String ARTIFACT_ID = "jboss-fuse-medium";
+    static final Set<RolePrincipal> ROLES = new HashSet<>();
+    static {
+        ROLES.add(new RolePrincipal("Administrator"));
+        ROLES.add(new RolePrincipal("SuperUser"));
+    }
+
+
     private String version = System.getProperty("project.version");
 
+    /**
+     * Execute a command on the JBoss Fuse/A-MQ console as a user with administrative privileges
+     */
+    public static String executeCommandAsAdmin(String command) {
+        return executeCommand(ROLES, command);
+    }
+
     protected void installQuickstartBundle(String bundle) throws Exception {
-        String featureInstallOutput = executeCommand("osgi:install -s mvn:org.jboss.quickstarts.fuse/" + bundle + "/" + version);
+        String featureInstallOutput = executeCommandAsAdmin("osgi:install -s mvn:org.jboss.quickstarts.fuse/" + bundle + "/" + version);
         System.out.println(featureInstallOutput);
         assertFalse(featureInstallOutput.isEmpty());
-        String featureListOutput = executeCommand("osgi:list -l | grep " + bundle);
+        String featureListOutput = executeCommandAsAdmin("osgi:list -l | grep " + bundle);
         System.out.println(featureListOutput);
         assertFalse(featureListOutput.isEmpty());
     }
@@ -52,14 +70,14 @@ public class EsbTestSupport extends FabricKarafTestSupport {
         if (!refresh) {
             installFeatureCmd = installFeatureCmd + "-r ";
         }
-        String featureInstallOutput = executeCommand(installFeatureCmd + feature);
+        String featureInstallOutput = executeCommandAsAdmin(installFeatureCmd + feature);
         System.out.println(featureInstallOutput);
         assertFalse(featureInstallOutput.isEmpty());
-        String featureListOutput = executeCommand("features:list -i | grep " + feature);
+        String featureListOutput = executeCommandAsAdmin("features:list -i | grep " + feature);
         System.out.println(featureListOutput);
         assertFalse(featureListOutput.isEmpty());
-        System.out.println(executeCommand("features:uninstall " + feature));
-        featureListOutput = executeCommand("features:list -i | grep " + feature);
+        System.out.println(executeCommandAsAdmin("features:uninstall " + feature));
+        featureListOutput = executeCommandAsAdmin("features:list -i | grep " + feature);
         System.out.println(featureListOutput);
         assertTrue(featureListOutput.isEmpty());
     }

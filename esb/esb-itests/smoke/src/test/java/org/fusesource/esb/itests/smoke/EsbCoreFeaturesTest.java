@@ -47,7 +47,7 @@ public class EsbCoreFeaturesTest extends EsbTestSupport {
     @Test
     public void testHawtIo() throws Exception {
         // let's start by checking if the feature got installed correctly
-        String listFeaturesOutput = executeCommand("features:list | grep -i \" hawtio \"");
+        String listFeaturesOutput = executeCommandAsAdmin("features:list | grep -i \" hawtio \"");
         assertTrue("Feature hawtio is installed", listFeaturesOutput.contains("installed"));
 
         // ensure that a servlet context has been registered for the /hawtio URL path
