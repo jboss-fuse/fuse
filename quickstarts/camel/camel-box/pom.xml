@@ -20,17 +20,17 @@
 
     <parent>
       <groupId>org.jboss.quickstarts.fuse</groupId>
-      <artifactId>quickstarts-parent</artifactId>
+      <artifactId>camel-quickstarts</artifactId>
       <version>6.2.0.redhat-SNAPSHOT</version>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
-    <artifactId>camel-odata</artifactId>
+    <artifactId>camel-box</artifactId>
     <version>6.2.0.redhat-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>JBoss Fuse Quickstart: camel-odata</name>
-    <description>Camel Olingo2 OData Example</description>
-    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-odata</url>
+    <name>JBoss Fuse Quickstart: camel-box</name>
+    <description>Camel Box.com Example</description>
+    <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-box</url>
 
     <licenses>
         <license>
@@ -82,7 +82,7 @@
     <scm>
       <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
       <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
-      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-odata</url>
+      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts/camel-box</url>
     </scm>
 
     <properties>
