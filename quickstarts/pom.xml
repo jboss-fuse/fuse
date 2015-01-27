@@ -79,4 +79,27 @@
         <module>camel</module>
     </modules>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
+                <version>${fabric.version}</version>
+                <executions>
+                    <execution>
+                        <id>zip</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>zip</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <!--configuration>
+                    <replaceReadmeLinksPrefix>/fabric/profiles/quickstarts/</replaceReadmeLinksPrefix>  FIXME what does this do?
+                </configuration-->
+            </plugin>
+        </plugins>
+
+    </build>
+
 </project>
