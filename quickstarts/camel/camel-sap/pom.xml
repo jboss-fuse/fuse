@@ -76,6 +76,11 @@
         <jboss.fuse.bom.version>${project.version}</jboss.fuse.bom.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- fabric8 deploy profile configuration -->
+        <fabric8.profile>quickstarts-fuse-camel.sap</fabric8.profile>
+        <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
+        <fabric8.features></fabric8.features>
     </properties>
 
     <dependencies>
