@@ -2894,7 +2894,7 @@
         <module>shared</module>
         <module>components</module>
         <module>mq</module>
-        <module>esb</module>
         <module>quickstarts</module>
+        <module>esb</module>
     </modules>
 </project>
