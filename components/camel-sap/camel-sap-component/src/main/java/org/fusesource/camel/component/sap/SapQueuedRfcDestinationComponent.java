@@ -54,11 +54,16 @@ public class SapQueuedRfcDestinationComponent extends UriEndpointComponent {
 		parameters.put("destinationName", uriComponents[0]); 
 		parameters.put("queueName", uriComponents[1]);
 		parameters.put("rfcName", uriComponents[2]);
-		Endpoint endpoint = new SapQueuedRfcDestinationEndpoint(uri, this);
+		SapQueuedRfcDestinationEndpoint endpoint = new SapQueuedRfcDestinationEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);
 		LOG.debug("Created endpoint '" + uri + "'");
+		
+		// Create a request to ensure that the data layer's package registry is
+		// loaded with the schema of this endpoint's request and response types.
+		endpoint.createRequest();
+		
 		return endpoint;
 	}
 

@@ -62,11 +62,16 @@ public class SapQueuedIDocListDestinationComponent extends UriEndpointComponent 
 		if(uriComponents.length > 5) {
 			parameters.put("applicationRelease", uriComponents[5]);
 		}
-		Endpoint endpoint = new SapQueuedIDocListDestinationEndpoint(uri, this);
+		SapQueuedIDocListDestinationEndpoint endpoint = new SapQueuedIDocListDestinationEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);
 		LOG.debug("Created endpoint '" + uri + "'");
+
+		// Create a document list to ensure that the data layer's package registry is
+		// loaded with the schema of this endpoint's IDoc type.
+		endpoint.createDocumentList();
+		
 		return endpoint;
 	}
 

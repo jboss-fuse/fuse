@@ -20,8 +20,6 @@ import org.apache.camel.Component;
 import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
 import org.apache.camel.impl.DefaultEndpoint;
-import org.fusesource.camel.component.sap.model.idoc.Document;
-import org.fusesource.camel.component.sap.util.IDocUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -103,14 +101,6 @@ public abstract class SapIDocDestinationEndpoint extends DefaultEndpoint {
 
 	public void setDestinationName(String destinationName) {
 		this.destinationName = destinationName;
-	}
-
-	public Document createDocument() throws Exception {
-		try {
-			return IDocUtil.createDocument(getIDocRepository(), getIdocType(), getIdocTypeExtension(), getSystemRelease(), getApplicationRelease());
-		} catch (Exception e) {
-			throw new Exception("Failed to get Document from endpoint", e);
-		}
 	}
 
 	protected IDocRepository getIDocRepository() throws Exception{

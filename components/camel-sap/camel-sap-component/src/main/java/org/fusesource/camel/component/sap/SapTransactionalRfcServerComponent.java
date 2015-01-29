@@ -54,11 +54,16 @@ public class SapTransactionalRfcServerComponent extends SapRfcServerComponent {
 		// configurations to this component.
 		parameters.put("serverName", uriComponents[0]);
 		parameters.put("rfcName", uriComponents[1]);
-		Endpoint endpoint = new SapTransactionalRfcServerEndpoint(uri, this);
+		SapTransactionalRfcServerEndpoint endpoint = new SapTransactionalRfcServerEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);
 		LOG.debug("Created endpoint '" + uri + "'");
+		
+		// Create a response to ensure that the data layer's package registry is
+		// loaded with the schema of this endpoint's request and response types.
+		endpoint.createResponse();
+		
 		return endpoint;
 	}
 

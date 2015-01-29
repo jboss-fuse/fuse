@@ -18,6 +18,8 @@ package org.fusesource.camel.component.sap;
 
 import org.apache.camel.Producer;
 import org.apache.camel.spi.UriEndpoint;
+import org.fusesource.camel.component.sap.model.idoc.DocumentList;
+import org.fusesource.camel.component.sap.util.IDocUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,6 +49,14 @@ public class SapQueuedIDocListDestinationEndpoint extends SapIDocDestinationEndp
 
 	public void setQueueName(String queueName) {
 		this.queueName = queueName;
+	}
+
+	public DocumentList createDocumentList() throws Exception {
+		try {
+			return IDocUtil.createDocumentList(getIDocRepository(), getIdocType(), getIdocTypeExtension(), getSystemRelease(), getApplicationRelease());
+		} catch (Exception e) {
+			throw new Exception("Failed to get Document List from endpoint", e);
+		}
 	}
 
 	@Override

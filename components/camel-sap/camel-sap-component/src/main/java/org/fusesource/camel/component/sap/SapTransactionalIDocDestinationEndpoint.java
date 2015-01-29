@@ -18,6 +18,8 @@ package org.fusesource.camel.component.sap;
 
 import org.apache.camel.Producer;
 import org.apache.camel.spi.UriEndpoint;
+import org.fusesource.camel.component.sap.model.idoc.Document;
+import org.fusesource.camel.component.sap.util.IDocUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,6 +39,14 @@ public class SapTransactionalIDocDestinationEndpoint extends SapIDocDestinationE
 
 	public SapTransactionalIDocDestinationEndpoint(String endpointUri, SapTransactionalIDocDestinationComponent component) {
 		super(endpointUri, component);
+	}
+
+	public Document createDocument() throws Exception {
+		try {
+			return IDocUtil.createDocument(getIDocRepository(), getIdocType(), getIdocTypeExtension(), getSystemRelease(), getApplicationRelease());
+		} catch (Exception e) {
+			throw new Exception("Failed to get Document from endpoint", e);
+		}
 	}
 
 	@Override

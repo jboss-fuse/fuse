@@ -61,11 +61,16 @@ public class SapTransactionalIDocListDestinationComponent extends UriEndpointCom
 		if(uriComponents.length > 4) {
 			parameters.put("applicationRelease", uriComponents[4]);
 		}
-		Endpoint endpoint = new SapTransactionalIDocListDestinationEndpoint(uri, this);
+		SapTransactionalIDocListDestinationEndpoint endpoint = new SapTransactionalIDocListDestinationEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);
 		LOG.debug("Created endpoint '" + uri + "'");
+
+		// Create a document list to ensure that the data layer's package registry is
+		// loaded with the schema of this endpoint's IDoc type.
+		endpoint.createDocumentList();
+		
 		return endpoint;
 	}
 

@@ -22,9 +22,12 @@ import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.apache.camel.spi.UriEndpoint;
 import org.apache.camel.spi.UriParam;
+import org.fusesource.camel.component.sap.model.idoc.DocumentList;
+import org.fusesource.camel.component.sap.util.IDocUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sap.conn.idoc.IDocRepository;
 import com.sap.conn.idoc.jco.JCoIDoc;
 import com.sap.conn.idoc.jco.JCoIDocServer;
 import com.sap.conn.jco.JCoException;
@@ -140,9 +143,21 @@ public class SapTransactionalIDocListServerEndpoint extends DefaultEndpoint {
 		return consumer;
 	}
 
+	public DocumentList createDocumentList() throws Exception {
+		try {
+			return IDocUtil.createDocumentList(getIDocRepository(), getIdocType(), getIdocTypeExtension(), getSystemRelease(), getApplicationRelease());
+		} catch (Exception e) {
+			throw new Exception("Failed to get DocumentList from endpoint", e);
+		}
+	}
+
 	@Override
 	public SapTransactionalIDocListServerComponent getComponent() {
 		return (SapTransactionalIDocListServerComponent) super.getComponent();
+	}
+
+	protected IDocRepository getIDocRepository() throws Exception{
+		return getServer().getIDocRepository();
 	}
 
 	protected JCoIDocServer getServer() {

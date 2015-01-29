@@ -53,11 +53,16 @@ public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent 
 		// Add component specific prefix to destination name to scope destination configurations to this component.
 		parameters.put("destinationName", uriComponents[0]); 
 		parameters.put("rfcName", uriComponents[1]);
-		Endpoint endpoint = new SapSynchronousRfcDestinationEndpoint(uri, this);
+		SapSynchronousRfcDestinationEndpoint endpoint = new SapSynchronousRfcDestinationEndpoint(uri, this);
 
 		// Configure Endpoint
 		setProperties(endpoint, parameters);
 		LOG.debug("Created endpoint '" + uri + "'");
+		
+		// Create a request to ensure that the data layer's package registry is
+		// loaded with the schema of this endpoint's request and response types.
+		endpoint.createRequest();
+		
 		return endpoint;
 	}
 
