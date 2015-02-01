@@ -393,7 +393,7 @@
           				</goals>
           				<configuration>
           					<finalName>camel-sap-${project.version}</finalName>
-          					<attach>false</attach>
+          					<attach>true</attach>
           				</configuration>
           			</execution>
           		</executions>
