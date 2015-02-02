@@ -136,7 +136,7 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	 */
 	public String getIdocType() {
 		String idocType = null;
-		EAnnotation idocAnnotation = rootSegmentClass.getEAnnotation(IdocPackage.eNS_URI);
+		EAnnotation idocAnnotation = getRootSegmentClass().getEAnnotation(IdocPackage.eNS_URI);
 		if (idocAnnotation != null) {
 			idocType = idocAnnotation.getDetails().get("idocType");
 		}
@@ -159,7 +159,7 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	 */
 	public String getIdocTypeExtension() {
 		String idocTypeExtension = null;
-		EAnnotation idocAnnotation = rootSegmentClass.getEAnnotation(IdocPackage.eNS_URI);
+		EAnnotation idocAnnotation = getRootSegmentClass().getEAnnotation(IdocPackage.eNS_URI);
 		if (idocAnnotation != null) {
 			idocTypeExtension = idocAnnotation.getDetails().get("idocTypeExtension");
 		}
@@ -182,7 +182,7 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	 */
 	public String getSystemRelease() {
 		String systemRelease = null;
-		EAnnotation idocAnnotation = rootSegmentClass.getEAnnotation(IdocPackage.eNS_URI);
+		EAnnotation idocAnnotation = getRootSegmentClass().getEAnnotation(IdocPackage.eNS_URI);
 		if (idocAnnotation != null) {
 			systemRelease = idocAnnotation.getDetails().get("systemRelease");
 		}
@@ -205,7 +205,7 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	 */
 	public String getApplicationRelease() {
 		String applicationRelease = null;
-		EAnnotation idocAnnotation = rootSegmentClass.getEAnnotation(IdocPackage.eNS_URI);
+		EAnnotation idocAnnotation = getRootSegmentClass().getEAnnotation(IdocPackage.eNS_URI);
 		if (idocAnnotation != null) {
 			applicationRelease = idocAnnotation.getDetails().get("applicationRelease");
 		}
@@ -234,6 +234,9 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	}
 
 	public EClass getRootSegmentClass() {
+		if (rootSegmentClass == null && document.size() > 0) {
+			rootSegmentClass = document.get(0).getRootSegment().eClass();
+		}
 		return rootSegmentClass;
 	}
 
@@ -255,12 +258,12 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Document add(int index) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Document document = createIDoc();
+		add(index, document);
+		return document;
 	}
 
 	/**
@@ -498,7 +501,7 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	
 	private void checkDocument(Document document) {
 		if (document != null) {
-			if (rootSegmentClass.equals(document.getRootSegment().eClass())) {
+			if (getRootSegmentClass().equals(document.getRootSegment().eClass())) {
 				return;
 			}
 		}
@@ -506,7 +509,7 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	}
 
 	private Document createIDoc() {
-		Segment segment = (Segment) rootSegmentClass.getEPackage().getEFactoryInstance().create(rootSegmentClass);
+		Segment segment = (Segment) getRootSegmentClass().getEPackage().getEFactoryInstance().create(getRootSegmentClass());
 		DocumentImpl iDoc = (DocumentImpl) IdocFactory.eINSTANCE.createDocument();
 		iDoc.setRootSegment(segment);
 		((SegmentImpl) segment).setDocument(iDoc);

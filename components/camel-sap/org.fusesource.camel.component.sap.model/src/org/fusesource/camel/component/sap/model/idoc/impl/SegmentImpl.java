@@ -622,12 +622,10 @@ public class SegmentImpl extends EObjectImpl implements Segment {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public void setMaxOccurrence(long newMaxOccurrence) {
-		// TODO: implement this method to set the 'Max Occurrence' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setMaxOccurrence(long newMaxOccurrence) { 
+		// NOOP
 	}
 
 	/**
