@@ -945,7 +945,7 @@ public class RfcUtil extends Util {
 			if (!jcoListMetaData.isOptional(i))
 				structuralFeature.setLowerBound(1);
 			if (jcoListMetaData.getDefault(i) != null)
-				structuralFeature.setDefaultValueLiteral(jcoListMetaData.getDefault(i));
+				structuralFeature.setDefaultValueLiteral(checkForKeywordLiterals(jcoListMetaData.getDefault(i)));
 			addAnnotation(structuralFeature, GenNS_URI, GenNS_DOCUMENTATION_KEY, jcoListMetaData.getDescription(i));
 			addAnnotation(structuralFeature, eNS_URI, RfcNS_NAME_KEY, jcoListMetaData.getName(i));
 			addAnnotation(structuralFeature, eNS_URI, RfcNS_DESCRIPTION_KEY, jcoListMetaData.getDescription(i));
@@ -956,7 +956,7 @@ public class RfcUtil extends Util {
 			addAnnotation(structuralFeature, eNS_URI, RfcNS_BYTE_LENGTH_KEY, Integer.toString(jcoListMetaData.getByteLength(i)));
 			addAnnotation(structuralFeature, eNS_URI, RfcNS_UNICODE_BYTE_LENGTH_KEY, Integer.toString(jcoListMetaData.getUnicodeByteLength(i)));
 			addAnnotation(structuralFeature, eNS_URI, RfcNS_DECIMALS_KEY, Integer.toString(jcoListMetaData.getDecimals(i)));
-			addAnnotation(structuralFeature, eNS_URI, RfcNS_DEFAULT_KEY, jcoListMetaData.getDefault(i));
+			addAnnotation(structuralFeature, eNS_URI, RfcNS_DEFAULT_KEY, checkForKeywordLiterals(jcoListMetaData.getDefault(i)));
 			addAnnotation(structuralFeature, eNS_URI, RfcNS_RECORD_FIELD_NAME_KEY, jcoListMetaData.getRecordFieldName(i));
 			addAnnotation(structuralFeature, eNS_URI, RfcNS_IS_ABAP_OBJECT_KEY, Boolean.toString(jcoListMetaData.isAbapObject(i)));
 			addAnnotation(structuralFeature, eNS_URI, RfcNS_IS_NESTED_TYPE1_STRUCTURE_KEY, Boolean.toString(jcoListMetaData.isNestedType1Structure(i)));
@@ -1304,5 +1304,25 @@ public class RfcUtil extends Util {
 			jcoAbapExceptions[i] = new com.sap.conn.jco.AbapException(abapException.getKey(), abapException.getMessage());
 		}
 		return jcoAbapExceptions;
+	}
+	
+	/**
+	 * Check for ABAP keyword literal values.
+	 * 
+	 * This is used to convert any ABAP keyword literal values such as 'SPACE'
+	 * that may be set as defaults on parameter list fields to their actual
+	 * value.
+	 * 
+	 * @param value
+	 *            - the value to check
+	 * @return If value is an ABAP keyword literal then it is converted to
+	 *         actual value; otherwise the passed <code>value</code> is
+	 *         returned.
+	 */
+	public static String checkForKeywordLiterals(String value) {
+		if ("SPACE".equals(value)) {
+			return " ";
+		}
+		return value;
 	}
 }
