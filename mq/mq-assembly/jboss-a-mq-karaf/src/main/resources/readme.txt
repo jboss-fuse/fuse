@@ -4,7 +4,7 @@ JBoss A-MQ
 Configuration
 -------------
 The default broker is defined in: 
- ./etc/org.apache.activemq.server-default.cfg
+ ./etc/org.fusesource.mq.fabric.server-default.cfg
 The xml configuration is:
  ./etc/broker.xml
 
@@ -31,21 +31,44 @@ Note: Be sure to use the appropriate username and password in the following exam
 To display the log using the remote console, type:
 
 [Linux/Unix]
-    ./bin/client -u <Username> -p <Password> log:display
+    ./bin/client log:display
 [Windows]
-    .\bin\client.bat -u <Username> -p <Password> log:display
+    .\bin\client.bat log:display
 
 To display the current broker statistics using the remote console, type:
    
 [Linux/Unix]
-    ./bin/client -u <Username> -p <Password> activemq:bstat
+    ./bin/client activemq:bstat
 [Windows]
-    .\bin\client.bat -u <Username> -p <Password> activemq:bstat
+    .\bin\client.bat activemq:bstat
 
 To validate the installation with a simple JMS producer and consumer, type:
 
-    java -jar extras/mq-client.jar producer --user <Username> --password <Password>
-    java -jar extras/mq-client.jar consumer --user <Username> --password <Password>
+[Linux/Unix]
+    ./bin/client "activemq:producer --user <Username> --password <Password>"
+[Windows]
+    .\bin\client.bat "activemq:producer --user <Username> --password <Password>"
+
+This will produce messages to the TEST queue. Check that messages have been enqueued with:
+
+[Linux/Unix]
+    ./bin/client activemq:dstat
+[Windows]
+    .\bin\client.bat activemq:dstat
+
+To consume messages type:
+
+[Linux/Unix]
+    ./bin/client "activemq:consumer --user <Username> --password <Password>"
+[Windows]
+    .\bin\client.bat "activemq:consumer --user <Username> --password <Password>"
+
+Check that messages have been dequeued with:
+
+[Linux/Unix]
+    ./bin/client activemq:dstat
+[Windows]
+    .\bin\client.bat activemq:dstat
 
 View the webconsole at http://localhost:8181/hawtio
 
