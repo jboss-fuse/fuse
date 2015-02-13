@@ -93,7 +93,7 @@
         <rhino.bundle.version>1.7R2_3</rhino.bundle.version>
         <groovy.version>2.1.9</groovy.version>
         <jruby.version>1.7.6-redhat.002</jruby.version>
-        <scriptengines.version>1.1</scriptengines.version>
+        <scriptengines.version>1.1.1</scriptengines.version>
         <xmlresolver.bundle.version>1.2_5</xmlresolver.bundle.version>
         <jaxb-impl.bundle.version>2.2.1.1_2</jaxb-impl.bundle.version>
         <snmp4j.bundle.version>2.2.2_1</snmp4j.bundle.version>
@@ -219,18 +219,6 @@
             <id>java.net</id>
             <name>Java.net Maven2 Repository</name>
             <url>http://download.java.net/maven/2</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <!-- Scriptengines Google Maven Repository, required by scriptengines -->
-        <repository>
-            <id>scriptengines</id>
-            <name>Scriptengines Google Code Maven Repository</name>
-            <url>http://scriptengines.googlecode.com/svn/m2-repo</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -731,11 +719,16 @@
                 <artifactId>maven-util</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
-        <dependency>
-            <groupId>io.fabric8.itests</groupId>
-            <artifactId>fabric-itests-common</artifactId>
-            <version>${fabric.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>io.fabric8.itests</groupId>
+                <artifactId>fabric-itests-common</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric-jolokia-client</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
 
             <!-- Commons -->
             <dependency>
