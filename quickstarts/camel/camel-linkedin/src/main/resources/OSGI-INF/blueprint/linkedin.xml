@@ -29,7 +29,7 @@
              http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
     <!-- OSGi blueprint property placeholder -->
-    <cm:property-placeholder id="placeholder" persistent-id="org.jboss.quickstarts.fuse.linkedin">
+    <cm:property-placeholder id="placeholder" persistent-id="org.jboss.quickstarts.fuse.camel.linkedin">
         <cm:default-properties>
             <cm:property name="redirectUri" value="https://localhost"/>
         </cm:default-properties>
@@ -44,6 +44,11 @@
                 <property name="clientId" value="${clientId}"/>
                 <property name="clientSecret" value="${clientSecret}"/>
                 <property name="redirectUri" value="${redirectUri}"/>
+                <property name="scopes">
+                    <array value-type="org.apache.camel.component.linkedin.api.OAuthScope">
+                        <value>R_NETWORK</value>
+                    </array>
+                </property>
             </bean>
         </property>
     </bean>
@@ -68,7 +73,7 @@
         -->
         <route id="linkedin-route">
 
-            <from uri="linkedin://people/connections?consumer.timeUnit=MINUTES&amp;consumer.delay=15" />
+            <from uri="linkedin://people/connections?fields=&amp;consumer.timeUnit=MINUTES&amp;consumer.delay=1&amp;consumer.initialDelay=1" />
             <log message="Poll received ${body.count} user connections" />
 
             <!-- Count of number of messages to aggregate later -->
@@ -110,6 +115,6 @@
         </route>
     </camelContext>
 
-    <bean id="aggregatorStrategy" class="org.apache.camel.processor.BodyInAggregatingStrategy"/>
+    <bean id="aggregatorStrategy" class="org.jboss.quickstarts.fuse.processor.BodyInAggregatingStrategy"/>
 
 </blueprint>
