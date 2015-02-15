@@ -45,8 +45,8 @@ Build and Deploy the Quickstart
 * Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
 * Create the following configuration file in the etc/ directory of your Red Hat JBoss Fuse installation:
 
-  InstallDir/etc/org.jboss.quickstarts.fuse.camel-box.cfg
-  Edit the org.jboss.quickstarts.fuse.camel-box.cfg file with a text editor and add the following contents:
+  InstallDir/etc/org.jboss.quickstarts.fuse.camel.box.cfg
+  Edit the org.jboss.quickstarts.fuse.camel.box.cfg file with a text editor and add the following contents:
 
   userName=<Box.com account user name>
   userPassword=<Box.com account password>

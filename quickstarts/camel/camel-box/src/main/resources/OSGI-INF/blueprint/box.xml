@@ -29,7 +29,7 @@
              http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
     <!-- osgi blueprint property placeholder -->
-    <cm:property-placeholder id="placeholder" persistent-id="org.jboss.quickstarts.fuse.box" />
+    <cm:property-placeholder id="placeholder" persistent-id="org.jboss.quickstarts.fuse.camel.box" />
 
     <bean id="box" class="org.apache.camel.component.box.BoxComponent">
       <property name="configuration">
