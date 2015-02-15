@@ -136,6 +136,19 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <version>${version.maven-bundle-plugin}</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Import-Package>
+                          org.apache.camel,
+                          org.apache.camel.component.linkedin,
+                          org.apache.camel.component.linkedin.api,
+                          org.apache.camel.processor.aggregate,
+                          org.osgi.service.blueprint,
+                          org.jboss.quickstarts.fuse.processor
+                        </Import-Package>
+                        <Export-Package>org.jboss.quickstarts.fuse.processor</Export-Package>
+                    </instructions>
+                </configuration>
             </plugin>
                 <!--
                   this plugin will use the fabric.* properties to configure its behaviour
