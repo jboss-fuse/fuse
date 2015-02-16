@@ -41,7 +41,7 @@ public class EsbProfileTest extends EsbFeatureTest {
         System.err.println(executeCommand("fabric:create -n"));
         ServiceProxy<FabricService> fabricProxy = ServiceProxy.createServiceProxy(bundleContext, FabricService.class);
         try {
-            Set<ContainerProxy> containers = ContainerBuilder.create(fabricProxy).withName("esb").withProfiles("jboss-fuse-minimal").assertProvisioningResult().build();
+            Set<ContainerProxy> containers = ContainerBuilder.create(fabricProxy).withName("esb").withProfiles("jboss-fuse-full").assertProvisioningResult().build();
             try {
                 // [TODO] validate created containers
             } finally {

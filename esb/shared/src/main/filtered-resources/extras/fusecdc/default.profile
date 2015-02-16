@@ -34,7 +34,7 @@
 #	
 #		mvn:<groupId>/<artifactId>/<version>/<type>
 #
-original.distribution.artifact=mvn:org.jboss.fuse/jboss-fuse-minimal/${fuse.version}/zip
+original.distribution.artifact=mvn:org.jboss.fuse/jboss-fuse-full/${fuse.version}/zip
 
 #
 #	This property is used to add any custom or 3rd party feature descriptor XML files.

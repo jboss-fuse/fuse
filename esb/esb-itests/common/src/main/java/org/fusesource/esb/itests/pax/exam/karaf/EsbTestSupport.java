@@ -31,7 +31,7 @@ import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.*;
 
 public class EsbTestSupport extends FabricKarafTestSupport {
     static final String GROUP_ID = "org.jboss.fuse";
-    static final String ARTIFACT_ID = "jboss-fuse-medium";
+    static final String ARTIFACT_ID = "jboss-fuse-full";
     private String version = System.getProperty("project.version");
 
     protected void installQuickstartBundle(String bundle) throws Exception {
