@@ -119,6 +119,9 @@
         <fileSet>
             <directory>target/shared/fabric</directory>
             <outputDirectory>/fabric/</outputDirectory>
+            <excludes>
+                <exclude>io.fabric8.import.profiles.properties</exclude>
+            </excludes>
             <lineEnding>unix</lineEnding>
             <fileMode>0644</fileMode>
         </fileSet>
@@ -133,6 +136,18 @@
             <lineEnding>unix</lineEnding>
             <fileMode>0644</fileMode>
         </fileSet>
+        <fileSet>
+            <directory>target/shared/fabric</directory>
+            <outputDirectory>/fabric/</outputDirectory>
+            <includes>
+                <include>io.fabric8.import.profiles.properties</include>
+            </includes>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+            <filtered>true</filtered>
+        </fileSet>
+
+
     </fileSets>
 
     <files>
