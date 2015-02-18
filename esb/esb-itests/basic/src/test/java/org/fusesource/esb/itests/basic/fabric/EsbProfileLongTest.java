@@ -42,10 +42,10 @@ public class EsbProfileLongTest extends EsbFeatureTest {
             FabricService fabricService = fabricProxy.getService();
             CuratorFramework curator = fabricService.adapt(CuratorFramework.class);
 
-            Set<ContainerProxy> containers = ContainerBuilder.create(fabricProxy).withName("esb").withProfiles("jboss-fuse-minimal").assertProvisioningResult().build();
+            Set<ContainerProxy> containers = ContainerBuilder.create(fabricProxy).withName("esb").withProfiles("jboss-fuse-full").assertProvisioningResult().build();
             try {
-                prepareFeaturesForTesting(containers, "connector", "jboss-fuse-minimal", "geronimo-connector");
-                prepareFeaturesForTesting(containers, "saaj", "jboss-fuse-minimal", "saaj-impl");
+                prepareFeaturesForTesting(containers, "connector", "jboss-fuse-full", "geronimo-connector");
+                prepareFeaturesForTesting(containers, "saaj", "jboss-fuse-full", "saaj-impl");
 
                 assertFeatures(fabricService, curator);
             } finally {

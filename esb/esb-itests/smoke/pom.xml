@@ -71,7 +71,7 @@
 
         <dependency>
             <groupId>org.jboss.fuse</groupId>
-            <artifactId>jboss-fuse-medium</artifactId>
+            <artifactId>jboss-fuse-full</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
