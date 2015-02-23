@@ -77,7 +77,7 @@ Use the bundle
 To use the application be sure to have deployed the quickstart in Fuse as described above. Successful deployment will create and start a Camel route in Fuse.
 
 1. As soon as the Camel route has been started, you will see a directory `work/eip/input` in your JBoss Fuse installation.
-2. Copy the file you find in this example's `src/main/resources/data` directory to the newly created `work/eip/input`
+2. Copy the file you find in this example's `src/main/fabric8/data` directory to the newly created `work/eip/input`
 directory.
 3. Wait a few moments and you will find multiple files organized by geographical region under `work/eip/output':
 ** `2012_0003.xml` and `2012_0005.xml` in `work/eip/output/AMER`
