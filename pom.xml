@@ -94,6 +94,7 @@
         <groovy.version>2.1.9</groovy.version>
         <jruby.version>1.7.6-redhat.002</jruby.version>
         <scriptengines.version>1.1.1</scriptengines.version>
+        <xalan.bundle.version>2.7.2_2</xalan.bundle.version>
         <xmlresolver.bundle.version>1.2_5</xmlresolver.bundle.version>
         <jaxb-impl.bundle.version>2.2.1.1_2</jaxb-impl.bundle.version>
         <snmp4j.bundle.version>2.2.2_1</snmp4j.bundle.version>
