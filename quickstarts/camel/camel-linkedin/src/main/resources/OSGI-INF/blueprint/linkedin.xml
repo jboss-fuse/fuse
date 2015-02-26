@@ -73,7 +73,7 @@
         -->
         <route id="linkedin-route">
 
-            <from uri="linkedin://people/connections?fields=&amp;consumer.timeUnit=MINUTES&amp;consumer.delay=1&amp;consumer.initialDelay=1" />
+            <from uri="linkedin://people/connections?fields=&amp;consumer.timeUnit=SECONDS&amp;consumer.delay=60&amp;consumer.initialDelay=15" />
             <log message="Poll received ${body.count} user connections" />
 
             <!-- Count of number of messages to aggregate later -->

@@ -55,7 +55,7 @@ Build and Deploy the Quickstart
     Milk            PickList with values Cow, Ewe, Goat
 
 * Change your working directory to `camel-salesforce` directory.
-* Edit the org.jboss.quickstarts.fuse.camel-salesforce.cfg file in 'camel-salesforce' directory with a text editor and add the following contents:
+* Edit the org.jboss.quickstarts.fuse.salesforce.cfg file in 'camel-salesforce' directory with a text editor and add the following contents:
 
   clientId=Salesforce app consumer key
   clientSecret=Salesforce app consumer secret
@@ -64,12 +64,13 @@ Build and Deploy the Quickstart
 
 * Run `mvn -Pgenerate-pojos clean install` to build the quickstart.
 * Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
-* Copy the configuration file org.jboss.quickstarts.fuse.camel-salesforce.cfg to the etc/ directory of your Red Hat JBoss Fuse installation:
+* Copy the configuration file org.jboss.quickstarts.fuse.salesforce.cfg to the etc/ directory of your Red Hat JBoss Fuse installation:
 
-  InstallDir/etc/org.jboss.quickstarts.fuse.camel-salesforce.cfg
+  InstallDir/etc/org.jboss.quickstarts.fuse.salesforce.cfg
 
-* In the JBoss Fuse console, enter the following command:
+* In the JBoss Fuse console, enter the following commands:
 
+        features:install camel-salesforce
         osgi:install -s mvn:org.jboss.quickstarts.fuse/camel-salesforce/${project.version}
 
 * Fuse should give you an id when the bundle is deployed

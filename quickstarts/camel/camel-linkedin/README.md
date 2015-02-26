@@ -53,8 +53,9 @@ Build and Deploy the Quickstart
   clientId=<LinkedIn client id>
   clientSecret=<LinkedIn client secret>
 
-* In the JBoss Fuse console, enter the following command:
+* In the JBoss Fuse console, enter the following commands:
 
+        features:install camel-linkedin
         osgi:install -s mvn:org.jboss.quickstarts.fuse/camel-linkedin/${project.version}
 
 * Fuse should give you an id when the bundle is deployed

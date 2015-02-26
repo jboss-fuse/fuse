@@ -55,8 +55,9 @@ Build and Deploy the Quickstart
   serviceUri=http://localhost:8080/camel-odata/BooksRest
   contentType=application/atom+xml;charset=utf-8
 
-* In the JBoss Fuse console, enter the following command:
+* In the JBoss Fuse console, enter the following commands:
 
+        features:install camel-olingo2
         osgi:install -s mvn:org.jboss.quickstarts.fuse/camel-odata/${project.version}
 
 * Fuse should give you an id when the bundle is deployed
