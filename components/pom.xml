@@ -18,7 +18,7 @@
   <parent>
     <groupId>org.fusesource</groupId>
     <artifactId>fuse-project</artifactId>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.0.redhat-070</version>
     <relativePath>../parent</relativePath>
   </parent>
   <artifactId>components</artifactId>
@@ -28,8 +28,8 @@
   <url>http://www.fusesource.org</url>
 
   <properties>
-    <camel.sap.plugin.version>6.2.0-SNAPSHOT</camel.sap.plugin.version>
-    <sap.camel.component.version>6.2.0.redhat-SNAPSHOT</sap.camel.component.version>
+    <camel.sap.plugin.version>6.2.0.redhat-070</camel.sap.plugin.version>
+    <sap.camel.component.version>6.2.0.redhat-070</sap.camel.component.version>
   </properties>
 
   <profiles>

@@ -22,11 +22,11 @@
     <parent>
         <groupId>org.jboss.quickstarts.fuse</groupId>
         <artifactId>camel-quickstarts</artifactId>
-        <version>6.2.0.redhat-SNAPSHOT</version>
+        <version>6.2.0.redhat-070</version>
     </parent>
 
     <artifactId>camel-sap</artifactId>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.0.redhat-070</version>
     <packaging>bundle</packaging>
 
     <name>JBoss Fuse Quickstart: camel-sap</name>
@@ -73,7 +73,7 @@
 
     <properties>
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
-        <jboss.fuse.bom.version>${project.version}</jboss.fuse.bom.version>
+        <jboss.fuse.bom.version>6.2.0.redhat-070</jboss.fuse.bom.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 

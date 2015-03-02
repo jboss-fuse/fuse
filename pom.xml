@@ -27,7 +27,7 @@
     <groupId>org.jboss.fuse.bom</groupId>
     <artifactId>jboss-fuse-parent</artifactId>
     <packaging>pom</packaging>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.0.redhat-070</version>
 
     <name>JBoss Fuse</name>
 

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.fusesource</groupId>
 		<artifactId>camel-sap-parent</artifactId>
-		<version>6.2.0.redhat-SNAPSHOT</version>
+		<version>6.2.0.redhat-070</version>
 	</parent>
 
 	<packaging>eclipse-test-plugin</packaging>
@@ -105,6 +105,6 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<version>6.2.0-SNAPSHOT</version>
+	<version>6.2.0.redhat-070</version>
 	<url>http://http://www.jboss.org/products/fuse/overview/</url>
 </project>
