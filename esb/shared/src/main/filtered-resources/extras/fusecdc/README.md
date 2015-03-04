@@ -1,7 +1,7 @@
 Fuse CDC ${fuse-cdc-version}
 --------------
 
-Fuse Custom Distribution Creator (CDC) is an API and tool to create custom, one-off distributions of JBoss Fuse ${fuse.version}.
+Fuse Custom Distribution Creator (CDC) is an API and tool to create custom, one-off distributions of JBoss Fuse ${project.version}.
 
 Contents
 --------

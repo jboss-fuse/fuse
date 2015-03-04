@@ -34,7 +34,7 @@
 #	
 #		mvn:<groupId>/<artifactId>/<version>/<type>
 #
-original.distribution.artifact=mvn:org.jboss.fuse/jboss-fuse-minimal/${fuse.version}/zip
+original.distribution.artifact=mvn:org.jboss.fuse/jboss-fuse-minimal/${project.version}/zip
 
 #
 #	This property is used to add any custom or 3rd party feature descriptor XML files.
@@ -87,7 +87,7 @@ distribution.output.directory=dist
 #	name of the original artifact root directory with a 
 #	classifier of 'custom'.
 #	 
-distribution.output.final.name=fuse-esb-${fuse.version}-custom
+distribution.output.final.name=fuse-esb-${project.version}-custom
 
 #	Repository Proxy
 #	
