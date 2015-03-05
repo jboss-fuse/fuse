@@ -43,7 +43,7 @@ public class EsbBootTest extends EsbTestSupport {
     @Configuration
     public Option[] config() {
         return new Option[]{
-                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-minimal")),
+                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-full")),
         };
     }
 

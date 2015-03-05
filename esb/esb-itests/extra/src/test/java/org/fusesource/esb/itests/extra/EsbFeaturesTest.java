@@ -45,7 +45,7 @@ public class EsbFeaturesTest extends EsbTestSupport {
     @Configuration
     public Option[] config() {
         return new Option[]{
-                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-medium")),
+                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-full")),
         };
     }
 }
