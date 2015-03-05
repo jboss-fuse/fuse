@@ -357,8 +357,6 @@
     </build>
     
     <modules>
-        <module>jboss-fuse-minimal</module>
-        <module>jboss-fuse-medium</module>
         <module>jboss-fuse-full</module>
         <module>jboss-fuse-karaf-full</module>
     </modules>
