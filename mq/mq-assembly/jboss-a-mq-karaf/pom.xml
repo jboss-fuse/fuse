@@ -85,6 +85,16 @@
                 <artifactId>bcprov-jdk15on</artifactId>
                 <version>${bouncycastle-version}</version>
            </dependency>
+           <dependency>
+               <groupId>org.apache.servicemix.bundles</groupId>
+               <artifactId>org.apache.servicemix.bundles.xalan</artifactId>
+               <version>${xalan.bundle.version}</version>
+           </dependency>
+           <dependency>
+               <groupId>org.apache.servicemix.bundles</groupId>
+               <artifactId>org.apache.servicemix.bundles.xmlresolver</artifactId>
+               <version>${xmlresolver.bundle.version}</version>
+           </dependency>
 
            <!-- Scala support -->
            <dependency>
