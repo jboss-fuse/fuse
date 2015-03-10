@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.quickstarts.fuse</groupId>
+        <artifactId>quickstarts-parent</artifactId>
+        <version>6.2.0.redhat-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.jboss.quickstarts.fuse</groupId>
+    <artifactId>custom-distro</artifactId>
+    <packaging>pom</packaging>
+    <version>6.2.0.redhat-SNAPSHOT</version>
+
+    <name>JBoss Fuse Quickstart: custom</name>
+
+    <properties>
+        <jboss-fuse.version>${project.version}</jboss-fuse.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>fuse-public-repository</id>
+            <name>FuseSource Community Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>fuse-public-repository</id>
+            <name>FuseSource Community Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/filtered-resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <!--
+                Step 1: unpack the original assembly
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.8</version>
+                <executions>
+                    <execution>
+                        <id>unpack-original</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.jboss.fuse</groupId>
+                                    <artifactId>jboss-fuse-full</artifactId>
+                                    <version>${jboss-fuse.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>target/original</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--
+                Step 2: copy and filter any text files you want to add/replace in the assembly
+                        typically, config files like the org.apache.karaf.features.cfg file
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>filter-resources</id>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--
+                Step 3: gather all the bundles for the features your want to install
+            -->
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>features-maven-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <id>add-features</id>
+                        <goals>
+                            <goal>add-features-to-repo</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>mvn:org.apache.karaf.assemblies.features/standard/2.4.0.redhat-620079/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.karaf.assemblies.features/spring/2.4.0.redhat-620079/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.karaf.assemblies.features/enterprise/2.4.0.redhat-620079/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.cxf.karaf/apache-cxf/3.0.2.redhat-620079/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.camel.karaf/apache-camel/2.14.0.redhat-620081/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.activemq/activemq-karaf/5.11.0.redhat-620085/xml/features-core</descriptor>
+                                <descriptor>mvn:io.fabric8/fabric8-karaf/1.2.0.redhat-080/xml/features</descriptor>
+                                <descriptor>mvn:org.jboss.fuse/jboss-fuse/6.2.0.redhat-074/xml/features</descriptor>
+                                <descriptor>mvn:io.fabric8.patch/patch-features/1.2.0.redhat-080/xml/features</descriptor>
+                                <descriptor>mvn:io.hawt/hawtio-karaf/1.5.redhat-086/xml/features</descriptor>
+                                <descriptor>mvn:io.fabric8.support/support-features/1.2.0.redhat-080/xml/features</descriptor>
+                                <descriptor>mvn:org.fusesource/camel-sap/6.2.0.redhat-074/xml/features</descriptor>
+                            </descriptors>
+                            <features>
+                                <!-- TODO: add the feature you want to use in your custom assembly to the list below -->
+                                <feature>shell</feature>
+                                <feature>admin</feature>
+                                <feature>management</feature>
+                                <feature>camel-blueprint</feature>
+                                <feature>camel-jaxb</feature>
+                            </features>
+                            <repository>target/repository</repository>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.wagon</groupId>
+                        <artifactId>wagon-http-lightweight</artifactId>
+                        <version>2.6</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!--
+                Step 4: Create the custom assembly ZIP file
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>package-custom-assembly</id>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <descriptor>src/main/descriptor/custom.xml</descriptor>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

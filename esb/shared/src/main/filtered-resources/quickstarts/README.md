@@ -17,6 +17,7 @@ Various quickstart projects for getting you started with JBoss Fuse
 * [camel.salesforce](camel-salesforce) - shows how to use Apache Camel, and its OSGi integration to use the OSGi config admin and create/update records in Salesforce.
 * [camel.sap](camel-sap) - shows how to use the SAP Camel Component and demonstrates several basic processes.
 * [cxf](cxf) - contains various quickstart projects using [Apache CXF](http://cxf.apache.org) for web services and REST.
+* [custom](custom) - shows how to build a custom assembly starting from the JBoss Fuse full kit
 
 
 
