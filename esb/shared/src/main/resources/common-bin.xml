@@ -44,13 +44,5 @@
             <useProjectArtifact>false</useProjectArtifact>
             <useTransitiveDependencies>false</useTransitiveDependencies>
         </dependencySet>
-        <dependencySet>
-            <outputDirectory>/lib/endorsed</outputDirectory>
-            <fileMode>0644</fileMode>
-            <includes>
-                <include>org.apache.servicemix.bundles:org.apache.servicemix.bundles.xalan</include>
-                <include>org.apache.servicemix.bundles:org.apache.servicemix.bundles.xmlresolver</include>
-            </includes>
-        </dependencySet>
     </dependencySets>
 </component>
