@@ -78,6 +78,7 @@
       <module>beginner</module>
       <module>camel</module>
       <module>cxf</module>
+      <module>custom</module>
     </modules>
     
 
