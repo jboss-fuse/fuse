@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-@UriEndpoint(scheme="sap-srfc-destination")
+@UriEndpoint(scheme="sap-srfc-destination", syntax = "sap-srfc-destination:destinationName:rfcName")
 public class SapSynchronousRfcDestinationEndpoint extends SapRfcDestinationEndpoint {
 	
     private static final Logger LOG = LoggerFactory.getLogger(SapSynchronousRfcDestinationEndpoint.class);

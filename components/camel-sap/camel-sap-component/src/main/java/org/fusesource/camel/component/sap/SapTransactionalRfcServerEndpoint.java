@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-@UriEndpoint(scheme="sap-trfc-server", consumerClass=SapTransactionalRfcConsumer.class)
+@UriEndpoint(scheme="sap-trfc-server", consumerClass=SapTransactionalRfcConsumer.class, syntax = "sap-trfc-server:serverName:rfcName")
 public class SapTransactionalRfcServerEndpoint extends SapRfcServerEndpoint {
 	
     private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalRfcServerEndpoint.class);
