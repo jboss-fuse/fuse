@@ -21,7 +21,6 @@ import org.apache.camel.builder.RouteBuilder;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.api.mockito.mockpolicies.Slf4jMockPolicy;
 import org.powermock.core.classloader.annotations.MockPolicy;
@@ -33,6 +32,7 @@ import com.sap.conn.jco.ext.Environment;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * SAP Producer test cases.
@@ -45,6 +45,15 @@ import static org.mockito.Mockito.verify;
 @PrepareForTest({ JCoDestinationManager.class, Environment.class })
 public class SapQueuedRfcProducerTest extends SapRfcTestSupport {
 	
+	@Override
+	public void doPreSetup() throws Exception {
+		super.doPreSetup();
+		
+		PowerMockito.mockStatic(JCoDestinationManager.class);
+		when(JCoDestinationManager.getDestination(DESTINATION_NAME)).thenReturn(mockDestination);
+		
+	}
+	
 	@Test
 	public void testProducer() throws Exception{ 
 		
@@ -52,10 +61,6 @@ public class SapQueuedRfcProducerTest extends SapRfcTestSupport {
 		// Given
 		//
 		
-		PowerMockito.mockStatic(JCoDestinationManager.class);
-		Mockito.when(JCoDestinationManager.getDestination(DESTINATION_NAME)).thenReturn(mockDestination);
-		
-		enhanceParameterListMetaData();
 		Structure request = createAndPopulateRequest();
 		
 		//

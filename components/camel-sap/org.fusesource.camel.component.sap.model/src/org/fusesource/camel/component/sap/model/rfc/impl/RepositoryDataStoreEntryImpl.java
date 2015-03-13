@@ -81,7 +81,7 @@ public class RepositoryDataStoreEntryImpl extends EObjectImpl implements BasicEM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RepositoryDataStoreEntryImpl() {
+	public RepositoryDataStoreEntryImpl() {
 		super();
 	}
 

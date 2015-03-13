@@ -103,7 +103,7 @@ public class StructureImpl extends EObjectImpl implements Structure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StructureImpl() {
+	public StructureImpl() {
 		super();
 	}
 

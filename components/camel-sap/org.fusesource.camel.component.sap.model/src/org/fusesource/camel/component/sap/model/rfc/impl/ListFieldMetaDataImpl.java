@@ -328,7 +328,7 @@ public class ListFieldMetaDataImpl extends EObjectImpl implements ListFieldMetaD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ListFieldMetaDataImpl() {
+	public ListFieldMetaDataImpl() {
 		super();
 	}
 

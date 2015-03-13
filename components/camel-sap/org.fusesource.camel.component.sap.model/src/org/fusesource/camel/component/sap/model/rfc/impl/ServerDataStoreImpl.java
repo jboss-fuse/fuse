@@ -71,7 +71,7 @@ public class ServerDataStoreImpl extends EObjectImpl implements ServerDataStore 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ServerDataStoreImpl() {
+	public ServerDataStoreImpl() {
 		super();
 	}
 

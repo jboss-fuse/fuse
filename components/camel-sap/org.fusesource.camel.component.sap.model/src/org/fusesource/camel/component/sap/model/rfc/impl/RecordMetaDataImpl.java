@@ -88,7 +88,7 @@ public class RecordMetaDataImpl extends EObjectImpl implements RecordMetaData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RecordMetaDataImpl() {
+	public RecordMetaDataImpl() {
 		super();
 	}
 

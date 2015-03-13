@@ -792,7 +792,7 @@ public class DocumentImpl extends EObjectImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DocumentImpl() {
+	public DocumentImpl() {
 		super();
 	}
 

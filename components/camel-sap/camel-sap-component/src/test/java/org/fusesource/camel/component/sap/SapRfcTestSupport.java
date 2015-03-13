@@ -281,6 +281,7 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 		when(mockServer.getProgramID()).thenReturn(SERVER_PROGRAM_ID);
 		when(mockServer.getCallHandlerFactory()).thenReturn(new FunctionHandlerFactory());
 		when(mockServer.getTIDHandler()).thenReturn(mockServerTIDHandler);
+		when(mockServer.getRepository()).thenReturn(mockRepository);
 		
 		/* Enhance server context mock */
 		when(mockServerContext.getRepository()).thenReturn(mockRepository);
@@ -408,6 +409,7 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 		/* Enhance structure meta data mock */
 		when(mockStructureMetaData.getName()).thenReturn(STRUCTURE_TYPE_NAME);
 		
+		enhanceParameterListMetaData();
 	}
 
 	protected void enhanceParameterListMetaData() {

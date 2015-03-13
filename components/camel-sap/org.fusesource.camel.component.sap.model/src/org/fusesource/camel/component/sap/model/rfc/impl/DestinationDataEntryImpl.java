@@ -89,7 +89,7 @@ public class DestinationDataEntryImpl extends EObjectImpl implements BasicEMap.E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DestinationDataEntryImpl() {
+	public DestinationDataEntryImpl() {
 		super();
 	}
 

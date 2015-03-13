@@ -107,7 +107,7 @@ public class DestinationImpl extends EObjectImpl implements Destination {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DestinationImpl() {
+	public DestinationImpl() {
 		super();
 	}
 

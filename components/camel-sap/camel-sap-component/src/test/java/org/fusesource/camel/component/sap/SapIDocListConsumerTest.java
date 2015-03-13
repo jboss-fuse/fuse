@@ -55,7 +55,7 @@ public class SapIDocListConsumerTest extends SapIDocTestSupport {
 		Producer mockEndpointProducer = mockEndpoint.createProducer();
 		
 		CamelContext context = context();
-		Endpoint endpoint = context.getEndpoint("sap-idoclist-server:TEST_SERVER:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_RELEASE:TEST_APPLICATION_RELEASE");
+		Endpoint endpoint = context.getEndpoint("sap-idoclist-server:TEST_SERVER:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_VERSION:TEST_APPLICATION_VERSION");
 		SapTransactionalIDocListConsumer idocConsumer = (SapTransactionalIDocListConsumer) endpoint.createConsumer(mockEndpointProducer);
 
 		//
@@ -248,7 +248,7 @@ public class SapIDocListConsumerTest extends SapIDocTestSupport {
 		return new RouteBuilder() {
 			@Override
 			public void configure() throws Exception {
-				from("sap-idoclist-server:TEST_SERVER:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_RELEASE:TEST_APPLICATION_RELEASE").to("mock:result");
+				from("sap-idoclist-server:TEST_SERVER:TEST_IDOC_TYPE:TEST_IDOC_TYPE_EXTENSION:TEST_SYSTEM_VERSION:TEST_APPLICATION_VERSION").to("mock:result");
 			}
 		};
 	}

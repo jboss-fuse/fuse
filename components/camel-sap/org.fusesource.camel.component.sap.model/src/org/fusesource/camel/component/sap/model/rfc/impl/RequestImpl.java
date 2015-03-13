@@ -36,7 +36,7 @@ public class RequestImpl extends StructureImpl implements Request {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RequestImpl() {
+	public RequestImpl() {
 		super();
 	}
 

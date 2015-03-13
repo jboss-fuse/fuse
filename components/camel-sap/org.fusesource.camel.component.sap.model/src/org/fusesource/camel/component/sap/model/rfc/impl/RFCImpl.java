@@ -136,7 +136,7 @@ public class RFCImpl extends EObjectImpl implements RFC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RFCImpl() {
+	public RFCImpl() {
 		super();
 	}
 

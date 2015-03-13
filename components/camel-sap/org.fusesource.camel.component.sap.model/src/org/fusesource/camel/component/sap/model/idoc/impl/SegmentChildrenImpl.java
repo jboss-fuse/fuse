@@ -74,7 +74,7 @@ public class SegmentChildrenImpl extends EObjectImpl implements SegmentChildren 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SegmentChildrenImpl() {
+	public SegmentChildrenImpl() {
 		super();
 	}
 

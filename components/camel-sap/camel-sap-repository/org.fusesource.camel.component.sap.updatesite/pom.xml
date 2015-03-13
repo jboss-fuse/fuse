@@ -61,7 +61,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- 
 			<plugin>
 				<groupId>org.fusesource.mvnplugins</groupId>
 				<artifactId>maven-updatesite-plugin</artifactId>
@@ -70,6 +69,7 @@
 					<inputDirectory>${project.build.directory}/repository</inputDirectory>
 					<remoteServerId>fuse-sap.mw.lab.eng.bos.redhat.com</remoteServerId>
 					<remoteServerUrl>scp://fuse-sap.mw.lab.eng.bos.redhat.com/var/www/html/repositories/fuse-sap-data-layer/updatesite</remoteServerUrl>
+					<moveOldDirectory>true</moveOldDirectory>
 					<mvOptions></mvOptions>
 				</configuration>
 				<executions>
@@ -89,7 +89,6 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			-->
 		</plugins>
 	</build>
 

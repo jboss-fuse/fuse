@@ -56,7 +56,7 @@ public class TIDStoreImpl extends EObjectImpl implements TIDStore {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TIDStoreImpl() {
+	public TIDStoreImpl() {
 		super();
 	}
 

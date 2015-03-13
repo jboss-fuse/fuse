@@ -69,7 +69,7 @@ public class TableImpl<S extends Structure> extends EObjectImpl implements
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TableImpl() {
+	public TableImpl() {
 		super();
 	}
 

@@ -86,7 +86,7 @@ public class AbapExceptionImpl extends EObjectImpl implements AbapException {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AbapExceptionImpl() {
+	public AbapExceptionImpl() {
 		super();
 	}
 

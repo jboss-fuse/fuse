@@ -89,7 +89,7 @@ public class ServerDataEntryImpl extends EObjectImpl implements BasicEMap.Entry<
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ServerDataEntryImpl() {
+	public ServerDataEntryImpl() {
 		super();
 	}
 

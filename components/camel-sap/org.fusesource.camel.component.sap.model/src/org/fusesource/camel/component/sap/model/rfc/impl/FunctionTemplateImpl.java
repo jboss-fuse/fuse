@@ -106,7 +106,7 @@ public class FunctionTemplateImpl extends EObjectImpl implements FunctionTemplat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FunctionTemplateImpl() {
+	public FunctionTemplateImpl() {
 		super();
 	}
 

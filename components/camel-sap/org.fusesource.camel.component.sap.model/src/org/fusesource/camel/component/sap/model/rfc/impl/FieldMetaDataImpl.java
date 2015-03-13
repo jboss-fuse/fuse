@@ -240,7 +240,7 @@ public class FieldMetaDataImpl extends EObjectImpl implements FieldMetaData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FieldMetaDataImpl() {
+	public FieldMetaDataImpl() {
 		super();
 	}
 

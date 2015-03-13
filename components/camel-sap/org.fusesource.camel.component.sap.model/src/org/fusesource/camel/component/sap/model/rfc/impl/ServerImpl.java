@@ -65,7 +65,7 @@ public class ServerImpl extends EObjectImpl implements Server {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ServerImpl() {
+	public ServerImpl() {
 		super();
 	}
 

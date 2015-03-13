@@ -57,7 +57,7 @@ public class RepositoryDataStoreImpl extends EObjectImpl implements RepositoryDa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RepositoryDataStoreImpl() {
+	public RepositoryDataStoreImpl() {
 		super();
 	}
 

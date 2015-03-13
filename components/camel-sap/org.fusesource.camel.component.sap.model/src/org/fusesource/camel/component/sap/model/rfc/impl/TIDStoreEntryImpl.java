@@ -85,7 +85,7 @@ public class TIDStoreEntryImpl extends EObjectImpl implements BasicEMap.Entry<St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TIDStoreEntryImpl() {
+	public TIDStoreEntryImpl() {
 		super();
 	}
 

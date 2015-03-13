@@ -71,7 +71,7 @@ public class DestinationDataStoreImpl extends EObjectImpl implements Destination
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DestinationDataStoreImpl() {
+	public DestinationDataStoreImpl() {
 		super();
 	}
 

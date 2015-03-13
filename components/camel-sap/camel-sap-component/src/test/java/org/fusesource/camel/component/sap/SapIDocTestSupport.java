@@ -110,8 +110,8 @@ public abstract class SapIDocTestSupport extends JCoTestSupport {
 	public static final String LEVEL3 = "LEVEL3";
 	public static final String ROOT = "ROOT";
 	public static final String BAR = "|";
-	public static final String TEST_APPLICATION_RELEASE = "TEST_APPLICATION_RELEASE";
-	public static final String TEST_SYSTEM_RELEASE = "TEST_SYSTEM_RELEASE";
+	public static final String TEST_APPLICATION_RELEASE = "TEST_APPLICATION_VERSION";
+	public static final String TEST_SYSTEM_RELEASE = "TEST_SYSTEM_VERSION";
 	public static final String TEST_IDOC_TYPE_EXTENSION = "TEST_IDOC_TYPE_EXTENSION";
 	public static final String TEST_IDOC_TYPE = "TEST_IDOC_TYPE";
 	public static final String TEST_URL = IdocPackage.eNS_URI + "/" + TEST_REPOSITORY + "/" + TEST_IDOC_TYPE + "/" + TEST_IDOC_TYPE_EXTENSION + "/" + TEST_SYSTEM_RELEASE + "/" + TEST_APPLICATION_RELEASE;

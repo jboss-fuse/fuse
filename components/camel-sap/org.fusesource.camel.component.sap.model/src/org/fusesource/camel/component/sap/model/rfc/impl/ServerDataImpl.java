@@ -211,7 +211,7 @@ public class ServerDataImpl extends EObjectImpl implements ServerData {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ServerDataImpl() {
+	public ServerDataImpl() {
 		super();
 	}
 

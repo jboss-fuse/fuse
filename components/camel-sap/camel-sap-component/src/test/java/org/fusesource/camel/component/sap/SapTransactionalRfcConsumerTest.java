@@ -78,7 +78,6 @@ public class SapTransactionalRfcConsumerTest extends SapRfcTestSupport {
 		//
 		// Given
 		//
-		enhanceParameterListMetaData();
 
 		MockEndpoint mockEndpoint = getMockEndpoint("mock:result");
 		mockEndpoint.expectedMessageCount(1);

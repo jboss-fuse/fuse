@@ -77,7 +77,7 @@ public class RepositoryDataEntryImpl extends EObjectImpl implements BasicEMap.En
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RepositoryDataEntryImpl() {
+	public RepositoryDataEntryImpl() {
 		super();
 	}
 

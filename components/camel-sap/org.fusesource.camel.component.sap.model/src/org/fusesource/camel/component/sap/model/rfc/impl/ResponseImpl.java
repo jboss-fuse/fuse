@@ -36,7 +36,7 @@ public class ResponseImpl extends StructureImpl implements Response {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResponseImpl() {
+	public ResponseImpl() {
 		super();
 	}
 

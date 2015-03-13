@@ -77,7 +77,7 @@ public class DestinationDataStoreEntryImpl extends EObjectImpl implements BasicE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DestinationDataStoreEntryImpl() {
+	public DestinationDataStoreEntryImpl() {
 		super();
 	}
 

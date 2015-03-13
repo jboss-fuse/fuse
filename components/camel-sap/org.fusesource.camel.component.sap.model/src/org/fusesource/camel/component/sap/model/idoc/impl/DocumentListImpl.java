@@ -115,7 +115,7 @@ public class DocumentListImpl extends EObjectImpl implements DocumentList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DocumentListImpl() {
+	public DocumentListImpl() {
 		super();
 	}
 

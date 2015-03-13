@@ -77,7 +77,7 @@ public class ServerDataStoreEntryImpl extends EObjectImpl implements BasicEMap.E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ServerDataStoreEntryImpl() {
+	public ServerDataStoreEntryImpl() {
 		super();
 	}
 

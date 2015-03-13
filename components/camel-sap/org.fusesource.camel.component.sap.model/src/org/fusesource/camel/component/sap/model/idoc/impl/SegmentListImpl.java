@@ -82,7 +82,7 @@ public class SegmentListImpl<S extends Segment> extends EObjectImpl implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SegmentListImpl() {
+	public SegmentListImpl() {
 		super();
 	}
 

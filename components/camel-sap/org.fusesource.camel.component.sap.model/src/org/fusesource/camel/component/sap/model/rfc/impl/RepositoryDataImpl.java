@@ -59,7 +59,7 @@ public class RepositoryDataImpl extends EObjectImpl implements RepositoryData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RepositoryDataImpl() {
+	public RepositoryDataImpl() {
 		super();
 	}
 

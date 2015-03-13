@@ -581,7 +581,7 @@ public class DestinationDataImpl extends EObjectImpl implements DestinationData 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DestinationDataImpl() {
+	public DestinationDataImpl() {
 		super();
 	}
 
