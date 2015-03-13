@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-@UriEndpoint(scheme="sap-qidoclist-destination")
+@UriEndpoint(scheme="sap-qidoclist-destination", syntax = "sap-qidoclist-destination:destination")
 public class SapQueuedIDocListDestinationEndpoint extends SapIDocDestinationEndpoint {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapQueuedIDocListDestinationEndpoint.class); 

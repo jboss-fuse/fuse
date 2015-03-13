@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-@UriEndpoint(scheme="sap-idoclist-destination")
+@UriEndpoint(scheme="sap-idoclist-destination", syntax = "sap-idoclist-destination:destination")
 public class SapTransactionalIDocListDestinationEndpoint extends SapIDocDestinationEndpoint {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalIDocListDestinationEndpoint.class); 
