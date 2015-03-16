@@ -86,7 +86,7 @@ public class EsbProfileLongTest extends EsbFeatureTest {
         Provision.containerStatus(containers, PROVISION_TIMEOUT);
 
         for (String featureName : featureNames.split(" ")) {
-            System.out.println(executeCommandAsAdmin("fabric:profile-edit --features "+featureName+" "+targetProfile.getId()));
+            System.out.println(executeCommandAsAdmin("fabric:profile-edit --feature "+featureName+" "+targetProfile.getId()));
         }
 
         System.out.println(executeCommandAsAdmin("fabric:profile-display "+ profileName));
@@ -123,7 +123,7 @@ public class EsbProfileLongTest extends EsbFeatureTest {
 
         Provision.containerStatus(containers, PROVISION_TIMEOUT);
         for (String featureName : featureNames.split(" ")) {
-            System.out.println(executeCommandAsAdmin("fabric:profile-edit --delete --features "+featureName+" "+targetProfile.getId()));
+            System.out.println(executeCommandAsAdmin("fabric:profile-edit --delete --feature "+featureName+" "+targetProfile.getId()));
         }
     }
 }
