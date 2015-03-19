@@ -91,7 +91,7 @@
         <antlr2.bundle.version>2.7.7_5</antlr2.bundle.version>
         <rhino.bundle.version>1.7R2_3</rhino.bundle.version>
         <groovy.version>2.1.9</groovy.version>
-        <jruby.version>1.7.6-redhat.002</jruby.version>
+        <jruby.version>1.7.18-redhat.001</jruby.version>
         <scriptengines.version>1.1.1</scriptengines.version>
         <xmlresolver.bundle.version>1.2_5</xmlresolver.bundle.version>
         <jaxb-impl.bundle.version>2.2.1.1_2</jaxb-impl.bundle.version>
