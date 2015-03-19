@@ -52,7 +52,7 @@ Build and Deploy the Quickstart
 
     Country         Text(80)
     Description     Long Text Area(1024)
-    Milk            PickList with values Cow, Ewe, Goat
+    Milk            MultiSelect PickList with values Cow, Ewe, Goat
 
 * Change your working directory to `camel-salesforce` directory.
 * Edit the org.jboss.quickstarts.fuse.salesforce.cfg file in 'camel-salesforce' directory with a text editor and add the following contents:
@@ -92,11 +92,24 @@ To use the application be sure to have deployed the quickstart in Fuse as descri
         Receiving file cheese1.json
         Sending file cheese1.json to Salesforce
         Creating cheese with name Asiago...
-        Done creating cheese with success=true and errors=null
+        Receiving file cheese2.json
+        Sending file cheese2.json to Salesforce
+        Creating cheese with name Blue...
+        Receiving file cheese3.json
+        Sending file cheese3.json to Salesforce
+        Creating cheese with name Gruyere...
+        Created cheese Asiago with result success=true and errors=[]
+        Created cheese Blue with result success=true and errors=[]
+        Created cheese Gruyere with result success=true and errors=[]
 4. In a few moments Salesforce should send streaming notifications, which are written to the directory 'work/camel-salesforce/output' in your JBoss Fuse installation.
 5. Use `log:display` to check out the business logging for these notifications.
-        Received update notification for Asiago
+        Received created notification for Asiago
         Done writing notification to file Asiago.json
+        Received created notification for Blue
+        Done writing notification to file Blue.json
+        Received created notification for Gruyere
+        Done writing notification to file Gruyere.json4.
+
 
 Undeploy the Archive
 --------------------

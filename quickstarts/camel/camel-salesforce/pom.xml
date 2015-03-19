@@ -90,6 +90,7 @@
         <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent! -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
+        <version.build-helper-maven-plugin>1.9.1</version.build-helper-maven-plugin>
 
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -140,10 +141,35 @@
         <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${version.build-helper-maven-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/camel-salesforce</source>
+                            </sources>
+                          </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <version>${version.maven-bundle-plugin}</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>org.apache.camel.salesforce.dto,org.jboss.quickstarts.fuse.salesforce</Export-Package>
+                        <Import-Package>org.apache.camel.salesforce.dto;version=${project.version},org.jboss.quickstarts.fuse.salesforce;version=${project.version},*</Import-Package>
+                    </instructions>
+                </configuration>
             </plugin>
                 <!--
                   this plugin will use the fabric.* properties to configure its behaviour

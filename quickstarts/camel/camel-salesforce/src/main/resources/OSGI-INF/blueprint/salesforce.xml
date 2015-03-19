@@ -33,12 +33,17 @@
 
   <bean id="salesforce" class="org.apache.camel.component.salesforce.SalesforceComponent">
     <property name="loginConfig">
-      <bean class="org.apache.camel.component.salesforce.SalesforceConfiguration">
+      <bean class="org.apache.camel.component.salesforce.SalesforceLoginConfig">
         <property name="clientId" value="${clientId}"/>
         <property name="clientSecret" value="${clientSecret}"/>
         <property name="userName" value="${userName}"/>
         <property name="password" value="${password}"/>
       </bean>
+    </property>
+    <property name="packages">
+      <array>
+        <value>org.apache.camel.salesforce.dto</value>
+      </array>
     </property>
   </bean>
 
@@ -51,49 +56,65 @@
   -->
   <camelContext xmlns="http://camel.apache.org/schema/blueprint" id="salesforce-example-context">
 
-    <dataFormats>
-      <!-- Here we define a Json data format with the id jack and use a Map as the unmarshal type -->
-      <json id="cheeseJson" library="Jackson" unmarshalTypeName="org.apache.camel.salesforce.dto.Cheese__c" />
-    </dataFormats>
-
     <!--
-      When this route is started, it will automatically create the work/salesforce/input directory where you can drop the
+      When this route is started, it will automatically create the work/camel-salesforce/input directory where you can drop the
       file that need to be processed.
 
       The <log/> elements are used to add human-friendly business logging statements. They make it easier to see what the
       route is doing.
 
-      The <to/> element contains the JBoss Data Virtualization destination endpoint.
+      The <to/> element contains the Salesforce destination endpoint.
     -->
     <route id="salesforce-route">
 
-      <from uri="file:work/salesforce/input" />
+      <from uri="file:work/camel-salesforce/input" />
 
       <log message="Receiving file ${file:name}" />
       <log message="Sending file ${file:name} to Salesforce" />
 
-      <unmarshal ref="cheeseJson" />
-      <setHeader headerName="SalesforceEndpointConfig.SOBJECT_EXT_ID_VALUE">
+      <!-- use JsonHelper to use org.codehaus.jackson to convert json String to Cheese__c -->
+      <bean beanType="org.jboss.quickstarts.fuse.salesforce.JsonHelper" method="readFile"/>
+
+      <!-- remember name for later -->
+      <setHeader headerName="name">
         <simple>${body.name}</simple>
       </setHeader>
 
       <log message="Creating cheese with name ${body.name}..." />
-      <to uri="salesforce:upsertSObject?sObjectName=Cheese__c&amp;sObjectIdName=Name" />
+      <to uri="salesforce:upsertSObject?sObjectIdName=Name" />
 
-      <log message="Done creating cheese with success=${body.success} and errors=${body.errors}" />
+      <choice>
+        <when>
+          <simple>${body} != null</simple>
+          <log message="Created cheese ${headers.name} with result success=${body.success} and errors=${body.errors}" />
+        </when>
+        <otherwise>
+          <log message="Updated cheese ${headers.name}" />
+        </otherwise>
+      </choice>
     </route>
 
     <!--
       This route uses Salesforce streaming API to receive notifications for updates to Cheese SObject
     -->
     <route id="salesforce-streaming-route">
-      <from uri="salesforce:JBossFuseQuickStartTopic?notifyForFields=ALL&amp;notifyForOperations=ALL&amp;sObjectName=Cheese__c&amp;updateTopic=true&amp;sObjectQuery=SELECT Name, Milk, Country FROM Cheese__c" />
-      <log message="Received update notification for ${body.name}" />
-      <marshal>
-        <json library="Jackson" />
-      </marshal>
-      <to uri="file:work/salesforce/output?fileName=${body.name}.json" />
-      <log message="Done writing notification to file ${body.name}.json" />
+      <!-- create or update PushTopic -->
+      <from uri="salesforce:JBossFuseQuickStartTopic?notifyForOperationDelete=false&amp;notifyForOperationUndelete=false&amp;notifyForOperationCreate=true&amp;notifyForOperationUpdate=true&amp;notifyForFields=ALL&amp;sObjectName=Cheese__c&amp;updateTopic=true&amp;sObjectQuery=SELECT Id, Name, Milk__c, Country__c FROM Cheese__c" />
+
+      <log message="Received ${headers.CamelSalesforceEventType} notification for ${body.name}" />
+
+      <!-- use Cheese name as file name -->
+      <setHeader headerName="CamelFileName">
+        <simple>${body.name}</simple>
+      </setHeader>
+
+      <!-- use JsonHelper to use org.codehaus.jackson to convert Cheese__c to json String -->
+      <bean beanType="org.jboss.quickstarts.fuse.salesforce.JsonHelper" method="writeFile"/>
+
+      <!-- write to output directory -->
+      <to uri="file:work/camel-salesforce/output/" />
+
+      <log message="Done writing notification to file ${headers.CamelFileName}.json" />
     </route>
 
   </camelContext>
