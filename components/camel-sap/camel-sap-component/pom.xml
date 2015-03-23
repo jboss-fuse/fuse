@@ -86,13 +86,6 @@
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.eclipse.emf</groupId> -->
-<!-- 			<artifactId>org.eclipse.emf.edit</artifactId> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 			<optional>true</optional> -->
-<!-- 		</dependency> -->
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -191,6 +184,16 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+			  <groupId>org.apache.felix</groupId>
+			  <artifactId>maven-bundle-plugin</artifactId>
+			  <extensions>true</extensions>
+			  <configuration>
+			  	<instructions>
+			  		<Bundle-Activator>org.fusesource.camel.component.sap.Activator</Bundle-Activator>
+			  	</instructions>
+			  </configuration>
+			</plugin>			
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
