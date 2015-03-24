@@ -40,8 +40,8 @@ public class SapTransactionalIDocListServerComponentConfigurationAndDocumentatio
         String json = compConf.createParameterJsonSchema();
         assertNotNull(json);
 
-        assertTrue(json.contains("\"stateful\": { \"type\": \"boolean\" }"));
-        assertTrue(json.contains("\"propagateExceptions\": { \"type\": \"boolean\" }"));
+        assertTrue(json.contains("\"stateful\": { \"type\": \"boolean\", \"javaType\": \"boolean\" }"));
+        assertTrue(json.contains("\"propagateExceptions\": { \"type\": \"boolean\", \"javaType\": \"boolean\" }"));
     }
 
 }

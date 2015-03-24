@@ -56,10 +56,6 @@
 		<fuse.osgi.services.export>org.apache.camel.spi.ComponentResolver;component=sap</fuse.osgi.services.export>
 		<native.lib.directory>${project.build.directory}/jni</native.lib.directory>
 		<lib.directory>${project.build.directory}/lib</lib.directory>
-		<!-- Temporary Overrides for testing 
-		<camel-version>2.12.0</camel-version>
-		<karaf-version>2.3.3</karaf-version>
-		-->
 	</properties>
 
 	<dependencies>
@@ -83,6 +79,12 @@
 		<dependency>
 			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.edit</artifactId>
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
