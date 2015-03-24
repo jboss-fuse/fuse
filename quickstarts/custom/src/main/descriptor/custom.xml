@@ -18,7 +18,7 @@
         </fileSet>
         <!-- add a set of bundles that are commonly listed in the etc/startup.properties -->
         <fileSet>
-            <directory>target/original/jboss-fuse-${jboss-fuse.version}/system</directory>
+            <directory>target/original/jboss-fuse-${jboss.fuse.version}/system</directory>
             <outputDirectory>system</outputDirectory>
             <includes>
                 <include>io/fabric8/fabric-ssl/**</include>
@@ -30,7 +30,7 @@
         </fileSet>
         <!-- finally, add the remaining files from the original assembly (excluding the system folder) -->
         <fileSet>
-            <directory>target/original/jboss-fuse-${jboss-fuse.version}</directory>
+            <directory>target/original/jboss-fuse-${jboss.fuse.version}</directory>
             <outputDirectory>/</outputDirectory>
             <excludes>
                 <exclude>system/**</exclude>
