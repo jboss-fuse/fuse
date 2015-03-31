@@ -106,7 +106,7 @@
     </dependencies>
   </dependencyManagement>
 
-    <dependencies>
+  <dependencies>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-blueprint</artifactId>
@@ -137,6 +137,11 @@
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-transports-http-jetty</artifactId>
     </dependency>
+    <!-- explicit dependency to exclude asm:asm:3.3.1 -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-frontend-jaxws</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -147,7 +152,41 @@
           <groupId>org.apache.felix</groupId>
           <artifactId>org.apache.felix.fileinstall</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>biz.aQute</groupId>
+          <artifactId>bndlib</artifactId>
+        </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries.proxy</groupId>
+      <artifactId>org.apache.aries.proxy.api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries.proxy</groupId>
+      <artifactId>org.apache.aries.proxy.impl</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.base</groupId>
+      <artifactId>ops4j-base-io</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.base</groupId>
+      <artifactId>ops4j-base-lang</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.base</groupId>
+      <artifactId>ops4j-base-store</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.swissbox</groupId>
+      <artifactId>pax-swissbox-bnd</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -163,7 +202,8 @@
     </dependency>
   </dependencies>
 
-    <build>
+
+  <build>
     <finalName>shared</finalName>
     <plugins>
       <plugin>
@@ -192,6 +232,17 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+
+
+      <!-- Compiler plugin enforces Java 1.7 compatibility and activates annotation processors -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${version.compiler.plugin}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
       </plugin>
 
       <plugin>
