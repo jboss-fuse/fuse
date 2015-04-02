@@ -34,6 +34,7 @@ import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoDestinationManager;
 import com.sap.conn.jco.server.JCoServer;
 import com.sap.conn.jco.server.JCoServerFactory;
+import com.sap.conn.jco.server.JCoServerState;
 
 /**
  * An SAP component that manages {@link SapTransactionalRfcServerEndpoint}
@@ -91,6 +92,11 @@ public abstract class SapRfcServerComponent extends UriEndpointComponent {
 		JCoServer server = activeServers.get(serverName);
 		if (server == null) {
 			server = JCoServerFactory.getServer(serverName);
+			
+			if (server.getState() != JCoServerState.STOPPED) {
+				// Another application has already registered and started this server connection.
+				throw new Exception("The server connection '" + serverName + "' is already in use");
+			}
 
 			server.setCallHandlerFactory(new FunctionHandlerFactory());
 			
@@ -150,5 +156,18 @@ public abstract class SapRfcServerComponent extends UriEndpointComponent {
 		for (JCoServer server : activeServers.values()) {
 			server.start();
 		}
+	}
+	
+	@Override
+	protected void doStop() throws Exception {
+		for (JCoServer server : activeServers.values()) {
+			server.stop();
+			server.removeServerErrorListener(serverErrorAndExceptionListener);
+			server.removeServerExceptionListener(serverErrorAndExceptionListener);
+			server.removeServerStateChangedListener(serverStateChangedListener);
+			server.setTIDHandler(null);
+			server.release();
+		}
+		super.doStop();
 	}
 }

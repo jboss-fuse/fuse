@@ -47,6 +47,7 @@ import com.sap.conn.jco.server.JCoServer;
 import com.sap.conn.jco.server.JCoServerContext;
 import com.sap.conn.jco.server.JCoServerFactory;
 import com.sap.conn.jco.server.JCoServerFunctionHandlerFactory;
+import com.sap.conn.jco.server.JCoServerState;
 import com.sap.conn.jco.server.JCoServerTIDHandler;
 
 import static org.mockito.Mockito.mock;
@@ -282,6 +283,7 @@ public abstract class SapRfcTestSupport extends JCoTestSupport {
 		when(mockServer.getCallHandlerFactory()).thenReturn(new FunctionHandlerFactory());
 		when(mockServer.getTIDHandler()).thenReturn(mockServerTIDHandler);
 		when(mockServer.getRepository()).thenReturn(mockRepository);
+		when(mockServer.getState()).thenReturn(JCoServerState.STOPPED);
 		
 		/* Enhance server context mock */
 		when(mockServerContext.getRepository()).thenReturn(mockRepository);

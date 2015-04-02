@@ -31,6 +31,7 @@ import com.sap.conn.idoc.jco.JCoIDocServer;
 import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoDestinationManager;
 import com.sap.conn.jco.server.JCoServer;
+import com.sap.conn.jco.server.JCoServerState;
 
 /**
  * An SAP component that manages {@link SapTransactionalIDocListServerEndpoint}.
@@ -105,6 +106,11 @@ public class SapTransactionalIDocListServerComponent extends UriEndpointComponen
 		if (server == null) {
 			server = JCoIDoc.getServer(serverName);
 			
+			if (server.getState() != JCoServerState.STOPPED) {
+				// Another application has already registered and started this server connection.
+				throw new Exception("The server connection '" + serverName + "' is already in use");
+			}
+
 			server.setIDocHandlerFactory(new IDocHandlerFactory());
 			
 			File tidStoreFile = new File(tidStoresLocation, serverName);
@@ -161,6 +167,14 @@ public class SapTransactionalIDocListServerComponent extends UriEndpointComponen
     
     @Override
     protected void doStop() throws Exception {
+    	for(JCoServer server: activeServers.values()) {
+    		server.stop();
+			server.removeServerErrorListener(serverErrorAndExceptionListener);
+			server.removeServerExceptionListener(serverErrorAndExceptionListener);
+			server.removeServerStateChangedListener(serverStateChangedListener);
+			server.setTIDHandler(null);
+    		server.release();
+    	}
     	super.doStop();
     	LOG.debug("STOPPED");
     }

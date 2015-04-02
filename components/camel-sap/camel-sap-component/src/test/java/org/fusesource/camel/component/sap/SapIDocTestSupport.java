@@ -40,6 +40,7 @@ import com.sap.conn.idoc.IDocSegmentMetaData;
 import com.sap.conn.idoc.jco.JCoIDocServer;
 import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.server.JCoServerContext;
+import com.sap.conn.jco.server.JCoServerState;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -1618,6 +1619,7 @@ public abstract class SapIDocTestSupport extends JCoTestSupport {
 		when(mockIDocServer.getProgramID()).thenReturn(TEST_PROGRAM_ID);
 		when(mockIDocServer.getIDocHandlerFactory()).thenReturn(mockIDocHandlerFactory);
 		when(mockIDocServer.getIDocRepository()).thenReturn(mockIDocRepository);
+		when(mockIDocServer.getState()).thenReturn(JCoServerState.STOPPED);
 		
 		/* Enhance IDoc Repository  mock */
 		when(mockIDocRepository.getName()).thenReturn(TEST_REPOSITORY);
