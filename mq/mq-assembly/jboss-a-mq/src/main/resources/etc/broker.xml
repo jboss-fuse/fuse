@@ -55,6 +55,21 @@
 
         <plugins>
             <jaasAuthenticationPlugin configuration="karaf" />
+            <authorizationPlugin>
+              <map>
+                <authorizationMap groupClass="org.apache.karaf.jaas.boot.principal.RolePrincipal">
+                  <!-- manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,User -->
+                  <authorizationEntries>
+                    <authorizationEntry queue=">" read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" write="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" admin="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser"/>
+                    <authorizationEntry topic=">" read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" write="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" admin="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser"/>
+                    <authorizationEntry topic="ActiveMQ.Advisory.>" read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,User" write="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,User" admin="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,User" />
+                  </authorizationEntries>
+                  <tempDestinationAuthorizationEntry>
+                    <tempDestinationAuthorizationEntry read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" write="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" admin="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser"/>
+                  </tempDestinationAuthorizationEntry>
+                </authorizationMap>
+              </map>
+            </authorizationPlugin>
         </plugins>
 
         <systemUsage>
