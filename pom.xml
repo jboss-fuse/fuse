@@ -52,7 +52,7 @@
 
     <properties>
         <perfectus-build>053</perfectus-build>
-        <perfectus.version>103</perfectus.version>
+        <perfectus.version>102</perfectus.version>
         <full-perfectus-build>620${perfectus-build}</full-perfectus-build>
 
         <!-- we inherit from the fabric8 BOM so most versions we need are defined there-->
