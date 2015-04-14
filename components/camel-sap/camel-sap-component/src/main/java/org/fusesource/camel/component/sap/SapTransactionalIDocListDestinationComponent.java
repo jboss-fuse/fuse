@@ -46,7 +46,7 @@ public class SapTransactionalIDocListDestinationComponent extends UriEndpointCom
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length < 2) {
-			throw new IllegalArgumentException("URI must be of the form: sap-idoclist-destination:<destinationName>:<idocType>[<idocTypeExtension>[<systemRelease>[<applicationRelease>]]]");
+			throw new IllegalArgumentException("URI must be of the form: sap-idoclist-destination:<destination>:<idocType>[<idocTypeExtension>[<systemRelease>[<applicationRelease>]]]");
 		}
 
 		// Extract URI components

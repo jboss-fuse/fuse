@@ -17,7 +17,9 @@
 package org.fusesource.camel.component.sap;
 
 import org.apache.camel.Producer;
+import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriEndpoint;
+import org.apache.camel.spi.UriPath;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,11 +29,12 @@ import org.slf4j.LoggerFactory;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-@UriEndpoint(scheme="sap-qrfc-destination", syntax = "sap-qrfc-destination:destinationName:queueName")
+@UriEndpoint(scheme="sap-qrfc-destination", syntax = "sap-qrfc-destination:destination:queue:rfc", producerOnly = true)
 public class SapQueuedRfcDestinationEndpoint extends SapRfcDestinationEndpoint {
 	
     private static final Logger LOG = LoggerFactory.getLogger(SapQueuedRfcDestinationEndpoint.class);
     
+	@UriPath(name = "queue", description = "Specifies the queue this endpoint sends an SAP request to") @Metadata(required = "true")
     protected String queueName;
 
 	public SapQueuedRfcDestinationEndpoint() {

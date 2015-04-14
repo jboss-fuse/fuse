@@ -46,7 +46,7 @@ public class SapSynchronousRfcServerComponent extends SapRfcServerComponent {
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length != 2) {
-			throw new IllegalArgumentException("URI must be of the form: sap-srfc-server:<serverName>:<rfcName>");
+			throw new IllegalArgumentException("URI must be of the form: sap-srfc-server:<server>:<rfc>");
 		}
 
 		// Extract URI components

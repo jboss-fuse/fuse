@@ -40,6 +40,12 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>apt</artifactId>
+				<version>${camel-version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
 				<groupId>org.fusesource</groupId>
 				<artifactId>org.fusesource.camel.component.sap</artifactId>
 				<version>${camel.sap.plugin.version}</version>
@@ -378,6 +384,19 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-package-maven-plugin</artifactId>
+				<version>${camel-version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate-components-list</goal>
+						</goals>
+						<phase>generate-resources</phase>
+					</execution>
+				</executions>
 			</plugin>
 			</plugins>
 		</pluginManagement>

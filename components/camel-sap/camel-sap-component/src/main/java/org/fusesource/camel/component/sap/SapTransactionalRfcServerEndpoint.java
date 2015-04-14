@@ -29,12 +29,12 @@ import org.slf4j.LoggerFactory;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-@UriEndpoint(scheme="sap-trfc-server", consumerClass=SapTransactionalRfcConsumer.class, syntax = "sap-trfc-server:serverName:rfcName")
+@UriEndpoint(scheme="sap-trfc-server", consumerClass=SapTransactionalRfcConsumer.class, syntax = "sap-trfc-server:server:rfc", consumerOnly = true)
 public class SapTransactionalRfcServerEndpoint extends SapRfcServerEndpoint {
 	
     private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalRfcServerEndpoint.class);
 
-    @UriParam
+	@UriParam(name = "propagateExceptions", description = "When true, specifies that this endpoint will propagate exceptions back to SAP instead of the exchange's exception handler", defaultValue = "false")
 	protected boolean propagateExceptions;
 
 	public SapTransactionalRfcServerEndpoint() {

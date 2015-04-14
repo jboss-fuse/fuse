@@ -40,8 +40,10 @@ public class SapTransactionalRfcDestinationComponentConfigurationAndDocumentatio
         String json = compConf.createParameterJsonSchema();
         assertNotNull(json);
 
-        assertTrue(json.contains("\"stateful\": { \"type\": \"boolean\", \"javaType\": \"boolean\" }"));
-        assertTrue(json.contains("\"transacted\": { \"type\": \"boolean\", \"javaType\": \"boolean\" }"));
+        assertTrue(json.contains("\"destination\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"description\": \"Specifies the destination this endpoint sends an SAP request to\" }"));
+        assertTrue(json.contains("\"rfc\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"description\": \"Specifies the Remote Function Module this endpoint sends an SAP request to\" }"));
+        assertTrue(json.contains("\"transacted\": { \"kind\": \"parameter\", \"type\": \"boolean\", \"javaType\": \"boolean\", \"deprecated\": \"false\", \"defaultValue\": \"false\", \"description\": \"When true specifies that this endpoint will initiate an SAP transaction\" }"));
+        assertTrue(json.contains("\"stateful\": { \"kind\": \"parameter\", \"type\": \"boolean\", \"javaType\": \"boolean\", \"deprecated\": \"false\", \"defaultValue\": \"false\", \"description\": \"When true specifies that this endpoint will initiate an SAP stateful session\" }"));
     }
 
 }

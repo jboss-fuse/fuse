@@ -46,7 +46,7 @@ public class SapTransactionalRfcDestinationComponent extends UriEndpointComponen
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length != 2) {
-			throw new IllegalArgumentException("URI must be of the form: sap-trfc-destination:<destinationName>:<rfcName>");
+			throw new IllegalArgumentException("URI must be of the form: sap-trfc-destination:<destination>:<rfc>");
 		}
 
 		// Extract URI components

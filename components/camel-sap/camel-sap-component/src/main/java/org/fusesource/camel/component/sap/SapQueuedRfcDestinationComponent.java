@@ -46,7 +46,7 @@ public class SapQueuedRfcDestinationComponent extends UriEndpointComponent {
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length != 3) {
-			throw new IllegalArgumentException("URI must be of the form: sap-qrfc-destination:<destinationName>:<queueName>:<rfcName>");
+			throw new IllegalArgumentException("URI must be of the form: sap-qrfc-destination:<destination>:<queue>:<rfc>");
 		}
 
 		// Extract URI components

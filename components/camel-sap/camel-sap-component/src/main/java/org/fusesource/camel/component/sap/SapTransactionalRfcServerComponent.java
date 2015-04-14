@@ -46,7 +46,7 @@ public class SapTransactionalRfcServerComponent extends SapRfcServerComponent {
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length != 2) {
-			throw new IllegalArgumentException("URI must be of the form: sap-trfc-server:<serverName>:<rfcName>");
+			throw new IllegalArgumentException("URI must be of the form: sap-trfc-server:<server>:<rfc>");
 		}
 
 		// Extract URI components

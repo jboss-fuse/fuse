@@ -40,7 +40,9 @@ public class SapTransactionalRfcServerComponentConfigurationAndDocumentationTest
         String json = compConf.createParameterJsonSchema();
         assertNotNull(json);
 
-        assertTrue(json.contains("\"stateful\": { \"type\": \"boolean\", \"javaType\": \"boolean\" }"));
-        assertTrue(json.contains("\"propagateExceptions\": { \"type\": \"boolean\", \"javaType\": \"boolean\" }"));
+        assertTrue(json.contains("\"server\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"description\": \"Specifies the server this endpoint receives an SAP request from\" },"));
+        assertTrue(json.contains("\"rfc\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"description\": \"Specifies the Remote Function Module this endpoint handles an SAP request for\" }"));
+        assertTrue(json.contains("\"propagateExceptions\": { \"kind\": \"parameter\", \"type\": \"boolean\", \"javaType\": \"boolean\", \"deprecated\": \"false\", \"defaultValue\": \"false\", \"description\": \"When true specifies that this endpoint will propagate exceptions back to SAP instead of the exchange's exception handler\" }"));
+        assertTrue(json.contains("\"stateful\": { \"kind\": \"parameter\", \"type\": \"boolean\", \"javaType\": \"boolean\", \"deprecated\": \"false\", \"defaultValue\": \"false\", \"description\": \"When true specifies that this endpoint will initiate an SAP stateful session\" }"));
     }
 }

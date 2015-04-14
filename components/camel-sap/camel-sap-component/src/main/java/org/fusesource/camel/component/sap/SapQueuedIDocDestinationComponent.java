@@ -46,7 +46,7 @@ public class SapQueuedIDocDestinationComponent extends UriEndpointComponent {
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length < 3) {
-			throw new IllegalArgumentException("URI must be of the form: sap-qidoc-destination:<destinationName>:<queueName>:<idocType>[<idocTypeExtension>[<systemRelease>[<applicationRelease>]]]");
+			throw new IllegalArgumentException("URI must be of the form: sap-qidoc-destination:<destination>:<queue>:<idocType>[<idocTypeExtension>[<systemRelease>[<applicationRelease>]]]");
 		}
 
 		// Extract URI components

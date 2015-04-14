@@ -46,7 +46,7 @@ public class SapSynchronousRfcDestinationComponent extends UriEndpointComponent 
 		String[] uriComponents = remaining.split(":");
 
 		if (uriComponents.length != 2) {
-			throw new IllegalArgumentException("URI must be of the form: sap-srfc-destination:<destinationName>:<rfcName>");
+			throw new IllegalArgumentException("URI must be of the form: sap-srfc-destination:<destination>:<rfc>");
 		}
 
 		// Extract URI components

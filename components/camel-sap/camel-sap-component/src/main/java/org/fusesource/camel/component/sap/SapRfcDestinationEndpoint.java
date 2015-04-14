@@ -20,7 +20,9 @@ import org.apache.camel.Component;
 import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
 import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriParam;
+import org.apache.camel.spi.UriPath;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.util.RfcUtil;
 import org.slf4j.Logger;
@@ -39,12 +41,18 @@ public abstract class SapRfcDestinationEndpoint extends DefaultEndpoint {
 	
     private static final Logger LOG = LoggerFactory.getLogger(SapRfcDestinationEndpoint.class);
 
+	@UriPath(name = "destination", description = "Specifies the destination this endpoint sends an SAP request to") @Metadata(required = "true")
     protected String destinationName;
+	
+	@UriPath(name = "rfc", description = "Specifies the Remote Function Module this endpoint sends an SAP request to") @Metadata(required = "true")
 	protected String rfcName;
-	@UriParam
+	
+	@UriParam(name = "transacted", description = "When true, specifies that this endpoint will initiate an SAP transaction", defaultValue = "false")
 	protected boolean transacted;
-	@UriParam
+	
+	@UriParam(name = "stateful", description = "When true, specifies that this endpoint will initiate an SAP stateful session", defaultValue = "false")
 	protected boolean stateful;
+	
 	protected JCoDestination destination;
 	
 
