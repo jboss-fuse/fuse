@@ -41,7 +41,7 @@ import com.sap.conn.jco.JCoException;
  * @author William Collins <punkhornsw@gmail.com>
  * 
  */
-@UriEndpoint(scheme = "sap-idoclist-server", consumerClass = SapTransactionalIDocListConsumer.class, syntax = "sap-idoclist-server:server:rfc", consumerOnly = true)
+@UriEndpoint(scheme = "sap-idoclist-server", consumerClass = SapTransactionalIDocListConsumer.class, syntax = "sap-idoclist-server:server:rfc", consumerOnly = true, title="SAP")
 public class SapTransactionalIDocListServerEndpoint extends DefaultEndpoint {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapTransactionalIDocListServerEndpoint.class);
