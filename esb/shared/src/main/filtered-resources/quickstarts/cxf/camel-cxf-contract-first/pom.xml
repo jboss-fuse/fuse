@@ -74,6 +74,9 @@
     <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
     <maven.compiler.target>1.7</maven.compiler.target>
     <maven.compiler.source>1.7</maven.compiler.source>
+    <version.maven-surefire-plugin>2.15</version.maven-surefire-plugin>
+    <skipTests>true</skipTests>
+    <cxf-version>3.0.2</cxf-version>
     <!-- the version of the BOM, defining all the dependency versions -->
     <fabric.version>1.2.0-SNAPSHOT</fabric.version>
 
@@ -206,6 +209,15 @@
   <build>
     <finalName>shared</finalName>
     <plugins>
+      <!-- Skip Test by default and enable them only in Test profile -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${version.maven-surefire-plugin}</version>
+        <configuration>
+          <skipTests>${skipTests}</skipTests>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.cxf</groupId>
         <artifactId>cxf-codegen-plugin</artifactId>
@@ -268,4 +280,17 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>test</id>
+      <properties>
+        <skipTests>false</skipTests>
+      </properties>
+      <build>
+        <defaultGoal>verify</defaultGoal>
+      </build>
+    </profile>
+  </profiles>
+
 </project>
