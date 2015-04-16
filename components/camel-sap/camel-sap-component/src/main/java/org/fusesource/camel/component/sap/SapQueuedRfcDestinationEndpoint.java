@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * @author William Collins <punkhornsw@gmail.com>
  *
  */
-@UriEndpoint(scheme="sap-qrfc-destination", syntax = "sap-qrfc-destination:destination:queue:rfc", producerOnly = true, title="SAP")
+@UriEndpoint(scheme="sap-qrfc-destination", syntax = "sap-qrfc-destination:destination:queue:rfc", producerOnly = true, title="SAP Queued RFC Destination")
 public class SapQueuedRfcDestinationEndpoint extends SapRfcDestinationEndpoint {
 	
     private static final Logger LOG = LoggerFactory.getLogger(SapQueuedRfcDestinationEndpoint.class);
