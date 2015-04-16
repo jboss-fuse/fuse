@@ -4,9 +4,9 @@ JBoss A-MQ
 Configuration
 -------------
 The default broker is defined in: 
- ./etc/org.fusesource.mq.fabric.server-default.cfg
+ ./etc/org.apache.activemq.server-default.cfg
 The xml configuration is:
- ./etc/broker.xml
+ ./etc/activemq.xml
 
 Security Prerequisites
 ----------------------
