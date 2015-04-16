@@ -31,7 +31,19 @@
                 <exclude>system/**</exclude>
                 <exclude>**/demos/**</exclude>
                 <exclude>bin/**</exclude>
-                <exclude>etc/jmx.acl.*</exclude>
+                <exclude>etc/jmx.acl.cfg</exclude>
+                <exclude>etc/jmx.acl.whitelist.cfg</exclude>
+                <exclude>etc/jmx.acl.java.lang.Memory.cfg</exclude>
+                <exclude>etc/jmx.acl.org.apache.karaf.bundle.cfg</exclude>
+                <exclude>etc/jmx.acl.org.apache.karaf.config.cfg</exclude>
+                <exclude>etc/jmx.acl.osgi.compendium.cm.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.config.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.features.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.jaas.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.osgi.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.scope_bundle.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.shell.cfg</exclude>
+                <exclude>fabric/import/fabric/profiles/default.profile/jmx.acl.whitelist.properties</exclude>
                 <exclude>etc/users.properties</exclude>
                 <exclude>etc/org.ops4j.pax.web.cfg</exclude>
                 <exclude>etc/org.apache.karaf.features.cfg</exclude>
