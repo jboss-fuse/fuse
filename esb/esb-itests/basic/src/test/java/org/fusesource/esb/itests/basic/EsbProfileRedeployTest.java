@@ -31,6 +31,7 @@ import io.fabric8.itests.paxexam.support.Provision;
 import io.fabric8.mq.fabric.discovery.FabricDiscoveryAgent;
 import org.apache.curator.framework.CuratorFramework;
 import org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -57,6 +58,7 @@ public class EsbProfileRedeployTest extends EsbTestSupport {
 
     private long timeout = 30 * 1000L;
 
+    @Ignore("ENTESB-3040")
     @Test
     public void testProfileRedeploy() throws Exception {
         executeCommandAsAdmin("fabric:create -n");
