@@ -27,6 +27,7 @@ import io.fabric8.itests.paxexam.support.Provision;
 import io.fabric8.zookeeper.ZkPath;
 import org.apache.curator.framework.CuratorFramework;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.junit.PaxExam;
@@ -40,6 +41,7 @@ import static org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport.executeCom
 @ExamReactorStrategy(PerMethod.class)
 public class EsbProfileLongTest extends EsbFeatureTest {
 
+    @Ignore("ENTESB-3040")
     @Test
     public void testFeatures() throws Exception {
         System.err.println(executeCommandAsAdmin("fabric:create -n"));
