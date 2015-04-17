@@ -179,6 +179,8 @@
                                    <feature>mq-fabric-http-discovery</feature>
                                    <feature>activemq-broker</feature>
                                    <feature>activemq-camel</feature>
+                                   <feature>hawtio-redhat-amq-branding</feature>
+                                   <feature>hawtio-offline</feature>
                                    <feature>war</feature>
                                    <feature>fabric-redirect</feature>
                                    <feature>hawtio</feature>
@@ -278,6 +280,27 @@
                                     <version>${jasypt-spring.bundle.version}</version>
                                     <type>jar</type>
                                     <outputDirectory>target/features-repo/org/apache/servicemix/bundles/org.apache.servicemix.bundles.jasypt-spring31/${jasypt-spring.bundle.version}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>javax.mail</groupId>
+                                    <artifactId>mail</artifactId>
+                                    <version>${javax.mail.version}</version>
+                                    <type>jar</type>
+                                    <outputDirectory>target/features-repo/javax/mail/mail/${javax.mail.version}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.codehaus.jackson</groupId>
+                                    <artifactId>jackson-core-asl</artifactId>
+                                    <version>${jackson-version}</version>
+                                    <type>jar</type>
+                                    <outputDirectory>target/features-repo/org/codehaus/jackson/jackson-core-asl/${jackson-version}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.codehaus.jackson</groupId>
+                                    <artifactId>jackson-mapper-asl</artifactId>
+                                    <version>${jackson-version}</version>
+                                    <type>jar</type>
+                                    <outputDirectory>target/features-repo/org/codehaus/jackson/jackson-mapper-asl/${jackson-version}</outputDirectory>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
