@@ -95,7 +95,12 @@ public abstract class SapRfcServerEndpoint extends DefaultEndpoint {
 	}
 	
 	public Structure createResponse() throws Exception {
-		return RfcUtil.getResponse(getServer().getRepository(), getRfcName());
+		return RfcUtil.getResponse(getComponent().getRepository(serverName), getRfcName());
+	}
+	
+	
+	public SapRfcServerComponent getComponent() {
+		return (SapRfcServerComponent) super.getComponent();
 	}
 	
 	protected JCoServer getServer() {

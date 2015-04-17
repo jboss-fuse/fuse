@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<!-- Replace here =====================================================================vvv with the three character SID of your SAP instance -->
+<BAPI_FLCUST_GETLIST:Response xmlns:BAPI_FLCUST_GETLIST="http://sap.fusesource.org/rfc/XXX/BAPI_FLCUST_GETLIST">
+  <CUSTOMER_LIST>
+    <row CUSTOMERID="00000000" CUSTNAME="Fred Flintstone" FORM="Mr." STREET="123 Rubble Lane" POSTCODE="01234" CITY="Bedrock" COUNTR="US" PHONE="800-555-1212" EMAIL="fred@bedrock.com"/>
+    <row CUSTOMERID="00000001" CUSTNAME="Barney Rubble" FORM="Mr." STREET="123 Pebble Road" POSTCODE="98765" CITY="Flagstone" COUNTR="US" PHONE="800-555-1313" EMAIL="barney@flagstone.com"/>
+    <row CUSTOMERID="00000002" CUSTNAME="Wilma Flintstone" FORM="Mrs." STREET="123 Rubble Lane" POSTCODE="01234" CITY="Bedrock" COUNTR="US" PHONE="800-555-1212" EMAIL="wilma@bedrock.com"/>
+    <row CUSTOMERID="00000003" CUSTNAME="Betty Rubble" FORM="Mrs." STREET="123 Pebble Road" POSTCODE="98765" CITY="Flagstone" COUNTR="US" PHONE="800-555-1313" EMAIL="betty@flagstone.com"/>
+  </CUSTOMER_LIST>
+  <RETURN>
+    <row TYPE="S" ID="BC_IBF" MESSAGE="Method was executed successfully" LOG_MSG_NO="000000"/>
+  </RETURN>
+</BAPI_FLCUST_GETLIST:Response>

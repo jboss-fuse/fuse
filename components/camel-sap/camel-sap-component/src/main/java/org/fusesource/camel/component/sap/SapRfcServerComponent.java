@@ -142,10 +142,8 @@ public abstract class SapRfcServerComponent extends UriEndpointComponent {
 		JCoCustomRepository repository = repositories.get(serverName);
 		if (repository == null) {
 			RepositoryData repositoryData = repositoryDataStore.getEntries().get(serverName);
-			if (repositoryData != null) {
-				repository = RfcUtil.createRepository(serverName, repositoryData);
-				repositories.put(serverName, repository);
-			}
+			repository = RfcUtil.createRepository(serverName, repositoryData);
+			repositories.put(serverName, repository);
 		}
 		return repository;
 	}

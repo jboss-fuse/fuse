@@ -836,6 +836,9 @@ public class RfcUtil extends Util {
 			JCoFunctionTemplate functionTemplate;
 			try {
 				functionTemplate = repository.getFunctionTemplate(functionModuleName);
+				if (functionTemplate == null) {
+					return null;
+				}
 			} catch (JCoException e) {
 				return null;
 			}
@@ -1195,10 +1198,12 @@ public class RfcUtil extends Util {
 	 */
 	public static JCoCustomRepository createRepository(String repositoryName, RepositoryData repositoryData) {
 		JCoCustomRepository customRepository = JCo.createCustomRepository(repositoryName);
-		for (String functionTemplateName: repositoryData.getEntries().keySet()) {
-			FunctionTemplate functionTemplate = repositoryData.getEntries().get(functionTemplateName);
-			JCoFunctionTemplate jcoFunctionTemplate = createJCoFunctionTemplate(functionTemplateName, functionTemplate);
-			customRepository.addFunctionTemplateToCache(jcoFunctionTemplate);
+		if (repositoryData != null) {
+			for (String functionTemplateName : repositoryData.getEntries().keySet()) {
+				FunctionTemplate functionTemplate = repositoryData.getEntries().get(functionTemplateName);
+				JCoFunctionTemplate jcoFunctionTemplate = createJCoFunctionTemplate(functionTemplateName, functionTemplate);
+				customRepository.addFunctionTemplateToCache(jcoFunctionTemplate);
+			}
 		}
 		return customRepository;
 	}
