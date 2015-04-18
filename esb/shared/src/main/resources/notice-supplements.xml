@@ -735,7 +735,7 @@
     </supplement>
     <supplement>
         <project>
-            <groupId>org.apache.xerces</groupId>
+            <groupId>xerces</groupId>
             <artifactId>xercesImpl</artifactId>
             <name>Apache Xerces</name>
             <licenses>
