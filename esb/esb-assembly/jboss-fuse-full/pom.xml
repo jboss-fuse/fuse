@@ -283,7 +283,6 @@
                       
                                         <!-- Add the sap component and its example -->
                                         <descriptor>mvn:org.fusesource/camel-sap/${project.version}/xml/features</descriptor>
-                                        <descriptor>mvn:org.jboss.quickstarts.fuse/camel-sap/${project.version}/xml/features</descriptor>
                                     </descriptors>
                                     <includeMvnBasedDescriptors>true</includeMvnBasedDescriptors>
                                     <repository>target/features-repo</repository>
