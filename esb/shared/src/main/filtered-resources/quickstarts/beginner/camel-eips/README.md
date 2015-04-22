@@ -49,8 +49,8 @@ System requirements
 
 Before building and running this example you need:
 
-* Maven 3.0.4 or higher
-* JDK 1.6 or 1.7
+* Maven 3.1.1 or higher
+* JDK 1.7 or 1.8
 * JBoss Fuse 6
 
 
