@@ -36,7 +36,6 @@ import static org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport.executeCom
 @ExamReactorStrategy(PerMethod.class)
 public class EsbProfileTest extends EsbFeatureTest {
 
-    @Ignore("ENTESB-3040")
     @Test
     public void testLocalChildCreation() throws Exception {
         System.err.println(executeCommandAsAdmin("fabric:create -n"));

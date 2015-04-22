@@ -58,7 +58,7 @@ public class EsbProfileRedeployTest extends EsbTestSupport {
 
     private long timeout = 30 * 1000L;
 
-    @Ignore("ENTESB-3040")
+    //@Ignore("ENTESB-3040")
     @Test
     public void testProfileRedeploy() throws Exception {
         executeCommandAsAdmin("fabric:create -n");
@@ -66,7 +66,7 @@ public class EsbProfileRedeployTest extends EsbTestSupport {
         try {
             FabricService fabricService = fabricProxy.getService();
 
-            Set<ContainerProxy> containers = ContainerBuilder.create(fabricProxy, 1).withJvmOpts("-Xmx512m -XX:MaxPermSize=128m")
+            Set<ContainerProxy> containers = ContainerBuilder.create(fabricProxy, 1).withJvmOpts("-Xmx1536m -XX:MaxPermSize=256m")
                     .withName("node").withProfiles("jboss-fuse-full").assertProvisioningResult().build();
             try {
                 Container node = containers.iterator().next();
