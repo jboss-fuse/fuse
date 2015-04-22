@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<!-- Replace here =====================================================================vvv with the three character SID of your SAP instance -->
-<BAPI_FLCUST_GETLIST:Response xmlns:BAPI_FLCUST_GETLIST="http://sap.fusesource.org/rfc/XXX/BAPI_FLCUST_GETLIST">
+<BAPI_FLCUST_GETLIST:Response xmlns:BAPI_FLCUST_GETLIST="http://sap.fusesource.org/rfc/quickstartServer/BAPI_FLCUST_GETLIST">
   <CUSTOMER_LIST>
     <row CUSTOMERID="00000000" CUSTNAME="Fred Flintstone" FORM="Mr." STREET="123 Rubble Lane" POSTCODE="01234" CITY="Bedrock" COUNTR="US" PHONE="800-555-1212" EMAIL="fred@bedrock.com"/>
     <row CUSTOMERID="00000001" CUSTNAME="Barney Rubble" FORM="Mr." STREET="123 Pebble Road" POSTCODE="98765" CITY="Flagstone" COUNTR="US" PHONE="800-555-1313" EMAIL="barney@flagstone.com"/>

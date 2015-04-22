@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 import org.fusesource.camel.component.sap.model.rfc.impl.StructureImpl;
 import org.fusesource.camel.component.sap.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A Type Converter for SAP structure objects.
@@ -36,6 +38,8 @@ import org.fusesource.camel.component.sap.util.Util;
 public enum StructureConverter {
 	INSTANCE;
 	
+	private static final Logger LOG = LoggerFactory.getLogger(StructureConverter.class);
+
 	@Converter
 	public static Structure toStructure(String string) {
 		try {
@@ -46,6 +50,7 @@ public enum StructureConverter {
 			}
 		} catch (IOException e) {
 			// Ignore
+			LOG.warn("Failed to convert String to Structure", e);
 		} 
 		return null; 
 	}
@@ -60,6 +65,7 @@ public enum StructureConverter {
 			}
 		} catch (IOException e) {
 			// Ignore
+			LOG.warn("Failed to convert InputStream to Structure", e);
 		} 
 		return null; 
 	}
@@ -74,6 +80,7 @@ public enum StructureConverter {
 			}
 		} catch (IOException e) {
 			// Ignore
+			LOG.warn("Failed to convert byte array to Structure", e);
 		} 
 		return null; 
 	}
@@ -83,6 +90,7 @@ public enum StructureConverter {
 		try {
 			return Util.marshal(structure);
 		} catch (IOException e) {
+			LOG.warn("Failed to convert Structure to String", e);
 			return null;
 		}
 	}
@@ -92,6 +100,7 @@ public enum StructureConverter {
 		try {
 			return Util.toOutputStream(structure);
 		} catch (IOException e) {
+			LOG.warn("Failed to convert Structure to OutputStream", e);
 			return null;
 		}
 	}
@@ -101,6 +110,7 @@ public enum StructureConverter {
 		try {
 			return Util.toInputStream(structure);
 		} catch (IOException e) {
+			LOG.warn("Failed to convert Structure to InputStream", e);
 			return null;
 		}
 	}

@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.fusesource.camel.component.sap.model.idoc.DocumentList;
 import org.fusesource.camel.component.sap.model.idoc.impl.DocumentListImpl;
 import org.fusesource.camel.component.sap.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A Type Converter for SAP document list objects.
@@ -36,6 +38,8 @@ import org.fusesource.camel.component.sap.util.Util;
 public enum DocumentListConverter {
 	INSTANCE;
 	
+	private static final Logger LOG = LoggerFactory.getLogger(DocumentListConverter.class);
+
 	@Converter
 	public static DocumentList toDocumentList(String string) {
 		try {
@@ -46,6 +50,7 @@ public enum DocumentListConverter {
 			}
 		} catch (IOException e) {
 			// Ignore
+			LOG.warn("Failed to convert String to DocumentList", e);
 		} 
 		return null; 
 	}
@@ -60,6 +65,7 @@ public enum DocumentListConverter {
 			}
 		} catch (IOException e) {
 			// Ignore
+			LOG.warn("Failed to convert InputStream to DocumentList", e);
 		} 
 		return null; 
 	}
@@ -74,6 +80,7 @@ public enum DocumentListConverter {
 			}
 		} catch (IOException e) {
 			// Ignore
+			LOG.warn("Failed to convert byte array to DocumentList", e);
 		} 
 		return null; 
 	}
@@ -83,6 +90,7 @@ public enum DocumentListConverter {
 		try {
 			return Util.marshal(documentList);
 		} catch (IOException e) {
+			LOG.warn("Failed to convert DocumentList to String", e);
 			return null;
 		}
 	}
@@ -92,6 +100,7 @@ public enum DocumentListConverter {
 		try {
 			return Util.toOutputStream(documentList);
 		} catch (IOException e) {
+			LOG.warn("Failed to convert DocumentList to OutputStream", e);
 			return null;
 		}
 	}
@@ -101,6 +110,7 @@ public enum DocumentListConverter {
 		try {
 			return Util.toInputStream(documentList);
 		} catch (IOException e) {
+			LOG.warn("Failed to convert DocumentList to InputStream", e);
 			return null;
 		}
 	}

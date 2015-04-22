@@ -60,7 +60,6 @@
         <property name="progid" value="QUICKSTART" />
         <property name="repositoryDestination" value="quickstartDest" />
         <property name="connectionCount" value="2" />
-        <property name="trace" value="1"/>
     </bean>
     
     <!-- Demonstrates SAP Synchronous RFC Destination Component -->

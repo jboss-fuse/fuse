@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.fusesource.camel.component.sap.model.idoc.Document;
 import org.fusesource.camel.component.sap.model.idoc.impl.DocumentImpl;
 import org.fusesource.camel.component.sap.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A Type Converter for SAP document objects.
@@ -36,6 +38,8 @@ import org.fusesource.camel.component.sap.util.Util;
 public enum DocumentConverter {
 	INSTANCE;
 	
+	private static final Logger LOG = LoggerFactory.getLogger(DocumentConverter.class);
+	
 	@Converter
 	public static Document toDocument(String string) {
 		try {
@@ -45,8 +49,8 @@ public enum DocumentConverter {
 				return (DocumentImpl) eObject;
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
 			// Ignore
+			LOG.warn("Failed to convert String to Document", e);
 		} 
 		return null; 
 	}
@@ -61,6 +65,7 @@ public enum DocumentConverter {
 			}
 		} catch (IOException e) {
 			// Ignore
+			LOG.warn("Failed to convert InputStream to Document", e);
 		} 
 		return null; 
 	}
@@ -75,6 +80,7 @@ public enum DocumentConverter {
 			}
 		} catch (IOException e) {
 			// Ignore
+			LOG.warn("Failed to convert byte array to Document", e);
 		} 
 		return null; 
 	}
@@ -84,6 +90,8 @@ public enum DocumentConverter {
 		try {
 			return Util.marshal(document);
 		} catch (IOException e) {
+			// Ignore
+			LOG.warn("Failed to convert Document to String", e);
 			return null;
 		}
 	}
@@ -93,6 +101,8 @@ public enum DocumentConverter {
 		try {
 			return Util.toOutputStream(document);
 		} catch (IOException e) {
+			// Ignore
+			LOG.warn("Failed to convert Document to OutputStream", e);
 			return null;
 		}
 	}
@@ -102,6 +112,8 @@ public enum DocumentConverter {
 		try {
 			return Util.toInputStream(document);
 		} catch (IOException e) {
+			// Ignore
+			LOG.warn("Failed to convert Document to InputStream", e);
 			return null;
 		}
 	}

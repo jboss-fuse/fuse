@@ -27,9 +27,7 @@ import org.fusesource.camel.component.sap.util.RfcUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sap.conn.jco.JCoException;
 import com.sap.conn.jco.server.JCoServer;
-import com.sap.conn.jco.server.JCoServerFactory;
 
 /**
  * An SAP endpoint providing inbound tRFC (Transactional Remote Function Call) communication from SAP.
@@ -50,8 +48,6 @@ public abstract class SapRfcServerEndpoint extends DefaultEndpoint {
 	@UriParam(name = "stateful", description = "When true, specifies that this endpoint will initiate an SAP stateful session", defaultValue = "false")
 	protected boolean stateful;
 	
-	protected JCoServer server;
-
 	public SapRfcServerEndpoint() {
 	}
 
@@ -95,7 +91,7 @@ public abstract class SapRfcServerEndpoint extends DefaultEndpoint {
 	}
 	
 	public Structure createResponse() throws Exception {
-		return RfcUtil.getResponse(getComponent().getRepository(serverName), getRfcName());
+		return RfcUtil.getResponse(getServer().getRepository(), getRfcName());
 	}
 	
 	
@@ -104,13 +100,11 @@ public abstract class SapRfcServerEndpoint extends DefaultEndpoint {
 	}
 	
 	protected JCoServer getServer() {
-		if (server == null) {
-			try {
-				server = JCoServerFactory.getServer(serverName);
-			} catch (JCoException e) {
-				LOG.warn("Failed to get server object for endpoint '"+ getEndpointUri() + "'. This exception will be ignored.", e);
-			}
+		try {
+			return getComponent().getServer(serverName);
+		} catch (Exception e) {
+			LOG.warn("Failed to get server object for endpoint '"+ getEndpointUri() + "'. This exception will be ignored.", e);
 		}
-		return server;
+		return null;
 	}
 }

@@ -30,9 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.sap.conn.idoc.IDocRepository;
-import com.sap.conn.idoc.jco.JCoIDoc;
 import com.sap.conn.idoc.jco.JCoIDocServer;
-import com.sap.conn.jco.JCoException;
 
 /**
  * An SAP endpoint receiving an IDoc (Intermediate Document) list from an SAP system
@@ -66,8 +64,6 @@ public class SapTransactionalIDocListServerEndpoint extends DefaultEndpoint {
 	
 	@UriParam(name = "stateful", description = "When true, specifies that this endpoint will initiate an SAP stateful session", defaultValue = "false")
 	protected boolean stateful;
-
-	protected JCoIDocServer server;
 
 	public SapTransactionalIDocListServerEndpoint() {
 	}
@@ -174,14 +170,12 @@ public class SapTransactionalIDocListServerEndpoint extends DefaultEndpoint {
 	}
 
 	protected JCoIDocServer getServer() {
-		if (server == null) {
-			try {
-				server = JCoIDoc.getServer(serverName);
-			} catch (JCoException e) {
-				LOG.warn("Failed to get server object for endpoint '" + getEndpointUri() + "'. This exception will be ignored.", e);
-			}
+		try {
+			return getComponent().getServer(serverName);
+		} catch (Exception e) {
+			LOG.warn("Failed to get server object for endpoint '"+ getEndpointUri() + "'. This exception will be ignored.", e);
 		}
-		return server;
+		return null;
 	}
 
 }
