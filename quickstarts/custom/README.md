@@ -1,7 +1,7 @@
 custom: Demonstrates how to create a custom assembly
 ====================================================
 Author: Fuse Team  
-Level:
+Level: Intermediate
 Technologies: JBoss Fuse, Maven
 Summary: This quickstart demonstrates to use Maven to create a custom assembly of JBoss Fuse
 Target Product: Fuse  
@@ -40,7 +40,7 @@ Build the custom assembly
 -------------------------
 
 * Run `mvn clean install` to build the quickstart.
-* After the build has finished, you will find the target/custom-distro-${project.version}-bin.zip file with the custom assembly.
+* After the build has finished, you will find the `target/custom-distro-${project.version}-bin.zip` file with the custom assembly.
 
 Customizing the assembly
 ------------------------
@@ -53,3 +53,4 @@ Those features are configured in two locations:
 * `src/main/filtered-resources/etc/org.apache.karaf.features.cfg` defines which features will be installed automatically when the container first starts
 
 If there any other configurations files you need to add or modify in the custom assembly, those can be added to the `src/main/filtered-resources` directory as well.
+

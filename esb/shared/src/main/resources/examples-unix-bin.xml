@@ -23,11 +23,12 @@
             <outputDirectory>/quickstarts</outputDirectory>
             <excludes>
                 <exclude>**/target/</exclude>
-                <exclude>**/target/*</exclude>
+                <exclude>**/target/**</exclude>
                 <exclude>README.md</exclude>
                 <!--exclude>**/README.md</exclude-->
                 <exclude>pom.xml</exclude>
                 <exclude>custom/pom.xml</exclude>
+                <exclude>**/*.iml</exclude>
 		<!--exclude>**/pom.xml</exclude-->
             </excludes>
             <lineEnding>unix</lineEnding>
@@ -55,6 +56,9 @@
             <includes>
                 <include>**/README.md</include>
             </includes>
+            <excludes>
+                <exclude>**/target/**/README.md</exclude>
+            </excludes>
             <lineEnding>unix</lineEnding>
             <filtered>true</filtered>
         </fileSet>
