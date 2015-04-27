@@ -56,7 +56,8 @@
                 <exclude>**/target/</exclude>
                 <exclude>**/target/**</exclude>
                 <exclude>**/*.iml</exclude>
-                <exclude>**/bpel*</exclude>
+                <exclude>**/bpel*/</exclude>
+                <exclude>**/bpel*/**</exclude>
                 <exclude>pom.xml</exclude>
             </excludes>
             <lineEnding>unix</lineEnding>
