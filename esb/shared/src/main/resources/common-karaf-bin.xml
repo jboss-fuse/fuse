@@ -159,6 +159,11 @@
 
     <files>
         <file>
+            <source>${basedir}/src/main/filtered-resources/license.txt</source>
+            <fileMode>0444</fileMode>
+        </file>
+
+        <file>
             <source>${basedir}/target/dependencies/unix/apache-karaf-${karaf-version}/bin/karaf</source>
             <outputDirectory>/bin/</outputDirectory>
             <destName>fuse</destName>
