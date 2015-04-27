@@ -195,6 +195,24 @@
                             </artifactItems>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>sy-quickstarts</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.switchyard.quickstarts</groupId>
+                                    <artifactId>switchyard-quickstart-distro</artifactId>
+                                    <type>zip</type>
+                                    <version>${switchyard.version}</version>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>target/shared/syquickstarts</outputDirectory>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>

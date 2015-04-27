@@ -49,6 +49,20 @@
             <filtered>true</filtered>
         </fileSet>
 
+        <fileSet>
+            <directory>target/shared/syquickstarts</directory>
+            <outputDirectory>/quickstarts/switchyard</outputDirectory>
+            <excludes>
+                <exclude>**/target/</exclude>
+                <exclude>**/target/**</exclude>
+                <exclude>**/*.iml</exclude>
+                <exclude>**/bpel*</exclude>
+                <exclude>pom.xml</exclude>
+            </excludes>
+            <lineEnding>unix</lineEnding>
+            <filtered>true</filtered>
+        </fileSet>
+
         <!-- ... Filter the README.md files to replace the ${project.version} -->
         <fileSet>
             <directory>../../../quickstarts</directory>
