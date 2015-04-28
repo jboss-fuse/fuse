@@ -25,6 +25,7 @@ import javax.servlet.ServletContext;
 import io.fabric8.tooling.testing.pax.exam.karaf.ServiceLocator;
 import org.fusesource.esb.itests.pax.exam.karaf.EsbTestSupport;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
@@ -34,6 +35,7 @@ import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerMethod;
 import org.osgi.framework.BundleContext;
 
+@Ignore
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerMethod.class)
 /**

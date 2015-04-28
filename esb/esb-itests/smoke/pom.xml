@@ -75,14 +75,14 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-
+<!--
         <dependency>
             <groupId>org.jboss.fuse</groupId>
             <artifactId>jboss-fuse-karaf-full</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-
+-->
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
