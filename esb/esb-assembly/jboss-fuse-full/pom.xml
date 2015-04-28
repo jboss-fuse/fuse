@@ -207,7 +207,6 @@
                                 <descriptor>mvn:io.fabric8/fabric8-karaf/${fabric.version}/xml/features</descriptor>
                                 <!-- Red Hat Support -->
                                 <descriptor>mvn:io.fabric8.support/support-features/${fabric.version}/xml/features</descriptor>                                
-                                <descriptor>mvn:org.switchyard.karaf/switchyard/${switchyard.version}/xml/core-features</descriptor>          
                             </descriptors>
                             <includeMvnBasedDescriptors>true</includeMvnBasedDescriptors>
                             <repository>target/features-repo</repository>
