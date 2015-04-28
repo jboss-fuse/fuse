@@ -59,7 +59,18 @@
                 <exclude>**/bpel*/</exclude>
                 <exclude>**/bpel*/**</exclude>
                 <exclude>pom.xml</exclude>
+                <exclude>**/Readme.md</exclude>
             </excludes>
+            <lineEnding>unix</lineEnding>
+            <filtered>false</filtered>
+        </fileSet>
+
+        <fileSet>
+            <directory>target/shared/syquickstarts</directory>
+            <outputDirectory>/quickstarts/switchyard</outputDirectory>
+            <includes>
+                <include>**/Readme.md</include>
+            </includes>
             <lineEnding>unix</lineEnding>
             <filtered>true</filtered>
         </fileSet>
