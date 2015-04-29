@@ -7,11 +7,66 @@ Summary: This quickstart shows a simple Apache Camel application that logs a mes
 Target Product: Fuse  
 Source: <https://github.com/jboss-fuse/quickstarts>  
 
-This example is implemented using solely the XML DSL (there is no Java code). The source code is provided in the following XML file `src/main/resources/OSGI-INF/blueprint/camel-log.xml`, which can be viewed from [github](https://github.com/fabric8io/fabric8/blob/master/quickstarts/beginner/camel-log/src/main/resources/OSGI-INF/blueprint/camel-log.xml).
+What is it?
+-----------
 
-This example uses a timer to trigger every 5th second, and then writes a message to the server log, as shown in the figure below:
+This quick start shows how to create a simple Apache Camel application that logs a message to the server log every 5th second.  
+This example is implemented using solely the XML DSL (there is no Java code). The source code is provided in the following XML file `src/main/resources/OSGI-INF/blueprint/camel-log.xml`.
+                                                   
+This example uses a timer to trigger every 5th second, and then writes a message to the server log.
 
-![Camel Log diagram](https://raw.githubusercontent.com/fabric8io/fabric8/master/docs/images/camel-log-diagram.jpg)
+System requirements
+-------------------
+
+Before building and running this quick start you need:
+
+* Maven 3.1.1 or higher
+* JDK 1.7 or 1.8
+* JBoss Fuse 6
+
+
+Build and Deploy the Quickstart
+-------------------------
+
+1. Change your working directory to `camel-log` directory.
+* Run `mvn clean install` to build the quickstart.
+* Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
+* In the JBoss Fuse console, enter the following command:
+
+        osgi:install -s mvn:org.jboss.quickstarts.fuse/beginner-camel-log/${project.version}
+
+* Fuse should give you an id when the bundle is deployed
+
+* You can check that everything is ok by issuing  the command:
+
+        osgi:list
+   your bundle should be present at the end of the list
+
+
+Use the bundle
+---------------------
+
+To use the application be sure to have deployed the quickstart in Fuse as described above. 
+
+1. At the fuse prompt, enter the following command: log:tail
+2. Every 5 seconds you will see a message containing ">>> Hello from Fabric based Camel route!"
+3. Hit ctrl-c to return to the fuse prompt.
+
+Undeploy the Archive
+--------------------
+
+To stop and undeploy the bundle in Fuse:
+
+1. Enter `osgi:list` command to retrieve your bundle id
+2. To stop and uninstall the bundle enter
+
+        osgi:uninstall <id>
+
+
+
+
+### If you would like to try this example in a fabric, follow the instructions below
+
 
 
 ### Building this example
@@ -36,7 +91,7 @@ And then store this information in the local Maven settings file. You can find m
 
 ## How to run this example
 
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
+The following information is divided into two sections, whether you are using the command line shell in fabric, or using the web console
 
 ### Using the command line shell
 
@@ -67,7 +122,7 @@ You can deploy and run this example from the web console, as follows
 
 ## How to try this example
 
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
+The following information is divided into two sections, whether you are using the command line shell in fabric, or using the web console
 
 ### Using the command line shell
 
@@ -96,7 +151,7 @@ This example comes with sample data which you can use to try this example
 
 ## Undeploy this example
 
-The following information is divded into two sections, whether you are using the command line shell in fabric, or using the web console
+The following information is divided into two sections, whether you are using the command line shell in fabric, or using the web console
 
 ### Using the command line shell
 
