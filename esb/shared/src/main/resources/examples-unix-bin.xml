@@ -58,6 +58,16 @@
                 <exclude>**/*.iml</exclude>
                 <exclude>**/bpel*/</exclude>
                 <exclude>**/bpel*/**</exclude>
+                <exclude>**/camel-jms-binding/</exclude>
+                <exclude>**/camel-jms-binding/**</exclude>
+                <exclude>**/camel-jpa-binding/</exclude>
+                <exclude>**/camel-jpa-binding/**</exclude>
+                <exclude>**/demos/helpdesk/</exclude>
+                <exclude>**/demos/helpdesk/**</exclude>
+                <exclude>**/demos/cluster/</exclude>
+                <exclude>**/demos/cluster/**</exclude>
+                <exclude>**/soap-addressing/</exclude>
+                <exclude>**/soap-addressing/**</exclude>
                 <exclude>pom.xml</exclude>
                 <exclude>**/Readme.md</exclude>
             </excludes>
