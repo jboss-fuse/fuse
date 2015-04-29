@@ -7,6 +7,9 @@ Summary: This quickstart demonstrates how to use the camel-amq component o conne
 Target Product: Fuse  
 Source: <https://github.com/jboss-fuse/quickstarts>  
 
+
+What is it?
+-----------
 In this quickstart, orders from zoos all over the world will be copied from the input directory into a specific
 output directory per country.
 
@@ -16,7 +19,23 @@ In this example we will use two containers, one container to run as a standalone
 
 The two Camel routes send and receives JMS message using the `amq:incomingOrders` endpoint, which is a queue on the A-MQ broker.
 
-## Building this example
+
+System requirements
+-------------------
+
+Before building and running this quick start you need:
+
+* Maven 3.1.1 or higher
+* JDK 1.7 or 1.8
+* JBoss Fuse 6
+
+
+### This example requires creating a fabric.  To try it, follow the instructions below
+
+* Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
+* In the JBoss Fuse console, enter the following command:
+    
+    fabric:create --wait-for-provisioning
 
 ### Building this example
 
@@ -31,7 +50,6 @@ To build from the source code:
 
 After building from the source code, you can upload the changes to the fabric container:
 
-1. It is assumed that you have already created a fabric and are logged into a container called `root`.
 1. Change your working directory to `quickstarts/camel-amq` directory.
 1. Run `mvn fabric8:deploy` to upload the quickstart to the fabric container.
 
