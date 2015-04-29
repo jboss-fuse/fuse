@@ -48,10 +48,10 @@ Configuring the Quickstart for your environment
 To configure the quick start for your environment: 
 
 1. Deploy the JCo3 library jar and native library (for your platform) and IDoc3 library jar to the `lib` folder of your JBoss Fuse installation.  
-2. Edit the custom properties file (`etc/custom.properties`) of your JBoss Fuse installation and add the following packages to the `org.osgi.framework.system.packages.extra` property:  
+2. Copy the `org.osgi.framework.system.packages.extra` property from the configuration properties file (`etc\config.properties`) to the custom properties file (`etc/custom.properties`) of your JBoss Fuse installation and append the following packages to the `org.osgi.framework.system.packages.extra` property:  
 
 > org.osgi.framework.system.packages.extra = \  
->...  
+>..., \  
 >> com.sap.conn.idoc, \  
 >> com.sap.conn.idoc.jco, \   
 >> com.sap.conn.jco, \   
