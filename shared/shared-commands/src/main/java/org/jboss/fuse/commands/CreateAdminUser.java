@@ -133,8 +133,10 @@ public abstract class CreateAdminUser extends OsgiCommandSupport {
     protected List<String> getNewUserRoles() {
         if (newUserRoles == null || newUserRoles.isEmpty()) {
             List<String> defaultRoles = new LinkedList<>();
+            defaultRoles.add("admin");
             defaultRoles.add("manager");
             defaultRoles.add("viewer");
+            defaultRoles.add("Monitor");
             defaultRoles.add("Operator");
             defaultRoles.add("Maintainer");
             defaultRoles.add("Deployer");
