@@ -58,14 +58,14 @@
             <authorizationPlugin>
               <map>
                 <authorizationMap groupClass="org.apache.karaf.jaas.boot.principal.RolePrincipal">
-                  <!-- manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,User -->
+                  <!-- manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin,User -->
                   <authorizationEntries>
-                    <authorizationEntry queue=">" read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" write="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" admin="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser"/>
-                    <authorizationEntry topic=">" read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" write="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" admin="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser"/>
-                    <authorizationEntry topic="ActiveMQ.Advisory.>" read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,User" write="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,User" admin="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,User" />
+                    <authorizationEntry queue=">" read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin" write="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin" admin="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin"/>
+                    <authorizationEntry topic=">" read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin" write="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin" admin="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin"/>
+                    <authorizationEntry topic="ActiveMQ.Advisory.>" read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin,User" write="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin,User" admin="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin,User" />
                   </authorizationEntries>
                   <tempDestinationAuthorizationEntry>
-                    <tempDestinationAuthorizationEntry read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" write="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser" admin="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser"/>
+                    <tempDestinationAuthorizationEntry read="manager,viewer,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin" write="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin" admin="manager,Operator,Maintainer,Deployer,Auditor,Administrator,SuperUser,admin"/>
                   </tempDestinationAuthorizationEntry>
                 </authorizationMap>
               </map>
