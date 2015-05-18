@@ -1,9 +1,9 @@
 custom: Demonstrates how to create a custom assembly
 ====================================================
 Author: Fuse Team  
-Level: Intermediate
-Technologies: JBoss Fuse, Maven
-Summary: This quickstart demonstrates to use Maven to create a custom assembly of JBoss Fuse
+Level: Intermediate  
+Technologies: JBoss Fuse, Maven  
+Summary: This quickstart demonstrates to use Maven to create a custom assembly of JBoss Fuse  
 Target Product: Fuse  
 Source: <https://github.com/jboss-fuse/quickstarts>  
 
@@ -14,8 +14,7 @@ What is it?
 
 This quick start shows how to use Apache Maven to update and repackage JBoss Fuse to create a custom assembly.
 
-This quick start demonstrates how to create a small, custom assembly. Contrary to the full JBoss Fuse assembly, the custom assembly created will have a much smaller footprint with only a
-limited set of features that are installed by default.
+This quick start demonstrates how to create a small, custom assembly. Contrary to the full JBoss Fuse assembly, the custom assembly created will have a much smaller footprint with only a limited set of features that are installed by default.
 
 In studying this quick start you will learn:
 
@@ -52,5 +51,5 @@ Those features are configured in two locations:
 * The configuration for the `features-maven-plugin` in the `pom.xml` file controls which bundles will be available in the custom assembly's `system` folder
 * `src/main/filtered-resources/etc/org.apache.karaf.features.cfg` defines which features will be installed automatically when the container first starts
 
-If there any other configurations files you need to add or modify in the custom assembly, those can be added to the `src/main/filtered-resources` directory as well.
+If there are any other configurations files you need to add or modify in the custom assembly, those can be added to the `src/main/filtered-resources` directory as well.
 
