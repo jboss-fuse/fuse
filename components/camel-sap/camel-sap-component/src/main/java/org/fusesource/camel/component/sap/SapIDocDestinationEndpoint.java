@@ -43,13 +43,13 @@ public abstract class SapIDocDestinationEndpoint extends DefaultEndpoint {
 	@UriPath(name = "idocType", description = "Specifies the Basic IDoc Type of an IDoc produced by this endpoint") @Metadata(required = "true")
 	protected String idocType;
 	
-	@UriPath(name = "idocTypeExtension", description = "Specifies the IDoc Type Extension, if any, of an IDoc produced by this endpoint")
+	@UriPath(name = "idocTypeExtension", description = "Specifies the IDoc Type Extension, if any, of an IDoc produced by this endpoint") @Metadata(required = "false")
 	protected String idocTypeExtension;
 	
-	@UriPath(name = "systemRelease", description = "Specifies the associated SAP Basis Release, if any, of an IDoc produced by this endpoint")
+	@UriPath(name = "systemRelease", description = "Specifies the associated SAP Basis Release, if any, of an IDoc produced by this endpoint") @Metadata(required = "false")
 	protected String systemRelease;
 	
-	@UriPath(name = "applicationRelease", description = "Specifes the associated Application Release, if any, of an IDoc produced by this endpoint")
+	@UriPath(name = "applicationRelease", description = "Specifes the associated Application Release, if any, of an IDoc produced by this endpoint") @Metadata(required = "false")
 	protected String applicationRelease;
 	
 	@UriPath(name = "destination", description = "Specifies the destination this endpoint sends an IDoc to") @Metadata(required = "true")
