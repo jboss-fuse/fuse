@@ -56,8 +56,8 @@
                 <exclude>**/target/</exclude>
                 <exclude>**/target/**</exclude>
                 <exclude>**/*.iml</exclude>
-                <exclude>**/bpel*/</exclude>
-                <exclude>**/bpel*/**</exclude>
+                <exclude>**/bpel-xts*/</exclude>
+                <exclude>**/bpel-xts*/**</exclude>
                 <exclude>**/camel-jms-binding/</exclude>
                 <exclude>**/camel-jms-binding/**</exclude>
                 <exclude>**/camel-jpa-binding/</exclude>
@@ -68,6 +68,8 @@
                 <exclude>**/demos/cluster/**</exclude>
                 <exclude>**/soap-addressing/</exclude>
                 <exclude>**/soap-addressing/**</exclude>
+                <exclude>**/transform-dozer/</exclude>
+                <exclude>**/transform-dozer/**</exclude>
                 <exclude>pom.xml</exclude>
                 <exclude>**/Readme.md</exclude>
             </excludes>
