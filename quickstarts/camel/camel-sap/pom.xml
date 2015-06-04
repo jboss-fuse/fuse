@@ -23,11 +23,11 @@
 	<parent>
 		<groupId>org.jboss.quickstarts.fuse</groupId>
 		<artifactId>camel-quickstarts</artifactId>
-		<version>6.2.0.redhat-SNAPSHOT</version>
+		<version>6.2.1.redhat-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>camel-sap</artifactId>
-	<version>6.2.0.redhat-SNAPSHOT</version>
+	<version>6.2.1.redhat-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<name>JBoss Fuse Quickstart: camel-sap</name>
