@@ -108,7 +108,7 @@ You can use a command-line utility, such as cURL or wget, to perform the HTTP re
     
     * Create a customer
  
-            curl -X POST -T src/test/resources/add_customer.xml -H "Content-Type: text/xml" http://localhost:8181/cxf/crm/customerservice/customers
+            curl -X POST -T src/test/resources/add_customer.xml -H "Content-Type: application/xml" http://localhost:8181/cxf/crm/customerservice/customers
   
     * Retrieve the customer instance with id 123
     
@@ -116,7 +116,7 @@ You can use a command-line utility, such as cURL or wget, to perform the HTTP re
 
     * Update the customer instance with id 123
   
-            curl -X PUT -T src/test/resources/update_customer.xml -H "Content-Type: text/xml" http://localhost:8181/cxf/crm/customerservice/customers
+            curl -X PUT -T src/test/resources/update_customer.xml -H "Content-Type: application/xml" http://localhost:8181/cxf/crm/customerservice/customers
 
     * Delete the customer instance with id 123
   
