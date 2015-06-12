@@ -43,7 +43,6 @@
                 <exclude>etc/org.apache.karaf.command.acl.osgi.cfg</exclude>
                 <exclude>etc/org.apache.karaf.command.acl.scope_bundle.cfg</exclude>
                 <exclude>etc/org.apache.karaf.command.acl.shell.cfg</exclude>
-                <exclude>fabric/import/fabric/profiles/default.profile/jmx.acl.whitelist.properties</exclude>
                 <exclude>etc/users.properties</exclude>
                 <exclude>etc/keys.properties</exclude>
                 <exclude>etc/org.ops4j.pax.web.cfg</exclude>
