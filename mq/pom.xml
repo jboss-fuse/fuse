@@ -41,6 +41,5 @@
     <module>mq-assembly</module>
     <module>jboss-a-mq-cpp</module>
     <module>jboss-a-mq-nms</module>
-    <module>jboss-a-mq-amqp-client</module>
   </modules>
 </project>
