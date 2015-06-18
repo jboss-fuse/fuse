@@ -28,6 +28,7 @@ public class SapTransactionalIDocListServerComponentConfigurationAndDocumentatio
         return false;
     }
 
+    @Ignore("ENTESB-3457")
     @Test
     public void testComponentConfiguration() throws Exception {
         SapTransactionalIDocListServerComponent comp = context.getComponent("sap-idoclist-server", SapTransactionalIDocListServerComponent.class);
