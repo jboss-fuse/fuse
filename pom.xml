@@ -248,6 +248,11 @@
           <name>Redhat Product Repository</name>
           <url>https://maven.repository.redhat.com/techpreview/all</url>
         </repository>
+        <repository>
+          <id>jb-eap-6.4-rhel-6-build</id>
+          <name>jboss staging</name>
+          <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-6.4-rhel-6-build/latest/maven</url>
+        </repository>
     </repositories>
 
     <!-- Note: repo.fusesource.com is the correct repo for JBoss Fuse and it is not a mistake -->
