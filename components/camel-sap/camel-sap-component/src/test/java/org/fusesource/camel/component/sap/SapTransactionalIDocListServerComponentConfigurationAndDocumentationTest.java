@@ -20,6 +20,7 @@ import org.apache.camel.ComponentConfiguration;
 import org.apache.camel.EndpointConfiguration;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
+import org.junit.Ignore;
 
 public class SapTransactionalIDocListServerComponentConfigurationAndDocumentationTest extends CamelTestSupport {
 
