@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.fusesource</groupId>
 	<artifactId>camel-sap-repository</artifactId>
-	<version>6.2.0-SNAPSHOT</version>
+	<version>6.2.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>JBoss Fuse :: SAP JCO :: SAP Data Layer :: Repository</name>
@@ -159,17 +159,17 @@
 		<dependency>
 			<groupId>org.fusesource</groupId>
 			<artifactId>org.fusesource.camel.component.sap</artifactId>
-			<version>6.2.0-SNAPSHOT</version>
+			<version>6.2.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.fusesource</groupId>
 			<artifactId>org.fusesource.camel.component.sap.model</artifactId>
-			<version>6.2.0-SNAPSHOT</version>
+			<version>6.2.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.fusesource</groupId>
 			<artifactId>org.fusesource.camel.component.sap.model.edit</artifactId>
-			<version>6.2.0-SNAPSHOT</version>
+			<version>6.2.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	

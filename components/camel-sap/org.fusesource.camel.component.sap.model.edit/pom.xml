@@ -46,7 +46,7 @@
   </build>
   <url>http://http://www.jboss.org/products/fuse/overview/</url>
   <name>JBoss Fuse :: SAP JCO :: SAP Data Layer :: Edit Plugin</name>
-  <version>6.2.0-SNAPSHOT</version>
+  <version>6.2.1-SNAPSHOT</version>
   <description>Provides EMF Item Providers for Fuse Tooling to manipulate SAP Data Layer models</description>
   <organization>
   	<name>Red Hat, Inc.</name>
