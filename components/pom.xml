@@ -28,8 +28,8 @@
   <url>http://www.fusesource.org</url>
 
   <properties>
-    <camel.sap.plugin.version>6.2.0-SNAPSHOT</camel.sap.plugin.version>
-    <sap.camel.component.version>6.2.0.redhat-SNAPSHOT</sap.camel.component.version>
+    <camel.sap.plugin.version>6.2.1-SNAPSHOT</camel.sap.plugin.version>
+    <sap.camel.component.version>6.2.1.redhat-SNAPSHOT</sap.camel.component.version>
   </properties>
 
   <profiles>
