@@ -22,12 +22,12 @@
     <parent>
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>quickstarts-parent</artifactId>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.1.redhat-SNAPSHOT</version>
   </parent>
 
   <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>cxf</artifactId>
-    <version>6.2.0.redhat-SNAPSHOT</version>
+    <version>6.2.1.redhat-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>JBoss Fuse Quickstart: cxf</name>
 
