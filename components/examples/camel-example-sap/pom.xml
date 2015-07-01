@@ -23,7 +23,7 @@
 	<parent>
 		<artifactId>component-examples</artifactId>
 		<groupId>org.fusesource</groupId>
-		<version>6.2.0.redhat-SNAPSHOT</version>
+		<version>6.2.1.redhat-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.fusesource.sap.example</groupId>
