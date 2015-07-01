@@ -61,8 +61,8 @@
                  
         <cxf-java2wadl-plugin-version>${cxf-version}</cxf-java2wadl-plugin-version>
 
-        <activemqcpp.version>3.8.2</activemqcpp.version>
-        <activemqnms.version>1.6.2</activemqnms.version>
+        <activemqcpp.version>3.8.4</activemqcpp.version>
+        <activemqnms.version>1.7.0</activemqnms.version>
 
       <!-- TODO trim this list as we don't use ServiceMix components anymore -->
         <saxon.bundle.version>9.5.1-1_1</saxon.bundle.version>
