@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.camel.Exchange;
+import org.apache.camel.model.ProcessorDefinition;
 import org.apache.camel.support.SynchronizationAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,7 +72,7 @@ public class DestinationRfcTransactionHandler extends SynchronizationAdapter {
 		if (tidHandler != null) {
 			// Handler for destination already populated into exchange: return
 			// the destination's current TID.
-			return tidHandler.getTID();
+			return tidHandler.getTID(exchange);
 		}
 
 		// Handler for destination has not been populated into exchange: create
@@ -82,12 +83,12 @@ public class DestinationRfcTransactionHandler extends SynchronizationAdapter {
 		exchange.getUnitOfWork().addSynchronization(tidHandler);
 
 		// Return the destination' current TID.
-		return tidHandler.getTID();
+		return tidHandler.getTID(exchange);
 	}
 
 	private JCoDestination destination;
 
-	private String tid;
+	private Map<String, String> tidMap = new HashMap<String, String>();
 
 	/**
 	 * Create an RFC Transaction Handler for given <code>destination</code>.
@@ -128,44 +129,69 @@ public class DestinationRfcTransactionHandler extends SynchronizationAdapter {
 	}
 
 	/**
-	 * Return the TID managed by this handler, creating if necessary.
+	 * Return a TID managed by this handler, creating if necessary.
 	 * 
+	 * @param exchange - the exchange this tid is used in.
 	 * @return The TID managed by this handler.
 	 * @throws Exception
 	 *             Thrown if unable to return TID.
 	 */
-	protected String getTID() throws Exception {
+	protected String getTID(Exchange exchange) throws Exception {
+
+		ProcessorDefinition<?> definition = exchange.getProperty(CurrentProcessorDefinitionInterceptStrategy.CURRENT_PROCESSOR_DEFINITION,
+				ProcessorDefinition.class);
+
+		if (definition == null) {
+			LOG.warn("Current processor definition not found in exchange: please install org.fusesource.camel.component.sap.CurrentProcessorDefinitionInterceptStrategy into Camel container");
+			return destination.createTID();
+		}
+		
+		String tid = tidMap.get(definition.getId());
 		if (tid == null) {
 			tid = destination.createTID();
+			tidMap.put(definition.getId(), tid);
 		}
 		return tid;
 	}
 
 	/**
-	 * Confirm the RFC transaction managed by this handler.
-	 * 
-	 * @throws Exception
+	 * Confirm the RFC transactions managed by this handler.
 	 */
-	protected void confirmTID() throws Exception {
-		destination.confirmTID(tid);
+	protected void confirmTids() {
+		for (String tid : tidMap.values()) {
+			try {
+				destination.confirmTID(tid);
+			} catch (Exception e) {
+				LOG.warn("Failed to confirm transaction id: '" + tid + "': This exception will be ignored", e);
+			}
+		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.apache.camel.support.SynchronizationAdapter#onComplete(org.apache.camel.Exchange)
+	 */
 	@Override
 	public void onComplete(Exchange exchange) {
-		try {
-			confirmTID();
-		} catch (Exception e) {
-			LOG.warn("Failed to confirm transaction id '" + tid + "': This exception will be ignored", e);
-		}
+		done();
 	}
 
+	/* (non-Javadoc)
+	 * @see org.apache.camel.support.SynchronizationAdapter#onFailure(org.apache.camel.Exchange)
+	 */
 	@Override
 	public void onFailure(Exchange exchange) {
-		try {
-			confirmTID();
-		} catch (Exception e) {
-			LOG.warn("Failed to confirm transaction id '" + tid + "': This exception will be ignored", e);
-		}
+		done();
+	}
+	
+	/**
+	 * Confirm tids and clear tidMap.
+	 */
+	private void done() {
+		// Confirm all TIDs used in the exchange.
+		confirmTids();
+
+		// Clear the TID map.
+		tidMap.clear();
 	}
 
 }
