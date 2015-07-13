@@ -23,8 +23,7 @@ import java.util.Map;
 import org.apache.camel.Endpoint;
 import org.apache.camel.impl.UriEndpointComponent;
 import org.fusesource.camel.component.sap.model.rfc.RepositoryData;
-import org.fusesource.camel.component.sap.model.rfc.RepositoryDataStore;
-import org.fusesource.camel.component.sap.model.rfc.RfcFactory;
+import org.fusesource.camel.component.sap.util.ComponentRepositoryDataProvider;
 import org.fusesource.camel.component.sap.util.RfcUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,8 +46,6 @@ public abstract class SapRfcServerComponent extends UriEndpointComponent {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SapRfcServerComponent.class);
 
-	protected final RepositoryDataStore repositoryDataStore = RfcFactory.eINSTANCE.createRepositoryDataStore();
-	
 	protected File tidStoresLocation = new File(".");
 
 	protected Map<String, JCoServer> activeServers = new HashMap<String, JCoServer>();
@@ -61,15 +58,6 @@ public abstract class SapRfcServerComponent extends UriEndpointComponent {
 
 	public SapRfcServerComponent(Class<? extends Endpoint> endpointClass) {
 		super(endpointClass);
-	}
-
-	public Map<String, RepositoryData> getRepositoryDataStore() {
-		return repositoryDataStore.getEntries().map();
-	}
-
-	public void setRepositoryDataStore(Map<String, RepositoryData> repositoryDataEntries) {
-		this.repositoryDataStore.getEntries().clear();
-		this.repositoryDataStore.getEntries().putAll(repositoryDataEntries);
 	}
 
 	public String getTidStoresLocation() {
@@ -141,7 +129,7 @@ public abstract class SapRfcServerComponent extends UriEndpointComponent {
 	synchronized protected JCoCustomRepository getRepository(String serverName) {
 		JCoCustomRepository repository = repositories.get(serverName);
 		if (repository == null) {
-			RepositoryData repositoryData = repositoryDataStore.getEntries().get(serverName);
+			RepositoryData repositoryData = ComponentRepositoryDataProvider.INSTANCE.getRepositoryData(serverName);
 			repository = RfcUtil.createRepository(serverName, repositoryData);
 			repositories.put(serverName, repository);
 		}
