@@ -44,8 +44,12 @@
 			org.fusesource.camel.component.sap.converter;version=${project.version},
 			org.fusesource.camel.component.sap.model.rfc;version=${project.version},
 			org.fusesource.camel.component.sap.model.rfc.impl;version=${project.version},
+			org.fusesource.camel.component.sap.model.idoc;version=${project.version},
+			org.fusesource.camel.component.sap.model.idoc.impl;version=${project.version},
 			org.fusesource.camel.component.sap.util;version=${project.version},
-			org.eclipse.emf.ecore
+			org.eclipse.emf.ecore,
+			org.eclipse.emf.ecore.util,
+			org.eclipse.emf.common.util
 		</fuse.osgi.export>
 		<fuse.osgi.private.pkg>
 			org.eclipse.emf.common.*,
