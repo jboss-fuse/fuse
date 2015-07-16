@@ -13,4 +13,8 @@
 # implied.  See the License for the specific language governing
 # permissions and limitations under the License.
 
-org.fusesource.camel.component.sap.converter
+org.fusesource.camel.component.sap.converter.DocumentConverter
+org.fusesource.camel.component.sap.converter.DocumentListConverter
+org.fusesource.camel.component.sap.converter.RequestConverter
+org.fusesource.camel.component.sap.converter.ResponseConverter
+org.fusesource.camel.component.sap.converter.StructureConverter
