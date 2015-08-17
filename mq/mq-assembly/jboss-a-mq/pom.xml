@@ -275,6 +275,13 @@
                                     <outputDirectory>target/dependencies/unix</outputDirectory>
                                 </artifactItem>
                                 <artifactItem>
+                                    <groupId>org.jasypt</groupId>
+                                    <artifactId>jasypt</artifactId>
+                                    <version>${jasypt-version}</version>
+                                    <type>jar</type>
+                                    <outputDirectory>target/dependencies/unix</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
                                     <groupId>org.apache.servicemix.bundles</groupId>
                                     <artifactId>org.apache.servicemix.bundles.jasypt-spring31</artifactId>
                                     <version>${jasypt-spring.bundle.version}</version>

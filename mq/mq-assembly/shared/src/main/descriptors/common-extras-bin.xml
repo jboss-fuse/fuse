@@ -18,21 +18,10 @@
 <component>
     <!--
       Component defintion for everything that goes into an assembly's extras directory:
-      - distributions of Jasypt, Apache Camel and CXF
-      - distribution and example profile for the Fuse CDC tool
+      - distribution of Jasypt
       - distribution of Jasypt command line tools
     -->
     <files>
-        <file>
-            <source>${basedir}/target/dependencies/unix/apache-camel-${camel-version}.zip</source>
-            <outputDirectory>extras</outputDirectory>
-            <fileMode>0644</fileMode>
-        </file>
-        <file>
-            <source>${basedir}/target/dependencies/unix/apache-cxf-${cxf-version}.zip</source>
-            <outputDirectory>extras</outputDirectory>
-            <fileMode>0644</fileMode>
-        </file>
         <file>
             <source>${basedir}/target/dependencies/unix/jasypt-${jasypt-version}.jar</source>
             <outputDirectory>extras/jasypt/lib</outputDirectory>
