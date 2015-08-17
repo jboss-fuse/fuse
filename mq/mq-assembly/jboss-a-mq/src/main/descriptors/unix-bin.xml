@@ -135,6 +135,7 @@
 
     <componentDescriptors>
         <componentDescriptor>${basedir}/target/shared/common-bin.xml</componentDescriptor>
+        <componentDescriptor>${basedir}/target/shared/common-extras-bin.xml</componentDescriptor>
         <componentDescriptor>${basedir}/target/shared/common-fabric8-bin.xml</componentDescriptor>
     </componentDescriptors>
 
