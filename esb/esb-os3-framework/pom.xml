@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (C) FuseSource, Inc.
+  http://fusesource.com
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+         
+    <parent>
+        <groupId>org.jboss.fuse</groupId>
+        <artifactId>esb-project</artifactId>
+        <version>6.2.1.redhat-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>esb-os3-framework</artifactId>
+    <packaging>pom</packaging>
+    
+    <name>JBoss Fuse :: ESB :: OS3 Framework</name>
+	
+	
+    <repositories>
+        <!-- needed for org.apache.xerces JARs required by org.apache.servicemix.bundles.opensaml:2.6.1_1 -->
+        <repository>
+            <id>shibboleth</id>
+            <name>shibboleth repository</name>
+            <url>https://build.shibboleth.net/nexus/content/repositories/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
+        <!-- Gemini Blueprint repository -->
+        <repository>
+            <id>zodiac-repository</id>
+            <name>Zodiac Release Repository</name>
+            <url>http://zodiac.springsource.com/maven/bundles/release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>fusesource.m2</id>
+            <name>FuseSource Community Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>fusesource.ea</id>
+            <name>FuseSource Community Early Access Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>fusesource.m2</id>
+            <name>FuseSource Community Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>fusesource.ea</id>
+            <name>FuseSource Community Early Access Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.fuse</groupId>
+            <artifactId>shared</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.fuse</groupId>
+            <artifactId>jboss-fuse</artifactId>
+            <version>${project.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>io.fabric8.support</groupId>
+            <artifactId>support-features</artifactId>
+            <version>${fabric.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+		<dependency>
+			<groupId>org.apache.karaf.assemblies.features</groupId>
+			<artifactId>standard</artifactId>
+			<version>${karaf-version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.karaf.assemblies.features</groupId>
+			<artifactId>spring</artifactId>
+			<version>${karaf-version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.karaf.assemblies.features</groupId>
+			<artifactId>enterprise</artifactId>
+			<version>${karaf-version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-karaf</artifactId>
+			<version>${activemq-version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel.karaf</groupId>
+			<artifactId>apache-camel</artifactId>
+			<version>${camel-version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf.karaf</groupId>
+			<artifactId>apache-cxf</artifactId>
+			<version>${cxf-version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>io.hawt</groupId>
+			<artifactId>hawtio-karaf</artifactId>
+			<version>${hawtio-version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.switchyard.karaf</groupId>
+			<artifactId>switchyard</artifactId>
+			<version>${switchyard.version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.switchyard.karaf</groupId>
+			<artifactId>switchyard</artifactId>
+			<version>${switchyard.version}</version>
+			<type>xml</type>
+			<classifier>core-features</classifier>
+		</dependency>
+    </dependencies>
+
+    <build>
+		<resources>
+            <resource>
+                <directory>${project.basedir}/src/main/filtered-resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+		</resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>filter</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> 			
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>io.fabric8</groupId>
+                                    <artifactId>fabric8-karaf</artifactId>
+                                    <version>${fabric.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>target/unpack</outputDirectory>
+									<includes>*/bin/**,*/etc/**,*/lib/**,*/data/**,*/system/org/apache/felix/org.apache.felix.framework/**</includes>
+									<excludes>*/bin/fabric8*,*/bin/deletefabric8,*/lib/karaf.jar</excludes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.jboss.fuse</groupId>
+                                    <artifactId>shared</artifactId>
+                                    <version>${project-version}</version>
+                                    <outputDirectory>target/shared</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+					<execution>
+						<id>copy</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.apache.karaf</groupId>
+									<artifactId>org.apache.karaf.main</artifactId>
+									<version>2.4.3</version>
+									<outputDirectory>target/unpack/fabric8-karaf-${fabric.version}/lib</outputDirectory>
+									<destFileName>karaf.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+                </executions>
+            </plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>rename</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+								<move file="target/unpack/fabric8-karaf-${fabric.version}"
+									toFile="target/unpack/resources" />
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>features-maven-plugin</artifactId>
+                <version>${karaf-version}</version>
+                <executions>
+                    <execution>
+                        <id>create-kar</id>
+                        <goals>
+                            <goal>create-kar</goal>
+                        </goals>
+                        <configuration>
+							<resourcesDir>target/unpack/</resourcesDir>
+							<featuresFile>target/classes/features.xml</featuresFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <inherited>false</inherited>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>target/classes/features.xml</file>
+                                    <type>xml</type>
+                                    <classifier>features</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>            
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                         <groupId>org.fusesource.mvnplugins</groupId>
+                         <artifactId>maven-notices-plugin</artifactId>
+                         <executions>
+                             <execution>
+                                 <id>merge-notices-in-repository</id>
+                                 <phase>prepare-package</phase>
+                                 <goals>
+                                     <goal>merge-notices-in-repository</goal>
+                                 </goals>
+                             </execution>
+                         </executions>
+                     </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>unix-bin</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <ignoreMissingDescriptor>true</ignoreMissingDescriptor>
+                                    <descriptors>
+                                        <descriptor>src/main/descriptors/unix-with-notices-bin.xml</descriptor>
+                                    </descriptors>
+                                    <finalName>${project.artifactId}-${project.version}</finalName>
+                                    <appendAssemblyId>false</appendAssemblyId>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
+
