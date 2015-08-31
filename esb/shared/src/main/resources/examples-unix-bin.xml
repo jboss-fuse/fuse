@@ -68,8 +68,6 @@
                 <exclude>**/demos/cluster/**</exclude>
                 <exclude>**/soap-addressing/</exclude>
                 <exclude>**/soap-addressing/**</exclude>
-                <exclude>**/transform-dozer/</exclude>
-                <exclude>**/transform-dozer/**</exclude>
                 <exclude>pom.xml</exclude>
                 <exclude>**/Readme.md</exclude>
             </excludes>
@@ -83,6 +81,20 @@
             <includes>
                 <include>**/Readme.md</include>
             </includes>
+            <excludes>
+                <exclude>**/bpel-xts*/</exclude>
+                <exclude>**/bpel-xts*/**</exclude>
+                <exclude>**/camel-jms-binding/</exclude>
+                <exclude>**/camel-jms-binding/**</exclude>
+                <exclude>**/camel-jpa-binding/</exclude>
+                <exclude>**/camel-jpa-binding/**</exclude>
+                <exclude>**/demos/helpdesk/</exclude>
+                <exclude>**/demos/helpdesk/**</exclude>
+                <exclude>**/demos/cluster/</exclude>
+                <exclude>**/demos/cluster/**</exclude>
+                <exclude>**/soap-addressing/</exclude>
+                <exclude>**/soap-addressing/**</exclude>
+            </excludes>
             <lineEnding>unix</lineEnding>
             <filtered>true</filtered>
         </fileSet>
