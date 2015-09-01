@@ -107,6 +107,7 @@
         <jaxb.api.version>2.2</jaxb.api.version>
         <jasypt-spring.bundle.version>1.9.3.redhat_1</jasypt-spring.bundle.version>
         <jasypt-version>1.9.3.redhat_1</jasypt-version>
+        <version.org.riftsaw.ode>3.2.0.Final-redhat-1</version.org.riftsaw.ode>
     </properties>
 
     <repositories>
