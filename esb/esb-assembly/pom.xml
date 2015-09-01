@@ -97,6 +97,19 @@
             <artifactId>org.apache.servicemix.specs.jaxws-api-2.2</artifactId>
             <version>${servicemix-specs-version}</version>
         </dependency>
+
+        <!-- BPEL DDL -->
+        <dependency>
+            <groupId>org.jboss.soa.bpel</groupId>
+            <artifactId>riftsaw-dao-jpa-hibernate</artifactId>
+            <version>${version.org.riftsaw.ode}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.soa.bpel</groupId>
+            <artifactId>riftsaw-dao-jpa</artifactId>
+            <version>${version.org.riftsaw.ode}</version>
+        </dependency>
+
     </dependencies>
     
     <build>
@@ -211,6 +224,29 @@
                                 </artifactItem>
                             </artifactItems>
                             <outputDirectory>target/shared/syquickstarts</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>bpel-ddl</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.jboss.soa.bpel</groupId>
+                                    <artifactId>riftsaw-dao-jpa</artifactId>
+                                    <outputDirectory>target/shared/bpel-ddl/riftsaw-dao-jpa</outputDirectory>
+                                    <includes>**</includes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.jboss.soa.bpel</groupId>
+                                    <artifactId>riftsaw-dao-jpa-hibernate</artifactId>
+                                    <outputDirectory>target/shared/bpel-ddl/riftsaw-dao-jpa-hibernate</outputDirectory>
+                                    <includes>**</includes>
+                                </artifactItem>
+                            </artifactItems>
                         </configuration>
                     </execution>
                 </executions>
