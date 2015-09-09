@@ -29,7 +29,7 @@
                 <exclude>pom.xml</exclude>
                 <exclude>custom/pom.xml</exclude>
                 <exclude>**/*.iml</exclude>
-		<!--exclude>**/pom.xml</exclude-->
+                <!--exclude>**/pom.xml</exclude-->
             </excludes>
             <lineEnding>unix</lineEnding>
             <filtered>false</filtered>
@@ -70,9 +70,40 @@
                 <exclude>**/soap-addressing/**</exclude>
                 <exclude>pom.xml</exclude>
                 <exclude>**/Readme.md</exclude>
+                <exclude>**/camel-ftp-binding/src/test/resources/ftpclient.jks</exclude>
+                <exclude>**/camel-ftp-binding/src/test/resources/ftpserver.jks</exclude>
+                <exclude>**/camel-netty-binding/users.jks</exclude>
+                <exclude>**/demos/policy-security-basic/connector.jks</exclude>
+                <exclude>**/demos/policy-security-cert/connector.jks</exclude>
+                <exclude>**/demos/policy-security-cert/users.jks</exclude>
+                <exclude>**/demos/policy-security-saml/connector.jks</exclude>
+                <exclude>**/demos/policy-security-saml/picketlink-sts/WEB-INF/classes/sts_keystore.jks</exclude>
+                <exclude>**/demos/policy-security-wss-signencrypt/connector.jks</exclude>
+                <exclude>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</exclude>
+                <exclude>**/demos/policy-security-wss-username/connector.jks</exclude>
+                <exclude>**/demos/security-propagation/basic/connector.jks</exclude>
             </excludes>
             <lineEnding>unix</lineEnding>
             <filtered>false</filtered>
+        </fileSet>
+
+        <fileSet>
+            <directory>target/shared/syquickstarts</directory>
+            <outputDirectory>/quickstarts/switchyard</outputDirectory>
+            <includes>
+                <include>**/camel-ftp-binding/src/test/resources/ftpclient.jks</include>
+                <include>**/camel-ftp-binding/src/test/resources/ftpserver.jks</include>
+                <include>**/camel-netty-binding/users.jks</include>
+                <include>**/demos/policy-security-basic/connector.jks</include>
+                <include>**/demos/policy-security-cert/connector.jks</include>
+                <include>**/demos/policy-security-cert/users.jks</include>
+                <include>**/demos/policy-security-saml/connector.jks</include>
+                <include>**/demos/policy-security-saml/picketlink-sts/WEB-INF/classes/sts_keystore.jks</include>
+                <include>**/demos/policy-security-wss-signencrypt/connector.jks</include>
+                <include>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</include>
+                <include>**/demos/policy-security-wss-username/connector.jks</include>
+                <include>**/demos/security-propagation/basic/connector.jks</include>
+            </includes>
         </fileSet>
 
         <fileSet>
@@ -94,6 +125,22 @@
                 <exclude>**/demos/cluster/**</exclude>
                 <exclude>**/soap-addressing/</exclude>
                 <exclude>**/soap-addressing/**</exclude>
+                
+                <!-- Exclude all JKS files, which get corrupted by filtering -->
+                <exclude>**/camel-ftp-binding/src/test/resources/ftpclient.jks</exclude>
+                <exclude>**/camel-ftp-binding/src/test/resources/ftpserver.jks</exclude>
+                <exclude>**/camel-netty-binding/users.jks</exclude>
+                <exclude>**/demos/policy-security-basic/connector.jks</exclude>
+                <exclude>**/demos/policy-security-cert/connector.jks</exclude>
+                <exclude>**/demos/policy-security-cert/users.jks</exclude>
+                <exclude>**/demos/policy-security-saml/connector.jks</exclude>
+                <exclude>**/demos/policy-security-saml/picketlink-sts/WEB-INF/classes/sts_keystore.jks</exclude>
+                <exclude>**/demos/policy-security-wss-signencrypt/connector.jks</exclude>
+                <exclude>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</exclude>
+                <exclude>**/demos/policy-security-wss-username/connector.jks</exclude>
+                <exclude>**/demos/security-propagation/basic/connector.jks</exclude>
+
+
             </excludes>
             <lineEnding>unix</lineEnding>
             <filtered>true</filtered>
