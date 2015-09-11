@@ -344,7 +344,7 @@
                                 <echo message="Updating etc/config.properties in unix assembly" />
                                 <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties"
                                         append="true" eol="unix">
-                                    <fileset file="target/shared/etc/config.properties" />
+                                    <fileset file="target/shared/appended-resources/config.properties" />
                                 </concat>
                                 <echo file="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/system.properties" append="true">profiles=${project.artifactId}</echo>
                                 <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties" token="Fuse Fabric" value="JBoss Fuse"/>
