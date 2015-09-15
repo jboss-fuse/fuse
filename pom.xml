@@ -57,7 +57,7 @@
 
         <!-- we inherit from the fabric8 BOM so most versions we need are defined there-->
         <fabric.version>1.2.0.redhat-621034</fabric.version>
-        <switchyard.version>2.0.1.redhat-621035</switchyard.version>
+        <switchyard.version>2.0.1.redhat-621036</switchyard.version>
                  
         <cxf-java2wadl-plugin-version>${cxf-version}</cxf-java2wadl-plugin-version>
 
