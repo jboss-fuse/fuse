@@ -226,6 +226,7 @@
                             <outputDirectory>target/shared/syquickstarts</outputDirectory>
                         </configuration>
                     </execution>
+<!--
                     <execution>
                         <id>bpel-ddl</id>
                         <phase>generate-sources</phase>
@@ -249,6 +250,7 @@
                             </artifactItems>
                         </configuration>
                     </execution>
+-->
                 </executions>
             </plugin>
             <plugin>
