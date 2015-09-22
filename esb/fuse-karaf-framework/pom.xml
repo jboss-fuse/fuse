@@ -24,10 +24,10 @@
         <version>6.2.1.redhat-SNAPSHOT</version>
     </parent>
 
-    <artifactId>esb-os3-framework</artifactId>
+    <artifactId>fuse-karaf-framework</artifactId>
     <packaging>pom</packaging>
     
-    <name>JBoss Fuse :: ESB :: OS3 Framework</name>
+    <name>JBoss Fuse :: Karaf :: Framework</name>
 	
 	
     <repositories>
