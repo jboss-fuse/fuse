@@ -51,18 +51,58 @@
     </developers>
 
     <repositories>
-        <repository>
-            <id>fuse-public-repository</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
+      <repository>
+        <id>fuse-public-repository</id>
+        <name>FuseSource Community Release Repository</name>
+        <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>never</updatePolicy>
+        </releases>
+      </repository>
+      <repository>
+        <id>fusesource.ea</id>
+        <name>JBoss Community Early Access Release Repository</name>
+        <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>never</updatePolicy>
+        </releases>
+      </repository>
     </repositories>
+
+    <pluginRepositories>
+      <pluginRepository>
+        <id>fuse-public-repository</id>
+        <name>FuseSource Community Release Repository</name>
+        <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>never</updatePolicy>
+        </releases>
+      </pluginRepository>
+      <pluginRepository>
+        <id>fusesource.ea</id>
+        <name>JBoss Community Early Access Release Repository</name>
+        <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>never</updatePolicy>
+        </releases>
+      </pluginRepository>
+    </pluginRepositories>
 
     <scm>
       <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
