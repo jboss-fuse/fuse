@@ -45,7 +45,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
@@ -70,6 +69,5 @@
             <artifactId>org.apache.karaf.shell.config</artifactId>
         </dependency>
     </dependencies>
-
 
 </project>

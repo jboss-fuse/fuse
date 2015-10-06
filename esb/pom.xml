@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   Copyright (C) FuseSource, Inc.
   http://fusesource.com
@@ -22,7 +23,7 @@
         <groupId>org.fusesource</groupId>
         <artifactId>fuse-project</artifactId>
         <version>6.2.1.redhat-SNAPSHOT</version>
-      <relativePath>../parent</relativePath>
+        <relativePath>../parent</relativePath>
     </parent>
 
     <groupId>org.jboss.fuse</groupId>
@@ -66,10 +67,10 @@
         <module>shared</module>
         <module>esb-branding</module>
         <module>esb-features</module>
-		<module>fuse-karaf-framework</module>
+        <module>fuse-karaf-framework</module>
         <module>esb-assembly</module>
     </modules>
-   
+
     <profiles>
         <profile>
             <id>ts.all</id>
@@ -83,5 +84,5 @@
             </modules>
         </profile>
     </profiles>
- 
+
 </project>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   Copyright (C) Red Hat, Inc.
   http://redhat.com
@@ -16,32 +17,32 @@
   -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.fusesource</groupId>
-    <artifactId>fuse-project</artifactId>
+    <parent>
+        <groupId>org.fusesource</groupId>
+        <artifactId>fuse-project</artifactId>
+        <version>6.2.1.redhat-SNAPSHOT</version>
+        <relativePath>../parent</relativePath>
+    </parent>
+
+    <groupId>org.jboss.amq</groupId>
+    <artifactId>mq-project</artifactId>
     <version>6.2.1.redhat-SNAPSHOT</version>
-    <relativePath>../parent</relativePath>
-  </parent>
+    <packaging>pom</packaging>
 
-  <groupId>org.jboss.amq</groupId>
-  <artifactId>mq-project</artifactId>
-  <version>6.2.1.redhat-SNAPSHOT</version>
-  <packaging>pom</packaging>
+    <name>JBoss A-MQ Project</name>
 
-  <name>JBoss A-MQ Project</name>
+    <properties>
+        <apache-activemq-archive-url>http://archive.apache.org/dist/activemq</apache-activemq-archive-url>
+    </properties>
 
-  <properties>
-    <fuse.osgi.export>org.fusesource.mq.*;version=${fuse.osgi.version};-noimport:=true</fuse.osgi.export>
-    <apache-activemq-archive-url>http://archive.apache.org/dist/activemq</apache-activemq-archive-url>
-  </properties>
+    <modules>
+        <module>mq-branding</module>
+        <module>mq-assembly</module>
+        <module>jboss-a-mq-cpp</module>
+        <module>jboss-a-mq-nms</module>
+        <module>jboss-a-mq-amqp-client</module>
+    </modules>
 
-  <modules>
-    <module>mq-branding</module>
-    <module>mq-assembly</module>
-    <module>jboss-a-mq-cpp</module>
-    <module>jboss-a-mq-nms</module>
-    <module>jboss-a-mq-amqp-client</module>
-  </modules>
 </project>

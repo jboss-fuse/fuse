@@ -17,7 +17,7 @@
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-         
+
     <parent>
         <groupId>org.jboss.fuse</groupId>
         <artifactId>esb-project</artifactId>
@@ -26,7 +26,7 @@
 
     <artifactId>jboss-fuse</artifactId>
     <packaging>pom</packaging>
-    
+
     <name>JBoss Fuse :: ESB :: Features</name>
 
     <build>
@@ -52,7 +52,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin> 			
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -75,7 +75,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>            
+            </plugin>
         </plugins>
     </build>
 

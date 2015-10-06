@@ -17,7 +17,7 @@
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-         
+
     <parent>
         <groupId>org.jboss.fuse</groupId>
         <artifactId>esb-project</artifactId>
@@ -26,10 +26,9 @@
 
     <artifactId>fuse-karaf-framework</artifactId>
     <packaging>pom</packaging>
-    
+
     <name>JBoss Fuse :: Karaf :: Framework</name>
-	
-	
+
     <repositories>
         <!-- needed for org.apache.xerces JARs required by org.apache.servicemix.bundles.opensaml:2.6.1_1 -->
         <repository>
@@ -112,7 +111,7 @@
     <dependencies>
         <dependency>
             <groupId>org.jboss.fuse</groupId>
-            <artifactId>shared</artifactId>
+            <artifactId>esb-shared</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -129,73 +128,73 @@
             <type>xml</type>
             <classifier>features</classifier>
         </dependency>
-		<dependency>
-			<groupId>org.apache.karaf.assemblies.features</groupId>
-			<artifactId>standard</artifactId>
-			<version>${karaf-version}</version>
-			<type>xml</type>
-			<classifier>features</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.karaf.assemblies.features</groupId>
-			<artifactId>spring</artifactId>
-			<version>${karaf-version}</version>
-			<type>xml</type>
-			<classifier>features</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.karaf.assemblies.features</groupId>
-			<artifactId>enterprise</artifactId>
-			<version>${karaf-version}</version>
-			<type>xml</type>
-			<classifier>features</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-karaf</artifactId>
-			<version>${activemq-version}</version>
-			<type>xml</type>
-			<classifier>features</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel.karaf</groupId>
-			<artifactId>apache-camel</artifactId>
-			<version>${camel-version}</version>
-			<type>xml</type>
-			<classifier>features</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf.karaf</groupId>
-			<artifactId>apache-cxf</artifactId>
-			<version>${cxf-version}</version>
-			<type>xml</type>
-			<classifier>features</classifier>
-		</dependency>
-		<dependency>
-			<groupId>io.hawt</groupId>
-			<artifactId>hawtio-karaf</artifactId>
-			<version>${hawtio-version}</version>
-			<type>xml</type>
-			<classifier>features</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.switchyard.karaf</groupId>
-			<artifactId>switchyard</artifactId>
-			<version>${switchyard.version}</version>
-			<type>xml</type>
-			<classifier>features</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.switchyard.karaf</groupId>
-			<artifactId>switchyard</artifactId>
-			<version>${switchyard.version}</version>
-			<type>xml</type>
-			<classifier>core-features</classifier>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.karaf.assemblies.features</groupId>
+            <artifactId>standard</artifactId>
+            <version>${karaf-version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.assemblies.features</groupId>
+            <artifactId>spring</artifactId>
+            <version>${karaf-version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.assemblies.features</groupId>
+            <artifactId>enterprise</artifactId>
+            <version>${karaf-version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-karaf</artifactId>
+            <version>${activemq-version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel.karaf</groupId>
+            <artifactId>apache-camel</artifactId>
+            <version>${camel-version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf.karaf</groupId>
+            <artifactId>apache-cxf</artifactId>
+            <version>${cxf-version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>io.hawt</groupId>
+            <artifactId>hawtio-karaf</artifactId>
+            <version>${hawtio-version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.switchyard.karaf</groupId>
+            <artifactId>switchyard</artifactId>
+            <version>${switchyard.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.switchyard.karaf</groupId>
+            <artifactId>switchyard</artifactId>
+            <version>${switchyard.version}</version>
+            <type>xml</type>
+            <classifier>core-features</classifier>
+        </dependency>
     </dependencies>
 
     <build>
-		<resources>
+        <resources>
             <resource>
                 <directory>${project.basedir}/src/main/filtered-resources</directory>
                 <filtering>true</filtering>
@@ -203,7 +202,7 @@
                     <include>**/*</include>
                 </includes>
             </resource>
-		</resources>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -217,7 +216,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin> 			
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -236,39 +235,39 @@
                                     <version>${fabric.version}</version>
                                     <type>zip</type>
                                     <outputDirectory>target/unpack</outputDirectory>
-									<includes>*/bin/**,*/etc/**,*/lib/**,*/data/**,*/system/org/apache/felix/org.apache.felix.framework/**</includes>
-									<excludes>*/bin/fabric8*,*/bin/deletefabric8,*/lib/karaf.jar</excludes>
+                                    <includes>*/bin/**,*/etc/**,*/lib/**,*/data/**,*/system/org/apache/felix/org.apache.felix.framework/**</includes>
+                                    <excludes>*/bin/fabric8*,*/bin/deletefabric8,*/lib/karaf.jar</excludes>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.jboss.fuse</groupId>
-                                    <artifactId>shared</artifactId>
-                                    <version>${project-version}</version>
+                                    <artifactId>esb-shared</artifactId>
+                                    <version>${project.version}</version>
                                     <outputDirectory>target/shared</outputDirectory>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
                     </execution>
-					<execution>
-						<id>copy</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>copy</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>org.apache.karaf</groupId>
-									<artifactId>org.apache.karaf.main</artifactId>
-									<version>2.4.3</version>
-									<outputDirectory>target/unpack/fabric8-karaf-${fabric.version}/lib</outputDirectory>
-									<destFileName>karaf.jar</destFileName>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
+                    <execution>
+                        <id>copy</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.apache.karaf</groupId>
+                                    <artifactId>org.apache.karaf.main</artifactId>
+                                    <version>2.4.3</version>
+                                    <outputDirectory>target/unpack/fabric8-karaf-${fabric.version}/lib</outputDirectory>
+                                    <destFileName>karaf.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
-			<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
@@ -280,13 +279,13 @@
                         </goals>
                         <configuration>
                             <tasks>
-								<move file="target/unpack/fabric8-karaf-${fabric.version}"
-									toFile="target/unpack/resources" />
-							</tasks>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+                                <move file="target/unpack/fabric8-karaf-${fabric.version}"
+                                        toFile="target/unpack/resources" />
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.karaf.tooling</groupId>
                 <artifactId>features-maven-plugin</artifactId>
@@ -298,8 +297,8 @@
                             <goal>create-kar</goal>
                         </goals>
                         <configuration>
-							<resourcesDir>target/unpack/</resourcesDir>
-							<featuresFile>target/classes/features.xml</featuresFile>
+                            <resourcesDir>target/unpack/</resourcesDir>
+                            <featuresFile>target/classes/features.xml</featuresFile>
                         </configuration>
                     </execution>
                 </executions>
@@ -326,9 +325,8 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>            
+            </plugin>
         </plugins>
     </build>
 
 </project>
-

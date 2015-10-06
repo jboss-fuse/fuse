@@ -19,17 +19,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-      <groupId>org.fusesource</groupId>
-      <artifactId>fuse-project</artifactId>
-      <version>6.2.1.redhat-SNAPSHOT</version>
-      <relativePath>../parent</relativePath>
+        <groupId>org.fusesource</groupId>
+        <artifactId>fuse-project</artifactId>
+        <version>6.2.1.redhat-SNAPSHOT</version>
+        <relativePath>../parent</relativePath>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>quickstarts-parent</artifactId>
     <version>6.2.1.redhat-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>JBoss  Quickstart: quickstarts</name>
+    <name>JBoss Quickstart: quickstarts</name>
     <description>JBoss Fuse Quickstarts Parent</description>
     <url>http://www.jboss.org/products/fuse</url>
 
@@ -42,72 +42,72 @@
     </licenses>
 
     <developers>
-      <developer>
-        <id>fuseteam</id>
-        <name>JBoss Fuse Development Team</name>
-        <organization>JBoss</organization>
-        <organizationUrl>http://jboss.org/</organizationUrl>
-      </developer>
+        <developer>
+            <id>fuseteam</id>
+            <name>JBoss Fuse Development Team</name>
+            <organization>JBoss</organization>
+            <organizationUrl>http://jboss.org/</organizationUrl>
+        </developer>
     </developers>
 
     <repositories>
-      <repository>
-        <id>fuse-public-repository</id>
-        <name>FuseSource Community Release Repository</name>
-        <url>https://repo.fusesource.com/nexus/content/groups/public</url>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-        <releases>
-          <enabled>true</enabled>
-          <updatePolicy>never</updatePolicy>
-        </releases>
-      </repository>
-      <repository>
-        <id>fusesource.ea</id>
-        <name>JBoss Community Early Access Release Repository</name>
-        <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-        <releases>
-          <enabled>true</enabled>
-          <updatePolicy>never</updatePolicy>
-        </releases>
-      </repository>
+        <repository>
+            <id>fuse-public-repository</id>
+            <name>FuseSource Community Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>fusesource.ea</id>
+            <name>JBoss Community Early Access Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
     </repositories>
 
     <pluginRepositories>
-      <pluginRepository>
-        <id>fuse-public-repository</id>
-        <name>FuseSource Community Release Repository</name>
-        <url>https://repo.fusesource.com/nexus/content/groups/public</url>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-        <releases>
-          <enabled>true</enabled>
-          <updatePolicy>never</updatePolicy>
-        </releases>
-      </pluginRepository>
-      <pluginRepository>
-        <id>fusesource.ea</id>
-        <name>JBoss Community Early Access Release Repository</name>
-        <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-        <releases>
-          <enabled>true</enabled>
-          <updatePolicy>never</updatePolicy>
-        </releases>
-      </pluginRepository>
+        <pluginRepository>
+            <id>fuse-public-repository</id>
+            <name>FuseSource Community Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>fusesource.ea</id>
+            <name>JBoss Community Early Access Release Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
     </pluginRepositories>
 
     <scm>
-      <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
-      <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
-      <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts</url>
+        <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
+        <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
+        <url>https://github.com/jboss-fuse/fuse/tree/master/quickstarts</url>
     </scm>
 
     <properties>
