@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright (C) FuseSource, Inc.
-  http://fusesource.com
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
+     Copyright 2005-2015 Red Hat, Inc.
 
-     http://www.apache.org/licenses/LICENSE-2.0
+     Red Hat licenses this file to you under the Apache License, version
+     2.0 (the "License"); you may not use this file except in compliance
+     with the License.  You may obtain a copy of the License at
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  -->
+        http://www.apache.org/licenses/LICENSE-2.0
 
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied.  See the License for the specific language governing
+     permissions and limitations under the License.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -2843,9 +2843,9 @@
         <profile>
             <!--
                 Do a license check by running:
-                    mvn -Pts.all,license com.mycila:license-maven-plugin:check -N
+                    mvn -Pts.all,license com.mycila:license-maven-plugin:check
                 Update the licenses by running:
-                    mvn -Pts.all,license com.mycila:license-maven-plugin:format -N
+                    mvn -Pts.all,license com.mycila:license-maven-plugin:format
             -->
             <id>license</id>
             <build>
@@ -2854,13 +2854,12 @@
                         <groupId>com.mycila</groupId>
                         <artifactId>license-maven-plugin</artifactId>
                         <version>2.6</version>
-                        <inherited>false</inherited>
                         <configuration>
                             <header>src/main/resources/license-header.txt</header>
                             <includes>
-                                <include>src/main/java/**</include>
-                                <include>src/test/java/**</include>
-                                <include>pom.xml</include>
+                                <include>**/src/main/java/**</include>
+                                <include>**/src/test/java/**</include>
+                                <include>**/pom.xml</include>
                                 <include>**/*.xml</include>
                                 <include>**/*.cfg</include>
                                 <include>**/*.properties</include>
@@ -2869,15 +2868,13 @@
                                 <exclude>**/LICENSE.txt</exclude>
                                 <exclude>**/LICENSE</exclude>
                                 <exclude>**/target/**</exclude>
-                                <exclude>**/camel-sap-component/data/**</exclude>
+                                <exclude>**/data/**</exclude>
                                 <exclude>**/src/data/**</exclude>
-                                <exclude>**/org.fusesource.camel.component.sap.test/data/**</exclude>
-                                <exclude>**/org.fusesource.camel.component.sap.test/**/bundle.properties</exclude>
-                                <exclude>**/org.fusesource.camel.component.sap.model/**/bundle.properties</exclude>
-                                <exclude>**/org.jboss.quickstarts.fuse.salesforce.cfg</exclude>
-                                <exclude>components/camel-sap/**/plugin.xml</exclude>
-                                <exclude>components/camel-sap/**/feature.xml</exclude>
-                                <exclude>components/camel-sap/**/category.xml</exclude>
+                                <exclude>**/bundle.properties</exclude>
+                                <exclude>org.jboss.quickstarts.fuse.salesforce.cfg</exclude>
+                                <exclude>**/plugin.xml</exclude>
+                                <exclude>**/feature.xml</exclude>
+                                <exclude>**/category.xml</exclude>
                                 <exclude>**/unix.properties</exclude>
                             </excludes>
                             <mapping>
