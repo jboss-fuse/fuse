@@ -43,7 +43,7 @@
   <parent>
   	<groupId>org.fusesource</groupId>
   	<artifactId>camel-sap-parent</artifactId>
-  	<version>6.2.1.redhat-SNAPSHOT</version>
+  	<version>6.2.1.redhat-047</version>
   </parent>
   <url>http://http://www.jboss.org/products/fuse/overview/</url>
   <name>JBoss Fuse :: SAP JCO :: SAP Data Layer :: Model Plugin</name>
@@ -52,5 +52,5 @@
   	<name>Red Hat, Inc.</name>
   	<url>http://www.redhat.com</url>
   </organization>
-  <version>6.2.1-SNAPSHOT</version>
+  <version>6.2.1.redhat-047</version>
 </project>

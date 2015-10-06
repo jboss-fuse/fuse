@@ -22,7 +22,7 @@
     <parent>
         <artifactId>esb-itests</artifactId>
         <groupId>org.jboss.fuse</groupId>
-        <version>6.2.1.redhat-SNAPSHOT</version>
+        <version>6.2.1.redhat-047</version>
     </parent>
 
     <groupId>org.jboss.fuse.itests</groupId>
