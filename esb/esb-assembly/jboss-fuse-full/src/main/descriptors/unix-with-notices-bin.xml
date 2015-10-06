@@ -33,4 +33,14 @@
         <componentDescriptor>target/shared/examples-unix-bin.xml</componentDescriptor>
     </componentDescriptors>
 
+    <fileSets>
+        <fileSet>
+            <directory>target</directory>
+            <outputDirectory>system/org/jboss/fuse/jboss-fuse-full/${project.version}</outputDirectory>
+            <includes>
+                <include>jboss-fuse-full-${project.version}-baseline.zip</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+
 </assembly>
