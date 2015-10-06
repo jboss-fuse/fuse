@@ -33,7 +33,7 @@
     <modules>
         <module>shared</module>
         <module>jboss-a-mq</module>
-        <module>jboss-a-mq-karaf</module>
+        <!--<module>jboss-a-mq-karaf</module>-->
     </modules>
     
 </project>
