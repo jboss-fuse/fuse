@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   Copyright (C) FuseSource, Inc.
   http://fusesource.com
@@ -64,7 +65,7 @@
         <activemqcpp.version>3.8.2</activemqcpp.version>
         <activemqnms.version>1.6.2</activemqnms.version>
 
-      <!-- TODO trim this list as we don't use ServiceMix components anymore -->
+        <!-- TODO trim this list as we don't use ServiceMix components anymore -->
         <saxon.bundle.version>9.5.1-1_1</saxon.bundle.version>
         <jaxws-api.version>2.2</jaxws-api.version>
         <saaj-impl.bundle.version>1.3.23_2</saaj-impl.bundle.version>
@@ -2820,6 +2821,11 @@
                   <artifactId>camel-salesforce-maven-plugin</artifactId>
                   <version>${camel-version}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.servicemix.tooling</groupId>
+                    <artifactId>depends-maven-plugin</artifactId>
+                    <version>1.2</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -2832,4 +2838,68 @@
         <module>quickstarts</module>
         <module>esb</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <!--
+                Do a license check by running:
+                    mvn -Pts.all,license com.mycila:license-maven-plugin:check -N
+                Update the licenses by running:
+                    mvn -Pts.all,license com.mycila:license-maven-plugin:format -N
+            -->
+            <id>license</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.mycila</groupId>
+                        <artifactId>license-maven-plugin</artifactId>
+                        <version>2.6</version>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <header>src/main/resources/license-header.txt</header>
+                            <includes>
+                                <include>src/main/java/**</include>
+                                <include>src/test/java/**</include>
+                                <include>pom.xml</include>
+                                <include>**/*.xml</include>
+                                <include>**/*.cfg</include>
+                                <include>**/*.properties</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/LICENSE.txt</exclude>
+                                <exclude>**/LICENSE</exclude>
+                                <exclude>**/target/**</exclude>
+                                <exclude>**/camel-sap-component/data/**</exclude>
+                                <exclude>**/src/data/**</exclude>
+                                <exclude>**/org.fusesource.camel.component.sap.test/data/**</exclude>
+                                <exclude>**/org.fusesource.camel.component.sap.test/**/bundle.properties</exclude>
+                                <exclude>**/org.fusesource.camel.component.sap.model/**/bundle.properties</exclude>
+                                <exclude>**/org.jboss.quickstarts.fuse.salesforce.cfg</exclude>
+                                <exclude>components/camel-sap/**/plugin.xml</exclude>
+                                <exclude>components/camel-sap/**/feature.xml</exclude>
+                                <exclude>components/camel-sap/**/category.xml</exclude>
+                                <exclude>**/unix.properties</exclude>
+                            </excludes>
+                            <mapping>
+                                <cfg>SCRIPT_STYLE</cfg>
+                                <index>SCRIPT_STYLE</index>
+                                <jj>JAVADOC_STYLE</jj>
+                                <proto>DOUBLESLASH_STYLE</proto>
+                            </mapping>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <!-- This is the phase this plugin runs by default. Just an explicit information -->
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
