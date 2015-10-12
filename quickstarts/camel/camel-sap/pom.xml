@@ -116,7 +116,6 @@
 		<dependency>
 			<groupId>org.fusesource</groupId>
 			<artifactId>camel-sap</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 
 		<!-- logging -->
