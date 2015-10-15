@@ -63,10 +63,11 @@
 
         <activemqcpp.version>3.8.2</activemqcpp.version>
         <activemqnms.version>1.6.2</activemqnms.version>
-
+        <saaj-impl.bundle.version>1.3.23_2</saaj-impl.bundle.version>
         <version.org.riftsaw.ode>3.2.0.Final-redhat-2</version.org.riftsaw.ode> 
         <javax.mail.version>1.4.7</javax.mail.version>
         <saxon.bundle.version>9.5.1-1_1</saxon.bundle.version>
+        <staxex.bundle.version>1.7.6</staxex.bundle.version>
     </properties>
 
     <repositories>
