@@ -58,6 +58,7 @@ Build and Deploy the Quickstart
 * In the JBoss Fuse console, enter the following commands:
 
         features:install camel-olingo2
+        features:install camel-jackson
         osgi:install -s mvn:org.jboss.quickstarts.fuse/camel-odata/${project.version}
 
 * Fuse should give you an id when the bundle is deployed
