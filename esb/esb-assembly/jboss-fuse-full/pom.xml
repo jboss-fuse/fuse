@@ -141,6 +141,13 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
+                                    <groupId>io.fabric8</groupId>
+                                    <artifactId>fabric8-karaf</artifactId>
+                                    <version>${fabric.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>target/features-repo/io/fabric8/fabric8-karaf/${fabric.version}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
                                     <groupId>org.apache.camel</groupId>
                                     <artifactId>apache-camel</artifactId>
                                     <version>${camel-version}</version>
