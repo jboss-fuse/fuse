@@ -136,17 +136,8 @@
 
         <!-- Copy over the BPEL DDL files -->
         <fileSet>
-            <directory>target/shared/bpel-ddl/riftsaw-dao-jpa/META-INF/sql</directory>
-            <outputDirectory>/etc/sql/riftsaw-dao-jpa</outputDirectory>
-            <includes>
-                <include>*.sql</include>
-            </includes>
-            <lineEnding>unix</lineEnding>
-            <fileMode>0644</fileMode>
-        </fileSet>
-        <fileSet>
-            <directory>target/shared/bpel-ddl/riftsaw-dao-jpa-hibernate/META-INF/sql</directory>
-            <outputDirectory>/etc/sql/riftsaw-dao-jpa-hibernate</outputDirectory>
+            <directory>target/shared/bpel-ddl</directory>
+            <outputDirectory>/etc/sql/riftsaw</outputDirectory>
             <includes>
                 <include>*.sql</include>
             </includes>
