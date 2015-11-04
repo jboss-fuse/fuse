@@ -149,6 +149,12 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <scope>test</scope>
+    </dependency>
+
     <!--
       Add the slf4j-log4j12 dependency jar for testing
     -->
