@@ -29,9 +29,11 @@
     <dependencySets>
         <dependencySet>
             <outputDirectory>patches</outputDirectory>
+            <outputFileNameMapping>jboss-fuse-full-6.2.0.redhat-133-baseline.zip</outputFileNameMapping>
             <includes>
-                <include>org.jboss.fuse:jboss-fuse-full</include>
+                <include>org.jboss.fuse:legacy620</include>
             </includes>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
             <useProjectArtifact>false</useProjectArtifact>
         </dependencySet>
         <dependencySet>
