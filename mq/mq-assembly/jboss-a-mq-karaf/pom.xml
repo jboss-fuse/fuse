@@ -407,7 +407,7 @@
                     <goal>wget</goal>
                   </goals>
                   <configuration>
-                    <url>${apache-activemq-archive-url}/apache-nms/1.6.0/Apache.NMS.ActiveMQ-${activemqnms.version}-bin.zip</url>
+                    <url>${apache-activemq-archive-url}/apache-nms/${activemqnms.version.major}.0/Apache.NMS.ActiveMQ-${activemqnms.version}-bin.zip</url>
                     <unpack>false</unpack>
                     <outputDirectory>target/dependencies/unix</outputDirectory>
                   </configuration>
@@ -419,7 +419,7 @@
                     <goal>wget</goal>
                   </goals>
                   <configuration>
-                    <url>${apache-activemq-archive-url}/apache-nms/1.6.0/Apache.NMS.ActiveMQ-${activemqnms.version}-src.zip</url>
+                    <url>${apache-activemq-archive-url}/apache-nms/${activemqnms.version.major}.0/Apache.NMS.ActiveMQ-${activemqnms.version}-src.zip</url>
                     <unpack>false</unpack>
                     <outputDirectory>target/dependencies/unix</outputDirectory>
                   </configuration>
