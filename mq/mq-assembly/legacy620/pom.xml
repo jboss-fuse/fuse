@@ -23,15 +23,44 @@
         <groupId>org.jboss.amq</groupId>
         <artifactId>mq-project</artifactId>
         <version>6.2.1.redhat-SNAPSHOT</version>
-        <relativePath>../..</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>patch-management-for-amq-620</artifactId>
+    <artifactId>legacy620</artifactId>
     <packaging>pom</packaging>
 
-    <name>JBoss Fuse :: ESB :: PatchManagement for 620.GA</name>
+    <name>JBoss A-MQ :: Assembly :: Legacy Baseline</name>
+
+    <properties>
+        <legacy-version>6.2.0.redhat-133</legacy-version>
+    </properties>
 
     <repositories>
+        <!-- needed for org.apache.xerces JARs required by org.apache.servicemix.bundles.opensaml:2.6.1_1 -->
+        <repository>
+            <id>shibboleth</id>
+            <name>shibboleth repository</name>
+            <url>https://build.shibboleth.net/nexus/content/repositories/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
+        <!-- Gemini Blueprint repository -->
+        <repository>
+            <id>zodiac-repository</id>
+            <name>Zodiac Release Repository</name>
+            <url>http://zodiac.springsource.com/maven/bundles/release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>fusesource.m2</id>
             <name>FuseSource Community Release Repository</name>
@@ -56,6 +85,18 @@
                 <updatePolicy>never</updatePolicy>
             </releases>
         </repository>
+        <repository>
+            <id>brewroot</id>
+            <name>Brew Repository</name>
+            <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-fuse-6.2-build/latest/maven</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>        
     </repositories>
 
     <pluginRepositories>
@@ -88,32 +129,9 @@
     <dependencies>
         <dependency>
             <groupId>org.jboss.amq</groupId>
-            <artifactId>legacy620</artifactId>
-            <version>${project.version}</version>
+            <artifactId>jboss-a-mq</artifactId>
+            <version>${legacy-version}</version>
             <type>zip</type>
-            <classifier>baseline</classifier>
-        </dependency>
-        <dependency>
-            <groupId>io.fabric8.patch</groupId>
-            <artifactId>patch-management</artifactId>
-            <version>${fabric.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.fabric8.patch</groupId>
-            <artifactId>patch-core</artifactId>
-            <version>${fabric.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.fabric8.patch</groupId>
-            <artifactId>patch-commands</artifactId>
-            <version>${fabric.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.fabric8.patch</groupId>
-            <artifactId>patch-features</artifactId>
-            <version>${fabric.version}</version>
-            <type>xml</type>
-            <classifier>features</classifier>
         </dependency>
     </dependencies>
 
@@ -124,17 +142,18 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>patch-management-for-620</id>
+                        <id>baseline</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
                         <configuration>
+                            <ignoreMissingDescriptor>true</ignoreMissingDescriptor>
                             <descriptors>
-                                <descriptor>src/main/descriptors/patch-management.xml</descriptor>
+                                <descriptor>src/main/descriptors/legacy-baseline.xml</descriptor>
                             </descriptors>
-                            <finalName>patch-management-${project.version}-for-amq-6.2.0.redhat-133</finalName>
-                            <appendAssemblyId>false</appendAssemblyId>
+                            <finalName>${project.artifactId}-${project.version}</finalName>
+                            <appendAssemblyId>true</appendAssemblyId>
                         </configuration>
                     </execution>
                 </executions>
