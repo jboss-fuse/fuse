@@ -29,7 +29,7 @@
     <artifactId>patch-management-for-amq-620</artifactId>
     <packaging>pom</packaging>
 
-    <name>JBoss Fuse :: ESB :: PatchManagement for 620.GA</name>
+    <name>JBoss A-MQ :: PatchManagement for 620.GA</name>
 
     <repositories>
         <repository>
