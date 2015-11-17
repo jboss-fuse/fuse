@@ -215,9 +215,16 @@
           <url>https://maven.repository.redhat.com/techpreview/all</url>
         </repository>
         <repository>
-          <id>jb-eap-6.4-rhel-6-build</id>
-          <name>jboss staging</name>
-          <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-6.4-rhel-6-build/latest/maven</url>
+            <id>brewroot</id>
+            <name>Brew Repository</name>
+            <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-fuse-6.2-build/latest/maven</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
         </repository>
     </repositories>
 
