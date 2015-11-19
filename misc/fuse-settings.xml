@@ -26,7 +26,7 @@
         <repository>
           <id>enterprise</id>
           <name>Enterprise Releases</name>
-          <url>http://maven.repository.redhat.com/ga</url> 
+          <url>https://maven.repository.redhat.com/ga</url> 
         </repository>        
       </repositories>
       <pluginRepositories>
@@ -48,7 +48,7 @@
         <pluginRepository>
           <id>enterprise</id>
           <name>Enterprise Releases</name>
-          <url>http://maven.repository.redhat.com/ga</url>
+          <url>https://maven.repository.redhat.com/ga</url>
         </pluginRepository>        
       </pluginRepositories>
     </profile>
