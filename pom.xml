@@ -212,7 +212,7 @@
         <repository>
           <id>redhat-product</id>
           <name>Redhat Product Repository</name>
-          <url>https://maven.repository.redhat.com/techpreview/all</url>
+          <url>https://maven.repository.redhat.com/ga</url>
         </repository>
         <repository>
             <id>brewroot</id>
