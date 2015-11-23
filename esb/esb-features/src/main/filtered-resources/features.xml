@@ -17,6 +17,12 @@
 
 -->
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="fuse-${project.version}">
+
+    <feature name="esb-commands-startup" version="${project.version}"  resolver='(obr)'>
+        <!-- bundles referenced from $KARAF_HOME/etc/startup.properties -->
+        <bundle dependency="true">mvn:org.jboss.fuse/shared-commands/${project.version}</bundle>
+    </feature>
+
     <feature name="esb-commands" version="${project.version}"  resolver='(obr)'>
         <bundle>mvn:org.jboss.fuse/shared-commands/${project.version}</bundle>
     </feature>

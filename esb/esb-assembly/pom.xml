@@ -376,6 +376,22 @@
                             </target>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>add-esb-commands-startup</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="add-esb-commands-startup">
+                                <echo message="Adding esb-commands-startup feature to default.profile" />
+                                <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/fabric/import/fabric/profiles/default.profile/io.fabric8.agent.properties"
+                                        append="true" eol="unix">
+                                    <fileset file="target/shared/appended-resources/fabric/import/fabric/profiles/default.profile/io.fabric8.agent.properties" />
+                                </concat>
+                            </target>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
