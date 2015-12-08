@@ -28,5 +28,5 @@ Documentation
 -------------
 You can find documentation online at:
 
-https://access.redhat.com/site/documentation/JBoss_Fuse/
+https://access.redhat.com/documentation/en/red-hat-jboss-fuse/
 
