@@ -35,6 +35,15 @@ Before building and running this quick start you need:
 * JDK 1.7 or 1.8
 * JBoss Fuse 6
 
+You will also need to install the JBoss Fuse distribution into your local Maven repository. You can use a command like:
+
+mvn install:install-file -Dfile=/path/to/fuse/jboss-fuse-full-6.2.1.redhat-084.zip \
+                         -DgroupId=org.jboss.fuse \
+                         -DartifactId=jboss-fuse-full \
+                         -Dversion=6.2.1.redhat-084 \
+                         -Dpackaging=zip \
+                         -DgeneratePom=false
+
 Build the custom assembly
 -------------------------
 
