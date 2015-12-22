@@ -37,7 +37,8 @@
         <maven-build-helper-plugin-version>1.8</maven-build-helper-plugin-version>
         <maven-bundle-plugin-version>2.3.4</maven-bundle-plugin-version>
         <maven-notices-plugin-version>1.38</maven-notices-plugin-version>
-        <maven-surefire-plugin-version>2.16</maven-surefire-plugin-version>
+        <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
+	<maven-surefire-itests-plugin-version>2.17</maven-surefire-itests-plugin-version>
     </properties>
     
     <dependencies>
