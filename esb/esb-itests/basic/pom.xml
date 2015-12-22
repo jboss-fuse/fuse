@@ -78,6 +78,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
+		<version>${maven-surefire-itests-plugin-version}</version>
                 <configuration>
                     <forkMode>pertest</forkMode>
                     <useSystemClassLoader>true</useSystemClassLoader>
