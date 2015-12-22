@@ -70,7 +70,7 @@
         <staxex.bundle.version>1.7.6</staxex.bundle.version>
         
         <hibernate.annotations.common.version>4.0.4.Final</hibernate.annotations.common.version>
-        <hibernate42.version>4.2.20.Final-redhat-1</hibernate42.version>
+        <hibernate42.version>4.2.22.Final-redhat-1</hibernate42.version>
         <hibernate.validator.version>5.0.3.Final</hibernate.validator.version>
     </properties>
 
