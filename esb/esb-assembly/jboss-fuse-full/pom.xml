@@ -223,7 +223,7 @@
                             <!-- workaround for errors in CXF 3.0.1 features file, cfr. CXF-5972 -->
                             <failOnArtifactResolutionError>false</failOnArtifactResolutionError>
                             <blackList>
-                                pax-cdi-openwebbeans,pax-cdi-web-openwebbeans,spring-struts,cxf-bean-validation-java6
+                                pax-cdi-openwebbeans,pax-cdi-web-openwebbeans,spring-struts,cxf-bean-validation-java6,pax-cdi-1.2-web,pax-jsf-support
                             </blackList>
                         </configuration>
                     </execution>
@@ -298,7 +298,7 @@
                                     <includeMvnBasedDescriptors>true</includeMvnBasedDescriptors>
                                     <repository>target/features-repo</repository>
                                     <blackList>
-                                        pax-cdi-openwebbeans,pax-cdi-web-openwebbeans,spring-struts,cxf-bean-validation-java6
+                                        pax-cdi-openwebbeans,pax-cdi-web-openwebbeans,spring-struts,cxf-bean-validation-java6,pax-cdi-1.2-web,pax-jsf-support
                                     </blackList>
                                 </configuration>
                             </execution>
