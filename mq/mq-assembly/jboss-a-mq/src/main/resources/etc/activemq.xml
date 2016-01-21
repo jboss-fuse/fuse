@@ -49,6 +49,10 @@
             <managementContext createConnector="false"/>
         </managementContext>
 
+        <ioExceptionHandler>
+            <defaultIOExceptionHandler ignoreNoSpaceErrors="false"/>
+        </ioExceptionHandler>
+
         <persistenceAdapter>
             <kahaDB directory="${data}/kahadb"/>
         </persistenceAdapter>
