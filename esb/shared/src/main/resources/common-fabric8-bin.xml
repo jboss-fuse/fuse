@@ -72,6 +72,7 @@
             <outputDirectory>/</outputDirectory>
             <includes>
               <include>bin/*</include>
+              <include>bin/contrib/*</include>
             </includes>
             <excludes>
               <exclude>bin/fabric8*</exclude>
