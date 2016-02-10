@@ -13,4 +13,4 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-shell:if { dev:wait-for-service --timeout 10 "(&(objectClass=org.apache.felix.service.command.Function)(osgi.command.scope=amq)(osgi.command.function=check-for-user))" } { amq:check-for-user }
+// shell:if { dev:wait-for-service --timeout 10 "(&(objectClass=org.apache.felix.service.command.Function)(osgi.command.scope=amq)(osgi.command.function=check-for-user))" } { amq:check-for-user }
