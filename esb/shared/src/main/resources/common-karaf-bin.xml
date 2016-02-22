@@ -80,8 +80,18 @@
             </includes>
             <excludes>
                 <exclude>bin/create.bat</exclude>
+                <exclude>bin/contrib/karaf-service-win.exe</exclude>
             </excludes>
             <lineEnding>dos</lineEnding>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/dependencies/win/apache-karaf-${karaf-version}</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>bin/contrib/karaf-service-win.exe</include>
+            </includes>
+            <lineEnding>keep</lineEnding>
             <fileMode>0755</fileMode>
         </fileSet>
 
