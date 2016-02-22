@@ -159,6 +159,7 @@
                                 <descriptor>mvn:org.apache.karaf.assemblies.features/standard/${karaf-version}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.karaf.assemblies.features/spring/${karaf-version}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.camel.karaf/apache-camel/${camel-version}/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.cxf.karaf/apache-cxf/${cxf-version}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.activemq/activemq-karaf/${activemq-version}/xml/features</descriptor>
                                 <descriptor>mvn:io.hawt/hawtio-karaf/${hawtio-version}/xml/features</descriptor>
                                 <descriptor>mvn:io.fabric8.patch/patch-features/${fabric.version}/xml/features</descriptor>
@@ -181,10 +182,13 @@
                                 <feature>activemq-camel</feature>
                                 <feature>hawtio-redhat-amq-branding</feature>
                                 <feature>hawtio-offline</feature>
+                                <feature>fabric-hawtio-swagger</feature>
                                 <feature>war</feature>
                                 <feature>fabric-redirect</feature>
                                 <feature>hawtio</feature>
                                 <feature>patch</feature>
+                                <feature>swagger</feature>
+                                <feature>cxf-specs</feature>
                             </features>
                             <includeMvnBasedDescriptors>true</includeMvnBasedDescriptors>
                             <repository>target/features-repo</repository>
