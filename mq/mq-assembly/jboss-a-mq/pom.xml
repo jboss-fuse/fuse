@@ -182,6 +182,7 @@
                                 <feature>activemq-camel</feature>
                                 <feature>hawtio-redhat-amq-branding</feature>
                                 <feature>hawtio-offline</feature>
+                                <feature>fabric-hawtio-swagger</feature>
                                 <feature>war</feature>
                                 <feature>fabric-redirect</feature>
                                 <feature>hawtio</feature>
