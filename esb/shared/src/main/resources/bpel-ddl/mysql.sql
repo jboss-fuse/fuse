@@ -216,8 +216,7 @@ create table STORE_DU (
     NAME varchar(255) not null,
     DEPLOYDT datetime,
     DEPLOYER varchar(255),
-    DIR varchar(255),
-    primary key (NAME)
+    DIR varchar(255)
 ) ENGINE=InnoDB;
 
 create table STORE_PROCESS (
