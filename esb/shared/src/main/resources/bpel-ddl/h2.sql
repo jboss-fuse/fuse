@@ -211,8 +211,7 @@ create table STORE_DU (
     NAME varchar(255) not null,
     DEPLOYDT timestamp,
     DEPLOYER varchar(255),
-    DIR varchar(255),
-    primary key (NAME)
+    DIR varchar(255)
 );
 
 create table STORE_PROCESS (
