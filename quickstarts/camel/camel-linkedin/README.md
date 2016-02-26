@@ -3,7 +3,7 @@ camel-linkedin: Demonstrates the camel-linkedin component
 Author: Fuse Team  
 Level: Beginner  
 Technologies: Camel, Blueprint  
-Summary: This quickstart demonstrates how to use the camel-linkedin component in Camel to poll LinkedIn user connections  
+Summary: This quickstart demonstrates how to use the camel-linkedin component in Camel to search companies
 Target Product: Fuse  
 Source: <https://github.com/jboss-fuse/quickstarts>  
 
@@ -12,9 +12,9 @@ Source: <https://github.com/jboss-fuse/quickstarts>
 What is it?
 -----------
 
-This quick start shows how to use Apache Camel, and its OSGi integration to use the OSGi config admin and poll connections from LinkedIn.
+This quick start shows how to use Apache Camel, and its OSGi integration to use the OSGi config admin and search companies from LinkedIn.
 
-This quick start combines use of the Camel LinkedIn component to poll user's connections, and write them to a simple text file.
+This quick start combines use of the Camel LinkedIn component to search companies, and write them to a simple text file.
 
 In studying this quick start you will learn:
 
@@ -72,12 +72,12 @@ Use the bundle
 To use the application be sure to have deployed the quickstart in Fuse as described above. 
 
 1. As soon as the Camel route has been started, you will see a directory `work/camel-linkedin/output` in your JBoss Fuse installation.
-2. Wait a few moments and you will see the LinkedIn user's connections downloaded to your the connections.txt file.
+2. Wait a few moments and you will see the LinkedIn user's connections downloaded to your the companies.txt file.
 The route will continue polling LinkedIn every 15 minutes and overwrite the output file.
 3. Use `log:display` to check out the business logging.
-        Poll received <n> user connections
-        Writing connections to connections.txt
-        Done downloading user connections
+        Poll received <n> companies for search term 'Red Hat'
+        Writing companies to companies.txt
+        Done downloading companies for search term 'Red Hat'
 
 Undeploy the Archive
 --------------------

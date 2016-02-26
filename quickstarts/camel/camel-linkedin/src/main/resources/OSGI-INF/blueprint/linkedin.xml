@@ -47,7 +47,7 @@
                 <property name="redirectUri" value="${redirectUri}"/>
                 <property name="scopes">
                     <array value-type="org.apache.camel.component.linkedin.api.OAuthScope">
-                        <value>R_NETWORK</value>
+                        <value>R_BASICPROFILE</value>
                     </array>
                 </property>
             </bean>
@@ -65,7 +65,7 @@
 
         <!--
           When this route is started, it will automatically create the work/linkedin/output directory,
-          where it will generate files with names of user's connections every 15 minutes.
+          where it will generate files with names of user's companies every 15 minutes.
 
           The <log/> elements are used to add human-friendly business logging statements. They make it easier to see what the
           route is doing.
@@ -74,33 +74,33 @@
         -->
         <route id="linkedin-route">
 
-            <from uri="linkedin://people/connections?fields=&amp;consumer.timeUnit=SECONDS&amp;consumer.delay=60&amp;consumer.initialDelay=15" />
-            <log message="Poll received ${body.count} user connections" />
+            <from uri="linkedin://search/searchCompanies?fields=:(companies:(name,twitter-id,website-url))&amp;keywords=Red%20Hat&amp;consumer.timeUnit=SECONDS&amp;consumer.delay=60&amp;consumer.initialDelay=15" />
+            <log message="Poll received ${body.companies.companyList.size} companies for search term 'Red Hat'" />
 
             <!-- Count of number of messages to aggregate later -->
             <setHeader headerName="completionSize">
-                <simple>${body.personList.size}</simple>
+                <simple>${body.companies.companyList.size}</simple>
             </setHeader>
 
-            <!-- Split personList to get individual connections as Person objects -->
+            <!-- Split companyList to get individual companies as Company objects -->
             <split>
-                <simple>${body.personList}</simple>
+                <simple>${body.companies.companyList}</simple>
                 <!-- send to aggregator route to write to file -->
-                <to uri="direct:connectionsFile" />
+                <to uri="direct:companiesFile" />
             </split>
 
         </route>
 
         <route id="linkedin-file-route">
 
-            <from uri="direct:connectionsFile" />
+            <from uri="direct:companiesFile" />
 
-            <!-- Get Connection's first name, last name and head line -->
+            <!-- Get Companies's name, twitter id and website url -->
             <setBody>
-                <simple>${body.firstName} ${body.lastName}, ${body.headline}\n</simple>
+                <simple>${body.name}, ${body.twitterId}, ${body.websiteUrl}\n</simple>
             </setBody>
 
-            <!-- Aggregate connection lines and write to connections.txt -->
+            <!-- Aggregate company lines and write to companies.txt -->
             <aggregate strategyRef="aggregatorStrategy">
                 <correlationExpression>
                     <constant>true</constant>
@@ -108,9 +108,9 @@
                 <completionSize>
                     <simple>header.completionSize</simple>
                 </completionSize>
-                <log message="Writing connections to connections.txt" />
-                <to uri="file:work/linkedin/output?fileName=connections.txt" />
-                <log message="Done downloading user connections" />
+                <log message="Writing companies to companies.txt" />
+                <to uri="file:work/linkedin/output?fileName=companies.txt" />
+                <log message="Done downloading companies for search term 'Red Hat'" />
             </aggregate>
 
         </route>
