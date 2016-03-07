@@ -79,6 +79,7 @@
                 <exclude>**/demos/policy-security-cert/users.jks</exclude>
                 <exclude>**/demos/policy-security-saml/connector.jks</exclude>
                 <exclude>**/demos/policy-security-saml/picketlink-sts/WEB-INF/classes/sts_keystore.jks</exclude>
+                <exclude>**/demos/policy-security-saml/picketlink-sts.war</exclude>
                 <exclude>**/demos/policy-security-wss-signencrypt/connector.jks</exclude>
                 <exclude>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</exclude>
                 <exclude>**/demos/policy-security-wss-username/connector.jks</exclude>
@@ -99,6 +100,7 @@
                 <include>**/demos/policy-security-cert/connector.jks</include>
                 <include>**/demos/policy-security-cert/users.jks</include>
                 <include>**/demos/policy-security-saml/connector.jks</include>
+                <include>**/demos/policy-security-saml/picketlink-sts.war</include>
                 <include>**/demos/policy-security-saml/picketlink-sts/WEB-INF/classes/sts_keystore.jks</include>
                 <include>**/demos/policy-security-wss-signencrypt/connector.jks</include>
                 <include>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</include>
