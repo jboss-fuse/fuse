@@ -186,6 +186,39 @@
                             </artifactItems>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>unpack-javadocs</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.switchyard</groupId>
+                                    <artifactId>switchyard-javadocs</artifactId>
+                                    <version>${switchyard.version}</version>
+                                    <classifier>javadoc</classifier>
+                                    <outputDirectory>${project.build.directory}/docs/javadocs/switchyard</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.cxf</groupId>
+                                    <artifactId>cxf-distribution-javadoc</artifactId>
+                                    <version>${cxf-version}</version>
+                                    <classifier>javadoc</classifier>
+                                    <outputDirectory>${project.build.directory}/docs/javadocs/cxf</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.camel</groupId>
+                                    <artifactId>camel-core</artifactId>
+                                    <version>${camel-version}</version>
+                                    <classifier>javadoc</classifier>
+                                    <outputDirectory>${project.build.directory}/docs/javadocs/camel</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+
                 </executions>
             </plugin>
             <plugin>
