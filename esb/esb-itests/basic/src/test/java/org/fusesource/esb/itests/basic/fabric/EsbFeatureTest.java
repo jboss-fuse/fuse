@@ -49,6 +49,7 @@ public class EsbFeatureTest extends FabricFeaturesTest {
                 useOwnExamBundlesStartLevel(50),
                 editConfigurationFilePut("etc/config.properties", "karaf.startlevel.bundle", "50"),
                 editConfigurationFilePut("etc/config.properties", "karaf.startup.message", "Loading Fuse from: ${karaf.home}"),
+                editConfigurationFilePut("etc/system.properties", "java.security.egd", "file:/dev/./urandom"),
                 editConfigurationFilePut("etc/users.properties", "admin", "admin,admin"),
                 editConfigurationFilePut("fabric/import/fabric/profiles/default.profile/io.fabric8.version.properties", "fuse", MavenUtils.getArtifactVersion("org.jboss.fuse.itests", "esb-itests-common")),
                 mavenBundle("io.fabric8.itests.paxexam", "fabric-itests-paxexam-common", MavenUtils.getArtifactVersion("io.fabric8.itests.paxexam", "fabric-itests-paxexam-common")),
