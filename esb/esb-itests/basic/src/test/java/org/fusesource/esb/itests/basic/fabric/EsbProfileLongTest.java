@@ -49,7 +49,7 @@ public class EsbProfileLongTest extends EsbFeatureTest {
             CuratorFramework curator = fabricService.adapt(CuratorFramework.class);
 
             System.err.println(executeCommandAsAdmin("fabric:profile-create --parent jboss-fuse-full profile-long"));
-            Set<ContainerProxy> containers = ContainerBuilder.create(fabricProxy).withName("esb").withProfiles("profile-long").withJvmOpts("-Xmx1024m -XX:MaxPermSize=256m").assertProvisioningResult().build();
+            Set<ContainerProxy> containers = ContainerBuilder.create(fabricProxy).withName("esb").withProfiles("profile-long").withJvmOpts("-Xmx1024m -XX:MaxPermSize=256m -Dpatching.disabled=true -Djava.security.egd=file:/dev/./urandom").assertProvisioningResult().build();
             try {
                 prepareFeaturesForTesting(containers, "connector", "profile-long", "geronimo-connector");
                 prepareFeaturesForTesting(containers, "saaj", "profile-long", "saaj-impl");
