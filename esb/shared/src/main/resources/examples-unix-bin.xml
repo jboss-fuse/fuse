@@ -74,6 +74,7 @@
                 <exclude>**/camel-ftp-binding/src/test/resources/ftpclient.jks</exclude>
                 <exclude>**/camel-ftp-binding/src/test/resources/ftpserver.jks</exclude>
                 <exclude>**/camel-netty-binding/users.jks</exclude>
+                <exclude>**/camel-sap-binding/Screenshots/*</exclude>
                 <exclude>**/demos/policy-security-basic/connector.jks</exclude>
                 <exclude>**/demos/policy-security-cert/connector.jks</exclude>
                 <exclude>**/demos/policy-security-cert/users.jks</exclude>
@@ -96,6 +97,7 @@
                 <include>**/camel-ftp-binding/src/test/resources/ftpclient.jks</include>
                 <include>**/camel-ftp-binding/src/test/resources/ftpserver.jks</include>
                 <include>**/camel-netty-binding/users.jks</include>
+                <include>**/camel-sap-binding/Screenshots/*</include>
                 <include>**/demos/policy-security-basic/connector.jks</include>
                 <include>**/demos/policy-security-cert/connector.jks</include>
                 <include>**/demos/policy-security-cert/users.jks</include>
