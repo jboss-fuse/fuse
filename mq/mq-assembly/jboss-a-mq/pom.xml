@@ -422,11 +422,6 @@
                                 <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties" append="true" eol="unix">
                                     <fileset file="target/shared/snippets/config.properties" />
                                 </concat>
-                                <echo message="Updating etc/system.properties in windows assembly" />
-                                <echo message="Updating etc/config.properties in unix assembly" />
-                                <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties" append="true" eol="unix">
-                                    <fileset file="target/shared/snippets/config-mq.properties" />
-                                </concat>
                             </target>
                         </configuration>
                     </execution>
