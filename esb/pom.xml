@@ -67,6 +67,7 @@
     <modules>
         <module>shared</module>
         <module>esb-branding</module>
+        <module>esb-commands</module>
         <module>esb-features</module>
         <module>fuse-karaf-framework</module>
         <module>esb-assembly</module>

@@ -13,11 +13,16 @@
  *  implied.  See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-package org.jboss.fuse.commands;
+package org.jboss.fuse.commands.amq;
 
 import org.apache.felix.gogo.commands.Command;
+import org.jboss.fuse.commands.CheckAdminUser;
 
-@Command(name = "create-admin-user", scope = "amq", description = "Creates a new admin user if one doesn't exist")
-public class AmqCreateAdminUser extends CreateAdminUser {
+@Command(name = "check-for-user", scope = "amq", description = "Checks if any users are defined.")
+public class AmqCheckAdminUser extends CheckAdminUser {
+
+    protected String getCreateAdminUserCommand() {
+        return "amq:create-admin-user";
+    }
 
 }

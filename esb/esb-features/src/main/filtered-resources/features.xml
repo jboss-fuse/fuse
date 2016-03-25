@@ -20,7 +20,7 @@
 
     <feature name="esb-commands-startup" version="${project.version}"  resolver='(obr)'>
         <!-- bundles referenced from $KARAF_HOME/etc/startup.properties -->
-        <bundle dependency="true">mvn:org.jboss.fuse/shared-commands/${project.version}</bundle>
+        <bundle dependency="true">mvn:org.jboss.fuse/esb-commands/${project.version}</bundle>
     </feature>
 
     <feature name="esb-commands" version="${project.version}"  resolver='(obr)'>

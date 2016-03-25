@@ -18,17 +18,11 @@
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
 
     <command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
-        <command name="amq/create-admin-user">
-            <action class="org.jboss.fuse.commands.AmqCreateAdminUser" />
-        </command>
-        <command name="amq/check-for-user">
-            <action class="org.jboss.fuse.commands.AmqCheckAdminUser" />
-        </command>
         <command name="esb/create-admin-user">
-            <action class="org.jboss.fuse.commands.EsbCreateAdminUser" />
+            <action class="org.jboss.fuse.commands.esb.EsbCreateAdminUser" />
         </command>
         <command name="esb/check-for-user">
-            <action class="org.jboss.fuse.commands.EsbCheckAdminUser" />
+            <action class="org.jboss.fuse.commands.esb.EsbCheckAdminUser" />
         </command>        
     </command-bundle>
 
