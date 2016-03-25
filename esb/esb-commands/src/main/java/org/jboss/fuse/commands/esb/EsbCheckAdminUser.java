@@ -13,9 +13,10 @@
  *  implied.  See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-package org.jboss.fuse.commands;
+package org.jboss.fuse.commands.esb;
 
 import org.apache.felix.gogo.commands.Command;
+import org.jboss.fuse.commands.CheckAdminUser;
 
 @Command(name = "check-for-user", scope = "esb", description = "Checks if any users are defined.")
 public class EsbCheckAdminUser extends CheckAdminUser {

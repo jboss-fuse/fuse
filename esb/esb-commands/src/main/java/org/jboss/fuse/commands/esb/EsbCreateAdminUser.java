@@ -13,9 +13,10 @@
  *  implied.  See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-package org.jboss.fuse.commands;
+package org.jboss.fuse.commands.esb;
 
 import org.apache.felix.gogo.commands.Command;
+import org.jboss.fuse.commands.CreateAdminUser;
 
 @Command(name = "create-admin-user", scope = "esb", description = "Creates a new admin user if one doesn't exist")
 public class EsbCreateAdminUser extends CreateAdminUser {
