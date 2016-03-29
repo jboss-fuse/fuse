@@ -24,7 +24,7 @@
     </feature>
 
     <feature name="esb-commands" version="${project.version}"  resolver='(obr)'>
-        <bundle>mvn:org.jboss.fuse/shared-commands/${project.version}</bundle>
+        <bundle>mvn:org.jboss.fuse/esb-commands/${project.version}</bundle>
     </feature>
 
     <feature name="saaj" version="${saaj-impl.bundle.version}"  resolver='(obr)'>
