@@ -111,6 +111,13 @@
             <version>${version.org.riftsaw.ode}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.jboss.fuse</groupId>
+            <artifactId>esb-commands</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
