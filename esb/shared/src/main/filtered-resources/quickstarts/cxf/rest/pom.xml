@@ -83,7 +83,7 @@
 
 
     <!-- the version of the BOM, defining all the dependency versions -->
-    <fabric.version>1.2.0-SNAPSHOT</fabric.version>
+    <fabric.version>${fabric.version}</fabric.version>
 
     <!-- fabric8 deploy profile configuration -->
     <fabric8.profile>quickstarts-cxf-rest</fabric8.profile>

@@ -79,7 +79,7 @@
     <skipTests>true</skipTests>
     <cxf-version>3.0.2</cxf-version>
     <!-- the version of the BOM, defining all the dependency versions -->
-    <fabric.version>1.2.0-SNAPSHOT</fabric.version>
+    <fabric.version>${fabric.version}</fabric.version>
 
     <!-- fabric8 deploy profile configuration -->
     <fabric8.profile>quickstarts-cxf-camel.cxf.contract.first</fabric8.profile>
