@@ -215,6 +215,37 @@
                                     <classifier>javadoc</classifier>
                                     <outputDirectory>${project.build.directory}/docs/javadocs/camel</outputDirectory>
                                 </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>org.apache.karaf.shell</groupId>
+                                    <artifactId>org.apache.karaf.shell.console</artifactId>
+                                    <version>${karaf-version}</version>
+                                    <classifier>javadoc</classifier>
+                                    <outputDirectory>${project.build.directory}/docs/javadocs/karaf/shell</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.karaf.shell</groupId>
+                                    <artifactId>org.apache.karaf.shell.console</artifactId>
+                                    <version>${karaf-version}</version>
+                                    <classifier>javadoc</classifier>
+                                    <outputDirectory>${project.build.directory}/docs/javadocs/karaf/shell</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.osgi</groupId>
+                                    <artifactId>org.osgi.core</artifactId>
+                                    <version>${osgi-version}</version>
+                                    <classifier>javadoc</classifier>
+                                    <outputDirectory>${project.build.directory}/docs/javadocs/karaf/osgi-core</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.osgi</groupId>
+                                    <artifactId>org.osgi.enterprise</artifactId>
+                                    <version>${osgi-enterprise-version}</version>
+                                    <classifier>javadoc</classifier>
+                                    <outputDirectory>${project.build.directory}/docs/javadocs/karaf/osgi-enterprise</outputDirectory>
+                                </artifactItem>
+
+
                             </artifactItems>
                         </configuration>
                     </execution>
