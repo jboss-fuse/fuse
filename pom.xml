@@ -97,15 +97,15 @@
             </releases>
         </repository>
        <repository>
-​            <id>redhat-ga-repository</id>
-​            <url>http://maven.repository.redhat.com/ga</url>
-​            <releases>
-​                <enabled>true</enabled>
-​            </releases>
-​            <snapshots>
-​                <enabled>false</enabled>
-​            </snapshots>
-​        </repository>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>jboss-thirdparty-uploads</id>
             <name>JBoss Thirdparty Uploads</name>
@@ -222,16 +222,16 @@
 
     <!-- Note: repo.fusesource.com is the correct repo for JBoss Fuse and it is not a mistake -->
     <pluginRepositories>
-​        <pluginRepository>
-​            <id>redhat-ga-repository</id>
-​            <url>http://maven.repository.redhat.com/ga</url>
-​            <releases>
-​                <enabled>true</enabled>
-​            </releases>
-​            <snapshots>
-​                <enabled>false</enabled>
-​            </snapshots>
-​        </pluginRepository>  
+        <pluginRepository>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>  
         <pluginRepository>
             <id>fusesource.ea</id>
             <name>FuseSource Community Early Access Release Repository</name>

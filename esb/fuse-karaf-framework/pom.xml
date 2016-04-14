@@ -32,15 +32,15 @@
 
     <repositories>
        <repository>
-​            <id>redhat-ga-repository</id>
-​            <url>http://maven.repository.redhat.com/ga</url>
-​            <releases>
-​                <enabled>true</enabled>
-​            </releases>
-​            <snapshots>
-​                <enabled>false</enabled>
-​            </snapshots>
-​        </repository>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
         <!-- needed for org.apache.xerces JARs required by org.apache.servicemix.bundles.opensaml:2.6.1_1 -->
         <repository>
             <id>shibboleth</id>
@@ -81,16 +81,16 @@
     </repositories>
 
     <pluginRepositories>
-​        <pluginRepository>
-​            <id>redhat-ga-repository</id>
-​            <url>http://maven.repository.redhat.com/ga</url>
-​            <releases>
-​                <enabled>true</enabled>
-​            </releases>
-​            <snapshots>
-​                <enabled>false</enabled>
-​            </snapshots>
-​        </pluginRepository>  
+        <pluginRepository>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>  
         <pluginRepository>
             <id>fusesource.ea</id>
             <name>JBoss Community Early Access Release Repository</name>

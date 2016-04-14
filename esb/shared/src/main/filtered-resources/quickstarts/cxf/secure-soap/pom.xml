@@ -41,29 +41,29 @@
     </licenses>
 
     <repositories>
-​        <repository>
-​            <id>redhat-ga-repository</id>
-​            <url>http://maven.repository.redhat.com/ga</url>
-​            <releases>
-​                <enabled>true</enabled>
-​            </releases>
-​            <snapshots>
-​                <enabled>false</enabled>
-​            </snapshots>
-​        </repository>
+        <repository>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 
     <pluginRepositories>
-​        <pluginRepository>
-​            <id>redhat-ga-repository</id>
-​            <url>http://maven.repository.redhat.com/ga</url>
-​            <releases>
-​                <enabled>true</enabled>
-​            </releases>
-​            <snapshots>
-​                <enabled>false</enabled>
-​            </snapshots>
-​        </pluginRepository>  
+        <pluginRepository>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>  
     </pluginRepositories>
 
     <properties>
