@@ -96,19 +96,16 @@
                 <updatePolicy>never</updatePolicy>
             </releases>
         </repository>
-        <repository>
-            <id>fusesource.m2</id>
-            <name>JBoss FS Public Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/fs-public/</url>
-            <layout>default</layout>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
+       <repository>
+​            <id>redhat-ga-repository</id>
+​            <url>http://maven.repository.redhat.com/ga</url>
+​            <releases>
+​                <enabled>true</enabled>
+​            </releases>
+​            <snapshots>
+​                <enabled>false</enabled>
+​            </snapshots>
+​        </repository>
         <repository>
             <id>jboss-thirdparty-uploads</id>
             <name>JBoss Thirdparty Uploads</name>
@@ -210,11 +207,6 @@
             <url>http://maven.restlet.org</url>
         </repository>
         <repository>
-          <id>redhat-product</id>
-          <name>Redhat Product Repository</name>
-          <url>https://maven.repository.redhat.com/ga</url>
-        </repository>
-        <repository>
             <id>brewroot</id>
             <name>Brew Repository</name>
             <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-fuse-6.2-build/latest/maven</url>
@@ -230,18 +222,16 @@
 
     <!-- Note: repo.fusesource.com is the correct repo for JBoss Fuse and it is not a mistake -->
     <pluginRepositories>
-        <pluginRepository>
-            <id>fusesource.m2</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repository.jboss.org/nexus/content/groups/fs-public/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </pluginRepository>
+​        <pluginRepository>
+​            <id>redhat-ga-repository</id>
+​            <url>http://maven.repository.redhat.com/ga</url>
+​            <releases>
+​                <enabled>true</enabled>
+​            </releases>
+​            <snapshots>
+​                <enabled>false</enabled>
+​            </snapshots>
+​        </pluginRepository>  
         <pluginRepository>
             <id>fusesource.ea</id>
             <name>FuseSource Community Early Access Release Repository</name>

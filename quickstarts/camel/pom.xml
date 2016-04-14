@@ -49,19 +49,31 @@
     </developers>
 
     <repositories>
-        <repository>
-            <id>fuse-public-repository</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
+       <repository>
+​            <id>redhat-ga-repository</id>
+​            <url>http://maven.repository.redhat.com/ga</url>
+​            <releases>
+​                <enabled>true</enabled>
+​            </releases>
+​            <snapshots>
+​                <enabled>false</enabled>
+​            </snapshots>
+​        </repository>
     </repositories>
 
+    <pluginRepositories>
+​        <pluginRepository>
+​            <id>redhat-ga-repository</id>
+​            <url>http://maven.repository.redhat.com/ga</url>
+​            <releases>
+​                <enabled>true</enabled>
+​            </releases>
+​            <snapshots>
+​                <enabled>false</enabled>
+​            </snapshots>
+​        </pluginRepository>  
+    </pluginRepositories>
+    
     <scm>
       <connection>scm:git:git@github.com:jboss-fuse/fuse.git</connection>
       <developerConnection>scm:git:git@github.com:jboss-fuse/fuse.git</developerConnection>
