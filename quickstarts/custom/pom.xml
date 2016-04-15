@@ -58,35 +58,31 @@
     </dependencies>
 
     <repositories>
-        <repository>
-            <id>fuse-public-repository</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+       <repository>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <id>fuse-public-repository</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </pluginRepository>
+        </pluginRepository>  
     </pluginRepositories>
-
+    
     <build>
         <resources>
             <resource>

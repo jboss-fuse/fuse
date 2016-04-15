@@ -8,11 +8,16 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <repositories>
-        <repository>
-          <id>fs-jboss-public</id>
-          <name>FS JBoss Public Repository Group</name>
-          <url>https://repo.fusesource.com/nexus/content/repositories/releases</url>
-        </repository>
+       <repository>
+​            <id>redhat-ga-repository</id>
+​            <url>http://maven.repository.redhat.com/ga</url>
+​            <releases>
+​                <enabled>true</enabled>
+​            </releases>
+​            <snapshots>
+​                <enabled>false</enabled>
+​            </snapshots>
+​        </repository>
         <repository>
           <id>jboss-public</id>
           <name>JBoss Public Repository Group</name>
@@ -23,18 +28,18 @@
           <name>Fuse EA Repository</name>
           <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
         </repository>
-        <repository>
-          <id>enterprise</id>
-          <name>Enterprise Releases</name>
-          <url>https://maven.repository.redhat.com/ga</url> 
-        </repository>        
       </repositories>
       <pluginRepositories>
-        <pluginRepository>
-          <id>fs-jboss-public</id>
-          <name>FS JBoss Public Repository Group</name>
-          <url>https://repo.fusesource.com/nexus/content/repositories/releases</url>
-        </pluginRepository>
+​        <pluginRepository>
+​            <id>redhat-ga-repository</id>
+​            <url>http://maven.repository.redhat.com/ga</url>
+​            <releases>
+​                <enabled>true</enabled>
+​            </releases>
+​            <snapshots>
+​                <enabled>false</enabled>
+​            </snapshots>
+​        </pluginRepository>  
         <pluginRepository>
           <id>jboss-public</id>
           <name>JBoss Public Repository Group</name>
@@ -45,11 +50,6 @@
           <name>Fuse EA Repository</name>
           <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
         </pluginRepository>
-        <pluginRepository>
-          <id>enterprise</id>
-          <name>Enterprise Releases</name>
-          <url>https://maven.repository.redhat.com/ga</url>
-        </pluginRepository>        
       </pluginRepositories>
     </profile>
   </profiles>

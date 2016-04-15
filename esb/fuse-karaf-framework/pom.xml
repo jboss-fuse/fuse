@@ -31,6 +31,16 @@
     <name>JBoss Fuse :: Karaf :: Framework</name>
 
     <repositories>
+       <repository>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
         <!-- needed for org.apache.xerces JARs required by org.apache.servicemix.bundles.opensaml:2.6.1_1 -->
         <repository>
             <id>shibboleth</id>
@@ -57,18 +67,6 @@
             </snapshots>
         </repository>
         <repository>
-            <id>fusesource.m2</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </repository>
-        <repository>
             <id>fusesource.ea</id>
             <name>FuseSource Community Early Access Release Repository</name>
             <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
@@ -84,20 +82,18 @@
 
     <pluginRepositories>
         <pluginRepository>
-            <id>fusesource.m2</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <id>redhat-ga-repository</id>
+            <url>http://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </pluginRepository>
+        </pluginRepository>  
         <pluginRepository>
             <id>fusesource.ea</id>
-            <name>FuseSource Community Early Access Release Repository</name>
+            <name>JBoss Community Early Access Release Repository</name>
             <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
             <snapshots>
                 <enabled>false</enabled>
