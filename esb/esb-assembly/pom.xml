@@ -442,12 +442,17 @@
 
     <modules>
         <module>jboss-fuse-full</module>
-        <module>patch-management</module>
         <!--   disabled temporarily as per https://issues.jboss.org/browse/ENTESB-3112
                <module>jboss-fuse-karaf-full</module> -->
     </modules>
 
     <profiles>
+        <profile>
+            <id>all</id>
+            <modules>
+                <module>patch-management</module>
+            </modules>
+        </profile>
         <profile>
             <id>release</id>
             <build>
