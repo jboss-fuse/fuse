@@ -85,6 +85,7 @@
                 <exclude>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</exclude>
                 <exclude>**/demos/policy-security-wss-username/connector.jks</exclude>
                 <exclude>**/demos/security-propagation/basic/connector.jks</exclude>
+                <exclude>**/demos/security-propagation-jms/connector.jks</exclude>
             </excludes>
             <lineEnding>unix</lineEnding>
             <filtered>false</filtered>
@@ -108,6 +109,7 @@
                 <include>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</include>
                 <include>**/demos/policy-security-wss-username/connector.jks</include>
                 <include>**/demos/security-propagation/basic/connector.jks</include>
+                <include>**/demos/security-propagation-jms/connector.jks</include>
             </includes>
         </fileSet>
 
@@ -144,7 +146,7 @@
                 <exclude>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</exclude>
                 <exclude>**/demos/policy-security-wss-username/connector.jks</exclude>
                 <exclude>**/demos/security-propagation/basic/connector.jks</exclude>
-
+                <exclude>**/demos/security-propagation-jms/connector.jks</exclude>
 
             </excludes>
             <lineEnding>unix</lineEnding>
