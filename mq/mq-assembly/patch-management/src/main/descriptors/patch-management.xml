@@ -28,13 +28,6 @@
 
     <dependencySets>
         <dependencySet>
-            <outputDirectory>patches</outputDirectory>
-            <includes>
-                <include>org.jboss.amq:jboss-a-mq</include>
-            </includes>
-            <useProjectArtifact>false</useProjectArtifact>
-        </dependencySet>
-        <dependencySet>
             <outputDirectory>system/io/fabric8/patch/patch-management/${fabric.version}</outputDirectory>
             <includes>
                 <include>io.fabric8.patch:patch-management</include>

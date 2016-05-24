@@ -26,10 +26,10 @@
         <relativePath>../..</relativePath>
     </parent>
 
-    <artifactId>patch-management-for-amq-620</artifactId>
+    <artifactId>patch-management-package</artifactId>
     <packaging>pom</packaging>
 
-    <name>JBoss Fuse :: ESB :: PatchManagement for 620.GA</name>
+    <name>JBoss A-MQ :: PatchManagement</name>
 
     <repositories>
        <repository>
@@ -83,13 +83,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.amq</groupId>
-            <artifactId>jboss-a-mq</artifactId>
-            <version>6.2.0.redhat-133</version>
-            <type>zip</type>
-            <classifier>baseline</classifier>
-        </dependency>
-        <dependency>
             <groupId>io.fabric8.patch</groupId>
             <artifactId>patch-management</artifactId>
             <version>${fabric.version}</version>
@@ -120,7 +113,7 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>patch-management-for-620</id>
+                        <id>patch-management</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
@@ -129,7 +122,6 @@
                             <descriptors>
                                 <descriptor>src/main/descriptors/patch-management.xml</descriptor>
                             </descriptors>
-                            <finalName>patch-management-${project.version}-for-amq-6.2.0.redhat-133</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                         </configuration>
                     </execution>
