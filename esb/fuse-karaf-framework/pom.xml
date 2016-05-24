@@ -31,6 +31,31 @@
     <name>JBoss Fuse :: Karaf :: Framework</name>
 
     <repositories>
+        <repository>
+            <id>fusesource.public</id>
+            <name>Fusesource Public Release Repositories</name>
+            <url>https://repository.jboss.org/nexus/content/groups/fs-public</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>fusesource.ea</id>
+            <name>Fusesource Early Access Release Repository</name>
+            <url>https://repository.jboss.org/nexus/content/groups/ea</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
        <repository>
             <id>redhat-ga-repository</id>
             <url>http://maven.repository.redhat.com/ga</url>
@@ -41,47 +66,35 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <!-- needed for org.apache.xerces JARs required by org.apache.servicemix.bundles.opensaml:2.6.1_1 -->
-        <repository>
-            <id>shibboleth</id>
-            <name>shibboleth repository</name>
-            <url>https://build.shibboleth.net/nexus/content/repositories/public</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </repository>
-        <!-- Gemini Blueprint repository -->
-        <repository>
-            <id>zodiac-repository</id>
-            <name>Zodiac Release Repository</name>
-            <url>http://zodiac.springsource.com/maven/bundles/release</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>fusesource.ea</id>
-            <name>FuseSource Community Early Access Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
+            <id>fusesource.public</id>
+            <name>Fusesource Public Release Repositories</name>
+            <url>https://repository.jboss.org/nexus/content/groups/fs-public</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>fusesource.ea</id>
+            <name>Fusesource Early Access Release Repository</name>
+            <url>https://repository.jboss.org/nexus/content/groups/ea</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+       <pluginRepository>
             <id>redhat-ga-repository</id>
             <url>http://maven.repository.redhat.com/ga</url>
             <releases>
@@ -90,18 +103,6 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </pluginRepository>  
-        <pluginRepository>
-            <id>fusesource.ea</id>
-            <name>JBoss Community Early Access Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
         </pluginRepository>
     </pluginRepositories>
 
