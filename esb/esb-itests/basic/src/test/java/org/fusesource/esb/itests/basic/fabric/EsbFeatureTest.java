@@ -33,7 +33,7 @@ public class EsbFeatureTest extends FabricFeaturesTest {
     @Configuration
     public Option[] config() {
         return new Option[]{
-                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-full")),
+                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-karaf")),
         };
     }
 

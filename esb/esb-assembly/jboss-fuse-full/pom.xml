@@ -25,7 +25,7 @@
         <version>6.3.0.redhat-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jboss-fuse-full</artifactId>
+    <artifactId>jboss-fuse-karaf</artifactId>
     <packaging>pom</packaging>
 
     <name>JBoss Fuse :: ESB :: Assembly (Full)</name>
