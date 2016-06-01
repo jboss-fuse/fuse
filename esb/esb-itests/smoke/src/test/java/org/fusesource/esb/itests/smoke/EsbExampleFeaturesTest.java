@@ -67,7 +67,7 @@ public class EsbExampleFeaturesTest extends EsbTestSupport {
     @Configuration
     public Option[] config() {
         return new Option[] {
-                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-full")),
+                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-karaf")),
                 mavenBundle("org.apache.geronimo.specs", "geronimo-ws-metadata_2.0_spec")
         };
     }

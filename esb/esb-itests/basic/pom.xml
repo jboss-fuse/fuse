@@ -45,7 +45,7 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.fuse</groupId>
-            <artifactId>jboss-fuse-full</artifactId>
+            <artifactId>jboss-fuse-karaf</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>

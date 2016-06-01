@@ -83,7 +83,7 @@ public class JbossFuseFullFeaturesAvailableTest extends EsbTestSupport {
     @Configuration
     public Option[] config() {
         return new Option[] {
-                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-full")),
+                new DefaultCompositeOption(esbDistributionConfiguration("jboss-fuse-karaf")),
                 CoreOptions.systemTimeout(600000),
                 new VMOption("-XX:MaxPermSize=512M"),
         };

@@ -441,9 +441,7 @@
     </build>
 
     <modules>
-        <module>jboss-fuse-full</module>
-        <!--   disabled temporarily as per https://issues.jboss.org/browse/ENTESB-3112
-               <module>jboss-fuse-karaf-full</module> -->
+        <module>jboss-fuse-karaf</module>
     </modules>
 
     <profiles>

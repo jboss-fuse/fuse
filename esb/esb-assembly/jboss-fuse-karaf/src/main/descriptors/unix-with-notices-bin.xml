@@ -29,15 +29,16 @@
         <componentDescriptor>target/shared/common-bin.xml</componentDescriptor>
         <componentDescriptor>target/shared/common-fabric8-bin.xml</componentDescriptor>
         <componentDescriptor>target/shared/common-extras-bin.xml</componentDescriptor>
+        <componentDescriptor>target/shared/notices-unix-bin.xml</componentDescriptor>
         <componentDescriptor>target/shared/examples-unix-bin.xml</componentDescriptor>
     </componentDescriptors>
 
     <fileSets>
         <fileSet>
             <directory>target</directory>
-            <outputDirectory>system/org/jboss/fuse/jboss-fuse-full/${project.version}</outputDirectory>
+            <outputDirectory>system/org/jboss/fuse/jboss-fuse-karaf/${project.version}</outputDirectory>
             <includes>
-                <include>jboss-fuse-full-${project.version}-baseline.zip</include>
+                <include>jboss-fuse-karaf-${project.version}-baseline.zip</include>
             </includes>
         </fileSet>
         <fileSet>

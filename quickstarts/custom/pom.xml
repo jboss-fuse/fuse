@@ -51,7 +51,7 @@
     <dependencies>
         <dependency>
             <groupId>org.jboss.fuse</groupId>
-            <artifactId>jboss-fuse-full</artifactId>
+            <artifactId>jboss-fuse-karaf</artifactId>
             <version>${jboss.fuse.version}</version>
             <type>zip</type>
         </dependency>
@@ -109,7 +109,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>org.jboss.fuse</groupId>
-                                    <artifactId>jboss-fuse-full</artifactId>
+                                    <artifactId>jboss-fuse-karaf</artifactId>
                                     <version>${jboss.fuse.version}</version>
                                     <type>zip</type>
                                     <outputDirectory>target/original</outputDirectory>

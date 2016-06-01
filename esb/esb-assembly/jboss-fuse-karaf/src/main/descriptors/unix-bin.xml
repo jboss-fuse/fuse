@@ -27,10 +27,24 @@
 
     <componentDescriptors>
         <componentDescriptor>target/shared/common-bin.xml</componentDescriptor>
-        <componentDescriptor>target/shared/common-karaf-bin.xml</componentDescriptor>
+        <componentDescriptor>target/shared/common-fabric8-bin.xml</componentDescriptor>
         <componentDescriptor>target/shared/common-extras-bin.xml</componentDescriptor>
-        <componentDescriptor>target/shared/notices-unix-bin.xml</componentDescriptor>
         <componentDescriptor>target/shared/examples-unix-bin.xml</componentDescriptor>
     </componentDescriptors>
+
+    <fileSets>
+        <fileSet>
+            <directory>target</directory>
+            <outputDirectory>system/org/jboss/fuse/jboss-fuse-karaf/${project.version}</outputDirectory>
+            <includes>
+                <include>jboss-fuse-karaf-${project.version}-baseline.zip</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/docs</directory>
+            <outputDirectory>docs</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+    </fileSets>
 
 </assembly>
