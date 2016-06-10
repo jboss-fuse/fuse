@@ -87,9 +87,6 @@
                 <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
-    </pluginRepositories>
-
-    <pluginRepositories>
         <pluginRepository>
             <id>fusesource.ea</id>
             <name>Fusesource Early Access Release Repository</name>
@@ -101,16 +98,6 @@
                 <enabled>true</enabled>
                 <updatePolicy>never</updatePolicy>
             </releases>
-        </pluginRepository>
-        <pluginRepository>
-            <id>redhat-ga-repository</id>
-            <url>http://maven.repository.redhat.com/ga</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 
