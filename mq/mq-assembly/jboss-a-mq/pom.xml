@@ -309,6 +309,13 @@
                                     <type>jar</type>
                                     <outputDirectory>target/features-repo/org/codehaus/jackson/jackson-mapper-asl/${jackson-version}</outputDirectory>
                                 </artifactItem>
+                                <artifactItem>
+                                    <groupId>io.fabric8</groupId>
+                                    <artifactId>fabric8-karaf</artifactId>
+                                    <version>${fabric.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>target/features-repo/io/fabric8/fabric8-karaf/${fabric.version}</outputDirectory>
+                                </artifactItem>
                             </artifactItems>
                         </configuration>
                     </execution>
