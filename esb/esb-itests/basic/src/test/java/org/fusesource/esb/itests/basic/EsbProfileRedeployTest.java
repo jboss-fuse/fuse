@@ -57,7 +57,7 @@ public class EsbProfileRedeployTest extends EsbTestSupport {
 
     private long timeout = 30 * 1000L;
 
-    @Ignore("ENTESB-????")
+    @Ignore("ENTESB-3939")
     @Test
     public void testProfileRedeploy() throws Exception {
         executeCommandAsAdmin("fabric:create -n");
@@ -154,6 +154,7 @@ public class EsbProfileRedeployTest extends EsbTestSupport {
         return slaves;
     }
 
+    /* FIXME when fixing ENTESB-3939
     @Configuration
    	public Option[] config() {
    		return new Option[]{
@@ -165,5 +166,6 @@ public class EsbProfileRedeployTest extends EsbTestSupport {
                 wrappedBundle(mavenBundle("io.fabric8.itests", "fabric-itests-common", MavenUtils.getArtifactVersion("io.fabric8.itests", "fabric-itests-common"))),
    		};
    	}
+   	*/
 
 }
