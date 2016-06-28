@@ -254,31 +254,13 @@
                                     <type>zip</type>
                                     <outputDirectory>target/unpack</outputDirectory>
                                     <includes>*/bin/**,*/etc/**,*/lib/**,*/data/**,*/system/org/apache/felix/org.apache.felix.framework/**</includes>
-                                    <excludes>*/bin/fabric8*,*/bin/deletefabric8,*/lib/karaf.jar</excludes>
+                                    <excludes>*/bin/fabric8*,*/bin/deletefabric8</excludes>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.jboss.fuse</groupId>
                                     <artifactId>esb-shared</artifactId>
                                     <version>${project.version}</version>
                                     <outputDirectory>target/shared</outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.apache.karaf</groupId>
-                                    <artifactId>org.apache.karaf.main</artifactId>
-                                    <version>2.4.3</version>
-                                    <outputDirectory>target/unpack/fabric8-karaf-${fabric.version}/lib</outputDirectory>
-                                    <destFileName>karaf.jar</destFileName>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
