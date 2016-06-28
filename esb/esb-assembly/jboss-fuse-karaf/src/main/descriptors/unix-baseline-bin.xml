@@ -187,8 +187,7 @@
             </includes>
             <lineEnding>unix</lineEnding>
             <fileMode>0644</fileMode>
-            <!-- something's wrong here - we're replace using ANT -->
-            <filtered>false</filtered>
+            <filtered>true</filtered>
         </fileSet>
     </fileSets>
 

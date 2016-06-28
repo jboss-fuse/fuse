@@ -347,8 +347,6 @@
                                 <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/start" token="bin/fabric8" value="bin/fuse" />
                                 <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/stop" token="bin/fabric8" value="bin/fuse" />
                                 <echo message="Updating etc/system.properties in unix assembly" />
-                                <!-- system.properties isn't used from fabric8-karaf distro,
-                                   it comes from esb/esb-assembly/jboss-fuse-karaf/src/main/filtered-resources/etc/system.properties -->
                                 <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/system.properties"
                                         append="true" eol="unix">
                                     <fileset file="target/shared/system-smx.properties" />
@@ -359,10 +357,7 @@
                                     <fileset file="target/shared/appended-resources/config.properties" />
                                 </concat>
                                 <echo file="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/system.properties" append="true">profiles=${project.artifactId}</echo>
-                                <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties" token="karaf.app.name=Fabric8" value="karaf.app.name=JBoss Fuse" />
-
-                                <echo message="Updating fabric/io.fabric8.import.profiles.properties" />
-                                <replace file="target/shared/fabric/io.fabric8.import.profiles.properties" token="[[project.version]]" value="${project.version}" />
+                                <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/config.properties" token="Fuse Fabric" value="JBoss Fuse" />
 
                                 <echo message="Add patch scripts to assembly" />
                                 <copy todir="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin">
