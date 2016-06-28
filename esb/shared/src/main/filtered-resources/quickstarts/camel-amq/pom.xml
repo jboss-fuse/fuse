@@ -61,6 +61,19 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <!-- required for jline:jline -->
+        <repository>
+            <id>fusesource.public</id>
+            <name>Fusesource Public Release Repositories</name>
+            <url>https://repository.jboss.org/nexus/content/groups/fs-public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -130,6 +143,22 @@
     <dependency>
       <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-osgi</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm-all</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jline</groupId>
+      <artifactId>jline</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty.aggregate</groupId>
+      <artifactId>jetty-all</artifactId>
     </dependency>
 
   </dependencies>
