@@ -195,6 +195,14 @@
                                     <outputDirectory>target/features-repo/org/jboss/quickstarts/fuse/quickstarts-parent/${project.version}</outputDirectory>
                                 </artifactItem>
                                 <artifactItem>
+                                    <groupId>io.fabric8.quickstarts</groupId>
+                                    <artifactId>fabric8-quickstarts-parent</artifactId>
+                                    <version>${fabric.version}</version>
+                                    <classifier>profile</classifier>
+                                    <type>zip</type>
+                                    <outputDirectory>target/features-repo/io/fabric8/quickstarts/fabric8-quickstarts-parent/${fabric.version}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
                                     <groupId>io.fabric8</groupId>
                                     <artifactId>fabric8-karaf</artifactId>
                                     <version>${fabric.version}</version>
