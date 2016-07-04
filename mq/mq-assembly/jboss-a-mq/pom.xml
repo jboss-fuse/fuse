@@ -316,6 +316,13 @@
                                     <type>zip</type>
                                     <outputDirectory>target/features-repo/io/fabric8/fabric8-karaf/${fabric.version}</outputDirectory>
                                 </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.geronimo.specs</groupId>
+                                    <artifactId>geronimo-jms_1.1_spec</artifactId>
+                                    <version>${geronimo-jms.version}</version>
+                                    <type>jar</type>
+                                    <outputDirectory>target/features-repo/org/apache/geronimo/specs/geronimo-jms_1.1_spec/${geronimo-jms.version}</outputDirectory>
+                                </artifactItem>
                             </artifactItems>
                         </configuration>
                     </execution>
