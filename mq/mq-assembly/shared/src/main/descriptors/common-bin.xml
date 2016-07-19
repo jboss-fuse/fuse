@@ -73,6 +73,13 @@
             <fileMode>0755</fileMode>
             <directoryMode>0755</directoryMode>
         </fileSet>
+        <fileSet>
+            <directory>target/shared/bin/contrib</directory>
+            <outputDirectory>/bin/contrib/</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0755</fileMode>
+            <directoryMode>0755</directoryMode>
+        </fileSet>
         <!-- System repo -->
         <fileSet>
             <directory>target/features-repo</directory>
