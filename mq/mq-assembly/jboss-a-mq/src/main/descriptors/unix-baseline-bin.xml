@@ -105,13 +105,24 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>bin/*</include>
+                <include>bin/contrib/*</include>
             </includes>
             <excludes>
                 <exclude>bin/create*</exclude>
                 <exclude>bin/fabric8*</exclude>
                 <exclude>bin/shell*</exclude>
                 <exclude>bin/setenv*</exclude>
+                <exclude>bin/contrib/karaf-service-win.exe</exclude>
             </excludes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>bin/contrib/karaf-service-win.exe</include>
+            </includes>
+            <lineEnding>keep</lineEnding>
             <fileMode>0755</fileMode>
         </fileSet>
 
