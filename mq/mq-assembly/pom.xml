@@ -33,16 +33,8 @@
     <modules>
         <module>shared</module>
         <module>jboss-a-mq</module>
+        <module>patch-management</module>
     </modules>
 
-    <profiles>
-        <profile>
-            <id>all</id>
-            <modules>
-                <module>patch-management</module>
-            </modules>
-        </profile>
-    </profiles>    
-    
 </project>
 
