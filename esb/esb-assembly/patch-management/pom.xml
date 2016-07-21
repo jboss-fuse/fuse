@@ -135,6 +135,11 @@
         </dependency>
         <dependency>
             <groupId>io.fabric8.patch</groupId>
+            <artifactId>patch-core-api</artifactId>
+            <version>${fabric.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.fabric8.patch</groupId>
             <artifactId>patch-core</artifactId>
             <version>${fabric.version}</version>
         </dependency>

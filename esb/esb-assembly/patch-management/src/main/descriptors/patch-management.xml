@@ -35,6 +35,13 @@
             <useProjectArtifact>false</useProjectArtifact>
         </dependencySet>
         <dependencySet>
+            <outputDirectory>system/io/fabric8/patch/patch-core-api/${fabric.version}</outputDirectory>
+            <includes>
+                <include>io.fabric8.patch:patch-core-api</include>
+            </includes>
+            <useProjectArtifact>false</useProjectArtifact>
+        </dependencySet>
+        <dependencySet>
             <outputDirectory>system/io/fabric8/patch/patch-core/${fabric.version}</outputDirectory>
             <includes>
                 <include>io.fabric8.patch:patch-core</include>

@@ -442,15 +442,10 @@
 
     <modules>
         <module>jboss-fuse-karaf</module>
+        <module>patch-management</module>
     </modules>
 
     <profiles>
-        <profile>
-            <id>all</id>
-            <modules>
-                <module>patch-management</module>
-            </modules>
-        </profile>
         <profile>
             <id>release</id>
             <build>
