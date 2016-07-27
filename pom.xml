@@ -22,7 +22,7 @@
     <parent>
         <groupId>io.fabric8.bom</groupId>
         <artifactId>fabric8-bom</artifactId>
-        <version>1.2.0.redhat-630149</version>
+        <version>1.2.0.redhat-630155</version>
     </parent>
 
     <groupId>org.jboss.fuse.bom</groupId>
@@ -53,12 +53,12 @@
     </prerequisites>
 
     <properties>
-        <perfectus.version>149</perfectus.version>
+        <perfectus.version>155</perfectus.version>
 
         <!-- we inherit from the fabric8 BOM so most versions we need are defined there-->
-        <fabric.version>1.2.0.redhat-630149</fabric.version>
-        <switchyard.version>2.1.0.redhat-630149</switchyard.version>
-        <version.camelsap>6.3.0.redhat-149</version.camelsap>                 
+        <fabric.version>1.2.0.redhat-630155</fabric.version>
+        <switchyard.version>2.1.0.redhat-630155</switchyard.version>
+        <version.camelsap>6.3.0.redhat-155</version.camelsap>                 
 
         <activemqcpp.version>3.9.0</activemqcpp.version>
         <activemqnms.version.major>1.7</activemqnms.version.major>
