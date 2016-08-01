@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+     Copyright 2005-2016 Red Hat, Inc.
+
+     Red Hat licenses this file to you under the Apache License, version
+     2.0 (the "License"); you may not use this file except in compliance
+     with the License.  You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied.  See the License for the specific language governing
+     permissions and limitations under the License.
+
+-->
+<component>
+    <fileSets>
+        <!-- Copy over the examples without filtering ... -->
+        <fileSet>
+            <directory>../../quickstarts</directory>
+            <outputDirectory>/quickstarts</outputDirectory>
+            <excludes>
+                <exclude>**/target/</exclude>
+                <exclude>**/target/**</exclude>
+                <exclude>README.md</exclude>
+                <!--exclude>**/README.md</exclude-->
+                <exclude>pom.xml</exclude>
+                <exclude>custom/pom.xml</exclude>
+                <exclude>**/*.iml</exclude>
+                <!--exclude>**/pom.xml</exclude-->
+            </excludes>
+            <lineEnding>unix</lineEnding>
+            <filtered>false</filtered>
+        </fileSet>
+
+        <!-- Replace the top-level pom.xml and README files -->
+        <fileSet>
+            <directory>target/shared/quickstarts</directory>   
+            <outputDirectory>/quickstarts</outputDirectory>
+            <includes>
+                <include>**/README.md</include>
+                <include>**/pom.xml</include>
+		<include>karaf/**/README.md</include>
+		<include>karaf/**/pom.xml</include>
+            </includes>
+            <lineEnding>unix</lineEnding>
+            <filtered>true</filtered>
+        </fileSet>
+
+        <fileSet>
+            <directory>target/shared/syquickstarts</directory>
+            <outputDirectory>/quickstarts/switchyard</outputDirectory>
+            <excludes>
+                <exclude>**/target/</exclude>
+                <exclude>**/target/**</exclude>
+                <exclude>**/*.iml</exclude>
+                <exclude>**/bpel-xts*/</exclude>
+                <exclude>**/bpel-xts*/**</exclude>
+                <exclude>**/camel-jms-binding/</exclude>
+                <exclude>**/camel-jms-binding/**</exclude>
+                <exclude>**/camel-jpa-binding/</exclude>
+                <exclude>**/camel-jpa-binding/**</exclude>
+                <exclude>**/demos/helpdesk/</exclude>
+                <exclude>**/demos/helpdesk/**</exclude>
+                <exclude>**/demos/cluster/</exclude>
+                <exclude>**/demos/cluster/**</exclude>
+                <exclude>**/soap-addressing/</exclude>
+                <exclude>**/soap-addressing/**</exclude>
+                <exclude>pom.xml</exclude>
+                <exclude>**/Readme.md</exclude>
+                <exclude>**/camel-ftp-binding/src/test/resources/ftpclient.jks</exclude>
+                <exclude>**/camel-ftp-binding/src/test/resources/ftpserver.jks</exclude>
+                <exclude>**/camel-netty-binding/users.jks</exclude>
+                <exclude>**/camel-sap-binding/Screenshots/*</exclude>
+                <exclude>**/demos/policy-security-basic/connector.jks</exclude>
+                <exclude>**/demos/policy-security-cert/connector.jks</exclude>
+                <exclude>**/demos/policy-security-cert/users.jks</exclude>
+                <exclude>**/demos/policy-security-saml/connector.jks</exclude>
+                <exclude>**/demos/policy-security-saml/picketlink-sts/WEB-INF/classes/sts_keystore.jks</exclude>
+                <exclude>**/demos/policy-security-saml/picketlink-sts.war</exclude>
+                <exclude>**/demos/policy-security-wss-signencrypt/connector.jks</exclude>
+                <exclude>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</exclude>
+                <exclude>**/demos/policy-security-wss-username/connector.jks</exclude>
+                <exclude>**/demos/security-propagation/basic/connector.jks</exclude>
+                <exclude>**/demos/security-propagation-jms/connector.jks</exclude>
+            </excludes>
+            <lineEnding>unix</lineEnding>
+            <filtered>false</filtered>
+        </fileSet>
+
+        <fileSet>
+            <directory>target/shared/syquickstarts</directory>
+            <outputDirectory>/quickstarts/switchyard</outputDirectory>
+            <includes>
+                <include>**/camel-ftp-binding/src/test/resources/ftpclient.jks</include>
+                <include>**/camel-ftp-binding/src/test/resources/ftpserver.jks</include>
+                <include>**/camel-netty-binding/users.jks</include>
+                <include>**/camel-sap-binding/Screenshots/*</include>
+                <include>**/demos/policy-security-basic/connector.jks</include>
+                <include>**/demos/policy-security-cert/connector.jks</include>
+                <include>**/demos/policy-security-cert/users.jks</include>
+                <include>**/demos/policy-security-saml/connector.jks</include>
+                <include>**/demos/policy-security-saml/picketlink-sts.war</include>
+                <include>**/demos/policy-security-saml/picketlink-sts/WEB-INF/classes/sts_keystore.jks</include>
+                <include>**/demos/policy-security-wss-signencrypt/connector.jks</include>
+                <include>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</include>
+                <include>**/demos/policy-security-wss-username/connector.jks</include>
+                <include>**/demos/security-propagation/basic/connector.jks</include>
+                <include>**/demos/security-propagation-jms/connector.jks</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>target/shared/syquickstarts</directory>
+            <outputDirectory>/quickstarts/switchyard</outputDirectory>
+            <includes>
+                <include>**/Readme.md</include>
+            </includes>
+            <excludes>
+                <exclude>**/bpel-xts*/</exclude>
+                <exclude>**/bpel-xts*/**</exclude>
+                <exclude>**/camel-jms-binding/</exclude>
+                <exclude>**/camel-jms-binding/**</exclude>
+                <exclude>**/camel-jpa-binding/</exclude>
+                <exclude>**/camel-jpa-binding/**</exclude>
+                <exclude>**/demos/helpdesk/</exclude>
+                <exclude>**/demos/helpdesk/**</exclude>
+                <exclude>**/demos/cluster/</exclude>
+                <exclude>**/demos/cluster/**</exclude>
+                <exclude>**/soap-addressing/</exclude>
+                <exclude>**/soap-addressing/**</exclude>
+                
+                <!-- Exclude all JKS files, which get corrupted by filtering -->
+                <exclude>**/camel-ftp-binding/src/test/resources/ftpclient.jks</exclude>
+                <exclude>**/camel-ftp-binding/src/test/resources/ftpserver.jks</exclude>
+                <exclude>**/camel-netty-binding/users.jks</exclude>
+                <exclude>**/demos/policy-security-basic/connector.jks</exclude>
+                <exclude>**/demos/policy-security-cert/connector.jks</exclude>
+                <exclude>**/demos/policy-security-cert/users.jks</exclude>
+                <exclude>**/demos/policy-security-saml/connector.jks</exclude>
+                <exclude>**/demos/policy-security-saml/picketlink-sts/WEB-INF/classes/sts_keystore.jks</exclude>
+                <exclude>**/demos/policy-security-wss-signencrypt/connector.jks</exclude>
+                <exclude>**/demos/policy-security-wss-signencrypt/src/main/resources/META-INF/bob.jks</exclude>
+                <exclude>**/demos/policy-security-wss-username/connector.jks</exclude>
+                <exclude>**/demos/security-propagation/basic/connector.jks</exclude>
+                <exclude>**/demos/security-propagation-jms/connector.jks</exclude>
+
+            </excludes>
+            <lineEnding>unix</lineEnding>
+            <filtered>true</filtered>
+        </fileSet>
+
+        <!-- ... Filter the README.md files to replace the ${project.version} -->
+        <fileSet>
+            <directory>../../quickstarts</directory>
+            <outputDirectory>/quickstarts</outputDirectory>
+            <includes>
+                <include>**/README.md</include>
+            </includes>
+            <excludes>
+                <exclude>**/target/**/README.md</exclude>
+            </excludes>
+            <lineEnding>unix</lineEnding>
+            <filtered>true</filtered>
+        </fileSet>
+    </fileSets>
+</component>

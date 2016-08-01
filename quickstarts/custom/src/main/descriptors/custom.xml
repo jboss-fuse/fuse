@@ -25,8 +25,8 @@
     <fileSets>
         <!-- add our own configuration files -->
         <fileSet>
-            <directory>target/classes</directory>
-            <outputDirectory>/</outputDirectory>
+            <directory>target/classes/etc</directory>
+            <outputDirectory>/etc/</outputDirectory>
         </fileSet>
         <!-- add our custom assembly's system directory -->
         <fileSet>
@@ -35,19 +35,21 @@
         </fileSet>
         <!-- add a set of bundles that are commonly listed in the etc/startup.properties -->
         <fileSet>
-            <directory>target/original/jboss-fuse-${jboss.fuse.version}/system</directory>
+            <directory>target/original/jboss-fuse-${version}/system</directory>
             <outputDirectory>system</outputDirectory>
             <includes>
                 <include>io/fabric8/fabric-ssl/**</include>
+                <include>io/fabric8/patch/patch-management/**</include>
                 <include>org/apache/felix/**</include>
                 <include>org/apache/karaf/**</include>
-                <include>org/jboss/fuse/shared-commands/**</include>
+                <include>org/jboss/fuse/esb-commands/**</include>
                 <include>org/ops4j/pax/**</include>
+                <include>org/jboss/fuse/jboss-fuse-karaf/${fuse}/jboss-fuse-karaf-${fuse}-baseline.zip</include>
             </includes>
         </fileSet>
         <!-- finally, add the remaining files from the original assembly (excluding the system folder) -->
         <fileSet>
-            <directory>target/original/jboss-fuse-${jboss.fuse.version}</directory>
+            <directory>target/original/jboss-fuse-${version}</directory>
             <outputDirectory>/</outputDirectory>
             <excludes>
                 <exclude>system/**</exclude>

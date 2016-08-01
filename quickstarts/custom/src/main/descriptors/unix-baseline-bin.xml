@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+     Copyright 2005-2016 Red Hat, Inc.
+
+     Red Hat licenses this file to you under the Apache License, version
+     2.0 (the "License"); you may not use this file except in compliance
+     with the License.  You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied.  See the License for the specific language governing
+     permissions and limitations under the License.
+
+-->
+<assembly>
+
+    <id>baseline</id>
+
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <baseDirectory>jboss-fuse-baseline-${version}</baseDirectory>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>/lib/bin</outputDirectory>
+            <outputFileNameMapping>patch-client.jar</outputFileNameMapping>
+            <fileMode>0644</fileMode>
+            <includes>
+                <include>io.fabric8.patch:patch-client</include>
+            </includes>
+            <useProjectArtifact>false</useProjectArtifact>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>/lib/ext</outputDirectory>
+            <outputFileNameMapping>bcprov-jdk15on.jar</outputFileNameMapping>
+            <fileMode>0644</fileMode>
+            <includes>
+                <include>org.bouncycastle:bcprov-jdk15on</include>
+            </includes>
+            <useProjectArtifact>false</useProjectArtifact>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>/lib</outputDirectory>
+            <outputFileNameMapping>esb-version.jar</outputFileNameMapping>
+            <fileMode>0644</fileMode>
+            <includes>
+                <include>org.jboss.fuse:org.jboss.fuse.branding.fabric8</include>
+            </includes>
+            <useProjectArtifact>false</useProjectArtifact>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+        </dependencySet>
+    </dependencySets>
+
+    <fileSets>
+        <!-- Cherry-pick files from the expanded Fabric8 distribution -->
+        <fileSet>
+            <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}</directory>
+            <outputDirectory>/</outputDirectory>
+            <excludes>
+                <exclude>**/demos/**</exclude>
+                <exclude>lib/fabric-version.jar</exclude>
+                <exclude>bin/**</exclude>
+                <exclude>etc/org.apache.karaf.features.cfg</exclude>
+                <exclude>etc/org.apache.karaf.features.obr.cfg</exclude>
+                <exclude>etc/org.ops4j.pax.logging.cfg</exclude>
+                <exclude>etc/custom.properties</exclude>
+                <exclude>etc/users.properties</exclude>
+                <exclude>etc/keys.properties</exclude>
+                <exclude>etc/system.properties</exclude>
+                <exclude>etc/org.ops4j.pax.web.cfg</exclude>
+                <exclude>etc/jmx.acl.cfg</exclude>
+                <exclude>etc/jmx.acl.whitelist.cfg</exclude>
+                <exclude>etc/jmx.acl.java.lang.Memory.cfg</exclude>
+                <exclude>etc/jmx.acl.org.apache.karaf.bundle.cfg</exclude>
+                <exclude>etc/jmx.acl.org.apache.karaf.config.cfg</exclude>
+                <exclude>etc/jmx.acl.osgi.compendium.cm.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.config.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.features.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.jaas.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.osgi.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.scope_bundle.cfg</exclude>
+                <exclude>etc/org.apache.karaf.command.acl.shell.cfg</exclude>
+                <!--<exclude>fabric/import/fabric/profiles/jboss/fuse/minimal.profile/io.fabric8.agent.properties</exclude>-->
+                <exclude>fabric/import/fabric/profiles/karaf.profile/org.ops4j.pax.logging.properties</exclude>
+                <exclude>fabric/import/fabric/profiles/default.profile/jmx.acl.whitelist.properties</exclude>
+                <exclude>fabric/import/fabric/profiles/jboss/.skipimport</exclude>
+                <exclude>fabric/io.fabric8.import.profiles.properties</exclude>
+                <exclude>system/**</exclude>
+                <exclude>fabric_notices.txt</exclude>
+                <exclude>fabric_dependencies.txt</exclude>
+                <exclude>readme.txt</exclude>
+                <exclude>LICENSE</exclude>
+                <exclude>NOTICE</exclude>
+                <exclude>README</exclude>
+                <exclude>RELEASE-NOTES</exclude>
+                <exclude>karaf-manual*</exclude>
+                <exclude>quickstarts/**</exclude>
+                <exclude>data/**</exclude>
+                <exclude>deploy/**</exclude>
+            </excludes>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <!-- Copy over bin/* scripts separately to get the correct file mode -->
+        <fileSet>
+            <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>bin/*</include>
+            </includes>
+            <excludes>
+                <exclude>bin/fabric8*</exclude>
+                <exclude>bin/shell*</exclude>
+            </excludes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/shared</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>readme.txt</include>
+            </includes>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+            <directoryMode>0644</directoryMode>
+            <filtered>true</filtered>
+        </fileSet>
+
+        <!-- Copy over the BPEL DDL files -->
+        <fileSet>
+            <directory>target/shared/bpel-ddl</directory>
+            <outputDirectory>/etc/sql/riftsaw</outputDirectory>
+            <includes>
+                <include>*.sql</include>
+            </includes>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <!-- Copy over everything that needs to get unix line endings -->
+        <fileSet>
+            <directory>target/shared/etc</directory>
+            <outputDirectory>/etc/</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/shared/licenses</directory>
+            <outputDirectory>/licenses/</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>target/shared/fabric</directory>
+            <outputDirectory>/fabric/</outputDirectory>
+            <excludes>
+                <exclude>io.fabric8.import.profiles.properties</exclude>
+            </excludes>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <!-- Copy over filtered resources -->
+        <fileSet>
+            <directory>target/classes/etc</directory>
+            <outputDirectory>/etc/</outputDirectory>
+            <includes>
+                <include>*.*</include>
+            </includes>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/shared/fabric</directory>
+            <outputDirectory>/fabric/</outputDirectory>
+            <includes>
+                <include>io.fabric8.import.profiles.properties</include>
+            </includes>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+            <filtered>true</filtered>
+        </fileSet>
+    </fileSets>
+
+    <files>
+        <file>
+            <source>${basedir}/src/main/filtered-resources/license.txt</source>
+            <fileMode>0444</fileMode>
+        </file>
+        <file>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone</source>
+            <outputDirectory>/bin/</outputDirectory>
+            <destName>fuse</destName>
+            <fileMode>0755</fileMode>
+            <lineEnding>unix</lineEnding>
+        </file>
+        <file>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone.bat</source>
+            <outputDirectory>/bin/</outputDirectory>
+            <destName>fuse.bat</destName>
+            <fileMode>0755</fileMode>
+            <lineEnding>dos</lineEnding>
+        </file>
+    </files>
+
+</assembly>

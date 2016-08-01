@@ -57,7 +57,7 @@ The quick start shows a custom assembly with just a few features enabled. Typica
 your own environment or requirement.
 
 Those features are configured in two locations:
-* The configuration for the `features-maven-plugin` in the `pom.xml` file controls which bundles will be available in the custom assembly's `system` folder
+* The configuration for the `features-maven-plugin` in the `pom.xml` (see `Step 3`) file controls which bundles will be available in the custom assembly's `system` folder
 * `src/main/filtered-resources/etc/org.apache.karaf.features.cfg` defines which features will be installed automatically when the container first starts
 
 If there are any other configurations files you need to add or modify in the custom assembly, those can be added to the `src/main/filtered-resources` directory as well.
