@@ -113,6 +113,13 @@
                 <include>**/demos/security-propagation/basic/connector.jks</include>
                 <include>**/demos/security-propagation-jms/connector.jks</include>
             </includes>
+            <excludes>
+                <exclude>**/bpel-xts-wsat/bpel-xts-wsat.jpg</exclude>
+                <exclude>**/bpel-xts-subordinate-wsba/bpel-xts-subordinate-wsba.jpg</exclude>
+                <exclude>**/camel-jms-binding/camel-jms-binding.jpg</exclude>
+                <exclude>**/camel-jpa-binding/camel-jpa-binding.jpg</exclude>
+                <exclude>**/soap-addressing/soap-addressing.jpg</exclude>
+            </excludes>
         </fileSet>
 
         <fileSet>
