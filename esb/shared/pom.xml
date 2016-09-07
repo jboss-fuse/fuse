@@ -31,8 +31,17 @@
     <packaging>jar</packaging>
     
     <name>JBoss Fuse :: ESB :: Assembly :: Shared</name>
-
+    
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <escapeString>\</escapeString>
+                </configuration>
+            </plugin>
+        </plugins>
         <resources>
             <resource>
                 <!-- we need unfiltered copies of these files -->

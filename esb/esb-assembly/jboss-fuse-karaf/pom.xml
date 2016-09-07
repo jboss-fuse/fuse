@@ -29,6 +29,10 @@
     <packaging>pom</packaging>
 
     <name>JBoss Fuse :: ESB :: Assembly (Full)</name>
+    
+    <properties>
+        <assembly.escapeString>#</assembly.escapeString>
+    </properties>
 
     <repositories>
         <repository>
