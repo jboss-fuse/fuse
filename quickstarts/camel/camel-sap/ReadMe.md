@@ -29,7 +29,7 @@ In studying this quick start you will learn:
 For more information see:
 
 * <https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Fuse/6.2/html/Apache_Camel_Component_Reference/SAP.html> for more information about the JBoss Fuse SAP Camel components 
-* <https://access.redhat.com/site/documentation/JBoss_Fuse/> for more information about using JBoss Fuse
+* <https://access.redhat.com/site/documentation/red-hat-jboss-fuse/> for more information about using JBoss Fuse
 
 System requirements
 -------------------
