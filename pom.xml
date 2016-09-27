@@ -60,9 +60,9 @@
         <switchyard.version>2.1.0.redhat-630191</switchyard.version>
         <version.camelsap>6.3.0.redhat-191</version.camelsap>                 
 
-        <activemqcpp.version>3.9.0</activemqcpp.version>
+        <activemqcpp.version>3.9.3</activemqcpp.version>
         <activemqnms.version.major>1.7</activemqnms.version.major>
-        <activemqnms.version>${activemqnms.version.major}.1</activemqnms.version>
+        <activemqnms.version>${activemqnms.version.major}.2</activemqnms.version>
         <saaj-impl.bundle.version>1.3.23_2</saaj-impl.bundle.version>
         <version.org.riftsaw.ode>3.2.0.Final-redhat-2</version.org.riftsaw.ode>
         <javax.mail.version>1.4.7</javax.mail.version>
