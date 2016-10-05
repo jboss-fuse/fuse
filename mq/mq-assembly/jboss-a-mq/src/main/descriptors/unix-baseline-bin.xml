@@ -190,14 +190,14 @@
             <fileMode>0444</fileMode>
         </file>
         <file>
-            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone</source>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/amq</source>
             <outputDirectory>/bin/</outputDirectory>
             <destName>amq</destName>
             <fileMode>0755</fileMode>
             <lineEnding>unix</lineEnding>
         </file>
         <file>
-            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone.bat</source>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/amq.bat</source>
             <outputDirectory>/bin/</outputDirectory>
             <destName>amq.bat</destName>
             <fileMode>0755</fileMode>
