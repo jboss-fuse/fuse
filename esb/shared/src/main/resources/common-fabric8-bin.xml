@@ -170,14 +170,14 @@
         </file>
 
         <file>
-            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone</source>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fuse</source>
             <outputDirectory>/bin/</outputDirectory>
             <destName>fuse</destName>
             <fileMode>0755</fileMode>
             <lineEnding>unix</lineEnding>
         </file>
         <file>
-            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone.bat</source>
+            <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fuse.bat</source>
             <outputDirectory>/bin/</outputDirectory>
             <destName>fuse.bat</destName>
             <fileMode>0755</fileMode>

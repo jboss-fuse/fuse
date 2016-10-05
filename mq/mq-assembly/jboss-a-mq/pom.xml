@@ -414,6 +414,11 @@
                                 <echo message="Fixing start/stop scripts in unix assembly" />
                                 <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/start" token="bin/fabric8" value="bin/amq" />
                                 <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/stop" token="bin/fabric8" value="bin/amq" />
+                                <echo message="Fixing amq scripts in assembly" />
+                                <copy file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone" tofile="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/amq" />
+                                <copy file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone.bat" tofile="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/amq.bat" />
+                                <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/amq" token="patching.disabled=true" value="patching.disabled=false" />
+                                <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/amq.bat" token="patching.disabled=true" value="patching.disabled=false" />
                                 <echo message="Updating etc/system.properties in unix assembly" />
                                 <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/system.properties" append="true" eol="unix">
                                     <fileset file="target/shared/snippets/system-mq.properties" />

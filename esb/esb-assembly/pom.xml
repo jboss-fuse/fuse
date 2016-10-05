@@ -346,6 +346,13 @@
                                 <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/stop.bat" token="fabric8.bat" value="fuse.bat" />
                                 <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/start" token="bin/fabric8" value="bin/fuse" />
                                 <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/stop" token="bin/fabric8" value="bin/fuse" />
+
+                                <echo message="Fixing fuse scripts in assembly" />
+                                <copy file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone" tofile="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fuse" />
+                                <copy file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/standalone.bat" tofile="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fuse.bat" />
+                                <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fuse" token="patching.disabled=true" value="patching.disabled=false" />
+                                <replace file="target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/fuse.bat" token="patching.disabled=true" value="patching.disabled=false" />
+
                                 <echo message="Updating etc/system.properties in unix assembly" />
                                 <concat destfile="target/dependencies/unix/fabric8-karaf-${fabric.version}/etc/system.properties"
                                         append="true" eol="unix">
