@@ -14,7 +14,5 @@ Various quickstart projects for getting you started with JBoss Fuse
 * [camel.amq](camel-amq) - demonstrates using Apache Camel to send and receive messages to an Apache ActiveMQ message broker, using the Camel [amq](http://fabric8.io/gitbook/camelEndpointAmq.html) component.
 * [cxf](cxf) - contains various quickstart projects using [Apache CXF](http://cxf.apache.org) for web services and REST.
 * [custom](custom) - shows how to build a custom assembly starting from the JBoss Fuse full kit
-
-
-
+* [switchyard](switchyard) - contains various quickstart projects using Switchyard.
 
