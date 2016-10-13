@@ -278,10 +278,10 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <tasks>
+                            <target>>
                                 <move file="target/unpack/fabric8-karaf-${fabric.version}"
                                         toFile="target/unpack/resources" />
-                            </tasks>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
