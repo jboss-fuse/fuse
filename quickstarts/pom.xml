@@ -160,7 +160,7 @@
 
     <modules>
         <module>camel</module>
-        <module>custom</module>
+        <!--module>custom</module-->
     </modules>
 
     <build>
