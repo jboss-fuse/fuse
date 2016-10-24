@@ -29,7 +29,6 @@
         <componentDescriptor>target/shared/common-bin.xml</componentDescriptor>
         <componentDescriptor>target/shared/common-fabric8-bin.xml</componentDescriptor>
         <componentDescriptor>target/shared/common-extras-bin.xml</componentDescriptor>
-        <componentDescriptor>target/shared/notices-unix-bin.xml</componentDescriptor>
         <componentDescriptor>examples-unix-bin.xml</componentDescriptor>
     </componentDescriptors>
 
