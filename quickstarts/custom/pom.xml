@@ -204,23 +204,6 @@
                 <configuration>
                     <appendedResourcesDirectory>${basedir}/target/shared/appended-resources</appendedResourcesDirectory>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>process</goal>
-                        </goals>
-                        <configuration>
-                            <resourceBundles>
-                                <resourceBundle>org.apache:apache-jar-resource-bundle:1.4</resourceBundle>
-                            </resourceBundles>
-                            <properties>
-                                <addLicense>true</addLicense>
-                                <addArtifact>true</addArtifact>
-                                <projectName>Apache ServiceMix</projectName>
-                            </properties>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
