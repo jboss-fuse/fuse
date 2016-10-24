@@ -23,13 +23,13 @@
     <parent>
         <groupId>org.fusesource</groupId>
         <artifactId>fuse-project</artifactId>
-        <version>7.0.0.redhat-SNAPSHOT</version>
+        <version>6.x.redhat-SNAPSHOT</version>
         <relativePath>../parent</relativePath>
     </parent>
 
     <groupId>org.jboss.fuse</groupId>
     <artifactId>esb-project</artifactId>
-    <version>7.0.0.redhat-SNAPSHOT</version>
+    <version>6.x.redhat-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>JBoss Fuse :: ESB</name>
