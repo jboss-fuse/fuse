@@ -24,14 +24,14 @@
     <parent>
       <groupId>org.fusesource</groupId>
       <artifactId>fuse-project</artifactId>
-      <version>7.0.0.redhat-SNAPSHOT</version>
+      <version>6.x.redhat-SNAPSHOT</version>
       <relativePath>../../parent</relativePath>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>custom-distro</artifactId>
     <packaging>pom</packaging>
-    <version>7.0.0.redhat-SNAPSHOT</version>
+    <version>6.x.redhat-SNAPSHOT</version>
 
     <name>JBoss Fuse Quickstart: custom</name>
 

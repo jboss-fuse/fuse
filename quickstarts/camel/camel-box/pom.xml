@@ -22,12 +22,12 @@
     <parent>
       <groupId>org.jboss.quickstarts.fuse</groupId>
       <artifactId>camel-quickstarts</artifactId>
-      <version>7.0.0.redhat-SNAPSHOT</version>
+      <version>6.x.redhat-SNAPSHOT</version>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>camel-box</artifactId>
-    <version>7.0.0.redhat-SNAPSHOT</version>
+    <version>6.x.redhat-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse Quickstart: camel-box</name>
     <description>Camel Box.com Example</description>
