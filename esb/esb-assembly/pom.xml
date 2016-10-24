@@ -48,6 +48,14 @@
                     <groupId>io.fabric8.quickstarts</groupId>
                     <artifactId>fabric8-quickstarts-parent</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>cascading</groupId>
+                    <artifactId>cascading-local</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>cascading</groupId>
+                    <artifactId>cascading-hadoop</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
