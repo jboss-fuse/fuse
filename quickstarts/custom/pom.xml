@@ -599,7 +599,7 @@
                             <repository>target/features-repo</repository>
                             <failOnArtifactResolutionError>false</failOnArtifactResolutionError>
                             <blackList>
-                                pax-cdi-openwebbeans,pax-cdi-web-openwebbeans,spring-struts,cxf-bean-validation-java6,pax-cdi-1.2-web,pax-jsf-support,camel-ignite,camel-jetty8,camel-ironmq,camel-gae
+                                pax-cdi-openwebbeans,pax-cdi-web-openwebbeans,spring-struts,cxf-bean-validation-java6,pax-cdi-1.2-web,pax-jsf-support,camel-ignite,camel-jetty8,camel-ironmq,camel-gae,camel-hbase
                             </blackList>
                         </configuration>
                     </execution>
