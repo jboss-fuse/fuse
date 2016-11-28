@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.jboss.fuse</groupId>
         <artifactId>esb-project</artifactId>
-        <version>6.2.1.redhat-159</version>
+        <version>6.2.1.redhat-159-02</version>
     </parent>
 
     <artifactId>esb-assembly</artifactId>
