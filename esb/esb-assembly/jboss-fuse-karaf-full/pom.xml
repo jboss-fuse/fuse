@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.jboss.fuse</groupId>
         <artifactId>jboss-fuse-full</artifactId>
-        <version>6.2.1.redhat-159</version>
+        <version>6.2.1.redhat-159-03</version>
         <relativePath>../jboss-fuse-full/pom.xml</relativePath>
     </parent>
 
