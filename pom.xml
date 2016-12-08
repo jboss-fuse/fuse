@@ -240,7 +240,17 @@
             </dependency>
             <dependency>
                 <groupId>io.fabric8.insight</groupId>
+                <artifactId>insight-elasticsearch2-factory</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8.insight</groupId>
                 <artifactId>insight-elasticsearch-discovery</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8.insight</groupId>
+                <artifactId>insight-elasticsearch2-discovery</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
@@ -250,12 +260,27 @@
             </dependency>
             <dependency>
                 <groupId>io.fabric8.insight</groupId>
+                <artifactId>insight-elasticsearch2-plugin</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8.insight</groupId>
                 <artifactId>insight-elasticsearch-log-storage</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.fabric8.insight</groupId>
+                <artifactId>insight-elasticsearch2-log-storage</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8.insight</groupId>
                 <artifactId>insight-elasticsearch-metrics-storage</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8.insight</groupId>
+                <artifactId>insight-elasticsearch2-metrics-storage</artifactId>
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
