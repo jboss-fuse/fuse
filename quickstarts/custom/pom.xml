@@ -110,6 +110,10 @@
                     <groupId>io.fabric8.quickstarts</groupId>
                     <artifactId>fabric8-quickstarts-parent</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>io.fabric8.insight</groupId>
+                    <artifactId>insight-activemq</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
