@@ -108,4 +108,29 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>tests.aix.excludes</id>
+            <activation>
+                <property>
+                    <name>os.name</name>
+                    <value>AIX</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <excludes combine.children="append">
+                                <exclude>**/EsbProfileLongTest.*</exclude>    <!-- ENTESB-6412 -->
+                            </excludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+
 </project>
