@@ -130,6 +130,28 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>tests.windows.excludes</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <excludes combine.children="append">
+                                <exclude>**/EsbBootTest.*</exclude>
+                                <exclude>**/EsbProfileLongTest.*</exclude>
+                                <exclude>**/EsbProfileTest.*</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
     </profiles>
 
