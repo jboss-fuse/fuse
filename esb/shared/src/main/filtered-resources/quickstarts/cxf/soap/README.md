@@ -30,7 +30,7 @@ Before building and running this quick start you need:
 
 * Maven 3.1.1 or higher
 * JDK 1.7 or 1.8
-* JBoss Fuse 6
+* JBoss Fuse 6.3
 
 
 Build and Deploy the Quickstart
@@ -40,7 +40,7 @@ To build the quick start:
 
 1.Change your working directory to `soap` directory.
 * Run `mvn clean install` to build the quickstart.
-* Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
+* Start JBoss Fuse 6.3 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
 * In the JBoss Fuse console, enter the following command:
 
         osgi:install -s mvn:org.jboss.quickstarts.fuse/cxf-soap/${project.version}

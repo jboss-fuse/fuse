@@ -88,6 +88,7 @@
 
     <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.compiler.plugin>2.3.1</version.compiler.plugin>
     <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
     <maven.compiler.target>1.7</maven.compiler.target>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -129,6 +130,14 @@
     <build>
     <finalName>shared</finalName>
     <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${version.compiler.plugin}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>

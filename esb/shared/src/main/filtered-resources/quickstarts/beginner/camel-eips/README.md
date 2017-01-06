@@ -10,17 +10,18 @@ Source: <https://github.com/jboss-fuse/quickstarts>
 What is it?
 -----------
 
-This quickstart demonstrates how to combine multiple EIPs to solve integration problems.
+This quickstart demonstrates how to combine multiple EIPs to solve integration problems.  In this example, an orders file containing several orders for zoos around the world is sent to us. We first want to make sure we retain a copy of the original file. This is done using the Wiretap EIP. After saving the original, we want to split the file up into the individual orders. This is done using the Splitter EIP. Then we want to store the orders in separate directories by geographical region. This is done using a Recipient List EIP. Finally, we want to filter out the orders that contain more than 100 animals and generate a message for the strategic account team. This is done using a Filter EIP.
 
-In this example, an orders file containing several orders for zoos around the world is sent to us.
+The example is implemented using the following four Camel routes
 
-We first want to make sure we retain a copy of the original file. This is done using the Wiretap EIP.
+* mainRoute
+* wireTapRoute
+* splitterRoute
+* filterRoute
 
-After saving the original, we want to split the file up into the individual orders. This is done using the Splitter EIP.
+The routes is illustrated in the following diagram
 
-Then we want to store the orders in separate directories by geographical region. This is done using a Recipient List EIP.
-
-Finally, we want to filter out the orders that contain more than 100 animals and generate a message for the strategic account team. This is done using a Filter EIP.
+![Camel EIPs diagram](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/camel-eips-diagram.jpg)
 
 In studying this example you will learn:
 
@@ -51,7 +52,7 @@ Before building and running this example you need:
 
 * Maven 3.1.1 or higher
 * JDK 1.7 or 1.8
-* JBoss Fuse 6
+* JBoss Fuse 6.3
 
 
 Build and Deploy the Quickstart
@@ -59,7 +60,7 @@ Build and Deploy the Quickstart
 
 1. Change your working directory to `camel-eips` directory.
 *. Run `mvn clean install` to build the quickstart.
-*. Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
+*. Start JBoss Fuse 6.3 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
 *. In the JBoss Fuse console, enter the following command:
 
         osgi:install -s mvn:org.jboss.quickstarts.fuse/beginner-camel-eips/${project.version}

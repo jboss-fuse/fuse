@@ -88,6 +88,7 @@
 
     <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.compiler.plugin>2.3.1</version.compiler.plugin>
     <maven.compiler.target>1.7</maven.compiler.target>
     <maven.compiler.source>1.7</maven.compiler.source>
       <cxf-version>3.0.2</cxf-version>
@@ -165,6 +166,15 @@
         <version>${version.maven-surefire-plugin}</version>
         <configuration>
           <skipTests>${skipTests}</skipTests>
+        </configuration>
+      </plugin>
+      <!-- Compiler plugin enforces Java 1.7 compatibility and activates annotation processors -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${version.compiler.plugin}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
       <plugin>
