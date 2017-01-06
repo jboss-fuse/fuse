@@ -31,6 +31,13 @@ Before building and running this quick start you need:
 * JDK 1.7 or 1.8
 * JBoss Fuse 6
 
+### How and What is secured
+
+In this example we are using a CXF interceptor that ensures that a request has been authenticated before allowing it to pass. For
+performing the authentication, this interceptor will delegate to JAAS, using the realm name 'karaf'. In this way we will 
+reuse the same authentication mechanism that is being used to secure other Fuse facilities, such as the remote
+SSH shell and the webconsole. You can see the definition [here](https://github.com/jboss-fuse/fabric8/blob/1.2.0.redhat-6-3-x/quickstarts/cxf/secure-rest/src/main/resources/OSGI-INF/blueprint/blueprint.xml#L71-L74). In the [test](https://github.com/jboss-fuse/fabric8/blob/1.2.0.redhat-6-3-x/quickstarts/cxf/secure-rest/src/test/java/io/fabric8/quickstarts/rest/secure/CrmSecureTest.java#L72-L80) you'll see that we are using a Basic Authentication Scheme: this is not a good practice, so don't try this in your production enviroment. The example just shows how you can secure your application the simpler way.
+
 Build and Deploy the Quickstart
 -------------------------------
 

@@ -22,6 +22,10 @@ In studying this quick start you will learn:
 * how to build and deploy an OSGi bundle in JBoss Fuse
 * how to use the CBR enterprise integration pattern
 
+This example picks up incoming XML files, and depending on the content of the XML files, they are routed to different endpoints, as shown in figure below.
+
+![Camel CBR diagram](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/camel-cbr-diagram.jpg)
+
 For more information see:
 
 * http://www.enterpriseintegrationpatterns.com/ContentBasedRouter.html for more information about the CBR EIP
@@ -37,7 +41,7 @@ Before building and running this quick start you need:
 
 * Maven 3.1.1 or higher
 * JDK 1.7 or 1.8
-* JBoss Fuse 6
+* JBoss Fuse 6.3
 
 
 Build and Deploy the Quickstart
@@ -45,7 +49,7 @@ Build and Deploy the Quickstart
 
 1. Change your working directory to `camel-cbr` directory.
 * Run `mvn clean install` to build the quickstart.
-* Start JBoss Fuse 6 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
+* Start JBoss Fuse 6.3 by running bin/fuse (on Linux) or bin\fuse.bat (on Windows).
 * In the JBoss Fuse console, enter the following command:
 
         osgi:install -s mvn:org.jboss.quickstarts.fuse/beginner-camel-cbr/${project.version}

@@ -15,6 +15,15 @@ This quickstart demonstrates how to handle exceptions that occur while routing m
 This quickstart show you how to add a default error handler to your Camel context for all uncaught exceptions.
 Additionally, it will show you how to add exception handling routines for dealing with specific exception types.
 
+The example is implemented using the following two Camel routes
+
+* mainRoute
+* dlcRoute
+
+The routes are illustrated in the following diagram
+
+![Camel EIPs diagram](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/camel-errorhandler-diagram.jpg)
+
 In studying this quick start you will learn:
 
 * how to define a Camel route using the Blueprint XML syntax
