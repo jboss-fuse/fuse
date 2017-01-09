@@ -131,6 +131,7 @@
             <groupId>org.jboss.fuse</groupId>
             <artifactId>esb-shared</artifactId>
             <version>${project.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.fuse</groupId>
@@ -138,6 +139,7 @@
             <version>${project.version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.fabric8.support</groupId>
@@ -145,6 +147,7 @@
             <version>${fabric.version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.karaf.assemblies.features</groupId>
@@ -152,6 +155,7 @@
             <version>${karaf-version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.karaf.assemblies.features</groupId>
@@ -159,6 +163,7 @@
             <version>${karaf-version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.karaf.assemblies.features</groupId>
@@ -166,6 +171,7 @@
             <version>${karaf-version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
@@ -173,6 +179,7 @@
             <version>${activemq-version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.camel.karaf</groupId>
@@ -180,6 +187,7 @@
             <version>${camel-version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf.karaf</groupId>
@@ -187,6 +195,7 @@
             <version>${cxf-version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.hawt</groupId>
@@ -194,6 +203,7 @@
             <version>${hawtio-version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.switchyard.karaf</groupId>
@@ -201,6 +211,7 @@
             <version>${switchyard.version}</version>
             <type>xml</type>
             <classifier>features</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.switchyard.karaf</groupId>
@@ -208,6 +219,7 @@
             <version>${switchyard.version}</version>
             <type>xml</type>
             <classifier>core-features</classifier>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
