@@ -23,12 +23,12 @@
     <parent>
         <groupId>org.jboss.quickstarts.fuse</groupId>
         <artifactId>quickstarts-parent</artifactId>
-        <version>6.3.0.redhat-SNAPSHOT</version>
+        <version>6.3.0.redhat-231</version>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>beginner</artifactId>
-    <version>6.3.0.redhat-SNAPSHOT</version>
+    <version>6.3.0.redhat-231</version>
     <packaging>pom</packaging>
     <name>JBoss Fuse Quickstart: beginner</name>
 
