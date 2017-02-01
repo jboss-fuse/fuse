@@ -17,7 +17,7 @@ file `src/main/resources/OSGI-INF/blueprint/camel-log-wiki.xml`.
                                                    
 This example uses a timer to trigger every 5th second, and then writes a message to the server log, as shown in the figure below:
 
-https://github.com/fabric8io/quickstarts/blob/master/quickstarts/karaf/beginner/images/camel-log-diagram.jpg
+![Camel Log diagram](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/camel-log-diagram.jpg)
 
 As this is the wiki version of the log quickstart, the Camel route source code is defined in the profile only. You can edit the source code from within the web console, 
 by selecting the `camel-log.xml` file in profile directory listing, which opens the Camel editor.

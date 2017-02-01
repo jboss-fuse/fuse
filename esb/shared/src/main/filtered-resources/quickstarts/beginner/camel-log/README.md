@@ -15,7 +15,7 @@ This example is implemented using solely the XML DSL (there is no Java code). Th
                                                    
 This example uses a timer to trigger every 5th second, and then writes a message to the server log, as shown in the diagram below:
 
-https://github.com/fabric8io/quickstarts/blob/master/quickstarts/karaf/beginner/images/camel-log-diagram.jpg
+![Camel Log diagram](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/camel-log-diagram.jpg)
 
 System requirements
 -------------------
