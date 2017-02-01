@@ -129,8 +129,8 @@
     </dependency>
 
     <dependency>
-      <groupId>com.wordnik</groupId>
-      <artifactId>swagger-jaxrs_2.10</artifactId>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.swagger-jaxrs</artifactId>
     </dependency>
 
     <!-- Test Dependencies -->
