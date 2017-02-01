@@ -15,7 +15,7 @@ output directory per country.
 
 In this example we will use two containers, one container to run as a standalone A-MQ broker, and another as a client to the broker, where the Camel routes is running. This scenario is illustrated in the figure below:
 
-![Camel AMQ Quickstart Diagram](https://raw.githubusercontent.com/fabric8io/fabric8/master/docs/images/camel-amq-quickstart-diagram.jpg)
+![Camel AMQ Quickstart Diagram](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/camel-amq-quickstart-diagram.jpg)
 
 The two Camel routes send and receives JMS message using the `amq:incomingOrders` endpoint, which is a queue on the A-MQ broker.
 
@@ -101,7 +101,7 @@ This example requires using an A-MQ broker first.
 1. Select StandAlone as kind, and enter `mygroup` as group, and `mybroker` as broker name.
 1. Click the Create broker button in the top right corner, and wait until the screen changes to show the A-MQ groups, as shown in the figure below:
 
-![MQ Broker Groups](https://raw.githubusercontent.com/fabric8io/fabric8/master/docs/images/mq-broker-groups.png)
+![MQ Broker Groups](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/mq-broker-groups.png)
 
 1. To create a new container using this broker profile, you can click the red triangle button (alert icon) which takes you to the Create New Container page, having pre-selected the broker profile.
 1. Enter `mybroker` as the container name, and click the *Create and start container* button
@@ -117,7 +117,7 @@ After installing the A-MQ broker we can install the example from the web console
 1. Click the `New` button in the top right corner
 1. In the Create New Container page, in the profiles filter field enter `my` and select the `mq-client-mygroup` from the list, as shown in the figure below. We do this so the client connects to correct A-MQ group; as you can have multiple broker groups in fabric8.
 
-![MQ Client Create Wizard](https://raw.githubusercontent.com/fabric8io/fabric8/master/docs/images/mq-client-create-wizard.jpg)
+![MQ Client Create Wizard](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/mq-client-create-wizard.png)
 
 1. And in the Container Name field enter `mychild` and click the *Create and start container* button
 
@@ -151,7 +151,7 @@ To use the application be sure to have deployed the quickstart in fabric8 as des
 1. In the Camel tree, expand the `Endpoints` tree, and select the second node, which is `file://work/jms/input`, and click the *Send* button in the sub navigation bar.
 1. Click the *Choose* button and mark [x] for the five `data/order1.xml` ... `data/order5.xml` files, as shown in the figure below.
 
-        ![Camel Endpoint Choose](https://raw.githubusercontent.com/fabric8io/fabric8/master/docs/images/camel-endpoint-choose.jpg)
+        ![Camel Endpoint Choose](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/camel-endpoint-choose.jpg)
 
 1. Click the *Send 5 files* button in the top right corner
 1. In the Camel tree, expand the `Routes` node, and select the second node, which is the `jms-cbr-route` route. And click the *Diagram* button to see a visual representation of the route.
