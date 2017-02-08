@@ -207,7 +207,7 @@
                           </goals>
                           <configuration>
                             <sources>
-                              <source>${project.basedir}/src/sample-pojos/main/java</source>
+                              <source>#\${project.basedir}/src/sample-pojos/main/java</source>
                             </sources>
                           </configuration>
                         </execution>
@@ -233,7 +233,7 @@
                           </goals>
                           <configuration>
                             <files>
-                              <file>${project.basedir}/org.jboss.quickstarts.fuse.salesforce.cfg</file>
+                              <file>#\${project.basedir}/org.jboss.quickstarts.fuse.salesforce.cfg</file>
                             </files>
                           </configuration>
                         </execution>
@@ -275,7 +275,7 @@
                           </goals>
                           <configuration>
                             <sources>
-                              <source>${project.build.directory}/generated-sources/camel-salesforce</source>
+                              <source>#\${project.build.directory}/generated-sources/camel-salesforce</source>
                             </sources>
                           </configuration>
                         </execution>
