@@ -44,6 +44,7 @@
                 <include>org/apache/karaf/**</include>
                 <include>org/jboss/fuse/esb-commands/**</include>
                 <include>org/ops4j/pax/**</include>
+                <include>com/sun/mail/javax.mail/**</include>
                 <include>org/jboss/fuse/jboss-fuse-karaf/${fuse}/jboss-fuse-karaf-${fuse}-baseline.zip</include>
             </includes>
         </fileSet>
