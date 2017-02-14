@@ -712,7 +712,7 @@
                         <configuration>
                             <ignoreMissingDescriptor>true</ignoreMissingDescriptor>
                             <descriptors>
-                                <descriptor>src/main/descriptors/unix-with-notices-bin.xml</descriptor>
+                                <descriptor>src/main/descriptors/unix-bin.xml</descriptor>
                             </descriptors>
                             <finalName>original</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
