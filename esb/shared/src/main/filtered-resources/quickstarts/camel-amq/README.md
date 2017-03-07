@@ -96,15 +96,15 @@ This example requires using an A-MQ broker first.
 
 1. It is assumed that you have already created a fabric and are logged into a container called `root`.
 1. Login the web console
-1. Click the Runtime button tin the navigation bar, and then click the MQ button in the sub navigation bar.
+1. Click the Service button in the navigation bar, and then click the MQ button in the sub navigation bar.
 1. Click the Create broker configuration button
 1. Select StandAlone as kind, and enter `mygroup` as group, and `mybroker` as broker name.
-1. Click the Create broker button in the top right corner, and wait until the screen changes to show the A-MQ groups, as shown in the figure below:
+1. Click the Create broker button, and wait until the screen changes to show the A-MQ groups, as shown in the figure below:
 
 ![MQ Broker Groups](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/mq-broker-groups.png)
 
 1. To create a new container using this broker profile, you can click the red triangle button (alert icon) which takes you to the Create New Container page, having pre-selected the broker profile.
-1. Enter `mybroker` as the container name, and click the *Create and start container* button
+1. Enter `mybroker` as the container name and specify an Host, and click the *Create and start container* button
 
 #### Installing the quickstart
 
@@ -115,7 +115,7 @@ After installing the A-MQ broker we can install the example from the web console
 1. Click the Wiki button in the navigation bar
 1. Select `quickstarts` --> `camel.amq`
 1. Click the `New` button in the top right corner
-1. In the Create New Container page, in the profiles filter field enter `my` and select the `mq-client-mygroup` from the list, as shown in the figure below. We do this so the client connects to correct A-MQ group; as you can have multiple broker groups in fabric8.
+1. In the Create New Container page, specify an Host. After creating the container, in the profiles filter field enter `my` and select the `mq-client-mygroup` from the list, as shown in the figure below. We do this so the client connects to correct A-MQ group; as you can have multiple broker groups in fabric8.
 
 ![MQ Client Create Wizard](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/mq-client-create-wizard.png)
 
@@ -154,7 +154,7 @@ To use the application be sure to have deployed the quickstart in fabric8 as des
         ![Camel Endpoint Choose](https://raw.githubusercontent.com/jboss-fuse/fabric8/1.2.0.redhat-6-3-x/docs/images/camel-endpoint-choose.jpg)
 
 1. Click the *Send 5 files* button in the top right corner
-1. In the Camel tree, expand the `Routes` node, and select the second node, which is the `jms-cbr-route` route. And click the *Diagram* button to see a visual representation of the route.
+1. In the Camel tree, expand the `Routes` node, and select the second node, which is the `jms-cbr-route` route. And click the *Route Diagram* button to see a visual representation of the route.
 1. Notice the numbers in the diagram, which illustrate that 5 messages has been processed, of which 2 were from UK, 2 from US, and 1 others. 
 1. You can click the *Log* button the navigation bar to see the business logging.
 
@@ -183,4 +183,4 @@ To stop and undeploy the example in fabric8:
 To stop and undeploy the example in fabric8:
 
 1. In the web console, click the *Runtime* button in the navigation bar.
-1. Select the `mychild` and `mybroker` containers in the *Containers* list, and click the *Stop* button in the top right corner
+1. Select the `mychild` and `mybroker` containers in the *Containers* list, and click the *Stop* button in the top right corner. After that click *Delete* button.
