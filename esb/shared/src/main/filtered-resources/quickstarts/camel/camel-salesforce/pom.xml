@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-     Copyright 2005-2015 Red Hat, Inc.
+     Copyright 2005-2016 Red Hat, Inc.
 
      Red Hat licenses this file to you under the Apache License, version
      2.0 (the "License"); you may not use this file except in compliance
@@ -22,12 +22,12 @@
     <parent>
       <groupId>org.jboss.quickstarts.fuse</groupId>
       <artifactId>camel-quickstarts</artifactId>
-      <version>6.2.1.redhat-SNAPSHOT</version>
+      <version>6.3.0.redhat-SNAPSHOT</version>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>camel-salesforce</artifactId>
-    <version>6.2.1.redhat-SNAPSHOT</version>
+    <version>6.3.0.redhat-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse Quickstart: camel-salesforce</name>
     <description>Camel Olingo2 OData Example</description>
@@ -49,34 +49,50 @@
         <organizationUrl>http://jboss.org/</organizationUrl>
       </developer>
     </developers>
-
+    
     <repositories>
-        <repository>
-            <id>fuse-public-repository</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+       <repository>
+            <id>redhat-ga-repository</id>
+            <url>https://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
+        </repository>
+        <repository>
+            <id>redhat-ea-repository</id>
+            <url>https://maven.repository.redhat.com/earlyaccess/all</url>
             <releases>
                 <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
             </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <id>fuse-public-repository</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <id>redhat-ga-repository</id>
+            <url>https://maven.repository.redhat.com/ga</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>redhat-ea-repository</id>
+            <url>https://maven.repository.redhat.com/earlyaccess/all</url>
             <releases>
                 <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
             </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 
@@ -98,7 +114,7 @@
         <maven.compiler.source>1.7</maven.compiler.source>
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
-        <jboss.fuse.bom.version>6.2.1.redhat-SNAPSHOT</jboss.fuse.bom.version>
+        <jboss.fuse.bom.version>6.3.0.redhat-SNAPSHOT</jboss.fuse.bom.version>
 
         <!-- fabric8 deploy profile configuration -->
         <fabric8.profile>quickstarts-fuse-camel.salesforce</fabric8.profile>
@@ -191,7 +207,7 @@
                           </goals>
                           <configuration>
                             <sources>
-                              <source>${project.basedir}/src/sample-pojos/main/java</source>
+                              <source>#\${project.basedir}/src/sample-pojos/main/java</source>
                             </sources>
                           </configuration>
                         </execution>
@@ -217,7 +233,7 @@
                           </goals>
                           <configuration>
                             <files>
-                              <file>${project.basedir}/org.jboss.quickstarts.fuse.salesforce.cfg</file>
+                              <file>#\${project.basedir}/org.jboss.quickstarts.fuse.salesforce.cfg</file>
                             </files>
                           </configuration>
                         </execution>
@@ -259,7 +275,7 @@
                           </goals>
                           <configuration>
                             <sources>
-                              <source>${project.build.directory}/generated-sources/camel-salesforce</source>
+                              <source>#\${project.build.directory}/generated-sources/camel-salesforce</source>
                             </sources>
                           </configuration>
                         </execution>
