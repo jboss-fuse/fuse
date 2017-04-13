@@ -22,13 +22,13 @@
     <parent>
         <groupId>io.fabric8.bom</groupId>
         <artifactId>fabric8-bom</artifactId>
-        <version>1.2.0.redhat-621187</version>
+        <version>1.2.0.redhat-621194</version>
     </parent>
 
     <groupId>org.jboss.fuse.bom</groupId>
     <artifactId>jboss-fuse-parent</artifactId>
     <packaging>pom</packaging>
-    <version>6.2.1.redhat-SNAPSHOT</version>
+    <version>6.2.1.redhat-194</version>
 
     <name>JBoss Fuse</name>
     <description>JBoss Fuse is an open source ESB with capabilities based on Apache Camel, Apache CXF, Apache ActiveMQ, Apache Karaf and Fabric8 in a single integrated distribution</description>
@@ -53,12 +53,12 @@
     </prerequisites>
 
     <properties>
-        <perfectus.version>187</perfectus.version>
+        <perfectus.version>194</perfectus.version>
 
         <!-- we inherit from the fabric8 BOM so most versions we need are defined there-->
-        <fabric.version>1.2.0.redhat-621187</fabric.version>
-        <switchyard.version>2.0.1.redhat-621187</switchyard.version>
-        <version.camelsap>6.2.1.redhat-187</version.camelsap>                 
+        <fabric.version>1.2.0.redhat-621194</fabric.version>
+        <switchyard.version>2.0.1.redhat-621194</switchyard.version>
+        <version.camelsap>6.2.1.redhat-194</version.camelsap>                 
 
         <activemqcpp.version>3.9.4</activemqcpp.version>
         <activemqnms.version.major>1.7</activemqnms.version.major>
