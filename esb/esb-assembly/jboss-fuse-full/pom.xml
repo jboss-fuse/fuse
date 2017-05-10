@@ -30,6 +30,10 @@
 
     <name>JBoss Fuse :: ESB :: Assembly (Full)</name>
 
+    <properties>
+        <assembly.escapeString>#</assembly.escapeString>
+    </properties>
+
     <repositories>
         <!-- needed for org.apache.xerces JARs required by org.apache.servicemix.bundles.opensaml:2.6.1_1 -->
         <repository>
