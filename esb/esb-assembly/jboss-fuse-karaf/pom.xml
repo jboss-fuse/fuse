@@ -306,7 +306,7 @@
                                 <descriptor>mvn:org.jboss.fuse/jboss-fuse/${project.version}/xml/features</descriptor>
                                 <descriptor>mvn:io.fabric8.patch/patch-features/${fabric.version}/xml/features</descriptor>
                                 <descriptor>mvn:io.hawt/hawtio-karaf/${hawtio-version}/xml/features</descriptor>
-                                <!--descriptor>mvn:org.drools/drools-karaf-features/${drools-version}/xml/features</descriptor-->
+                                <descriptor>mvn:org.apache.karaf.assemblies.features/brms-features/${karaf-version}/xml/features</descriptor>
                                 <!-- FuseSource only : Fabric -->
                                 <descriptor>mvn:io.fabric8/fabric8-karaf/${fabric.version}/xml/features</descriptor>
                                 <!-- Red Hat Support -->
@@ -396,7 +396,7 @@
                                         <descriptor>mvn:org.jboss.fuse/jboss-fuse/${project.version}/xml/features</descriptor>
                                         <descriptor>mvn:io.fabric8.patch/patch-features/${fabric.version}/xml/features</descriptor>
                                         <descriptor>mvn:io.hawt/hawtio-karaf/${hawtio-version}/xml/features</descriptor>
-                                        <!--descriptor>mvn:org.drools/drools-karaf-features/${drools-version}/xml/features</descriptor-->
+                                        <descriptor>mvn:org.apache.karaf.assemblies.features/brms-features/${karaf-version}/xml/features</descriptor>
                                         <!-- FuseSource only : Fabric -->
                                         <descriptor>mvn:io.fabric8/fabric8-karaf/${fabric.version}/xml/features</descriptor>
                                         <!-- Red Hat Support -->
