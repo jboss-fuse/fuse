@@ -923,5 +923,88 @@
             </licenses>
         </project>
     </supplement>
-
+    <supplement>
+        <project>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <name>ZooKeeper</name>
+            <licenses>
+                <license>
+                    <name>The Apache Software License, Version 2.0</name>
+                    <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+                    <distribution>repo</distribution>
+                </license>
+            </licenses>
+        </project>
+    </supplement>
+    <supplement>
+        <project>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.enterprise</artifactId>
+            <name>OSGi - Enterprise Interfaces and Classes</name>
+            <licenses>
+                <license>
+                    <name>The Apache Software License, Version 2.0</name>
+                    <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+                    <distribution>repo</distribution>
+                </license>
+            </licenses>
+        </project>
+    </supplement>
+    <supplement>
+        <project>
+            <groupId>org.apache.servicemix.bundles</groupId>
+            <artifactId>org.apache.servicemix.bundles.jasypt</artifactId>
+            <name>Jasypt</name>
+            <licenses>
+                <license>
+                    <name>The Apache Software License, Version 2.0</name>
+                    <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+                    <distribution>repo</distribution>
+                </license>
+            </licenses>
+        </project>
+    </supplement>    
+    <supplement>
+        <project>
+            <groupId>org.apache.servicemix.bundles</groupId>
+            <artifactId>org.apache.servicemix.bundles.jasypt-spring31</artifactId>
+            <name>Jasypt</name>
+            <licenses>
+                <license>
+                    <name>The Apache Software License, Version 2.0</name>
+                    <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+                    <distribution>repo</distribution>
+                </license>
+            </licenses>
+        </project>
+    </supplement>     
+    <supplement>
+        <project>
+            <groupId>javax.portlet</groupId>
+            <artifactId>portlet-api</artifactId>
+            <name>Portlet API</name>
+            <licenses>
+                <license>
+                    <name>The Apache Software License, Version 2.0</name>
+                    <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+                    <distribution>repo</distribution>
+                </license>
+            </licenses>
+        </project>
+    </supplement>     
+    <supplement>
+        <project>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit</artifactId>
+            <name>Eclispe JGit</name>
+            <licenses>
+                <license>
+                    <name>EPL</name>
+                    <url>http://www.eclipse.org/org/documents/epl-v10.php</url>
+                    <distribution>repo</distribution>
+                </license>
+            </licenses>
+        </project>
+    </supplement>
 </supplementalDataModels>
