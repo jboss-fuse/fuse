@@ -32,12 +32,5 @@
             <fileMode>0644</fileMode>
             <lineEnding>unix</lineEnding>
         </file>
-        <file>
-            <source>${basedir}/target/target/maven-jboss-license-plugin/licenses.xml</source>
-            <outputDirectory>/</outputDirectory>
-            <destName>licenses.xml</destName>
-            <fileMode>0644</fileMode>
-            <lineEnding>unix</lineEnding>
-        </file>
     </files>
 </component>
