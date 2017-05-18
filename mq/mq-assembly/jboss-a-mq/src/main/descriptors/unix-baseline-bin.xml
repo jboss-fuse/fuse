@@ -182,6 +182,13 @@
             <fileMode>0644</fileMode>
             <filtered>true</filtered>
         </fileSet>
+
+        <fileSet>
+            <directory>${basedir}/target/target/maven-jboss-license-plugin</directory>
+            <outputDirectory>/licenses/</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </fileSet>
     </fileSets>
 
     <files>
@@ -211,12 +218,13 @@
             <lineEnding>unix</lineEnding>
         </file>
         <file>
-            <source>${basedir}/target/META-INF/DEPENDENCIES</source>
+            <source>${basedir}/target/target/maven-shared-archive-resources/META-INF/DEPENDENCIES</source>
             <outputDirectory>/</outputDirectory>
             <destName>mq_dependencies.txt</destName>
             <fileMode>0644</fileMode>
             <lineEnding>unix</lineEnding>
         </file>
+
     </files>
 
 </assembly>
