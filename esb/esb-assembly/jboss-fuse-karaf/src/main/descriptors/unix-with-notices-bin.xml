@@ -46,6 +46,12 @@
             <outputDirectory>docs</outputDirectory>
             <fileMode>0644</fileMode>
         </fileSet>
+        <fileSet>
+            <directory>${basedir}/target/target/maven-jboss-license-plugin</directory>
+            <outputDirectory>/licenses/</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </fileSet>
     </fileSets>
 
 </assembly>
