@@ -53,4 +53,14 @@
         </fileSet>
     </fileSets>
 
+    <files>
+        <file>
+            <source>${basedir}/src/license/licenses.css</source>
+            <outputDirectory>/licenses/</outputDirectory>
+            <destName>licenses.css</destName>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </file>
+    </files>
+
 </assembly>
