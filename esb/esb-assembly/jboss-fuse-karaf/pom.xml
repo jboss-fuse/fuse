@@ -419,7 +419,7 @@
             </build>
         </profile>
         <profile>
-            <id>release1</id>
+            <id>release</id>
             <build>
                 <plugins>
                     <plugin>
