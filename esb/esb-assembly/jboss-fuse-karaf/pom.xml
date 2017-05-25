@@ -440,6 +440,14 @@
                         <artifactId>xml-maven-plugin</artifactId>
                         <version>1.0.1</version>
                         <inherited>false</inherited>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.apache.servicemix</groupId>
+                                <artifactId>servicemix-saxon</artifactId>
+                                <version>${servicemix-components-version}</version>
+                            </dependency>
+                        </dependencies>
+
                         <executions>
                             <execution>
                                 <id>generate-licenses-html</id>

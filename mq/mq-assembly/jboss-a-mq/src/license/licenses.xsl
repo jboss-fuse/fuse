@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:output method="html" encoding="utf-8" standalone="no" media-type="text/html" />
@@ -8,10 +8,12 @@
     <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 
     <xsl:template match="/">
+        <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
             <head>
                 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
                 <link rel="stylesheet" type="text/css" href="licenses.css"/>
+                <title>JBoss A-MQ <xsl:call-template name="extract-target-version"><xsl:with-param name="full-version" select="$version"/></xsl:call-template></title>
             </head>
             <body>
                 <h2>JBoss A-MQ <xsl:call-template name="extract-target-version"><xsl:with-param name="full-version" select="$version"/></xsl:call-template></h2>
@@ -52,7 +54,7 @@
                                             <xsl:with-param name="filename" select="concat($prefix,translate($postfix,$uppercase,$lowercase))" />
                                         </xsl:call-template>
                                     </xsl:variable>
-                                    <a href="{$filename}"><xsl:value-of select="$filename"/></a><br/>
+                                    <a href="{iri-to-uri($filename)}"><xsl:value-of select="$filename"/></a><br/>
                                 </xsl:for-each>
                             </td>
                         </tr>
