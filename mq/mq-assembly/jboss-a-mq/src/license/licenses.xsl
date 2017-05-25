@@ -13,10 +13,10 @@
             <head>
                 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
                 <link rel="stylesheet" type="text/css" href="licenses.css"/>
-                <title>JBoss Fuse <xsl:call-template name="extract-target-version"><xsl:with-param name="full-version" select="$version"/></xsl:call-template></title>
+                <title>JBoss A-MQ <xsl:call-template name="extract-target-version"><xsl:with-param name="full-version" select="$version"/></xsl:call-template></title>
             </head>
             <body>
-                <h2>JBoss Fuse <xsl:call-template name="extract-target-version"><xsl:with-param name="full-version" select="$version"/></xsl:call-template></h2>
+                <h2>JBoss A-MQ <xsl:call-template name="extract-target-version"><xsl:with-param name="full-version" select="$version"/></xsl:call-template></h2>
                 <p>The following material has been provided for informational purposes only, and should not be relied upon or construed as a legal opinion or legal advice.</p>
                 <!-- Read matching templates -->
                 <table>
