@@ -468,11 +468,7 @@
       <licenses>
         <license>
           <name>Day Specification License</name>
-          <url>http://www.day.com/dam/day/downloads/jsr283/day-spec-license.htm</url>
-        </license>
-        <license>
-          <name>Day Specification License addendum</name>
-          <url>http://www.day.com/content/dam/day/downloads/jsr283/LICENSE.txt</url>
+          <url>https://docs.adobe.com/docs/en/spec/jcr/2.0/license.html</url>
         </license>
       </licenses>
     </dependency>
@@ -1367,10 +1363,14 @@ limitations under the License.</comments>
       <version>3.1.0.redhat-1</version>
       <licenses>
         <license>
-          <name>CDDL + GPLv2 with classpath exception</name>
-          <url>https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html</url>
+          <name>Common Development and Distribution License</name>
+          <url>http://repository.jboss.org/licenses/cddl.txt</url>
           <distribution>repo</distribution>
-          <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -2073,8 +2073,8 @@ limitations under the License.</comments>
       <version>1.1.2</version>
       <licenses>
         <license>
-          <name>GNU Library General Public License (LGPL), Version 2.0</name>
-          <url>https://www.gnu.org/licenses/lgpl-2.0.html</url>
+          <name>GNU Library General Public License, Version 2</name>
+          <url>http://repository.jboss.org/licenses/lgpl-2.0.txt</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -2924,10 +2924,14 @@ limitations under the License.</comments>
       <version>1.2</version>
       <licenses>
         <license>
-          <name>CDDL + GPLv2 with classpath exception</name>
-          <url>https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html</url>
+          <name>Common Development and Distribution License version 1.1</name>
+          <url>http://repository.jboss.org/licenses/cddl-v1.1.txt</url>
           <distribution>repo</distribution>
-          <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -3055,8 +3059,13 @@ limitations under the License.</comments>
       <version>1.7.6</version>
       <licenses>
         <license>
-          <name>Dual license consisting of the CDDL v1.1 and GPL v2</name>
-          <url>https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html</url>
+          <name>Common Development and Distribution License version 1.1</name>
+          <url>http://repository.jboss.org/licenses/cddl-v1.1.txt</url>
+          <distribution>repo</distribution>
+        </license>
+        <license>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -4636,10 +4645,14 @@ limitations under the License.</comments>
       <version>1.2</version>
       <licenses>
         <license>
-          <name>CDDL + GPLv2 with classpath exception</name>
-          <url>https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html</url>
+          <name>Common Development and Distribution License version 1.1</name>
+          <url>http://repository.jboss.org/licenses/cddl-v1.1.txt</url>
           <distribution>repo</distribution>
-          <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -5211,8 +5224,8 @@ limitations under the License.</comments>
       <version>3.6.1</version>
       <licenses>
         <license>
-          <name>ASL 2.0</name>
-          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+          <name>Apache License, Version 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
           <distribution>repo</distribution>
         </license>
         <license>
@@ -5221,9 +5234,8 @@ limitations under the License.</comments>
           <distribution>repo</distribution>
         </license>
         <license>
-          <name>MPL 1.1</name>
-          <url>http://www.mozilla.org/MPL/MPL-1.1.txt</url>
-          <distribution>repo</distribution>
+          <name>Mozilla Public License, Version 1.1</name>
+          <url>http://repository.jboss.org/licenses/mpl-1.1.txt</url>
         </license>
       </licenses>
     </dependency>
@@ -5343,10 +5355,14 @@ limitations under the License.</comments>
       <version>2.2.5</version>
       <licenses>
         <license>
-          <name>CDDL + GPLv2 with classpath exception</name>
-          <url>https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html</url>
+          <name>Common Development and Distribution License version 1.1</name>
+          <url>http://repository.jboss.org/licenses/cddl-v1.1.txt</url>
           <distribution>repo</distribution>
-          <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -6544,10 +6560,14 @@ limitations under the License.</comments>
       <version>3.0.0</version>
       <licenses>
         <license>
-          <name>CDDL + GPLv2 with classpath exception</name>
-          <url>https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html</url>
+          <name>Common Development and Distribution License version 1.1</name>
+          <url>http://repository.jboss.org/licenses/cddl-v1.1.txt</url>
           <distribution>repo</distribution>
-          <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -8307,10 +8327,14 @@ limitations under the License.</comments>
       <version>2.0.1</version>
       <licenses>
         <license>
-          <name>CDDL + GPLv2 with classpath exception</name>
-          <url>https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html</url>
+          <name>Common Development and Distribution License version 1.1</name>
+          <url>http://repository.jboss.org/licenses/cddl-v1.1.txt</url>
           <distribution>repo</distribution>
-          <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -8573,8 +8597,8 @@ limitations under the License.</comments>
       <version>2.5.16</version>
       <licenses>
         <license>
-          <name>New BSD License</name>
-          <url>http://dist.codehaus.org/janino/new_bsd_license.txt</url>
+          <name>The BSD License</name>
+          <url>http://repository.jboss.org/licenses/bsd.txt</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -8793,10 +8817,14 @@ limitations under the License.</comments>
       <version>1.5.5</version>
       <licenses>
         <license>
-          <name>CDDL/GPLv2+CE</name>
-          <url>https://glassfish.java.net/public/CDDL+GPL_1_1.html</url>
+          <name>Common Development and Distribution License version 1.1</name>
+          <url>http://repository.jboss.org/licenses/cddl-v1.1.txt</url>
           <distribution>repo</distribution>
-          <comments>CDDL or GPL version 2 plus the Classpath Exception</comments>
+        </license>
+        <license>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -10797,22 +10825,13 @@ limitations under the License.</comments>
       <version>2.2</version>
       <licenses>
         <license>
-          <name>HAPI is dual licensed (MPL, GPL)</name>
-          <comments>HAPI is dual licensed under both the Mozilla Public License and the GNU General Public License.
-			   What this means is that you may choose to use HAPI under the terms of either license.
-			   You are both permitted and encouraged to use HAPI, royalty-free, within your applications,
-			   whether they are free/open-source or commercial/closed-source, provided you abide by the 
-			   terms of one of the licenses below.
-			   You are under no obligations to inform the HAPI project about what you are doing with
-			   HAPI, but we would love to hear about it anyway!</comments>
+          <name>Mozilla Public License, Version 1.1</name>
+          <url>http://repository.jboss.org/licenses/mpl-1.1.txt</url>
         </license>
         <license>
-          <name>Mozilla Public License 1.1</name>
-          <url>http://www.mozilla.org/MPL/MPL-1.1.txt</url>
-        </license>
-        <license>
-          <name>GNU General Public License</name>
-          <url>http://www.gnu.org/licenses/gpl.txt</url>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -10857,8 +10876,9 @@ limitations under the License.</comments>
       <version>2.10.1</version>
       <licenses>
         <license>
-          <name>The Apache Software License, Version 2.0</name>
-          <url>src/assemble/EHCACHE-CORE-LICENSE.txt</url>
+          <name>Apache License, Version 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -11144,8 +11164,8 @@ limitations under the License.</comments>
       <version>4.1.2</version>
       <licenses>
         <license>
-          <name>Apache License, Version 2.0</name>
-          <url>LICENSE.txt</url>
+          <name>The Apache Software License, Version 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -11635,39 +11655,8 @@ limitations under the License.</comments>
       <version>4.1.1.201511131810-r</version>
       <licenses>
         <license>
-          <name>Eclipse Distribution License (New BSD License)</name>
-          <comments>All rights reserved.
-
-       Redistribution and use in source and binary forms, with or
-       without modification, are permitted provided that the following
-       conditions are met:
-
-       - Redistributions of source code must retain the above copyright
-         notice, this list of conditions and the following disclaimer.
-
-       - Redistributions in binary form must reproduce the above
-         copyright notice, this list of conditions and the following
-         disclaimer in the documentation and/or other materials provided
-         with the distribution.
-
-       - Neither the name of the Eclipse Foundation, Inc. nor the
-         names of its contributors may be used to endorse or promote
-         products derived from this software without specific prior
-         written permission.
-
-       THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-       CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-       INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-       OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-       ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-       CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-       SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-       NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-       LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-       CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-       STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-       ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-       ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</comments>
+          <name>Eclipse Public License - Version 1.0</name>
+          <url>http://www.eclipse.org/org/documents/epl-v10.php</url>
         </license>
       </licenses>
     </dependency>
@@ -12017,8 +12006,9 @@ limitations under the License.</comments>
       <version>2.4.3</version>
       <licenses>
         <license>
-          <name>CDDL</name>
-          <url>https://glassfish.dev.java.net/public/CDDLv1.0.html</url>
+          <name>Common Development and Distribution License</name>
+          <url>http://repository.jboss.org/licenses/cddl.txt</url>
+          <distribution>repo</distribution>
         </license>
         <license>
           <name>Apache License 2.0</name>
@@ -12094,7 +12084,7 @@ limitations under the License.</comments>
       <licenses>
         <license>
           <name>iCal4j - License</name>
-          <url>https://github.com/ical4j/ical4j/raw-file/tip/LICENSE</url>
+          <url>https://raw.githubusercontent.com/ical4j/ical4j/develop/LICENSE</url>
         </license>
       </licenses>
     </dependency>
@@ -13010,10 +13000,14 @@ limitations under the License.</comments>
       <version>2.2.5</version>
       <licenses>
         <license>
-          <name>CDDL + GPLv2 with classpath exception</name>
-          <url>http://glassfish.dev.java.net/nonav/public/CDDL+GPL.html</url>
+          <name>Common Development and Distribution License version 1.1</name>
+          <url>http://repository.jboss.org/licenses/cddl-v1.1.txt</url>
           <distribution>repo</distribution>
-          <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+          <name>GNU General Public License, Version 2 with the Classpath Exception</name>
+          <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
         </license>
       </licenses>
     </dependency>
@@ -13198,7 +13192,7 @@ limitations under the License.</comments>
       <licenses>
         <license>
           <name>Public Domain</name>
-          <url>http://creativecommons.org/licenses/publicdomain</url>
+          <url>http://repository.jboss.org/licenses/cc0-1.0.txt</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
