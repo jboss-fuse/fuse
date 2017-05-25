@@ -7,9 +7,8 @@ table, th, td {
 }
 
 th {
-    text-align: left;
     background-color: #BCC6CC;
-
+    text-align: left;
 }
 
 th, td {
