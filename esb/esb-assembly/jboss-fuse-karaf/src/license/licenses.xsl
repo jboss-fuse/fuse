@@ -100,14 +100,8 @@
             <xsl:when test="$filename = 'the antlr 2.7.7 license - antlr-2.7.7.tar.gz'">
                 <xsl:text>the antlr 2.7.7 license.txt</xsl:text>
             </xsl:when>
-            <xsl:when test="$filename = 'the asm bsd license - license.html'">
-                <xsl:text>the asm bsd license.txt</xsl:text>
-            </xsl:when>
             <xsl:when test="$filename = 'the dom4j license - license'">
                 <xsl:text>the dom4j license.txt</xsl:text>
-            </xsl:when>
-            <xsl:when test="$filename = 'gnu library general public license, version 2 - lgpl-2.0.txt'">
-                <xsl:text>gnu library general public license, version 2.txt</xsl:text>
             </xsl:when>
             <xsl:when test="$filename = 'creative commons attribution 2.5 - legalcode'">
                 <xsl:text>creative commons attribution 2.5.html</xsl:text>
