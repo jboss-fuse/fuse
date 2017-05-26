@@ -30,6 +30,7 @@
             <outputDirectory>/</outputDirectory>
             <excludes>
                 <exclude>system/**</exclude>
+                <exclude>licenses/**</exclude>
                 <exclude>**/demos/**</exclude>
                 <exclude>bin/**</exclude>
                 <exclude>etc/jmx.acl.cfg</exclude>
@@ -151,6 +152,13 @@
             <destName>amq.bat</destName>
             <fileMode>0755</fileMode>
             <lineEnding>dos</lineEnding>
+        </file>
+        <file>
+            <source>${basedir}/src/license/licenses.css</source>
+            <outputDirectory>/licenses/</outputDirectory>
+            <destName>licenses.css</destName>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
         </file>
     </files>
 

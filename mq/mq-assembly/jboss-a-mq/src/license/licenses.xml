@@ -158,10 +158,9 @@
       <artifactId>fabric-groovy</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -215,10 +214,9 @@
       <artifactId>fabric-redirect</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -249,10 +247,9 @@
       <artifactId>fabric-api</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -261,10 +258,9 @@
       <artifactId>fabric-web</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -296,10 +292,9 @@
       <artifactId>fabric-core-agent-ssh</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -340,10 +335,9 @@
       <artifactId>fabric-commands</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -419,10 +413,9 @@
       <artifactId>fabric-core</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -485,10 +478,9 @@
       <artifactId>fabric-ssl</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -554,10 +546,9 @@
       <artifactId>fabric-camel</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -566,10 +557,9 @@
       <artifactId>fabric-git-server</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -664,10 +654,9 @@ limitations under the License.</comments>
       <artifactId>fabric-jolokia</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -1093,10 +1082,9 @@ limitations under the License.</comments>
       <artifactId>fabric-openshift</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -1344,10 +1332,9 @@ limitations under the License.</comments>
       <artifactId>fabric-agent-commands</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -1356,10 +1343,9 @@ limitations under the License.</comments>
       <artifactId>fabric-configadmin</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -1505,10 +1491,9 @@ limitations under the License.</comments>
       <artifactId>fabric-jaas</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -1517,10 +1502,9 @@ limitations under the License.</comments>
       <artifactId>fabric-project-deployer</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -1729,10 +1713,9 @@ limitations under the License.</comments>
       <artifactId>fabric-agent</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -1764,10 +1747,9 @@ limitations under the License.</comments>
       <artifactId>fabric-groups</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -1854,10 +1836,9 @@ limitations under the License.</comments>
       <artifactId>fabric-dosgi</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -2119,10 +2100,9 @@ limitations under the License.</comments>
       <artifactId>fabric-extender-listener</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -2156,10 +2136,9 @@ limitations under the License.</comments>
       <artifactId>fabric-git</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -2168,10 +2147,9 @@ limitations under the License.</comments>
       <artifactId>fabric-maven-proxy</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -2224,10 +2202,9 @@ limitations under the License.</comments>
       <artifactId>fabric-maven</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -2313,10 +2290,9 @@ limitations under the License.</comments>
       <artifactId>fabric-boot-commands</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -2580,10 +2556,9 @@ limitations under the License.</comments>
       <artifactId>fabric-features-service</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -2837,10 +2812,9 @@ limitations under the License.</comments>
       <artifactId>fabric-git-hawtio</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>
@@ -2906,10 +2880,9 @@ limitations under the License.</comments>
       <artifactId>fabric-zookeeper</artifactId>
       <licenses>
         <license>
-          <name>FuseSource Fabric License</name>
-          <url>fabric_license.txt</url>
+          <name>Apache Software License, Version 2.0</name>
+          <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
           <distribution>repo</distribution>
-          <comments>Fabric license is based on ASL 2.0</comments>
         </license>
       </licenses>
     </dependency>

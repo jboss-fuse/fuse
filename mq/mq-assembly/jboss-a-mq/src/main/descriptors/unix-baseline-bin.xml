@@ -84,6 +84,7 @@
                 <exclude>etc/org.apache.karaf.command.acl.scope_bundle.cfg</exclude>
                 <exclude>etc/org.apache.karaf.command.acl.shell.cfg</exclude>
                 <exclude>system/**</exclude>
+                <exclude>licenses/**</exclude>
                 <exclude>fabric_notices.txt</exclude>
                 <exclude>fabric_dependencies.txt</exclude>
                 <exclude>readme.txt</exclude>
