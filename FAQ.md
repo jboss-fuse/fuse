@@ -28,3 +28,4 @@ If you want to favour one DC so that its the master and have some manual recover
 * pick one DC as the master and run more ZK servers there. If that DC fails, you have to manually decide its down (and make sure the ZK servers are manually taken down) then run some more in the remaining DC. i.e. a manual failover process if the master fails (though automatic if the slave fails).
 
 
+.
