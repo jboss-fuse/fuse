@@ -24,11 +24,11 @@
 	<parent>
 		<groupId>org.jboss.quickstarts.fuse</groupId>
 		<artifactId>camel-quickstarts</artifactId>
-		<version>6.3.0.redhat-SNAPSHOT</version>
+		<version>6.3.0.redhat-262-06</version>
 	</parent>
 
 	<artifactId>camel-sap</artifactId>
-	<version>6.3.0.redhat-SNAPSHOT</version>
+	<version>6.3.0.redhat-262-06</version>
 	<packaging>bundle</packaging>
 
 	<name>JBoss Fuse Quickstart: camel-sap</name>
@@ -97,7 +97,7 @@
 
 	<properties>
 		<!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
-		<jboss.fuse.bom.version>${project.version}</jboss.fuse.bom.version>
+		<jboss.fuse.bom.version>6.3.0.redhat-262-06</jboss.fuse.bom.version>
 		<fuse.osgi.symbolic.name>org.jboss.quickstarts.fuse.camel-sap</fuse.osgi.symbolic.name>
 		<fuse.osgi.bundle.name>JBoss Fuse Quickstart: camel-sap</fuse.osgi.bundle.name>
 		<fuse.osgi.import>

@@ -22,12 +22,12 @@
   <parent>
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>quickstarts-parent</artifactId>
-    <version>6.3.0.redhat-SNAPSHOT</version>
+    <version>6.3.0.redhat-262-06</version>
   </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>camel-amq</artifactId>
-    <version>6.3.0.redhat-SNAPSHOT</version>
+    <version>6.3.0.redhat-262-06</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse Quickstart: camel-amq</name>
     <description>ActiveMQ and Camel Example</description>
@@ -116,7 +116,7 @@
     <fabric8.features>camel-amq</fabric8.features>
 
       <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
-      <jboss.fuse.bom.version>6.3.0.redhat-SNAPSHOT</jboss.fuse.bom.version>
+      <jboss.fuse.bom.version>6.3.0.redhat-262-06</jboss.fuse.bom.version>
   </properties>
 
   <dependencyManagement>

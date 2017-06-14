@@ -24,7 +24,7 @@
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>custom-distro</artifactId>
     <packaging>pom</packaging>
-    <version>6.3.0.redhat-SNAPSHOT</version>
+    <version>6.3.0.redhat-262-06</version>
 
     <name>JBoss Fuse Quickstart: custom</name>
 

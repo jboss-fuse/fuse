@@ -21,7 +21,7 @@
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>quickstarts-parent</artifactId>
-    <version>6.3.0.redhat-SNAPSHOT</version>
+    <version>6.3.0.redhat-262-06</version>
     <packaging>pom</packaging>
     <name>JBoss Fuse Quickstart: quickstarts</name>
     <url>http://www.jboss.org/products/fuse</url>

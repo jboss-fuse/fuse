@@ -22,12 +22,12 @@
     <parent>
         <groupId>org.jboss.quickstarts.fuse</groupId>
         <artifactId>beginner</artifactId>
-        <version>6.3.0.redhat-SNAPSHOT</version>
+        <version>6.3.0.redhat-262-06</version>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>beginner-camel-log-wiki</artifactId>
-    <version>6.3.0.redhat-SNAPSHOT</version>
+    <version>6.3.0.redhat-262-06</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse Quickstart: camel-log-wiki</name>
     <description>Camel Log Example (wiki)</description>
@@ -103,7 +103,7 @@
     <fabric8.bundles>blueprint:profile:camel-log.xml</fabric8.bundles>
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
-        <jboss.fuse.bom.version>6.3.0.redhat-SNAPSHOT</jboss.fuse.bom.version>
+        <jboss.fuse.bom.version>6.3.0.redhat-262-06</jboss.fuse.bom.version>
   </properties>
 
     <dependencyManagement>

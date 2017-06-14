@@ -22,13 +22,13 @@
     <parent>
         <groupId>org.fusesource</groupId>
         <artifactId>fuse-project</artifactId>
-        <version>6.3.0.redhat-SNAPSHOT</version>
+        <version>6.3.0.redhat-262-06</version>
         <relativePath>../parent</relativePath>
     </parent>
 
     <groupId>org.jboss.amq</groupId>
     <artifactId>mq-project</artifactId>
-    <version>6.3.0.redhat-SNAPSHOT</version>
+    <version>6.3.0.redhat-262-06</version>
     <packaging>pom</packaging>
 
     <name>JBoss A-MQ Project</name>

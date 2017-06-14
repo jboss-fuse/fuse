@@ -24,25 +24,25 @@
     <parent>
       <groupId>org.fusesource</groupId>
       <artifactId>fuse-project</artifactId>
-      <version>6.3.0.redhat-SNAPSHOT</version>
+      <version>6.3.0.redhat-262-06</version>
       <relativePath>../../parent</relativePath>
     </parent>
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>custom-distro</artifactId>
     <packaging>pom</packaging>
-    <version>6.3.0.redhat-SNAPSHOT</version>
+    <version>6.3.0.redhat-262-06</version>
 
     <name>JBoss Fuse Quickstart: custom</name>
 
     <properties>
         <activemq.version>${activemq-version}</activemq.version>
-        <camel.version>${camel-version}</camel.version>
-        <cxf.version>${cxf-version}</cxf.version>
-        <fabric8.version>${fabric.version}</fabric8.version>
-        <hawtio.version>${hawtio-version}</hawtio.version>
+        <camel.version>2.17.0.redhat-630262-06</camel.version>
+        <cxf.version>3.1.5.redhat-630262-06</cxf.version>
+        <fabric8.version>1.2.0.redhat-630262-06</fabric8.version>
+        <hawtio.version>1.4.0.redhat-630262-06</hawtio.version>
         <jboss.fuse.version>${project.version}</jboss.fuse.version>
-        <karaf.version>${karaf-version}</karaf.version>
+        <karaf.version>2.4.0.redhat-630262-06</karaf.version>
         
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
