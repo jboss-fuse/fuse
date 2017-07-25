@@ -17,7 +17,7 @@
 
 -->
 <assembly>
-    <id>unix-bin</id>
+    <id>unix-bin-notices</id>
 
     <formats>
         <format>zip</format>
@@ -153,10 +153,17 @@
             <fileMode>0755</fileMode>
             <lineEnding>dos</lineEnding>
         </file>
+        <file>
+            <source>${basedir}/src/license/licenses.css</source>
+            <outputDirectory>/licenses/</outputDirectory>
+            <destName>licenses.css</destName>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </file>
     </files>
 
     <componentDescriptors>
-        <componentDescriptor>${basedir}/target/shared/common-bin.xml</componentDescriptor>
+        <componentDescriptor>${basedir}/target/shared/common-bin-notices.xml</componentDescriptor>
         <componentDescriptor>${basedir}/target/shared/common-extras-bin.xml</componentDescriptor>
         <componentDescriptor>${basedir}/target/shared/common-fabric8-bin.xml</componentDescriptor>
     </componentDescriptors>

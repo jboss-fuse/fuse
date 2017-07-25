@@ -17,11 +17,44 @@
 
 -->
 <assembly>
-    <id>unix-bin</id>
+
+    <id>baseline</id>
 
     <formats>
         <format>zip</format>
     </formats>
+
+    <baseDirectory>jboss-a-mq-baseline-${version}</baseDirectory>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>/lib</outputDirectory>
+            <outputFileNameMapping>patch-client.jar</outputFileNameMapping>
+            <fileMode>0644</fileMode>
+            <includes>
+                <include>io.fabric8.patch:patch-client</include>
+            </includes>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>/lib/ext</outputDirectory>
+            <outputFileNameMapping>bcprov-jdk15on.jar</outputFileNameMapping>
+            <fileMode>0644</fileMode>
+            <includes>
+                <include>org.bouncycastle:bcprov-jdk15on</include>
+            </includes>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>/lib</outputDirectory>
+            <outputFileNameMapping>mq-version.jar</outputFileNameMapping>
+            <fileMode>0644</fileMode>
+            <includes>
+                <include>org.jboss.amq:org.jboss.amq.karaf.branding</include>
+            </includes>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+        </dependencySet>
+    </dependencySets>
 
     <fileSets>
         <!-- Expanded Karaf Runtime -->
@@ -29,10 +62,15 @@
             <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}</directory>
             <outputDirectory>/</outputDirectory>
             <excludes>
-                <exclude>system/**</exclude>
-                <exclude>licenses/**</exclude>
                 <exclude>**/demos/**</exclude>
+                <exclude>lib/**</exclude>
                 <exclude>bin/**</exclude>
+                <exclude>etc/org.apache.karaf.features.cfg</exclude>
+                <exclude>etc/org.ops4j.pax.logging.cfg</exclude>
+                <exclude>etc/custom.properties</exclude>
+                <exclude>etc/users.properties</exclude>
+                <exclude>etc/keys.properties</exclude>
+                <exclude>etc/org.ops4j.pax.web.cfg</exclude>
                 <exclude>etc/jmx.acl.cfg</exclude>
                 <exclude>etc/jmx.acl.whitelist.cfg</exclude>
                 <exclude>etc/jmx.acl.java.lang.Memory.cfg</exclude>
@@ -45,37 +83,21 @@
                 <exclude>etc/org.apache.karaf.command.acl.osgi.cfg</exclude>
                 <exclude>etc/org.apache.karaf.command.acl.scope_bundle.cfg</exclude>
                 <exclude>etc/org.apache.karaf.command.acl.shell.cfg</exclude>
-                <exclude>etc/users.properties</exclude>
-                <exclude>etc/keys.properties</exclude>
-                <exclude>etc/org.ops4j.pax.web.cfg</exclude>
-                <exclude>etc/org.apache.karaf.features.cfg</exclude>
-                <exclude>etc/org.ops4j.pax.logging.cfg</exclude>
-                <exclude>etc/custom.properties</exclude>
+                <exclude>system/**</exclude>
+                <exclude>licenses/**</exclude>
                 <exclude>fabric_notices.txt</exclude>
                 <exclude>fabric_dependencies.txt</exclude>
+                <exclude>readme.txt</exclude>
                 <exclude>LICENSE</exclude>
                 <exclude>NOTICE</exclude>
                 <exclude>README</exclude>
-                <exclude>readme.txt</exclude>
                 <exclude>RELEASE-NOTES</exclude>
                 <exclude>karaf-manual*</exclude>
-                <exclude>lib/**</exclude>
-                <exclude>system/**</exclude>
+                <exclude>quickstarts/**</exclude>
+                <exclude>data/**</exclude>
+                <exclude>deploy/**</exclude>
             </excludes>
-        </fileSet>
-        <!-- Expanded Karaf Runtime -->
-        <fileSet>
-            <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}</directory>
-            <outputDirectory>/</outputDirectory>
-            <excludes>
-                <exclude>lib/*-version.jar</exclude>
-            </excludes>
-            <includes>
-                <include>lib/**</include>
-                <include>system/**</include>
-            </includes>
             <fileMode>0644</fileMode>
-            <directoryMode>0775</directoryMode>
         </fileSet>
 
         <!-- Copy over bin/* scripts separately to get the correct file mode -->
@@ -95,7 +117,6 @@
             </excludes>
             <fileMode>0755</fileMode>
         </fileSet>
-
         <fileSet>
             <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}</directory>
             <outputDirectory>/</outputDirectory>
@@ -104,6 +125,45 @@
             </includes>
             <lineEnding>keep</lineEnding>
             <fileMode>0755</fileMode>
+        </fileSet>
+
+        <!-- Expanded Karaf Runtime -->
+        <fileSet>
+            <directory>target/dependencies/unix/fabric8-karaf-${fabric.version}</directory>
+            <outputDirectory>/</outputDirectory>
+            <excludes>
+                <exclude>lib/*-version.jar</exclude>
+            </excludes>
+            <includes>
+                <include>lib/**</include>
+            </includes>
+            <fileMode>0644</fileMode>
+            <directoryMode>0775</directoryMode>
+        </fileSet>
+
+        <!-- Add shared config files to the assembly -->
+        <fileSet>
+            <directory>target/shared/etc</directory>
+            <outputDirectory>/etc/</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+            <directoryMode>0755</directoryMode>
+        </fileSet>
+        <!-- Add licenses to the assembly -->
+        <fileSet>
+            <directory>target/shared/licenses</directory>
+            <outputDirectory>/licenses/</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+            <directoryMode>0755</directoryMode>
+        </fileSet>
+        <!-- Add shared scripts -->
+        <fileSet>
+            <directory>target/shared/bin</directory>
+            <outputDirectory>/bin/</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0755</fileMode>
+            <directoryMode>0755</directoryMode>
         </fileSet>
 
         <fileSet>
@@ -125,11 +185,9 @@
         </fileSet>
 
         <fileSet>
-            <directory>target</directory>
-            <outputDirectory>system/org/jboss/amq/jboss-a-mq/${project.version}</outputDirectory>
-            <includes>
-                <include>jboss-a-mq-${project.version}-baseline.zip</include>
-            </includes>
+            <directory>${basedir}/target/target/maven-jboss-license-plugin</directory>
+            <outputDirectory>/licenses/</outputDirectory>
+            <fileMode>0644</fileMode>
         </fileSet>
     </fileSets>
 
@@ -138,7 +196,6 @@
             <source>${basedir}/src/main/resources/license.txt</source>
             <fileMode>0444</fileMode>
         </file>
-
         <file>
             <source>${basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/bin/amq</source>
             <outputDirectory>/bin/</outputDirectory>
@@ -153,12 +210,21 @@
             <fileMode>0755</fileMode>
             <lineEnding>dos</lineEnding>
         </file>
-    </files>
+        <file>
+            <source>${basedir}/target/META-INF/NOTICE</source>
+            <outputDirectory>/</outputDirectory>
+            <destName>mq_notices.txt</destName>
+            <fileMode>0644</fileMode>
+            <lineEnding>unix</lineEnding>
+        </file>
+        <file>
+            <source>${basedir}/target/target/maven-shared-archive-resources/META-INF/DEPENDENCIES</source>
+            <outputDirectory>/</outputDirectory>
+            <destName>mq_dependencies.txt</destName>
+            <fileMode>0644</fileMode>
+            <lineEnding>unix</lineEnding>
+        </file>
 
-    <componentDescriptors>
-        <componentDescriptor>${basedir}/target/shared/common-bin.xml</componentDescriptor>
-        <componentDescriptor>${basedir}/target/shared/common-extras-bin.xml</componentDescriptor>
-        <componentDescriptor>${basedir}/target/shared/common-fabric8-bin.xml</componentDescriptor>
-    </componentDescriptors>
+    </files>
 
 </assembly>
