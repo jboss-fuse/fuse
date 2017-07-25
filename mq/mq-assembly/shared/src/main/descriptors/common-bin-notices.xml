@@ -85,9 +85,28 @@
             <directory>target/features-repo</directory>
             <outputDirectory>/system/</outputDirectory>
         </fileSet>
+        <fileSet>
+            <directory>${basedir}/target/target/maven-jboss-license-plugin</directory>
+            <outputDirectory>/licenses/</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
     </fileSets>
 
     <files>
+        <file>
+            <source>${basedir}/target/META-INF/NOTICE</source>
+            <outputDirectory>/</outputDirectory>
+            <destName>mq_notices.txt</destName>
+            <fileMode>0644</fileMode>
+            <lineEnding>unix</lineEnding>
+        </file>
+        <file>
+            <source>${basedir}/target/target/maven-shared-archive-resources/META-INF/DEPENDENCIES</source>
+            <outputDirectory>/</outputDirectory>
+            <destName>mq_dependencies.txt</destName>
+            <fileMode>0644</fileMode>
+            <lineEnding>unix</lineEnding>
+        </file>
         <file>
             <source>${basedir}/target/dependencies/unix/apache-activemq-${activemq-version}-bin.zip</source>
             <outputDirectory>extras</outputDirectory>
