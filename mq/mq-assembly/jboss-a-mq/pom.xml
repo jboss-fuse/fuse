@@ -328,78 +328,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.fusesource.mvnplugins</groupId>
-                <artifactId>maven-notices-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>merge-notices-in-repository</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>merge-notices-in-repository</goal>
-                        </goals>
-                        <configuration>
-                            <projectName>JBoss A-MQ Enterprise</projectName>
-                            <organizationName>Red Hat, Inc. All Rights Reserved.</organizationName>
-                            <organizationURL>http://redhat.com</organizationURL>
-                            <preamble>In addition to the Red Hat products, this disk contains certain third party software or components ("Third Party Components"), which are bundled as separate files or modules and separately licensed to you by said third parties. This file contains a listing of all NOTICE/NOTICE.txt files included with the Third Party Component jars in this distribution of JBoss A-MQ. Please see the mq_dependencies.txt file for the complete listing of Third Party Components and their attributed license agreements. Your use of the Third Party Components is subject to the terms and conditions set forth in the applicable third party license agreement. The Third Party Components are provided by Red Hat, Inc. solely on an "AS IS" basis, without any warranty. Red Hat, Inc. disclaims all warranties and indemnities with respect to the Third Party Components, express or implied, and assumes no liability with respect to the Third Party Components. You acknowledge that the authors of the Third Party Components have no obligation to provide support to you for the Third Party Components. You hereby undertake to comply with all licenses related to the applicable Third Party Components. All third party license agreements are contained in the licenses directory of</preamble>
-                            <licensesConfigFile>${project.basedir}/src/license/licenses.xml</licensesConfigFile>
-                            <listDependencies>true</listDependencies>
-                            <generateLicensesXml>true</generateLicensesXml>
-                            <extraDependencies>xerces:xercesImpl:${xerces.version},xalan:xalan:${xalan.version},xalan:serializer:${xalan.version},org.apache.servicemix.specs:org.apache.servicemix.specs.activator:${servicemix-specs-version},org.apache.servicemix.specs:org.apache.servicemix.specs.jaxp-api-1.4:${servicemix-specs-version},org.apache.servicemix.specs:org.apache.servicemix.specs.jaxws-api-2.2:${servicemix-specs-version}</extraDependencies>
-                            <noticeSupplements>shared/notice-supplements.xml</noticeSupplements>
-                            <repositories>${project.basedir}/target/features-repo,${project.basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/system</repositories>
-                            <defaultParent>org.jboss.amq:mq-project:${project.version}:../..</defaultParent>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>xml-maven-plugin</artifactId>
-                <version>1.0.1</version>
-                <inherited>false</inherited>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.servicemix</groupId>
-                        <artifactId>servicemix-saxon</artifactId>
-                        <version>${servicemix-components-version}</version>
-                    </dependency>
-                </dependencies>
 
-                <executions>
-                    <execution>
-                        <id>generate-licenses-html</id>
-                        <goals>
-                            <goal>transform</goal>
-                        </goals>
-                        <phase>prepare-package</phase>
-                        <configuration>
-                            <transformationSets>
-                                <transformationSet>
-                                    <dir>${basedir}/target/target/maven-jboss-license-plugin</dir>
-                                    <includes>
-                                        <include>licenses.xml</include>
-                                    </includes>
-                                    <stylesheet>${basedir}/src/license/licenses.xsl</stylesheet>
-                                    <outputDir>${basedir}/target/target/maven-jboss-license-plugin</outputDir>
-                                    <fileMappers>
-                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
-                                            <targetExtension>.html</targetExtension>
-                                        </fileMapper>
-                                    </fileMappers>
-                                    <parameters>
-                                        <parameter>
-                                            <name>version</name>
-                                            <value>${project.version}</value>
-                                        </parameter>
-                                    </parameters>                                            
-                                </transformationSet>
-                            </transformationSets>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -635,6 +564,118 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>all</id>
+            <build>
+                <plugins>
+            <plugin>
+                <groupId>org.fusesource.mvnplugins</groupId>
+                <artifactId>maven-notices-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>merge-notices-in-repository</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>merge-notices-in-repository</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>JBoss A-MQ Enterprise</projectName>
+                            <organizationName>Red Hat, Inc. All Rights Reserved.</organizationName>
+                            <organizationURL>http://redhat.com</organizationURL>
+                            <preamble>In addition to the Red Hat products, this disk contains certain third party software or components ("Third Party Components"), which are bundled as separate files or modules and separately licensed to you by said third parties. This file contains a listing of all NOTICE/NOTICE.txt files included with the Third Party Component jars in this distribution of JBoss A-MQ. Please see the mq_dependencies.txt file for the complete listing of Third Party Components and their attributed license agreements. Your use of the Third Party Components is subject to the terms and conditions set forth in the applicable third party license agreement. The Third Party Components are provided by Red Hat, Inc. solely on an "AS IS" basis, without any warranty. Red Hat, Inc. disclaims all warranties and indemnities with respect to the Third Party Components, express or implied, and assumes no liability with respect to the Third Party Components. You acknowledge that the authors of the Third Party Components have no obligation to provide support to you for the Third Party Components. You hereby undertake to comply with all licenses related to the applicable Third Party Components. All third party license agreements are contained in the licenses directory of</preamble>
+                            <licensesConfigFile>${project.basedir}/src/license/licenses.xml</licensesConfigFile>
+                            <listDependencies>true</listDependencies>
+                            <generateLicensesXml>true</generateLicensesXml>
+                            <extraDependencies>xerces:xercesImpl:${xerces.version},xalan:xalan:${xalan.version},xalan:serializer:${xalan.version},org.apache.servicemix.specs:org.apache.servicemix.specs.activator:${servicemix-specs-version},org.apache.servicemix.specs:org.apache.servicemix.specs.jaxp-api-1.4:${servicemix-specs-version},org.apache.servicemix.specs:org.apache.servicemix.specs.jaxws-api-2.2:${servicemix-specs-version}</extraDependencies>
+                            <noticeSupplements>shared/notice-supplements.xml</noticeSupplements>
+                            <repositories>${project.basedir}/target/features-repo,${project.basedir}/target/dependencies/unix/fabric8-karaf-${fabric.version}/system</repositories>
+                            <defaultParent>org.jboss.amq:mq-project:${project.version}:../..</defaultParent>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <inherited>false</inherited>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.servicemix</groupId>
+                        <artifactId>servicemix-saxon</artifactId>
+                        <version>${servicemix-components-version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>generate-licenses-html</id>
+                        <goals>
+                            <goal>transform</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <transformationSets>
+                                <transformationSet>
+                                    <dir>${basedir}/target/target/maven-jboss-license-plugin</dir>
+                                    <includes>
+                                        <include>licenses.xml</include>
+                                    </includes>
+                                    <stylesheet>${basedir}/src/license/licenses.xsl</stylesheet>
+                                    <outputDir>${basedir}/target/target/maven-jboss-license-plugin</outputDir>
+                                    <fileMappers>
+                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+                                            <targetExtension>.html</targetExtension>
+                                        </fileMapper>
+                                    </fileMappers>
+                                    <parameters>
+                                        <parameter>
+                                            <name>version</name>
+                                            <value>${project.version}</value>
+                                        </parameter>
+                                    </parameters>                                            
+                                </transformationSet>
+                            </transformationSets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unix-bin-baseline</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/descriptors/unix-baseline-bin-notices.xml</descriptor>
+                            </descriptors>
+                            <finalName>${project.artifactId}-${project.version}</finalName>
+                            <appendAssemblyId>true</appendAssemblyId>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>unix-bin</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/descriptors/unix-bin-notices.xml</descriptor>
+                            </descriptors>
+                            <finalName>${project.artifactId}-${project.version}</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin> 
+           </plugins>
+          </build>           
         </profile>
     </profiles>
 
