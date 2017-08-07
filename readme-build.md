@@ -12,7 +12,7 @@ Build examples are below
 Committers
 ----------
 
-Be sure to check out the [committer instructions](http://174.129.32.31:8080/) on how to fork this repo and submit Pull Requests
+Be sure to check out the [committer instructions](Contributing.md) on how to fork this repo and submit Pull Requests
 
 Examples
 --------
