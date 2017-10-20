@@ -259,6 +259,11 @@
                 <version>${fabric.version}</version>
             </dependency>
             <dependency>
+                <groupId>io.fabric8.insight</groupId>
+                <artifactId>insight-elasticsearch-auth-plugin</artifactId>
+                <version>${fabric.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.fabric8.virt</groupId>
                 <artifactId>io.fabric8.virt.commands</artifactId>
                 <version>${fabric.version}</version>
