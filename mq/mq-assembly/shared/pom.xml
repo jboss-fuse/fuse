@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.jboss.amq</groupId>
         <artifactId>mq-assembly</artifactId>
-        <version>6.3.0.redhat-SNAPSHOT</version>
+        <version>6.3.0.redhat-329-09</version>
     </parent>
 
     <groupId>org.jboss.amq</groupId>
