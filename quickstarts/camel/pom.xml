@@ -107,7 +107,6 @@
 
     <modules>
         <module>camel-box</module>
-        <module>camel-linkedin</module>
         <module>camel-odata</module>
         <module>camel-salesforce</module>
     </modules>
