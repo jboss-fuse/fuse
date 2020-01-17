@@ -138,7 +138,7 @@ A more complex example is when you need to modify the a configuration pid of a p
 In the following example, I will modify the *io.fabric8.agent* pid and change the maven repository list. The default profile should contain a section like this:
 
         Agent Properties :
-        	  org.ops4j.pax.url.mvn.repositories = 	http://repo1.maven.org/maven2,
+        	  org.ops4j.pax.url.mvn.repositories = 	https://repo1.maven.org/maven2,
         		 https://repo.fusesource.com/nexus/content/repositories/releases,
         		 https://repo.fusesource.com/nexus/content/groups/ea,
         		 http://repository.springsource.com/maven/bundles/release,
