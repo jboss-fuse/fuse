@@ -133,13 +133,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.fusesource</groupId>
-            <artifactId>camel-sap</artifactId>
-            <version>${project.version}</version>
-            <type>xml</type>
-            <classifier>features</classifier>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.fuse</groupId>
             <artifactId>jboss-fuse</artifactId>
             <version>${project.version}</version>
@@ -410,7 +403,7 @@
                                         <descriptor>mvn:io.fabric8.support/support-features/${fabric.version}/xml/features</descriptor>
 
                                         <!-- Add the sap component and its example -->
-                                        <descriptor>mvn:org.fusesource/camel-sap/${project.version}/xml/features</descriptor>
+                                        <descriptor>mvn:org.fusesource/camel-sap/${version.camelsap}/xml/features</descriptor>
                                         <descriptor>mvn:org.switchyard.karaf/switchyard/${switchyard.version}/xml/core-features</descriptor>
                                     </descriptors>
                                     <includeMvnBasedDescriptors>true</includeMvnBasedDescriptors>
