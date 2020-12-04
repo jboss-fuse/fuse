@@ -58,7 +58,7 @@
         <!-- we inherit from the fabric8 BOM so most versions we need are defined there-->
         <fabric.version>1.2.0.redhat-630267</fabric.version>
         <switchyard.version>2.1.0.redhat-630267</switchyard.version>
-        <version.camelsap>6.3.0.redhat-446</version.camelsap>
+        <version.camelsap>6.3.0.redhat-267</version.camelsap>
 
         <activemqcpp.version>3.9.5</activemqcpp.version>
         <activemqnms.version.major>1.7</activemqnms.version.major>
